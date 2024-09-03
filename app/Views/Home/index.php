@@ -7,7 +7,7 @@
     <div class="container">
         <div class="masthead-subheading">Welcome To Our Studio!</div>
         <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+        <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
     </div>
 </header>
 <!-- Services-->
@@ -45,107 +45,112 @@
         </div>
     </div>
 </section>
-<!-- Portfolio Grid-->
-<section class="page-section bg-light" id="portfolio">
+<!-- News Grid-->
+<section class="page-section bg-light" id="news">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
+            <h2 class="section-heading text-uppercase">NEWS
+            </h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 1-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- News item 1-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal1">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="Public/assets/img/portfolio/1.jpg" alt="..." />
+                        <img class="img-fluid" src="Public/assets/img/news/1.jpg" alt="..." />
                     </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Threads</div>
+                        <div class="news-caption-subheading text-muted">Illustration</div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- News item 2-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal2">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="Public/assets/img/portfolio/2.jpg" alt="..." />
+                        <img class="img-fluid" src="Public/assets/img/news/2.jpg" alt="..." />
                     </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Explore</div>
-                        <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Explore</div>
+                        <div class="news-caption-subheading text-muted">Graphic Design</div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- News item 3-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal3">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="Public/assets/img/portfolio/3.jpg" alt="..." />
+                        <img class="img-fluid" src="Public/assets/img/news/3.jpg" alt="..." />
                     </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Finish</div>
+                        <div class="news-caption-subheading text-muted">Identity</div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Portfolio item 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- News item 4-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal4">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="Public/assets/img/portfolio/4.jpg" alt="..." />
+                        <img class="img-fluid" src="Public/assets/img/news/4.jpg" alt="..." />
                     </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lines</div>
-                        <div class="portfolio-caption-subheading text-muted">Branding</div>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Lines</div>
+                        <div class="news-caption-subheading text-muted">Branding</div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Portfolio item 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- News item 5-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal5">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="Public/assets/img/portfolio/5.jpg" alt="..." />
+                        <img class="img-fluid" src="Public/assets/img/news/5.jpg" alt="..." />
                     </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Southwest</div>
-                        <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Southwest</div>
+                        <div class="news-caption-subheading text-muted">Website Design</div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <!-- Portfolio item 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- News item 6-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal6">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="Public/assets/img/portfolio/6.jpg" alt="..." />
+                        <img class="img-fluid" src="Public/assets/img/news/6.jpg" alt="..." />
                     </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Window</div>
+                        <div class="news-caption-subheading text-muted">Photography</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- Media -->
+<section class="page-section" id="media"></section>
+<!-- Schedule -->
+<section class="page-section bg-light" id="news"></section>
 <!-- About-->
 <section class="page-section" id="about">
     <div class="container">
@@ -263,7 +268,7 @@
     </div>
 </section>
 <!-- Clients-->
-<div class="py-5">
+<!-- <div class="py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-3 col-sm-6 my-3">
@@ -280,7 +285,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Contact-->
 <section class="page-section" id="contact">
     <div class="container">
@@ -347,9 +352,9 @@
         </form>
     </div>
 </section>
-<!-- Portfolio Modals-->
-<!-- Portfolio item 1 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- news Modals-->
+<!-- news item 1 modal popup-->
+<div class="news-modal modal fade" id="newsModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -360,7 +365,7 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/portfolio/1.jpg" alt="..." />
+                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/1.jpg" alt="..." />
                             <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                             <ul class="list-inline">
                                 <li>
@@ -383,8 +388,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 2 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- news item 2 modal popup-->
+<div class="news-modal modal fade" id="newsModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -395,7 +400,7 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/portfolio/2.jpg" alt="..." />
+                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/2.jpg" alt="..." />
                             <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                             <ul class="list-inline">
                                 <li>
@@ -418,8 +423,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 3 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- news item 3 modal popup-->
+<div class="news-modal modal fade" id="newsModal3" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -430,7 +435,7 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/portfolio/3.jpg" alt="..." />
+                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/3.jpg" alt="..." />
                             <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                             <ul class="list-inline">
                                 <li>
@@ -453,8 +458,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 4 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- news item 4 modal popup-->
+<div class="news-modal modal fade" id="newsModal4" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -465,7 +470,7 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/portfolio/4.jpg" alt="..." />
+                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/4.jpg" alt="..." />
                             <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                             <ul class="list-inline">
                                 <li>
@@ -488,8 +493,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 5 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- news item 5 modal popup-->
+<div class="news-modal modal fade" id="newsModal5" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -500,7 +505,7 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/portfolio/5.jpg" alt="..." />
+                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/5.jpg" alt="..." />
                             <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                             <ul class="list-inline">
                                 <li>
@@ -523,8 +528,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 6 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- news item 6 modal popup-->
+<div class="news-modal modal fade" id="newsModal6" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -535,7 +540,7 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/portfolio/6.jpg" alt="..." />
+                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/6.jpg" alt="..." />
                             <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                             <ul class="list-inline">
                                 <li>
