@@ -29,13 +29,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">SERVICES</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#news">NEWS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">BERANDA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">PELAYANAN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">BERITA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#media">MEDIA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#schedule">SCHEDULE</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">JADWAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">TENTANG</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">SOSMED</a></li>
                 </ul>
             </div>
         </div>
