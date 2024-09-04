@@ -194,16 +194,11 @@
     </div>
 </section>
 <!-- Schedule -->
-<section class="page-section" id="schedule">
-    <header class="masthead">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">JADWAL
-            </h2>
-            <h3 class="section-subheading text-muted">Kalender Acara Dan Ibadah</h3>
-        </div>
-        <div class="container">
-        </div>
-    </header>
+<section class="schead" id="schedule">
+    <div class="container">
+        <div class="schead-heading text-uppercase">JADWAL</div>
+        <div class="schead-subheading">Kalender Ibadah & Acara GPDI Bahu</div>
+    </div>
 </section>
 <!-- About-->
 <section class="page-section" id="about">
