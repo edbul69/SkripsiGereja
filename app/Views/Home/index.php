@@ -194,10 +194,20 @@
     </div>
 </section>
 <!-- Schedule -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth'
+        });
+        calendar.render();
+    });
+</script>
 <section class="schead" id="schedule">
     <div class="container">
         <div class="schead-heading text-uppercase">JADWAL</div>
         <div class="schead-subheading">Kalender Ibadah & Acara GPDI Bahu</div>
+        <div id='calendar'></div>
     </div>
 </section>
 <!-- About-->
