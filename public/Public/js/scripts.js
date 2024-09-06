@@ -52,3 +52,73 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next', // Keep previous and next buttons on the left
+            center: 'title', // Keep the title in the center
+            right: 'currentDate' // Custom button to show the current date
+        },
+        locale: 'id', // Set the locale to Indonesian
+        customButtons: {
+            currentDate: {
+                text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }), // Display current date in Indonesian format
+                click: function() {
+                    // Optional: You can add any action you want when the date is clicked
+                }
+            }
+        },
+        events: [
+            {
+                title: 'Ibadah Minggu',
+                start: '2024-09-08T10:00:00',
+                end: '2024-09-08T12:00:00',
+                description: 'Ikuti Ibadah Minggu kami!'
+            },
+            {
+                title: 'Pertemuan Pemuda',
+                start: '2024-09-10T18:00:00',
+                end: '2024-09-10T20:00:00',
+                description: 'Pertemuan untuk kelompok pemuda untuk berdiskusi tentang kegiatan masa depan dan kebersamaan.'
+            },
+            {
+                title: 'Pelajaran Alkitab',
+                start: '2024-09-15T19:00:00',
+                description: 'Sesi pelajaran Alkitab mingguan. Semua orang diundang!'
+            },
+            {
+                title: 'Malam Pujian',
+                start: '2024-09-22T18:30:00',
+                allDay: false,
+                description: 'Malam yang didedikasikan untuk ibadah dan doa.'
+            }
+        ],
+        eventClick: function(info) {
+            var modal = document.getElementById("eventModal");
+            var closeBtn = document.getElementsByClassName("close")[0];
+            
+            document.getElementById("eventTitle").innerText = info.event.title;
+            document.getElementById("eventTime").innerText = "Waktu: " + info.event.start.toLocaleString() + (info.event.end ? " - " + info.event.end.toLocaleString() : "");
+            document.getElementById("eventDescription").innerText = info.event.extendedProps.description;
+
+            modal.style.display = "block"; // Show the modal
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            };
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+
+            info.jsEvent.preventDefault();
+        }
+    });
+    calendar.render();
+});
+

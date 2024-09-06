@@ -194,15 +194,6 @@
     </div>
 </section>
 <!-- Schedule -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth'
-        });
-        calendar.render();
-    });
-</script>
 <section class="schead" id="schedule">
     <div class="container">
         <div class="schead-heading text-uppercase">JADWAL</div>
@@ -210,6 +201,15 @@
         <div id='calendar'></div>
     </div>
 </section>
+<!-- Modal for event details -->
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="eventTitle"></h2>
+        <p id="eventTime"></p>
+        <p id="eventDescription"></p>
+    </div>
+</div>
 <!-- About-->
 <section class="page-section" id="about">
     <div class="container">

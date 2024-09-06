@@ -11010,8 +11010,8 @@ header.masthead .masthead-heading {
 }
 
 section.schead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
   text-align: center;
   color: #fff;
   background-image: url("../assets/img/header-bg.jpg");
@@ -11038,7 +11038,7 @@ section.schead .schead-heading {
 @media (min-width: 768px) {
   section.schead {
     padding-top: 2.5rem;
-    padding-bottom: 12.5rem;
+    padding-bottom: 5rem;
   }
   section.schead .schead-subheading {
     font-size: 2.25rem;
@@ -11054,6 +11054,110 @@ section.schead .schead-heading {
   }
 }
 
+/* Make the calendar smaller */
+#calendar {
+  max-width: 80%;  /* Adjust width as needed */
+  margin: 0 auto;  /* Center the calendar */
+  font-size: 0.8em;  /* Reduce font size */
+}
+
+/* Adjust header toolbar size */
+.fc .fc-toolbar {
+  font-size: 0.9em; /* Reduce the font size of toolbar */
+}
+
+/* Adjust the size of day cells */
+.fc .fc-daygrid-day-frame {
+  padding: 5px; /* Reduce padding in day cells */
+}
+
+/* Adjust the size of event text */
+.fc .fc-event {
+  font-size: 0.75em; /* Smaller font size for event titles */
+  padding: 2px; /* Reduce padding around events */
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px; /* Maximum width of the modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+  #calendar {
+      max-width: 100%;  /* Make the calendar take the full width on small screens */
+      margin: 0;  /* Remove margins on mobile */
+      font-size: 0.7em;  /* Reduce font size further on mobile */
+  }
+
+  .fc .fc-toolbar {
+      font-size: 0.8em; /* Reduce toolbar size further on mobile */
+  }
+
+  .fc .fc-daygrid-day-frame {
+      padding: 3px; /* Reduce padding in day cells on mobile */
+  }
+
+  .fc .fc-event {
+      font-size: 0.65em; /* Make event text smaller on mobile */
+      padding: 1px; /* Reduce padding around events on mobile */
+  }
+
+  .modal-content {
+      width: 90%;  /* Make modal wider on mobile */
+      margin: 20% auto; /* Adjust margin for better visibility */
+      padding: 10px; /* Reduce padding for mobile */
+      font-size: 0.9em; /* Reduce text size in the modal */
+  }
+
+  .close {
+      font-size: 24px; /* Smaller close button for mobile */
+  }
+}
+
+/* Additional styles for extra-small screens */
+@media screen and (max-width: 480px) {
+  .modal-content {
+      width: 95%; /* Make modal take nearly full width on extra-small screens */
+      margin: 10% auto; /* Adjust margin */
+      padding: 8px; /* Reduce padding further */
+      font-size: 0.85em; /* Further reduce text size in the modal */
+  }
+}
+
+/* News */
 #news .news-item {
   max-width: 26rem;
   margin-left: auto;
