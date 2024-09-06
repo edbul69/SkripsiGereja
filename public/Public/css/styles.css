@@ -10837,48 +10837,88 @@ p {
   line-height: 1.75;
 }
 
+/* General Styles */
 .page-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
-.page-section h2.section-heading, .page-section .section-heading.h2 {
+
+.page-section h2.section-heading {
   font-size: 2.5rem;
   margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.page-section .event-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+}
+
+.page-section .event-slider .event-wrapper {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center; /* Center items within the slider */
+  scroll-behavior: smooth; /* Smooth scroll */
+}
+
+.page-section .event-slider .event-wrapper .event-item {
+  background-color: #aaa;
+  border-radius: 30px 0 30px 0; /* Rounded corners for the whole item */
+  text-align: center;
+  flex: 0 0 30%; /* Adjusted to show 3 items at a time */
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.page-section .event-slider .event-wrapper .event-item img {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height to maintain aspect ratio */
+  object-fit: cover; /* Ensure image covers the container without distortion */
+  border-radius: 30px 0 0 0; /* Rounded corners for the image */
+}
+
+.page-section .event-slider .event-wrapper .event-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.page-section .event-slider .event-wrapper .event-item .event-details {
+  padding: 0 15px;
+  background-color: #bf9600;
+  border-radius: 10px;
+  text-align: center; /* Center text in event details */
   margin-bottom: 1rem;
 }
-.page-section h3.section-subheading, .page-section .section-subheading.h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  font-style: italic;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  margin-bottom: 4rem;
+
+.page-section .event-slider .event-wrapper .event-item .event-details p {
+  margin: 0.25rem 0;
+  color: #fff;
 }
 
-@media (min-width: 768px) {
-  section {
-    padding: 9rem 0;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .page-section .event-slider .event-wrapper .event-item {
+    flex: 0 0 100%; /* Show one item at a time on smaller screens */
+  }
+  
+  .page-section .event-slider .event-wrapper .event-item .img-container {
+    width: 100%;
+    padding-top: 100%; /* 1:1 aspect ratio */
   }
 }
-.btn-xl {
-  padding: 1.25rem 2.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.125rem;
-  font-weight: 700;
-}
 
-.btn-social {
-  height: 2.5rem;
-  width: 2.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 100%;
-}
-
+/* Navbar */
 #mainNav {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: #212529;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #d9aa00;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -10926,7 +10966,7 @@ p {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
+    background-color: #d9aa00;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -11038,13 +11078,13 @@ section.schead .schead-heading {
 @media (min-width: 768px) {
   section.schead {
     padding-top: 2.5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
   }
   section.schead .schead-subheading {
     font-size: 2.25rem;
     font-style: italic;
     line-height: 2.25rem;
-    margin-bottom: 4rem;
+    margin-bottom: 0.5rem;
   }
   section.schead .schead-heading {
     font-size: 4.5rem;
@@ -11093,11 +11133,13 @@ section.schead .schead-heading {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: auto; /* Center the modal horizontally */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 500px; /* Maximum width of the modal */
+  width: 80%;
+  max-width: 500px;
+  position: relative; /* Position relative to the modal container */
+  top: 5%; /* Adjust this value to move the modal down */
 }
 
 .close {

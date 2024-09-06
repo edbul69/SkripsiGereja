@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initialView: 'dayGridMonth',
         headerToolbar: {
             left: 'prev,next', // Keep previous and next buttons on the left
-            center: 'title', // Keep the title in the center
+            center: '', // Keep the title in the center
             right: 'currentDate' // Custom button to show the current date
         },
         locale: 'id', // Set the locale to Indonesian
@@ -121,4 +121,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     calendar.render();
 });
-
