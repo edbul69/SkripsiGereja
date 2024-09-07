@@ -43,6 +43,7 @@
         </div>
     </div>
 </section>
+</div>
 <!-- News Grid-->
 <section class="page-section bg-light" id="news">
     <div class="container">
