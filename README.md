@@ -11,3 +11,5 @@ Banyak Berubah:
 - Tambah animasi masuk dari setiap element
 
 - Tambah animasi lagi seperti halaman Migrasi
+
+Tadi ada masalah di Push Git
