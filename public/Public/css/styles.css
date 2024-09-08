@@ -10852,12 +10852,12 @@ p {
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   margin-bottom: 4rem;
 }
-
 @media (min-width: 768px) {
   section {
     padding: 9rem 0;
   }
 }
+
 .btn-xl {
   padding: 1.25rem 2.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10948,16 +10948,51 @@ p {
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* MASTHEAD */
+@media (min-width: 992px) {
+  #mainNav {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border: none;
+    background-color: transparent;
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand {
+    font-size: 1.5em;
+    transition: font-size 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand img {
+    height: 2rem;
+    transition: height 0.3s ease-in-out;
+  }
+  #mainNav.navbar-shrink {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #d9aa00;
+  }
+  #mainNav.navbar-shrink .navbar-brand {
+    font-size: 1.25em;
+  }
+  #mainNav.navbar-shrink .navbar-brand svg,
+  #mainNav.navbar-shrink .navbar-brand img {
+    height: 1.5rem;
+  }
+  #mainNav .navbar-nav .nav-item {
+    margin-right: 1rem;
+  }
+  #mainNav .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+}
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  animation: slideBackground 20s infinite; /* 12s for three images, change this according to the number of images */
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -10989,6 +11024,84 @@ header.masthead .masthead-heading {
     font-weight: 700;
     line-height: 4.5rem;
     margin-bottom: 4rem;
+  }
+}
+/* Keyframes for background image transition */
+@keyframes slideBackground {
+  0% {
+    background-image: url('../assets/img/header/header-bg1.jpg');
+  }
+  25% {
+    background-image: url('../assets/img/header/header-bg2.jpg');
+  }
+  50% {
+    background-image: url('../assets/img/header/header-bg3.jpg');
+  }
+  75% {
+    background-image: url('../assets/img/header/header-bg4.jpg');
+  }
+  100% {
+    background-image: url('../assets/img/header/header-bg1.jpg'); /* Loops back to the first image */
+  }
+}
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+/* SERVICE */
+#services .section-heading {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+#services .event-wrapper {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+  scroll-behavior: smooth;
+}
+#services .event-item {
+  background-color: #aaa;
+  border-radius: 30px 0 30px 0;
+  text-align: center;
+  flex: 0 0 30%;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+#services .event-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px 0 0 0;
+}
+#services .event-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+#services .event-item .event-details {
+  padding: 0 15px;
+  background-color: #bf9600;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#services .event-item .event-details p {
+  margin: 0.25rem 0;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  #services .event-item {
+    flex: 0 0 100%;
+  }
+
+  #services .event-item .img-container {
+    width: 100%;
+    padding-top: 100%;
   }
 }
 
@@ -11126,57 +11239,6 @@ header.schead .schead-heading {
     margin-bottom: 4rem;
   }
 }
-/* SCHEDULE - CALENDAR */
-#calendar {
-  max-width: 80%;  /* Adjust width as needed */
-  margin: 0 auto;  /* Center the calendar */
-  font-size: 0.8em;  /* Reduce font size */
-}
-#calendar .fc .fc-toolbar {
-  font-size: 0.9em; /* Reduce the font size of toolbar */
-}
-#calendar .fc .fc-daygrid-day-frame {
-  padding: 5px; /* Reduce padding in day cells */
-}
-#calendar .fc .fc-event {
-  font-size: 0.75em; /* Smaller font size for event titles */
-  padding: 2px; /* Reduce padding around events */
-}
-@media screen and (max-width: 768px) {
-  #calendar {
-      max-width: 100%;  /* Make the calendar take the full width on small screens */
-      margin: 0;  /* Remove margins on mobile */
-      font-size: 0.7em;  /* Reduce font size further on mobile */
-  }
-  #calendar .fc .fc-toolbar {
-      font-size: 0.8em; /* Reduce toolbar size further on mobile */
-  }
-  #calendar .fc .fc-daygrid-day-frame {
-      padding: 3px; /* Reduce padding in day cells on mobile */
-  }
-  #calendar .fc .fc-event {
-      font-size: 0.65em; /* Make event text smaller on mobile */
-      padding: 1px; /* Reduce padding around events on mobile */
-  }
-  #calendar .modal-content {
-      width: 90%;  /* Make modal wider on mobile */
-      margin: 20% auto; /* Adjust margin for better visibility */
-      padding: 10px; /* Reduce padding for mobile */
-      font-size: 0.9em; /* Reduce text size in the modal */
-  }
-  #calendar .close {
-      font-size: 24px; /* Smaller close button for mobile */
-  }
-}
-@media screen and (max-width: 480px) {
-  .modal-content {
-      width: 95%; /* Make modal take nearly full width on extra-small screens */
-      margin: 10% auto; /* Adjust margin */
-      padding: 8px; /* Reduce padding further */
-      font-size: 0.85em; /* Further reduce text size in the modal */
-  }
-}
-
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
