@@ -10875,8 +10875,6 @@ p {
   border-radius: 100%;
 }
 
-/* ==================================================================================================== LINE ==================================================================================================== */
-
 /* NAVBAR */
 #mainNav {
   padding-top: 1rem;
@@ -10945,8 +10943,6 @@ p {
   }
 }
 
-/* ==================================================================================================== LINE ==================================================================================================== */
-
 /* MASTHEAD */
 header.masthead {
   padding-top: 10.5rem;
@@ -10991,8 +10987,6 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
-
-/* ==================================================================================================== LINE ==================================================================================================== */
 
 /* PORTOFOLIO */
 #portfolio .portfolio-item {
@@ -11079,106 +11073,6 @@ header.masthead .masthead-heading {
 .portfolio-modal .close-modal:hover {
   opacity: 0.3;
 }
-
-/* ==================================================================================================== LINE ==================================================================================================== */
-
-/* SCHEDULE */
-header.schead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
-  text-align: center;
-  color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-}
-header.schead .schead-subheading {
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.5rem;
-  margin-bottom: 25px;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-header.schead .schead-heading {
-  font-size: 3.25rem;
-  font-weight: 700;
-  line-height: 3.25rem;
-  margin-bottom: 2rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-@media (min-width: 768px) {
-  header.schead {
-    padding-top: 2.5rem;
-    padding-bottom: 3rem;
-  }
-  header.schead .schead-subheading {
-    font-size: 2.25rem;
-    font-style: italic;
-    line-height: 2.25rem;
-    margin-bottom: 2rem;
-  }
-  header.schead .schead-heading {
-    font-size: 4.5rem;
-    font-weight: 700;
-    line-height: 4.5rem;
-    margin-bottom: 4rem;
-  }
-}
-/* SCHEDULE - CALENDAR */
-#calendar {
-  max-width: 80%;  /* Adjust width as needed */
-  margin: 0 auto;  /* Center the calendar */
-  font-size: 0.8em;  /* Reduce font size */
-}
-#calendar .fc .fc-toolbar {
-  font-size: 0.9em; /* Reduce the font size of toolbar */
-}
-#calendar .fc .fc-daygrid-day-frame {
-  padding: 5px; /* Reduce padding in day cells */
-}
-#calendar .fc .fc-event {
-  font-size: 0.75em; /* Smaller font size for event titles */
-  padding: 2px; /* Reduce padding around events */
-}
-@media screen and (max-width: 768px) {
-  #calendar {
-      max-width: 100%;  /* Make the calendar take the full width on small screens */
-      margin: 0;  /* Remove margins on mobile */
-      font-size: 0.7em;  /* Reduce font size further on mobile */
-  }
-  #calendar .fc .fc-toolbar {
-      font-size: 0.8em; /* Reduce toolbar size further on mobile */
-  }
-  #calendar .fc .fc-daygrid-day-frame {
-      padding: 3px; /* Reduce padding in day cells on mobile */
-  }
-  #calendar .fc .fc-event {
-      font-size: 0.65em; /* Make event text smaller on mobile */
-      padding: 1px; /* Reduce padding around events on mobile */
-  }
-  #calendar .modal-content {
-      width: 90%;  /* Make modal wider on mobile */
-      margin: 20% auto; /* Adjust margin for better visibility */
-      padding: 10px; /* Reduce padding for mobile */
-      font-size: 0.9em; /* Reduce text size in the modal */
-  }
-  #calendar .close {
-      font-size: 24px; /* Smaller close button for mobile */
-  }
-}
-@media screen and (max-width: 480px) {
-  .modal-content {
-      width: 95%; /* Make modal take nearly full width on extra-small screens */
-      margin: 10% auto; /* Adjust margin */
-      padding: 8px; /* Reduce padding further */
-      font-size: 0.85em; /* Further reduce text size in the modal */
-  }
-}
-
-
-/* ==================================================================================================== LINE ==================================================================================================== */
 
 /* ABOUT */
 .timeline {
@@ -11348,8 +11242,6 @@ header.schead .schead-heading {
   }
 }
 
-/* ==================================================================================================== LINE ==================================================================================================== */
-
 /* TEAM */
 .team-member {
   margin-bottom: 3rem;
@@ -11365,14 +11257,10 @@ header.schead .schead-heading {
   margin-bottom: 0;
 }
 
-/* ==================================================================================================== LINE ==================================================================================================== */
-
 /* CLIENT */
 .img-brand {
   height: 2.75rem;
 }
-
-/* ==================================================================================================== LINE ==================================================================================================== */
 
 /* CONTACT */
 section#contact {
@@ -11428,8 +11316,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-weight: 700;
   color: #ced4da;
 }
-
-/* ==================================================================================================== LINE ==================================================================================================== */
 
 /* FOOTER */
 .footer {
