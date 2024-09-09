@@ -151,6 +151,16 @@
         <div id='calendar'></div>
     </div>
 </section>
+<!-- Event List Container -->
+<section id="eventListSection" class="schead" style="display: none;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Daftar Kegiatan</h2>
+            <ul id="eventListContainer" style="list-style-type: none; padding: 0;"></ul>
+        </div>
+    </div>
+</section>
+<!-- Modal for Event Details -->
 <div id="eventModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -159,7 +169,6 @@
         <p id="eventDescription"></p>
     </div>
 </div>
-
 <!-- About-->
 <section class="page-section" id="about">
     <div class="container">

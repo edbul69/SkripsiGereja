@@ -56,11 +56,15 @@ window.addEventListener('DOMContentLoaded', event => {
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
         headerToolbar: {
             left: 'prev',
-            center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+            center: 'title',
             right: 'next'
+        },
+        footerToolbar: {
+            left: '',
+            center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+            right: ''
         },
         locale: 'id',
         customButtons: {
@@ -72,6 +76,36 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         events: [
+            {
+                title: 'Ibadah Minggu',
+                start: '2024-09-08T10:00:00',
+                end: '2024-09-08T12:00:00',
+                description: 'Ikuti Ibadah Minggu kami!'
+            },
+            {
+                title: 'Ibadah Minggu',
+                start: '2024-09-08T10:00:00',
+                end: '2024-09-08T12:00:00',
+                description: 'Ikuti Ibadah Minggu kami!'
+            },
+            {
+                title: 'Ibadah Minggu',
+                start: '2024-09-08T10:00:00',
+                end: '2024-09-08T12:00:00',
+                description: 'Ikuti Ibadah Minggu kami!'
+            },
+            {
+                title: 'Ibadah Minggu',
+                start: '2024-09-08T10:00:00',
+                end: '2024-09-08T12:00:00',
+                description: 'Ikuti Ibadah Minggu kami!'
+            },
+            {
+                title: 'Ibadah Minggu',
+                start: '2024-09-08T10:00:00',
+                end: '2024-09-08T12:00:00',
+                description: 'Ikuti Ibadah Minggu kami!'
+            },
             {
                 title: 'Ibadah Minggu',
                 start: '2024-09-08T10:00:00',
@@ -96,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 description: 'Malam yang didedikasikan untuk ibadah dan doa.'
             }
         ],
+        dayMaxEvents: true, // Enable the "more" link when too many events
         eventClick: function(info) {
             var modal = document.getElementById("eventModal");
             var closeBtn = document.getElementsByClassName("close")[0];

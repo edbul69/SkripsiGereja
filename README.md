@@ -18,4 +18,6 @@ Tadi ada masalah di Push Git
 
 Update Terbaru :
 
-Full Calendar banyak berubah, tinggal perbarui cssnya dan tambahkan tanggal hari ini
+Update FullCalendar Feature Done, KALI
+
+Tinggal update style.css nya
