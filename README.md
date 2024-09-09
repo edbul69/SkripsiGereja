@@ -13,3 +13,9 @@ Banyak Berubah:
 - Tambah animasi lagi seperti halaman Migrasi
 
 Tadi ada masalah di Push Git
+
+---
+
+Update Terbaru :
+
+Full Calendar banyak berubah, tinggal perbarui cssnya dan tambahkan tanggal hari ini

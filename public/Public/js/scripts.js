@@ -58,14 +58,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         headerToolbar: {
-            left: 'prev,next', // Keep previous and next buttons on the left
-            center: '', // Keep the title in the center
-            right: 'currentDate' // Custom button to show the current date
+            left: 'prev',
+            center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+            right: 'next'
         },
-        locale: 'id', // Set the locale to Indonesian
+        locale: 'id',
         customButtons: {
             currentDate: {
-                text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }), // Display current date in Indonesian format
+                text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),
                 click: function() {
                     // Optional: You can add any action you want when the date is clicked
                 }
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("eventTime").innerText = "Waktu: " + info.event.start.toLocaleString() + (info.event.end ? " - " + info.event.end.toLocaleString() : "");
             document.getElementById("eventDescription").innerText = info.event.extendedProps.description;
 
-            modal.style.display = "block"; // Show the modal
+            modal.style.display = "block";
 
             closeBtn.onclick = function() {
                 modal.style.display = "none";
@@ -119,5 +119,9 @@ document.addEventListener('DOMContentLoaded', function () {
             info.jsEvent.preventDefault();
         }
     });
+
     calendar.render();
 });
+
+
+

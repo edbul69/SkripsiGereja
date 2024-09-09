@@ -143,12 +143,14 @@
     </div>
 </section>
 <!-- Schedule-->
-<header class="schead">
+<section class="schead" id="schedule">
     <div class="container">
-        <div class="schead-subheading">Welcome To Our Studio!</div>
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Kalender Kegiatan GPDI Bahu</h2>
+        </div>
         <div id='calendar'></div>
     </div>
-</header>
+</section>
 <div id="eventModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -157,6 +159,7 @@
         <p id="eventDescription"></p>
     </div>
 </div>
+
 <!-- About-->
 <section class="page-section" id="about">
     <div class="container">
