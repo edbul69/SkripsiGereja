@@ -10,223 +10,64 @@
         <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
     </div>
 </header>
-<!-- Services-->
-<section class="page-section" id="services">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">PELAYANAN</h2>
-        </div>
-        <div class="event-wrapper">
-            <div class="event-item">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" alt="Event 1">
-                <h4>Our Devotion</h4>
-                <div class="event-details">
-                    <p>August 2024</p>
-                </div>
-            </div>
-            <div class="event-item">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" alt="Event 2">
-                <h4>Nyanyian dari Timur</h4>
-                <div class="event-details">
-                    <p>September 2024</p>
-                </div>
-            </div>
-            <div class="event-item">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" alt="Event 3">
-                <h4>CG FUN 2024</h4>
-                <div class="event-details">
-                    <p>September 2024</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Portfolio Grid-->
-<section class="page-section bg-light" id="portfolio">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 1-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/1.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/2.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Explore</div>
-                        <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/3.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Portfolio item 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/4.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lines</div>
-                        <div class="portfolio-caption-subheading text-muted">Branding</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Portfolio item 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/5.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Southwest</div>
-                        <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- Portfolio item 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/6.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Schedule-->
-<section class="schead" id="schedule">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Kalender Kegiatan GPDI Bahu</h2>
-        </div>
-        <div id='calendar'></div>
-    </div>
-</section>
-<!-- Event List Container -->
-<section id="eventListSection" class="schead" style="display: none;">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Daftar Kegiatan</h2>
-            <ul id="eventListContainer" style="list-style-type: none; padding: 0;"></ul>
-        </div>
-    </div>
-</section>
-<!-- Modal for Event Details -->
-<div id="eventModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="eventTitle"></h2>
-        <p id="eventTime"></p>
-        <p id="eventDescription"></p>
-    </div>
-</div>
 <!-- About-->
-<section class="page-section" id="about">
-    <div class="container">
+<section class="page-section bg-black" id="about">
+    <div class="container hidden">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
-        <ul class="timeline">
+        <ul class="about">
             <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/1.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
+                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/1.jpg" alt="..." /></div>
+                <div class="about-panel text-white">
+                    <div class="about-heading">
                         <h4>2009-2011</h4>
                         <h4 class="subheading">Our Humble Beginnings</h4>
                     </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <div class="about-body">
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                     </div>
                 </div>
             </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/2.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
+            <li class="about-inverted">
+                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/2.jpg" alt="..." /></div>
+                <div class="about-panel text-white">
+                    <div class="about-heading">
                         <h4>March 2011</h4>
                         <h4 class="subheading">An Agency is Born</h4>
                     </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <div class="about-body">
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                     </div>
                 </div>
             </li>
             <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/3.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
+                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/3.jpg" alt="..." /></div>
+                <div class="about-panel text-white">
+                    <div class="about-heading">
                         <h4>December 2015</h4>
                         <h4 class="subheading">Transition to Full Service</h4>
                     </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <div class="about-body">
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                     </div>
                 </div>
             </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/4.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
+            <li class="about-inverted">
+                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/4.jpg" alt="..." /></div>
+                <div class="about-panel text-white">
+                    <div class="about-heading">
                         <h4>July 2020</h4>
                         <h4 class="subheading">Phase Two Expansion</h4>
                     </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <div class="about-body">
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                     </div>
                 </div>
             </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image">
+            <li class="about-inverted">
+                <div class="about-image">
                     <h4>
                         Be Part
                         <br />
@@ -239,39 +80,177 @@
         </ul>
     </div>
 </section>
+<!-- Services-->
+<section class="section-no-margin" id="services">
+    <div class="container-fluid p-0">
+        <div class="row row-cols-3 g-0 no-gutters">
+            <div class="col">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/150" alt="Image 1">
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/150" alt="Image 2">
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/150" alt="Image 3">
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/150" alt="Image 4">
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/150" alt="Image 5">
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/150" alt="Image 6">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- News-->
+<section class="page-section bg-black" id="news">
+    <div class="container hidden">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Berita</h2>
+            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- news item 1-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal1">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="Public/assets/img/news/1.jpg" alt="..." />
+                    </a>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Threads</div>
+                        <div class="news-caption-subheading text-muted">Illustration</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- news item 2-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal2">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="Public/assets/img/news/2.jpg" alt="..." />
+                    </a>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Explore</div>
+                        <div class="news-caption-subheading text-muted">Graphic Design</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- news item 3-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal3">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="Public/assets/img/news/3.jpg" alt="..." />
+                    </a>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Finish</div>
+                        <div class="news-caption-subheading text-muted">Identity</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- news item 4-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal4">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="Public/assets/img/news/4.jpg" alt="..." />
+                    </a>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Lines</div>
+                        <div class="news-caption-subheading text-muted">Branding</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- news item 5-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal5">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="Public/assets/img/news/5.jpg" alt="..." />
+                    </a>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Southwest</div>
+                        <div class="news-caption-subheading text-muted">Website Design</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- news item 6-->
+                <div class="news-item">
+                    <a class="news-link" data-bs-toggle="modal" href="#newsModal6">
+                        <div class="news-hover">
+                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="Public/assets/img/news/6.jpg" alt="..." />
+                    </a>
+                    <div class="news-caption">
+                        <div class="news-caption-heading">Window</div>
+                        <div class="news-caption-subheading text-muted">Photography</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Team-->
-<section class="page-section bg-light" id="team">
-    <div class="container">
+<section class="page-section bg-dark" id="team">
+    <div class="container hidden">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div class="team-member">
+                <div class="team-member text-white">
                     <img class="mx-auto rounded-circle" src="Public/assets/img/team/1.jpg" alt="..." />
                     <h4>Parveen Anand</h4>
-                    <p class="text-muted">Lead Designer</p>
+                    <p class="">Lead Designer</p>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="team-member">
+                <div class="team-member text-white">
                     <img class="mx-auto rounded-circle" src="Public/assets/img/team/2.jpg" alt="..." />
                     <h4>Diana Petersen</h4>
-                    <p class="text-muted">Lead Marketer</p>
+                    <p class="">Lead Marketer</p>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="team-member">
+                <div class="team-member text-white">
                     <img class="mx-auto rounded-circle" src="Public/assets/img/team/3.jpg" alt="..." />
                     <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <p class="">Lead Developer</p>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
@@ -280,17 +259,26 @@
         </div>
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                <p class="large text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
             </div>
         </div>
     </div>
 </section>
+<!-- Schedule-->
+<section class="schead" id="schedule">
+    <div class="container hidden">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Kalender Kegiatan GPDI Bahu</h2>
+        </div>
+        <div id='calendar'></div>
+    </div>
+</section>
 <!-- Contact-->
 <section class="page-section" id="contact">
-    <div class="container">
+    <div class="container hidden">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
         <!-- * * * * * * * * * * * * * * *-->
         <!-- * * SB Forms Contact Form * *-->
@@ -352,12 +340,9 @@
     </div>
 </section>
 
-
-
-
-<!-- Portfolio Modals-->
-<!-- Portfolio item 1 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- News Modals-->
+<!-- News item 1 modal popup-->
+<div class="news-modal modal fade" id="newsModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -391,8 +376,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 2 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- News item 2 modal popup-->
+<div class="news-modal modal fade" id="newsModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -426,8 +411,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 3 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- News item 3 modal popup-->
+<div class="news-modal modal fade" id="newsModal3" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -461,8 +446,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 4 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- News item 4 modal popup-->
+<div class="news-modal modal fade" id="newsModal4" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -496,8 +481,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 5 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- News item 5 modal popup-->
+<div class="news-modal modal fade" id="newsModal5" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -531,8 +516,8 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 6 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- News item 6 modal popup-->
+<div class="news-modal modal fade" id="newsModal6" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -566,4 +551,15 @@
         </div>
     </div>
 </div>
+
+<!-- Modal for Event Details -->
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="eventTitle"></h2>
+        <p id="eventTime"></p>
+        <p id="eventDescription"></p>
+    </div>
+</div>
+
 <?= $this->endSection(); ?>

@@ -47,9 +47,9 @@
 
 
     <!-- Footer-->
-    <footer class="footer py-4">
+    <footer class="footer py-4 bg-dark text-white">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center text-white">
                 <div class="col-lg-4 text-lg-start">Copyright &copy; GPDI Bahu 2025</div>
                 <div class="col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -57,8 +57,8 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    <a class="link-dark text-decoration-none me-3 text-white" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none text-white" href="#!">Terms of Use</a>
                 </div>
             </div>
         </div>

@@ -18,6 +18,30 @@ Tadi ada masalah di Push Git
 
 Update Terbaru :
 
-Update FullCalendar Feature Done, KALI
+- FullCalendar (DONE)
+- Tema Berubah
+- Service (On Progress)
 
-Tinggal update style.css nya
+Inspirasi :
+
+- https://iclv.com/ (Pelayanan)
+
+- https://www.celebration.org/ (Tema)
+
+- https://rivervalley.org/ (Media)
+
+- https://12stone.com/ (Tema)
+
+- https://freechapel.org/ (Media)
+
+- https://www.piedmontchapel.com/ (Tema)
+
+- https://gms.church/id (Tema)
+
+- https://www.sinodegkt.org/ (Kalender)
+
+PELAYANAN :
+
+- BAPTISAN AIR
+- PENYERAHAN ANAK
+- PERJAMUAN KUDS

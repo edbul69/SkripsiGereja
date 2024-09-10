@@ -53,8 +53,95 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+// document.addEventListener('DOMContentLoaded', function () {
+//     var calendarEl = document.getElementById('calendar');
+//     var calendar = new FullCalendar.Calendar(calendarEl, {
+//         headerToolbar: {
+//             left: 'prev',
+//             center: 'title',
+//             right: 'next'
+//         },
+//         footerToolbar: {
+//             left: '',
+//             center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+//             right: ''
+//         },
+//         locale: 'id',
+//         customButtons: {
+//             currentDate: {
+//                 text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),
+//                 click: function() {
+//                     // Optional: You can add any action you want when the date is clicked
+//                 }
+//             }
+//         },
+//         events: [
+//             {
+//                 title: 'Ibadah Minggu',
+//                 start: '2024-09-08T10:00:00',
+//                 end: '2024-09-08T12:00:00',
+//                 description: 'Ikuti Ibadah Minggu kami!'
+//             },
+//             {
+//                 title: 'Ibadah Minggu',
+//                 start: '2024-09-08T10:00:00',
+//                 end: '2024-09-08T12:00:00',
+//                 description: 'Ikuti Ibadah Minggu kami!'
+//             },
+//             {
+//                 title: 'Pertemuan Pemuda',
+//                 start: '2024-09-10T18:00:00',
+//                 end: '2024-09-10T20:00:00',
+//                 description: 'Pertemuan untuk kelompok pemuda untuk berdiskusi tentang kegiatan masa depan dan kebersamaan.'
+//             },
+//             {
+//                 title: 'Pelajaran Alkitab',
+//                 start: '2024-09-15T19:00:00',
+//                 description: 'Sesi pelajaran Alkitab mingguan. Semua orang diundang!'
+//             },
+//             {
+//                 title: 'Malam Pujian',
+//                 start: '2024-09-22T18:30:00',
+//                 allDay: false,
+//                 description: 'Malam yang didedikasikan untuk ibadah dan doa.'
+//             }
+//         ],
+//         dayMaxEvents: true, // Enable the "more" link when too many events
+//         eventClick: function(info) {
+//             var modal = document.getElementById("eventModal");
+//             var closeBtn = document.getElementsByClassName("close")[0];
+            
+//             document.getElementById("eventTitle").innerText = info.event.title;
+//             document.getElementById("eventTime").innerText = "Waktu: " + info.event.start.toLocaleString() + (info.event.end ? " - " + info.event.end.toLocaleString() : "");
+//             document.getElementById("eventDescription").innerText = info.event.extendedProps.description;
+
+//             modal.style.display = "block";
+
+//             closeBtn.onclick = function() {
+//                 modal.style.display = "none";
+//             };
+
+//             window.onclick = function(event) {
+//                 if (event.target == modal) {
+//                     modal.style.display = "none";
+//                 }
+//             };
+
+//             info.jsEvent.preventDefault();
+//         }
+//     });
+
+//     calendar.render();
+// });
+
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
+
+    // Helper function to format date
+    function formatDate(date) {
+        return date.toLocaleString('id-ID', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
             left: 'prev',
@@ -66,6 +153,13 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
             right: ''
         },
+        buttonText: {
+            today: 'HARI INI',
+            month: 'BULANAN',
+            week: 'MINGGUAN',
+            day: 'HARIAN',
+            list: 'ACARA'
+          },
         locale: 'id',
         customButtons: {
             currentDate: {
@@ -76,30 +170,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         events: [
-            {
-                title: 'Ibadah Minggu',
-                start: '2024-09-08T10:00:00',
-                end: '2024-09-08T12:00:00',
-                description: 'Ikuti Ibadah Minggu kami!'
-            },
-            {
-                title: 'Ibadah Minggu',
-                start: '2024-09-08T10:00:00',
-                end: '2024-09-08T12:00:00',
-                description: 'Ikuti Ibadah Minggu kami!'
-            },
-            {
-                title: 'Ibadah Minggu',
-                start: '2024-09-08T10:00:00',
-                end: '2024-09-08T12:00:00',
-                description: 'Ikuti Ibadah Minggu kami!'
-            },
-            {
-                title: 'Ibadah Minggu',
-                start: '2024-09-08T10:00:00',
-                end: '2024-09-08T12:00:00',
-                description: 'Ikuti Ibadah Minggu kami!'
-            },
             {
                 title: 'Ibadah Minggu',
                 start: '2024-09-08T10:00:00',
@@ -135,8 +205,12 @@ document.addEventListener('DOMContentLoaded', function () {
             var modal = document.getElementById("eventModal");
             var closeBtn = document.getElementsByClassName("close")[0];
             
+            // Format dates for display
+            var startDate = formatDate(info.event.start);
+            var endDate = info.event.end ? formatDate(info.event.end) : 'N/A';
+            
             document.getElementById("eventTitle").innerText = info.event.title;
-            document.getElementById("eventTime").innerText = "Waktu: " + info.event.start.toLocaleString() + (info.event.end ? " - " + info.event.end.toLocaleString() : "");
+            document.getElementById("eventTime").innerText = startDate + (endDate !== 'N/A' ? " - " + endDate : "");
             document.getElementById("eventDescription").innerText = info.event.extendedProps.description;
 
             modal.style.display = "block";
@@ -159,4 +233,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+document.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.hidden');
+    
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const isVisible = (rect.top <= window.innerHeight) && (rect.bottom >= 0);
+  
+      if (isVisible) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
+    });
+  });
+    
