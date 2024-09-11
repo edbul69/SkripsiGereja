@@ -11186,38 +11186,63 @@ header.masthead .masthead-heading {
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* SERVICE */
-#services {
-  margin: 0 !important;
-  padding: 0 !important;
+
+/* Image container */
+#services .position-relative {
+  overflow: hidden; /* Ensures the overlay text does not overflow the image */
 }
-#services .no-gutters {
-  margin: 0;
-  padding: 0;
-}
-#services .no-gutters > .col {
-  padding-right: 0;
-  padding-left: 0;
-}
-#services .no-gutters > .col,
-#services .no-gutters > .col > .row {
-  margin-right: 0;
-  margin-left: 0;
-}
-#services .img-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  overflow: hidden;
-}
-#services .img-container img {
+
+/* White transparent overlay */
+#services .white-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-color: rgba(128, 128, 128, 0); /* White with 30% opacity */
+  z-index: 1; /* Make sure the overlay is below the text */
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for opacity change */ 
 }
 
+/* Overlay text styling with border around text */
+#services .overlay-text {
+  font-family: Roboto;
+  position: absolute;
+  top: 50%; /* Centers vertically */
+  left: 50%; /* Centers horizontally */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+  color: white; /* Text color */
+  font-size: 6rem; /* Adjust font size as needed */
+  font-weight: 900; /* Makes the text bold */
+  text-align: center; /* Centers the text */
+  line-height: 1;
+  z-index: 2; /* Ensure text is above the white overlay */
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5)); /* Smooth shadow */
+  transition: transform 0.3s ease, font-size 0.3s ease, filter 0.3s ease, line-height 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Image scaling on hover */
+#services .position-relative img {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Hover effect */
+#services .position-relative:hover img {
+  transform: scale(1.05); /* Slightly expand the image */
+}
+
+#services .position-relative:hover .white-overlay {
+  background-color: rgba(128, 128, 128, 0.3); /* White with 30% opacity */
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+#services .position-relative:hover .overlay-text {
+  transform: translate(-50%, -50%) scale(1.1); /* Expand the text slightly */
+  font-size: 4.5rem; /* Slightly increase the font size */
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+  line-height: 1.2;
+}
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
@@ -11310,16 +11335,16 @@ header.masthead .masthead-heading {
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* TEAM */
-#team .team-member {
+#media .media-member {
   margin-bottom: 3rem;
   text-align: center;
 }
-#team .team-member img {
+#media .media-member img {
   width: 14rem;
   height: 14rem;
   border: 0.5rem solid rgba(0, 0, 0, 0.1);
 }
-#team .team-member h4, .team-member .h4 {
+#media .media-member h4, .media-member .h4 {
   margin-top: 1.5rem;
   margin-bottom: 0;
 }
@@ -11412,7 +11437,7 @@ section.schead .section-heading {
 #calendar .fc-popover {
   border-radius: .8em;
   border: .2em solid #cca000;
-  z-index: 1;
+  z-index: 11;
   opacity: 0; /* Initial state for animation */
   transform: scale(0.8); /* Initial state for scaling */
   animation: fadeInScale 0.3s ease-out forwards; /* Add animation */
@@ -11441,7 +11466,7 @@ section.schead .section-heading {
 #eventModal {
   display: none;
   position: fixed;
-  z-index: 2;
+  z-index: 12;
   left: 0;
   top: 0;
   width: 100%;

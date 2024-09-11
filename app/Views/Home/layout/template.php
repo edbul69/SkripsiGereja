@@ -36,8 +36,8 @@
                     <li class="nav-item"><a class="nav-link" href="#news">BERITA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#media">MEDIA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#schedule">JADWAL</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">TENTANG</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">SOSMED</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#about">TENTANG</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="#contact">KONTAK</a></li>
                 </ul>
             </div>
         </div>

@@ -81,38 +81,62 @@
     </div>
 </section>
 <!-- Services-->
-<section class="section-no-margin" id="services">
-    <div class="container-fluid p-0">
-        <div class="row row-cols-3 g-0 no-gutters">
-            <div class="col">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/150" alt="Image 1">
-                </div>
+<section class="page-section bg-black p-0" id="services">
+    <div class="container-fluid p-0 hidden">
+        <div class="row g-0 m-0">
+            <!-- First Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Before You Arrive">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Baptisan Air</div>
             </div>
-            <div class="col">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/150" alt="Image 2">
-                </div>
+            <!-- Second Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="I'm New">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Penyerahan Anak</div>
             </div>
-            <div class="col">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/150" alt="Image 3">
-                </div>
+            <!-- Third Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Alpha">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Perjamuan Kudus</div>
             </div>
-            <div class="col">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/150" alt="Image 4">
-                </div>
+            <!-- Fourth Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Before You Arrive">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Sunday Service</div>
             </div>
-            <div class="col">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/150" alt="Image 5">
-                </div>
+            <!-- Fifth Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="I'm New">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Doa Bersama</div>
             </div>
-            <div class="col">
-                <div class="img-container">
-                    <img src="https://via.placeholder.com/150" alt="Image 6">
-                </div>
+            <!-- Sixth Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Alpha">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Ibadah Rayon</div>
+            </div>
+            <!-- Seventh Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Before You Arrive">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">MOC</div>
+            </div>
+            <!-- Eight Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="I'm New">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">ABA</div>
+            </div>
+            <!-- Ninth Image Column -->
+            <div class="col-lg-4 col-sm-6 p-0 position-relative">
+                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Alpha">
+                <div class="white-overlay"></div> <!-- White transparent overlay -->
+                <div class="overlay-text">Sekolah Minggu</div>
             </div>
         </div>
     </div>
@@ -219,7 +243,7 @@
     </div>
 </section>
 <!-- Team-->
-<section class="page-section bg-dark" id="team">
+<section class="page-section bg-black" id="media">
     <div class="container hidden">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
@@ -227,7 +251,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div class="team-member text-white">
+                <div class="media-member text-white">
                     <img class="mx-auto rounded-circle" src="Public/assets/img/team/1.jpg" alt="..." />
                     <h4>Parveen Anand</h4>
                     <p class="">Lead Designer</p>
@@ -237,7 +261,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="team-member text-white">
+                <div class="media-member text-white">
                     <img class="mx-auto rounded-circle" src="Public/assets/img/team/2.jpg" alt="..." />
                     <h4>Diana Petersen</h4>
                     <p class="">Lead Marketer</p>
@@ -247,7 +271,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="team-member text-white">
+                <div class="media-member text-white">
                     <img class="mx-auto rounded-circle" src="Public/assets/img/team/3.jpg" alt="..." />
                     <h4>Larry Parker</h4>
                     <p class="">Lead Developer</p>

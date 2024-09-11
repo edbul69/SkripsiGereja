@@ -1,27 +1,3 @@
-Banyak Berubah:
-
-- Halaman Admin dihapus (Update nanti setelah halaman utama selesai)
-
-- Ditambahkan halaman baru di Migrasi
-
-- Selesai Rapihin index dan style dari backup
-
-- Belum update style dari FullCalendar
-
-- Tambah animasi masuk dari setiap element
-
-- Tambah animasi lagi seperti halaman Migrasi
-
-Tadi ada masalah di Push Git
-
----
-
-Update Terbaru :
-
-- FullCalendar (DONE)
-- Tema Berubah
-- Service (On Progress)
-
 Inspirasi :
 
 - https://iclv.com/ (Pelayanan)
@@ -44,4 +20,32 @@ PELAYANAN :
 
 - BAPTISAN AIR
 - PENYERAHAN ANAK
-- PERJAMUAN KUDS
+- PERJAMUAN KUDUS
+
+Checklist front end :
+
+- Navbar ✅
+- Masthead ✅
+- About
+- Services ✅
+- News
+- Media
+- Calender ✅
+- Contact
+- FOOTER
+
+For About
+https://www.celebration.org/
+
+For Media
+![grid](image-1.png)
+![card](image.png)
+
+For News
+![theme](image-2.png)
+
+For Contact
+![Theme](image-4.png)
+
+For Footer
+![+Maps](image-3.png)
