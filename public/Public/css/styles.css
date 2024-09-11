@@ -11187,6 +11187,16 @@ header.masthead .masthead-heading {
 
 /* SERVICE */
 
+#news .card-img-fixed {
+  width: 100%;  /* Full width of the card */
+  aspect-ratio: 2 / 1;  /* Maintains 2:1 aspect ratio */
+  object-fit: cover;  /* Cover the area while maintaining aspect ratio */
+  object-position: center;  /* Center the image */
+  height: auto;  /* Ensures the height is adjusted automatically */
+  max-height: 200px;  /* Optional: set a maximum height for the image */
+  border-radius: 5px;  /* Optional: rounded corners */
+}
+
 /* Image container */
 #services .position-relative {
   overflow: hidden; /* Ensures the overlay text does not overflow the image */
@@ -11213,7 +11223,7 @@ header.masthead .masthead-heading {
   left: 50%; /* Centers horizontally */
   transform: translate(-50%, -50%); /* Adjust for perfect centering */
   color: white; /* Text color */
-  font-size: 6rem; /* Adjust font size as needed */
+  font-size: 5.5rem; /* Adjust font size as needed */
   font-weight: 900; /* Makes the text bold */
   text-align: center; /* Centers the text */
   line-height: 1;
@@ -11244,109 +11254,69 @@ header.masthead .masthead-heading {
   line-height: 1.2;
 }
 
+@media (max-width: 768px) {
+  #services .overlay-text {
+    font-size: 4.5rem; /* Adjust font size as needed */
+  }  
+}
+
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* NEWS */
-#news .news-item {
-  max-width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-#news .news-item .news-link {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-}
-#news .news-item .news-link .news-hover {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 200, 0, 0.9);
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity ease-in-out 0.25s;
-}
-#news .news-item .news-link .news-hover .news-hover-content {
-  font-size: 1.25rem;
-  color: white;
-}
-#news .news-item .news-link:hover .news-hover {
-  opacity: 1;
-}
-#news .news-item .news-caption {
-  padding: 1.5rem;
-  text-align: center;
-  background-color: #fff;
-}
-#news .news-item .news-caption .news-caption-heading {
-  font-size: 1.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
-  margin-bottom: 0;
-}
-#news .news-item .news-caption .news-caption-subheading {
-  font-style: italic;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-/* NEWS - Modal*/
-.news-modal .modal-dialog {
-  margin: 1rem;
-  max-width: 100vw;
-}
-.news-modal .modal-content {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  text-align: center;
-}
-.news-modal .modal-content h2, .news-modal .modal-content .h2 {
-  font-size: 3rem;
-  line-height: 3rem;
-}
-.news-modal .modal-content p.item-intro {
-  font-style: italic;
-  margin-bottom: 2rem;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-.news-modal .modal-content p {
-  margin-bottom: 2rem;
-}
-.news-modal .modal-content ul.list-inline {
-  margin-bottom: 2rem;
-}
-.news-modal .modal-content img {
-  margin-bottom: 2rem;
-}
-.news-modal .close-modal {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-  background-color: transparent;
-}
-.news-modal .close-modal:hover {
-  opacity: 0.3;
-}
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
-/* TEAM */
-#media .media-member {
-  margin-bottom: 3rem;
-  text-align: center;
+/* MEDIA */
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ensures it uses the full width */
+  padding: 0 10px; /* Adjust padding instead of gap */
 }
-#media .media-member img {
-  width: 14rem;
-  height: 14rem;
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+
+.row {
+  margin: 0; /* Remove any default margin */
 }
-#media .media-member h4, .media-member .h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
+
+.card {
+  background-color: #222; /* Dark card background */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px; /* Fixed width for cards */
+  margin: 0 10px; /* Adds spacing between cards */
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(1); /* Makes the controls white */
+}
+
+/* Section styling */
+.bg-black {
+  background-color: #000;
+  padding: 60px 0;
+}
+
+.section-heading {
+  color: #fff;
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */
@@ -11542,6 +11512,10 @@ section.schead .section-heading {
 
   #calendar .fc-toolbar-title {
     font-size: 1em;
+  }
+
+  #calendar .fc-button-group {
+    font-size: .7em;
   }
 
   #calendar .fc-col-header-cell-cushion {

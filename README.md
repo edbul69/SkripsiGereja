@@ -28,7 +28,7 @@ Checklist front end :
 - Masthead ✅
 - About
 - Services ✅
-- News
+- News ✅
 - Media
 - Calender ✅
 - Contact

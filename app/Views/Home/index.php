@@ -145,147 +145,162 @@
 <section class="page-section bg-black" id="news">
     <div class="container hidden">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Berita</h2>
-            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase text-white">Berita</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- news item 1-->
-                <div class="news-item">
-                    <a class="news-link" data-bs-toggle="modal" href="#newsModal1">
-                        <div class="news-hover">
-                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/1.jpg" alt="..." />
-                    </a>
-                    <div class="news-caption">
-                        <div class="news-caption-heading">Threads</div>
-                        <div class="news-caption-subheading text-muted">Illustration</div>
+        <!-- Card Grid -->
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent">
+                    <img src="https://via.placeholder.com/150x150" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Piedmont Students <i class="fas fa-chevron-right"></i></a>
+                        </h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- news item 2-->
-                <div class="news-item">
-                    <a class="news-link" data-bs-toggle="modal" href="#newsModal2">
-                        <div class="news-hover">
-                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/2.jpg" alt="..." />
-                    </a>
-                    <div class="news-caption">
-                        <div class="news-caption-heading">Explore</div>
-                        <div class="news-caption-subheading text-muted">Graphic Design</div>
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent">
+                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Fall Small Group Signups">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Fall Small Group Signups <i class="fas fa-chevron-right"></i></a>
+                        </h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- news item 3-->
-                <div class="news-item">
-                    <a class="news-link" data-bs-toggle="modal" href="#newsModal3">
-                        <div class="news-hover">
-                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/3.jpg" alt="..." />
-                    </a>
-                    <div class="news-caption">
-                        <div class="news-caption-heading">Finish</div>
-                        <div class="news-caption-subheading text-muted">Identity</div>
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent">
+                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="College & Young Adult Kickoff">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">College & Young Adult Kickoff <i class="fas fa-chevron-right"></i></a>
+                        </h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- news item 4-->
-                <div class="news-item">
-                    <a class="news-link" data-bs-toggle="modal" href="#newsModal4">
-                        <div class="news-hover">
-                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/4.jpg" alt="..." />
-                    </a>
-                    <div class="news-caption">
-                        <div class="news-caption-heading">Lines</div>
-                        <div class="news-caption-subheading text-muted">Branding</div>
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent">
+                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Step One">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Step One <i class="fas fa-chevron-right"></i></a>
+                        </h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- news item 5-->
-                <div class="news-item">
-                    <a class="news-link" data-bs-toggle="modal" href="#newsModal5">
-                        <div class="news-hover">
-                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/5.jpg" alt="..." />
-                    </a>
-                    <div class="news-caption">
-                        <div class="news-caption-heading">Southwest</div>
-                        <div class="news-caption-subheading text-muted">Website Design</div>
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent">
+                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Serve Day">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Serve Day <i class="fas fa-chevron-right"></i></a>
+                        </h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- news item 6-->
-                <div class="news-item">
-                    <a class="news-link" data-bs-toggle="modal" href="#newsModal6">
-                        <div class="news-hover">
-                            <div class="news-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="Public/assets/img/news/6.jpg" alt="..." />
-                    </a>
-                    <div class="news-caption">
-                        <div class="news-caption-heading">Window</div>
-                        <div class="news-caption-subheading text-muted">Photography</div>
+            <div class="col">
+                <div class="card h-100 border-0 bg-transparent">
+                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="New Series: Binge the Bible">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">New Series: Binge the Bible <i class="fas fa-chevron-right"></i></a>
+                        </h5>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="text-center mt-4">
+            <a href="#all-news" class="btn btn-outline-light btn-lg">Berita Lainnya</a>
+        </div>
 </section>
-<!-- Team-->
+<!-- Media-->
 <section class="page-section bg-black" id="media">
-    <div class="container hidden">
+    <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase mb-5 mt-0">Media GPDI BAHU</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="media-member text-white">
-                    <img class="mx-auto rounded-circle" src="Public/assets/img/team/1.jpg" alt="..." />
-                    <h4>Parveen Anand</h4>
-                    <p class="">Lead Designer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+
+        <!-- Carousel start -->
+        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First Carousel item with 3 cards -->
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Latest Sermon">
+                                <div class="card-body">
+                                    <h5 class="card-title">Latest Sermon</h5>
+                                    <p class="card-text">Click to Watch</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="One Day to Feed the World">
+                                <div class="card-body">
+                                    <h5 class="card-title">One Day to Feed the World</h5>
+                                    <p class="card-text">September 7 & 8</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Sparkle Conference 2024">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sparkle Conference 2024</h5>
+                                    <p class="card-text">September 26-27 & 27-28</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Carousel item with 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="KB Banquet 2024">
+                                <div class="card-body">
+                                    <h5 class="card-title">KB Banquet 2024</h5>
+                                    <p class="card-text">October 25</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Upcoming Event">
+                                <div class="card-body">
+                                    <h5 class="card-title">Upcoming Event</h5>
+                                    <p class="card-text">November 15</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Special Event">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special Event</h5>
+                                    <p class="card-text">December 10</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="media-member text-white">
-                    <img class="mx-auto rounded-circle" src="Public/assets/img/team/2.jpg" alt="..." />
-                    <h4>Diana Petersen</h4>
-                    <p class="">Lead Marketer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="media-member text-white">
-                    <img class="mx-auto rounded-circle" src="Public/assets/img/team/3.jpg" alt="..." />
-                    <h4>Larry Parker</h4>
-                    <p class="">Lead Developer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-            </div>
-        </div>
+        <!-- Carousel end -->
+
     </div>
 </section>
 <!-- Schedule-->
@@ -365,216 +380,8 @@
 </section>
 
 <!-- News Modals-->
-<!-- News item 1 modal popup-->
-<div class="news-modal modal fade" id="newsModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/1.jpg" alt="..." />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Threads
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Illustration
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- News item 2 modal popup-->
-<div class="news-modal modal fade" id="newsModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/2.jpg" alt="..." />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Explore
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Graphic Design
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- News item 3 modal popup-->
-<div class="news-modal modal fade" id="newsModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/3.jpg" alt="..." />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Finish
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Identity
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- News item 4 modal popup-->
-<div class="news-modal modal fade" id="newsModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/4.jpg" alt="..." />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Lines
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Branding
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- News item 5 modal popup-->
-<div class="news-modal modal fade" id="newsModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/5.jpg" alt="..." />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Southwest
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Website Design
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- News item 6 modal popup-->
-<div class="news-modal modal fade" id="newsModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="Public/assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="Public/assets/img/news/6.jpg" alt="..." />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Client:</strong>
-                                    Window
-                                </li>
-                                <li>
-                                    <strong>Category:</strong>
-                                    Photography
-                                </li>
-                            </ul>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 
 <!-- Modal for Event Details -->
 <div id="eventModal" class="modal">
