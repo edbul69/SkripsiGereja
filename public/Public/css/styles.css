@@ -247,6 +247,81 @@ sup {
 
 a {
   color: var(--bs-link-color);
+<<<<<<< Tabnine <<<<<<<
+/**undefined+
+ * Initializes and renders the FullCalendar instance with custom configurations.undefined+
+ * This function sets up the calendar with custom buttons, events, and event click functionality.undefined+
+ *undefined+
+ * @returns {void}undefined+
+ */undefined+
+document.addEventListener('DOMContentLoaded', function () {undefined+
+    var calendarEl = document.getElementById('calendar');undefined+
+undefined+
+    // Helper function to format dateundefined+
+    function formatDate(date) {undefined+
+        return date.toLocaleString('id-ID', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });undefined+
+    }undefined+
+undefined+
+    var calendar = new FullCalendar.Calendar(calendarEl, {undefined+
+        headerToolbar: {undefined+
+            left: 'prev',undefined+
+            center: 'title',undefined+
+            right: 'next'undefined+
+        },undefined+
+        footerToolbar: {undefined+
+            left: '',undefined+
+            center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',undefined+
+            right: ''undefined+
+        },undefined+
+        buttonText: {undefined+
+            today: 'HARI INI',undefined+
+            month: 'BULANAN',undefined+
+            week: 'MINGGUAN',undefined+
+            day: 'HARIAN',undefined+
+            list: 'ACARA'undefined+
+          },undefined+
+        locale: 'id',undefined+
+        customButtons: {undefined+
+            currentDate: {undefined+
+                text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),undefined+
+                click: function() {undefined+
+                    // Optional: You can add any action you want when the date is clickedundefined+
+                }undefined+
+            }undefined+
+        },undefined+
+        events: [undefined+
+            // ... event objects ...undefined+
+        ],undefined+
+        dayMaxEvents: true, // Enable the "more" link when too many eventsundefined+
+        eventClick: function(info) {undefined+
+            // ... event click handling code ...undefined+
+        }undefined+
+    });undefined+
+undefined+
+    calendar.render();undefined+
+});undefined+
+undefined+
+/**undefined+
+ * Adds a 'visible' class to elements with the 'hidden' class when they become visible in the viewport.undefined+
+ * This function is triggered on the 'scroll' event.undefined+
+ *undefined+
+ * @returns {void}undefined+
+ */undefined+
+document.addEventListener('scroll', function() {undefined+
+    const sections = document.querySelectorAll('.hidden');undefined+
+    undefined+
+    sections.forEach(section => {undefined+
+      const rect = section.getBoundingClientRect();undefined+
+      const isVisible = (rect.top <= window.innerHeight) && (rect.bottom >= 0);undefined+
+  undefined+
+      if (isVisible) {undefined+
+        section.classList.add('visible');undefined+
+      } else {undefined+
+        section.classList.remove('visible');undefined+
+      }undefined+
+    });undefined+
+});undefined+
+>>>>>>> Tabnine >>>>>>>
   text-decoration: underline;
 }
 a:hover {
@@ -11267,57 +11342,6 @@ header.masthead .masthead-heading {
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* MEDIA */
-
-.carousel-item {
-  display: flex;
-  justify-content: center;
-  width: 100%; /* Ensures it uses the full width */
-  padding: 0 10px; /* Adjust padding instead of gap */
-}
-
-.row {
-  margin: 0; /* Remove any default margin */
-}
-
-.card {
-  background-color: #222; /* Dark card background */
-  color: #fff; /* White text color */
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 300px; /* Fixed width for cards */
-  margin: 0 10px; /* Adds spacing between cards */
-}
-
-.card img {
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  filter: invert(1); /* Makes the controls white */
-}
-
-/* Section styling */
-.bg-black {
-  background-color: #000;
-  padding: 60px 0;
-}
-
-.section-heading {
-  color: #fff;
-}
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
