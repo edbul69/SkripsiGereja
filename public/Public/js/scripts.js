@@ -246,5 +246,4 @@ document.addEventListener('scroll', function() {
         section.classList.remove('visible');
       }
     });
-  });
-    
+});

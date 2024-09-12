@@ -12,72 +12,19 @@
 </header>
 <!-- About-->
 <section class="page-section bg-black" id="about">
-    <div class="container hidden">
+    <div class="container location-section hidden">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-uppercase">SELAMAT DATANG DI</h3>
+            <h2 class="section-heading text-uppercase">GPDI BAHU</h2>
         </div>
-        <ul class="about">
-            <li>
-                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/1.jpg" alt="..." /></div>
-                <div class="about-panel text-white">
-                    <div class="about-heading">
-                        <h4>2009-2011</h4>
-                        <h4 class="subheading">Our Humble Beginnings</h4>
-                    </div>
-                    <div class="about-body">
-                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                </div>
-            </li>
-            <li class="about-inverted">
-                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/2.jpg" alt="..." /></div>
-                <div class="about-panel text-white">
-                    <div class="about-heading">
-                        <h4>March 2011</h4>
-                        <h4 class="subheading">An Agency is Born</h4>
-                    </div>
-                    <div class="about-body">
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/3.jpg" alt="..." /></div>
-                <div class="about-panel text-white">
-                    <div class="about-heading">
-                        <h4>December 2015</h4>
-                        <h4 class="subheading">Transition to Full Service</h4>
-                    </div>
-                    <div class="about-body">
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                </div>
-            </li>
-            <li class="about-inverted">
-                <div class="about-image"><img class="rounded-circle img-fluid" src="Public/assets/img/about/4.jpg" alt="..." /></div>
-                <div class="about-panel text-white">
-                    <div class="about-heading">
-                        <h4>July 2020</h4>
-                        <h4 class="subheading">Phase Two Expansion</h4>
-                    </div>
-                    <div class="about-body">
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                </div>
-            </li>
-            <li class="about-inverted">
-                <div class="about-image">
-                    <h4>
-                        Be Part
-                        <br />
-                        Of Our
-                        <br />
-                        Story!
-                    </h4>
-                </div>
-            </li>
-        </ul>
+        <div class="row align-items-center">
+            <div class="col-md-6 image-content">
+                <img src="Public/assets/img/header/header-bg1.jpg" alt="Group of people">
+            </div>
+            <div class="col-md-6 text-content">
+                <h1>KELUARGA<br><span>BESAR</span><br>JEMAAT</h1>
+            </div>
+        </div>
     </div>
 </section>
 <!-- Services-->
@@ -216,12 +163,64 @@
 </section>
 <!-- Media-->
 <section class="page-section bg-black" id="media">
-    <div class="container">
+    <div class="container hidden">
         <div class="text-center">
             <h2 class="section-heading text-uppercase mb-5 mt-0">Media GPDI BAHU</h2>
         </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                        <div class="rotated-text-left">
+                            <span>Your Left Text</span>
+                        </div>
+                        <div class="iframe-and-text">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CYwql2EUQlk?si=rWOsu98UDbcruDGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="iframe-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptate autem maxime unde fuga mollitia id natus laudantium explicabo repellendus nulla error porro sit, saepe perspiciatis ex cumque voluptatibus ducimus!</p>
+                        </div>
+                        <div class="rotated-text-right">
+                            <span>Your Right Text</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                        <div class="rotated-text-left">
+                            <span>Your Left Text</span>
+                        </div>
+                        <div class="iframe-and-text">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CYwql2EUQlk?si=rWOsu98UDbcruDGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="iframe-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptate autem maxime unde fuga mollitia id natus laudantium explicabo repellendus nulla error porro sit, saepe perspiciatis ex cumque voluptatibus ducimus!</p>
+                        </div>
+                        <div class="rotated-text-right">
+                            <span>Your Right Text</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content-wrapper">
+                        <div class="rotated-text-left">
+                            <span>Your Left Text</span>
+                        </div>
+                        <div class="iframe-and-text">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CYwql2EUQlk?si=rWOsu98UDbcruDGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="iframe-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptate autem maxime unde fuga mollitia id natus laudantium explicabo repellendus nulla error porro sit, saepe perspiciatis ex cumque voluptatibus ducimus!</p>
+                        </div>
+                        <div class="rotated-text-right">
+                            <span>Your Right Text</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+
+            <!-- Add Navigation Buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
 </section>
+
 <!-- Schedule-->
 <section class="schead" id="schedule">
     <div class="container hidden">
@@ -311,5 +310,32 @@
         <p id="eventDescription"></p>
     </div>
 </div>
+
+<?= $this->endSection(); ?>
+
+<?= $this->section('scripts'); ?>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
 
 <?= $this->endSection(); ?>

@@ -26,10 +26,10 @@ Checklist front end :
 
 - Navbar ✅
 - Masthead ✅
-- About
+- About - Lanjut Perbaiki Font
 - Services ✅
 - News ✅
-- Media
+- Media ✅
 - Calender ✅
 - Contact
 - FOOTER
