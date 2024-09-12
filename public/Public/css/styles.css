@@ -11093,18 +11093,27 @@ header.masthead .masthead-heading {
 /* ABOUT */
 
 #about {
-  padding: 50px 0;
-  background-color: #000; /* Background color for the section */
+  padding: 3em 0 20em 0;
 }
 
 #about .section-heading {
-  font-size: 12em;
-  margin: 0 0 2em 0;
+  margin: 0 -3em 1em -3em;
+  color: black;
 }
 
 #about .section-subheading {
   font-size: 3em;
-  margin: 3em -25% 0 -25%;
+  margin: 2em 0 0 0;
+}
+
+#about .outline-text {
+  font-size: 12em; /* Adjust the font size as needed */
+  font-family: 'Playfair Display', serif; /* Use Playfair Display font */
+  color: transparent; /* Make the fill color transparent */
+  -webkit-text-stroke-width: 2px; /* Set the width of the outline */
+  -webkit-text-stroke-color: white; /* Set the color of the outline */
+  font-weight: bold; /* Ensure the font is bold */
+  text-align: center; /* Center the text */
 }
 
 #about .location-section {
@@ -11135,9 +11144,46 @@ header.masthead .masthead-heading {
   margin-bottom: 20px;
 }
 
-#about .text-content h1 span {
-  font-family: 'Times New Roman', Times, serif;
+.text-container {
+  display: flex;
+  align-items: center;
+  font-size: 4em;
+  line-height: 1.2;
+}
+
+
+.static-text {
+  font-weight: 900;
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.animated-text {
+  font-family: 'Playfair Display', serif;
   font-style: italic;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
 }
 
 #about .text-content p {
@@ -11168,7 +11214,6 @@ header.masthead .masthead-heading {
     margin-left: 0;
   }
 }
-
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 

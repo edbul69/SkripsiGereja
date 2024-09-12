@@ -15,16 +15,23 @@
     <div class="container location-section hidden">
         <div class="text-center">
             <h3 class="section-subheading text-uppercase">SELAMAT DATANG DI</h3>
-            <h2 class="section-heading text-uppercase">GPDI BAHU</h2>
+            <h2 class="section-heading text-uppercase outline-text">GPDI BAHU</h2>
         </div>
         <div class="row align-items-center">
             <div class="col-md-6 image-content">
                 <img src="Public/assets/img/header/header-bg1.jpg" alt="Group of people">
             </div>
             <div class="col-md-6 text-content">
-                <h1>KELUARGA<br><span>BESAR</span><br>JEMAAT</h1>
+                <h1>KELUARGA<br><span>BESAR</span><br>GPDI</h1>
             </div>
         </div>
+        <div class="text-container">
+            <div class="static-text">FOR</div>
+            <div class="animated-text">
+                <span>CREATIVITY.</span>
+            </div>
+        </div>
+
     </div>
 </section>
 <!-- Services-->
