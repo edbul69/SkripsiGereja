@@ -4124,6 +4124,7 @@ textarea.form-control-lg {
   .navbar-expand-xxl {
     flex-wrap: nowrap;
     justify-content: flex-start;
+
   }
   .navbar-expand-xxl .navbar-nav {
     flex-direction: row;
@@ -11091,21 +11092,20 @@ header.masthead .masthead-heading {
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* ABOUT */
-
 #about {
   padding: 3em 0 20em 0;
 }
-
+#about .location-section {
+  position: relative;
+}
 #about .section-heading {
-  margin: 0 -3em 1em -3em;
+  margin: 0 0 1em 0;
   color: black;
 }
-
 #about .section-subheading {
   font-size: 3em;
   margin: 2em 0 0 0;
 }
-
 #about .outline-text {
   font-size: 12em; /* Adjust the font size as needed */
   font-family: 'Playfair Display', serif; /* Use Playfair Display font */
@@ -11116,104 +11116,161 @@ header.masthead .masthead-heading {
   text-align: center; /* Center the text */
 }
 
-#about .location-section {
-  position: relative;
-}
-
+/* BATAS 1 */
 #about .image-content {
   position: relative;
   z-index: 1;
+  left: -5em;
 }
-
 #about .image-content img {
   width: 150%; /* Increase the width of the image */
   height: auto;
-  margin-left: -25%; /* Center the image */
 }
-
 #about .text-content {
   position: relative;
   z-index: 2;
   color: #fff; /* Text color */
+  right: 1em;
 }
-
 #about .text-content h1 {
   font-size: 7em;
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 20px;
 }
-
-.text-container {
-  display: flex;
-  align-items: center;
-  font-size: 4em;
-  line-height: 1.2;
-}
-
-
-.static-text {
-  font-weight: 900;
-  margin-right: 20px;
-  font-family: 'Roboto', sans-serif;
-}
-
-.animated-text {
-  font-family: 'Playfair Display', serif;
+#about .text-content h1 span {
+  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
 }
 
-@keyframes slideDown {
+/* BATAS 2 */
+#about .text-container {
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  margin-top: 12em;
+  color: #fff;
+}
+#about .static-text {
+  font-weight: 900;
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 5em;
+}
+#about .animated-text-container {
+  overflow: hidden;
+  height: 13em; /* Adjust to match the height of the animated text */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+#about .animated-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 6em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0; /* Start with opacity 0 */
+}
+#about .animated-text.show {
+  opacity: 1; /* Fully visible when active */
+  animation: bounceIn 0.6s ease; /* Apply the bounce effect */
+}
+#about .animated-text-container .animated-text:not(:first-child) {
+  transform: translateY(-100%);
+}
+@keyframes bounceIn {
   0% {
-    opacity: 0;
     transform: translateY(-100%);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  40% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  50% {
     opacity: 0;
-    transform: translateY(100%);
+  }
+  60% {
+    transform: translateY(10%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-5%);
   }
   100% {
-    opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(0);
   }
 }
 
-#about .text-content p {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-#about .text-content p a {
-  text-decoration: none;
-  color: #fff;
-  border-bottom: 2px solid #fff;
-  padding-bottom: 2px;
-}
-
-#about .text-content p a:hover {
-  color: #007bff;
-  border-color: #007bff;
-}
-
-@media (max-width: 768px) {
+/* About Responsive Mobile */
+/* @media (max-width: 768px) {
   #about .text-content {
     margin-left: 0;
     text-align: center;
   }
 
   #about .image-content img {
-    width: 100%; /* Make image full-width on smaller screens */
+    width: 100%;
     margin-left: 0;
   }
+} */
+@media (max-width: 1400px) {
+  #about .animated-text {
+    font-size: 5.8em;
+  }
 }
+@media (max-width: 1200px) {
+  #about .image-content {
+    left: 0;
+  }
+  #about .text-content {
+    right: 6em;
+  }
+}
+@media (min-width: 992px) {
+  #about {
+    padding: 3em 0 10em 0;
+  }
+  #about .outline-text {
+    font-size: 10em;
+  }
+  #about .text-content h1 {
+    font-size: 6em;
+    margin-bottom: 100px;
+  }
+  #about .text-container {
+    margin-top: 10em;
+  }
+  #about .static-text {
+    font-size: 4em;
+  }
+  #about .animated-text {
+    font-size: 5em;
+  }
+}
+@media (min-width: 768px) {
+  #about {
+    padding: 3em 0 10em 0;
+  }
+  #about .section-subheading {
+    font-size: 2.5em;
+  }
+  #about .outline-text {
+    font-size: 7em;
+  }
+  #about .text-content h1 {
+    font-size: 4.8em;
+    margin-bottom: 50px;
+  }
+  #about .text-container{
+    margin-top: 6em;
+  }
+
+}
+
+
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 

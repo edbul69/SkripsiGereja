@@ -12,12 +12,12 @@
 </header>
 <!-- About-->
 <section class="page-section bg-black" id="about">
-    <div class="container location-section hidden">
+    <div class="container location-section">
         <div class="text-center">
             <h3 class="section-subheading text-uppercase">SELAMAT DATANG DI</h3>
             <h2 class="section-heading text-uppercase outline-text">GPDI BAHU</h2>
         </div>
-        <div class="row align-items-center">
+        <div class="row align-items-center hidden">
             <div class="col-md-6 image-content">
                 <img src="Public/assets/img/header/header-bg1.jpg" alt="Group of people">
             </div>
@@ -25,13 +25,20 @@
                 <h1>KELUARGA<br><span>BESAR</span><br>GPDI</h1>
             </div>
         </div>
-        <div class="text-container">
-            <div class="static-text">FOR</div>
-            <div class="animated-text">
-                <span>CREATIVITY.</span>
+        <div class="text-container hidden">
+            <div class="static-text">PELAYANAN</div>
+            <div class="row animated-text-container">
+                <div class="animated-text" id="text-1">BAPTISAN.</div>
+                <div class="animated-text" id="text-2">PENYERAHAN ANAK.</div>
+                <div class="animated-text" id="text-3">PERJAMUAN KUDUS.</div>
+                <div class="animated-text" id="text-4">SUNDAY SERVICE.</div>
+                <div class="animated-text" id="text-5">DOA BERSAMA.</div>
+                <div class="animated-text" id="text-6">IBADAH RAYON.</div>
+                <div class="animated-text" id="text-7">MOC.</div>
+                <div class="animated-text" id="text-8">ABA.</div>
+                <div class="animated-text" id="text-9">SEKOLAH MINGGU.</div>
             </div>
         </div>
-
     </div>
 </section>
 <!-- Services-->
@@ -105,7 +112,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/150x150" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
+                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Piedmont Students <i class="fas fa-chevron-right"></i></a>

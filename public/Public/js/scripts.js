@@ -248,3 +248,32 @@ document.addEventListener('scroll', function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const texts = document.querySelectorAll("#about .animated-text");
+    let index = 0;
+
+    // Make the first text visible on page load
+    texts[index].classList.add('show');
+    texts[index].style.transform = "translateY(0)";
+
+    function changeText() {
+        texts.forEach((text, i) => {
+            text.classList.remove('show');  // Remove the show class from all texts
+            if (i === index) {
+                text.style.transform = "translateY(100%)";  // Move current text down
+            } else if (i === (index + 1) % texts.length) {
+                text.style.transform = "translateY(0)";  // Bring the next text from above
+                text.classList.add('show');  // Show the next text
+            } else {
+                text.style.transform = "translateY(-100%)";  // Position all other texts above
+            }
+        });
+
+        setTimeout(() => {
+            texts[index].classList.remove('show');  // Fade out the current text as it moves up
+            index = (index + 1) % texts.length;
+        }, 500);  // Delay to allow the transition to start before hiding the text
+    }
+
+    setInterval(changeText, 3000);  // Change text every 3 seconds
+});
