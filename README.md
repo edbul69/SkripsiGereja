@@ -26,28 +26,12 @@ Checklist front end :
 
 - Navbar ✅
 - Masthead ✅
-- About - Lanjut Perbaiki Font
+- About - ✅
 - Services ✅
 - News ✅
 - Media ✅
 - Calender ✅
-- Contact
-- FOOTER
-
-For About
-https://www.celebration.org/
-
-For Media
-![grid](image-1.png)
-![card](image.png)
-
-For News
-![theme](image-2.png)
-
-For Contact
-![Theme](image-4.png)
-
-For Footer
-![+Maps](image-3.png)
+- Contact - ON PROGRESS
+- FOOTER ✅
 
 php spark serve --host 0.0.0.0 --port 8080

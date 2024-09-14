@@ -25,9 +25,9 @@
                 <h1>KELUARGA<br><span>BESAR</span><br>GPDI</h1>
             </div>
         </div>
-        <div class="text-container hidden">
-            <div class="static-text">PELAYANAN</div>
-            <div class="row animated-text-container">
+        <div class="row text-container hidden justify-content-center">
+            <div class="col-auto static-text">PELAYANAN</div>
+            <div class="col-auto animated-text-container">
                 <div class="animated-text" id="text-1">BAPTISAN.</div>
                 <div class="animated-text" id="text-2">PENYERAHAN ANAK.</div>
                 <div class="animated-text" id="text-3">PERJAMUAN KUDUS.</div>
@@ -234,7 +234,6 @@
         </div>
     </div>
 </section>
-
 <!-- Schedule-->
 <section class="schead" id="schedule">
     <div class="container hidden">
@@ -247,70 +246,43 @@
 <!-- Contact-->
 <section class="page-section" id="contact">
     <div class="container hidden">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+        <div class="row">
+            <!-- Content Section (Right) -->
+            <div class="col-md-4 content" style="color: #fff;">
+                <div style="margin-bottom: 2em;">
+                    <h2 style="font-size: 4em; font-weight: bold; line-height: 1;">GPDI<br>BAHU</h2>
+                </div>
+                <div style="margin-bottom: 2em;">
+                    <h3 style="font-size: 1.2em; text-transform: uppercase; letter-spacing: 0.1em; font-weight: bold;">MANADO, SULAWESI UTARA</h3>
+                    <p style="margin: 0;">11400 Rupp Drive</p>
+                    <p>Burnsville, MN 55337</p>
+                    <p>952.255.8800</p>
+                </div>
+            </div>
+
+            <!-- Map and Cards Section (Left) -->
+            <div class="col-md-8">
+                <!-- Map Embed -->
+                <div class="map-container mb-3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d513.1769336409643!2d124.82452232533353!3d1.460395973020168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328774f154e294d5%3A0xb4b7a5f06f7d4815!2sGPdI%20Bahu!5e0!3m2!1sid!2skh!4v1726314833638!5m2!1sid!2skh"
+                        width="100%" height="300" style="border: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Cards Section -->
+                <div class="wrapper mb-3">
+                    <div class="card card1 ms-5" style="padding: 1em; background-color: #f1f1f1; margin-bottom: 1em;">
+                        <!-- Card 1 content -->
+                        <p>Card 1 Content Here</p>
+                    </div>
+                    <div class="card card2 me-5" style="padding: 1em; background-color: #f1f1f1;">
+                        <!-- Card 2 content -->
+                        <p>Card 2 Content Here</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- * * SB Forms Contact Form * *-->
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- This form is pre-integrated with SB Forms.-->
-        <!-- To make this form functional, sign up at-->
-        <!-- https://startbootstrap.com/solution/contact-forms-->
-        <!-- to get an API token!-->
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-            <div class="row align-items-stretch mb-5">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <!-- Name input-->
-                        <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Email address input-->
-                        <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                    </div>
-                    <div class="form-group mb-md-0">
-                        <!-- Phone number input-->
-                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group form-group-textarea mb-md-0">
-                        <!-- Message input-->
-                        <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted-->
-            <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center text-white mb-3">
-                    <div class="fw-bolder">Form submission successful!</div>
-                    To activate this form, sign up at
-                    <br />
-                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-            </div>
-            <!-- Submit error message-->
-            <!---->
-            <!-- This is what your users will see when there is-->
-            <!-- an error submitting the form-->
-            <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">Error sending message!</div>
-            </div>
-            <!-- Submit Button-->
-            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-        </form>
     </div>
 </section>
-
 <!-- News Modals-->
 
 
