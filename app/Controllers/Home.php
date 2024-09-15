@@ -11,4 +11,11 @@ class Home extends BaseController
         ];
         return view('Home/index', $data);
     }
+    public function news(): string
+    {
+        $data = [
+            'title' => 'Berita'
+        ];
+        return view('Home/all-news', $data);
+    }
 }

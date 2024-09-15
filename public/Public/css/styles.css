@@ -11137,7 +11137,7 @@ header.masthead .masthead-heading {
   font-size: 7em;
   font-weight: bold;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 #about .text-content h1 span {
   font-family: 'Times New Roman', Times, serif;
@@ -11680,7 +11680,7 @@ section.schead {
   padding-bottom: 3rem; /* Reduced padding for a smaller size */
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("../assets/img/calendar-bg.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11736,7 +11736,7 @@ section.schead .section-heading {
   border: calc(var(--fc-daygrid-event-dot-width) / 2) solid #0dcaf0;
 }
 #calendar .fc-daygrid-more-link {
-  color: #0a98b4;
+  color: #ffe480;
   font-size: 1.2em;
 }
 #calendar .fc-event-main {
@@ -11770,7 +11770,6 @@ section.schead .section-heading {
 }
 #calendar .fc-popover-header {
   background: #e2e3e5;
-  border-radius: .6em .6em .6em .6em;
   border: .1em solid #cca000;
 }
 #calendar .fc-popover-title {
@@ -12011,31 +12010,177 @@ section.schead .section-heading {
 /* CONTACT */
 #contact {
   background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
+  background-image: url("../assets/img/footer-bg.png");
   background-repeat: no-repeat;
   background-position: center;
+  width: 100%;
 }
+#contact .content {
+  color: #fff;
+}
+#contact .content h2 {
+  font-size: 4em;
+  font-weight: bold;
+  line-height: 1;
+}
+#contact .content h3 {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+#contact .content a{
+  color: #fff;
+  text-decoration: none;
+}
+#contact iframe {
+  border: 5px;
+  width: 100%;
+  height: 300px;
+}
+
+/* CONTACT Card Style */
 #contact .wrapper {
   display: flex;
+  justify-content: center; /* Centers the cards horizontally */
+  align-items: center; /* Centers the cards vertically */
   width: 100%;
-  height: 5em;
+  gap: 1em; /* Adds space between the cards */
   overflow: hidden;
-  background-color: #000;
-}
-#contact .card1 {
-  background-color: #f77c73;
-}
-#contact .card2 {
-  background-color: #6cbdff;
 }
 #contact .card {
-  flex: 1;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.125; /* Adjust flex size */
+  height: 85px; /* Set an explicit height */
+  padding: 0.3em; /* Reduced padding for smaller appearance */
   transition: flex 0.5s ease;
   cursor: pointer;
+  border-radius: 20%; /* Rounded corners */
+  overflow: hidden; /* Ensure content doesn't overflow and break the border-radius */
 }
-#contact .card:hover{
-  flex: 4;
+#contact .card1 {
+  background-color: #FFF;
+}
+#contact .card2 {
+  background-color: #FFF;
+}
+#contact .card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 15px; /* Add padding to left and right */
+  border-radius: 20%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  transition: justify-content 0.5s ease; /* Smooth transition for alignment */
+  position: relative; /* Position relative to contain the text absolutely */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+#contact .card-content img {
+  width: 50px;
+  height: auto;
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+/* CONTACT Hover */
+#contact .hover-text {
+  display: none; /* Hide the link by default */
+  position: absolute; /* Position it absolutely within the .card-content */
+  color: #fff; /* Text color */
+  font-size: 1.2em; /* Adjust font size for better readability */
+  font-weight: 600; /* Use a slightly heavier font weight */
+  letter-spacing: 0.05em; /* Add a bit of letter spacing */
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for better contrast */
+  text-decoration: none; /* Remove underline from links */
+}
+#contact .card1:hover .card-content {
+  justify-content: space-between; /* Space out image and text */
+}
+#contact .card2:hover .card-content {
+  justify-content: space-between; /* Space out image and text */
+}
+#contact .card1:hover .hover-text {
+  display: block; /* Show the link on hover */
+  left: 15px; /* Position text on the left */
+}
+#contact .card2:hover .hover-text {
+  display: block; /* Show the link on hover */
+  right: 15px; /* Position text on the right */
+}
+#contact .card1:hover .card-content img {
+  margin-left: auto; /* Push the image to the far right */
+}
+#contact .card:hover {
+  flex: 0.45; /* Slightly expand on hover */
+}
+
+#contact .map-button {
+  display: inline-block;
+  padding: 12px 24px; /* Adjusted padding for a more substantial button */
+  font-size: 16px;
+  color: white;
+  background-color: #997800; /* Matching blue color similar to your website's theme */
+  border: none;
+  border-radius: 4px; /* Subtle rounding for a modern look */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow for a slight 3D effect */
+}
+
+#contact .map-button:hover {
+  background-color: #0056b3; /* Darker shade on hover for effect */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+#contact .map-button:active {
+  transform: translateY(0); /* Reset lift on click */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Slightly reduce shadow on click */
+}
+
+
+/* CONTACT Mobile Responsive */
+@media (max-width: 1200px) {
+  #contact .card {
+    flex: 0.15;
+  }
+  #contact .card:hover {
+    flex: 0.5;
+  }
+}
+@media (max-width: 992px) {
+  #contact .card {
+    flex: 0.25;
+  }
+  #contact .card:hover {
+    flex: 1.2;
+  }
+}
+@media (max-width: 430px) {
+  #contact .hover-text {
+    font-size: 0;
+  }
+  #contact .card {
+    flex: 0.3;
+  }
+  #contact .card:hover {
+    flex: 0.3;
+  }
+}
+@media (max-width: 430px) {
+  #contact .card {
+    flex: 0.4;
+  }
+  #contact .card:hover {
+    flex: 0.4;
+  }
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */

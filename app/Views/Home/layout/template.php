@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="Public/css/styles.css" rel="stylesheet" />
     <!-- FullCalendar JS -->
@@ -41,8 +42,6 @@
                     <li class="nav-item"><a class="nav-link" href="#news">BERITA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#media">MEDIA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#schedule">JADWAL</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="#about">TENTANG</a></li> -->
-                    <li class="nav-item"><a class="nav-link" href="#contact">KONTAK</a></li>
                 </ul>
             </div>
         </div>
@@ -51,6 +50,64 @@
     <?= $this->renderSection('content'); ?>
 
 
+
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container hidden">
+            <div class="row">
+                <!-- Content Section (Right) -->
+                <div class="col-md-4 content">
+                    <div>
+                        <h2>GPDI<br>BAHU</h2>
+                    </div>
+                    <div>
+                        <h3>MANADO, SULAWESI UTARA</h3>
+                        <p>Kec. Malalayang</p>
+                        <p>Kel. Bahu II</p>
+                        <p>Jl. P.Bunaken, 95115</p>
+                        <a href="tel:+6200000000000">Telp. +62 000-0000-0000</a>
+                        <br><br>
+                        <!-- Button for getting directions -->
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Jl.+P.Bunaken,+95115,+Manado,+Sulawesi+Utara,+Indonesia" target="_blank" class="map-button">
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map and Cards Section (Left) -->
+                <div class="col-md-8">
+                    <!-- Map Embed -->
+                    <div class="map-container mb-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d513.1769336409643!2d124.82452232533353!3d1.460395973020168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328774f154e294d5%3A0xb4b7a5f06f7d4815!2sGPdI%20Bahu!5e0!3m2!1sid!2skh!4v1726314833638!5m2!1sid!2skh"
+                            width="" height="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <!-- Cards Section -->
+                    <div class="wrapper mb-3">
+                        <div class="wrapper mb-3">
+                            <div class="card card1 ms-5">
+                                <!-- Card 1 content -->
+                                <div class="card-content">
+                                    <img src="Public/assets/img/icon/bahu-icon-tp.png" alt="">
+                                    <!-- The link is only visible and clickable on hover -->
+                                    <a href="https://www.instagram.com/gpdibahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@gpdi.bahu</a>
+                                </div>
+                            </div>
+                            <div class="card card2 me-5">
+                                <!-- Card 2 content -->
+                                <div class="card-content">
+                                    <img src="Public/assets/img/icon/moc-icon-tp.png" alt="">
+                                    <!-- The link is only visible and clickable on hover -->
+                                    <a href="https://www.instagram.com/moc.gpdibahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@moc.gpdibahu</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
     <!-- Footer-->
     <footer class="footer py-4 bg-dark text-white">
         <div class="container">

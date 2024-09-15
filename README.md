@@ -24,14 +24,18 @@ PELAYANAN :
 
 Checklist front end :
 
-- Navbar ✅
-- Masthead ✅
-- About - ✅
-- Services ✅
-- News ✅
-- Media ✅
-- Calender ✅
-- Contact - ON PROGRESS
-- FOOTER ✅
+Halaman News All
+
+Halaman Pelayanan :
+
+- Baptisan Air
+- Penyerahan Anak
+- Perjamuan Kudus
+- Sunday Service
+- Doa Bersama
+- Ibadah Rayon
+- MOC
+- ABA
+- Sekolah Minggu
 
 php spark serve --host 0.0.0.0 --port 8080

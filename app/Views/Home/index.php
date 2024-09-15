@@ -19,7 +19,7 @@
         </div>
         <div class="row align-items-center hidden">
             <div class="col-md-6 image-content">
-                <img src="Public/assets/img/header/header-bg1.jpg" alt="Group of people">
+                <img src="Public/assets/img/main-banner.jpg" alt="Group of people" clas>
             </div>
             <div class="col-md-6 text-content">
                 <h1>KELUARGA<br><span>BESAR</span><br>GPDI</h1>
@@ -47,57 +47,75 @@
         <div class="row g-0 m-0">
             <!-- First Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Before You Arrive">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Baptisan Air</div>
+                <a href="#">
+                    <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid w-100" alt="Before You Arrive">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Baptisan Air</div>
+                </a>
             </div>
             <!-- Second Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="I'm New">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Penyerahan Anak</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/penyerahan-anak.jpg" class="img-fluid w-100" alt="I'm New">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Penyerahan Anak</div>
+                </a>
             </div>
             <!-- Third Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Alpha">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Perjamuan Kudus</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/perjamuan-kudus.jpeg" class="img-fluid w-100" alt="Alpha">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Perjamuan Kudus</div>
+                </a>
             </div>
             <!-- Fourth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Before You Arrive">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Sunday Service</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid w-100" alt="Before You Arrive">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Sunday Service</div>
+                </a>
             </div>
             <!-- Fifth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="I'm New">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Doa Bersama</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/doa-bersama.JPG" class="img-fluid w-100" alt="I'm New">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Doa Bersama</div>
+                </a>
             </div>
             <!-- Sixth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Alpha">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Ibadah Rayon</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/ibadah-rayon.JPG" class="img-fluid w-100" alt="Alpha">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Ibadah Rayon</div>
+                </a>
             </div>
             <!-- Seventh Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Before You Arrive">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">MOC</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid w-100" alt="Before You Arrive">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">MOC</div>
+                </a>
             </div>
             <!-- Eight Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="I'm New">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">ABA</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/aba.jpg" class="img-fluid w-100" alt="I'm New">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">ABA</div>
+                </a>
             </div>
             <!-- Ninth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <img src="Public/assets/img/pelayanan/pelayanan.jpeg" class="img-fluid w-100" alt="Alpha">
-                <div class="white-overlay"></div> <!-- White transparent overlay -->
-                <div class="overlay-text">Sekolah Minggu</div>
+                <a href="">
+                    <img src="Public/assets/img/pelayanan/sekolah-minggu.JPG" class="img-fluid w-100" alt="Alpha">
+                    <div class="white-overlay"></div> <!-- White transparent overlay -->
+                    <div class="overlay-text">Sekolah Minggu</div>
+                </a>
             </div>
         </div>
     </div>
@@ -112,68 +130,77 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
+                    <img src="Public/assets/img/news/news1.JPG" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
                     <div class="card-body text-white">
                         <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Piedmont Students <i class="fas fa-chevron-right"></i></a>
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Putri GPDI Sulawesi Utara, Aurelia David<i class="fas fa-chevron-right"></i></a>
                         </h5>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Fall Small Group Signups">
+                    <img src="Public/assets/img/news/news2.JPG" class="card-img-top card-img-fixed rounded-4" alt="Fall Small Group Signups">
                     <div class="card-body text-white">
                         <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Fall Small Group Signups <i class="fas fa-chevron-right"></i></a>
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Mayor TNI Membuka Ibadah Persemian <i class="fas fa-chevron-right"></i></a>
                         </h5>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="College & Young Adult Kickoff">
+                    <img src="Public/assets/img/news/news3.JPG" class="card-img-top card-img-fixed rounded-4" alt="College & Young Adult Kickoff">
                     <div class="card-body text-white">
                         <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">College & Young Adult Kickoff <i class="fas fa-chevron-right"></i></a>
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Majelis Daerah GPDI Menghadiri Acara Peresmian <i class="fas fa-chevron-right"></i></a>
                         </h5>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Step One">
+                    <img src="Public/assets/img/news/news4.JPG" class="card-img-top card-img-fixed rounded-4" alt="Step One">
                     <div class="card-body text-white">
                         <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Step One <i class="fas fa-chevron-right"></i></a>
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Penandatangan Peresmian Gedung Baru GPDI Bahu <i class="fas fa-chevron-right"></i></a>
                         </h5>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="Serve Day">
+                    <img src="Public/assets/img/news/news5.JPG" class="card-img-top card-img-fixed rounded-4" alt="Serve Day">
                     <div class="card-body text-white">
                         <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Serve Day <i class="fas fa-chevron-right"></i></a>
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Ibadah Peresmian Gedung Baru GPDI Bahu <i class="fas fa-chevron-right"></i></a>
                         </h5>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="https://via.placeholder.com/300x150" class="card-img-top card-img-fixed rounded-4" alt="New Series: Binge the Bible">
+                    <img src="Public/assets/img/news/news6.JPG" class="card-img-top card-img-fixed rounded-4" alt="New Series: Binge the Bible">
                     <div class="card-body text-white">
                         <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">New Series: Binge the Bible <i class="fas fa-chevron-right"></i></a>
+                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Moment Kebersamaan Jemaat GPDI Bahu <i class="fas fa-chevron-right"></i></a>
                         </h5>
                     </div>
                 </div>
             </div>
         </div>
         <div class="text-center mt-4">
-            <a href="#all-news" class="btn btn-outline-light btn-lg">Berita Lainnya</a>
+            <a href="/Berita" class="btn btn-outline-light btn-lg">Berita Lainnya</a>
         </div>
+</section>
+<!-- Schedule-->
+<section class="schead" id="schedule">
+    <div class="container hidden">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Kalender Kegiatan GPDI Bahu</h2>
+        </div>
+        <div id='calendar'></div>
+    </div>
 </section>
 <!-- Media-->
 <section class="page-section bg-black" id="media">
@@ -186,104 +213,52 @@
                 <div class="swiper-slide">
                     <div class="content-wrapper">
                         <div class="rotated-text-left">
-                            <span>Your Left Text</span>
+                            <span>Informasi COVID-19</span>
                         </div>
                         <div class="iframe-and-text">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CYwql2EUQlk?si=rWOsu98UDbcruDGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <p class="iframe-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptate autem maxime unde fuga mollitia id natus laudantium explicabo repellendus nulla error porro sit, saepe perspiciatis ex cumque voluptatibus ducimus!</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UzNtC2SDHiQ?si=GV147dAGp9k6NV_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="iframe-caption">Dalam upaya menangani wabah COVID-19, GPDI pun menjalankan prosedur kesehatan yang secara langsung di berikan oleh salah satu pelayan, yaitu Dr. Suryadi Tatura</p>
                         </div>
                         <div class="rotated-text-right">
-                            <span>Your Right Text</span>
+                            <span>Informasi COVID-19</span>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="content-wrapper">
                         <div class="rotated-text-left">
-                            <span>Your Left Text</span>
+                            <span>Peresmian Gedung Baru</span>
                         </div>
                         <div class="iframe-and-text">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CYwql2EUQlk?si=rWOsu98UDbcruDGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <p class="iframe-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptate autem maxime unde fuga mollitia id natus laudantium explicabo repellendus nulla error porro sit, saepe perspiciatis ex cumque voluptatibus ducimus!</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5lZderOtZmI?si=p5EKr_snl6dgINRT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="iframe-caption">Gedung baru GPDI Bahu yang telah mengalami renovasi akhirnya telah selesai dibangun dan di adakannya ibadah peresmian serta pentahbisan yang dihadiri langsung oleh walikota Manado dan ketua majelis daerah GPDI Sulawesi Utara</p>
                         </div>
                         <div class="rotated-text-right">
-                            <span>Your Right Text</span>
+                            <span>Peresmian Gedung Baru</span>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="content-wrapper">
                         <div class="rotated-text-left">
-                            <span>Your Left Text</span>
+                            <span>Ibadah Rayon Gabungan</span>
                         </div>
                         <div class="iframe-and-text">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CYwql2EUQlk?si=rWOsu98UDbcruDGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <p class="iframe-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptate autem maxime unde fuga mollitia id natus laudantium explicabo repellendus nulla error porro sit, saepe perspiciatis ex cumque voluptatibus ducimus!</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ByJCiCspAHY?si=Wd1qjJeROqK84QGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="iframe-caption">Ibadah Rayon gabungan yang menjadi salah satu perayaan ibadah GPDI Bahu pada tanggal 3 Juni tahun 2020</p>
                         </div>
                         <div class="rotated-text-right">
-                            <span>Your Right Text</span>
+                            <span>Ibadah Rayon Gabungan</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
-
             <!-- Add Navigation Buttons -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
     </div>
 </section>
-<!-- Schedule-->
-<section class="schead" id="schedule">
-    <div class="container hidden">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Kalender Kegiatan GPDI Bahu</h2>
-        </div>
-        <div id='calendar'></div>
-    </div>
-</section>
-<!-- Contact-->
-<section class="page-section" id="contact">
-    <div class="container hidden">
-        <div class="row">
-            <!-- Content Section (Right) -->
-            <div class="col-md-4 content" style="color: #fff;">
-                <div style="margin-bottom: 2em;">
-                    <h2 style="font-size: 4em; font-weight: bold; line-height: 1;">GPDI<br>BAHU</h2>
-                </div>
-                <div style="margin-bottom: 2em;">
-                    <h3 style="font-size: 1.2em; text-transform: uppercase; letter-spacing: 0.1em; font-weight: bold;">MANADO, SULAWESI UTARA</h3>
-                    <p style="margin: 0;">11400 Rupp Drive</p>
-                    <p>Burnsville, MN 55337</p>
-                    <p>952.255.8800</p>
-                </div>
-            </div>
-
-            <!-- Map and Cards Section (Left) -->
-            <div class="col-md-8">
-                <!-- Map Embed -->
-                <div class="map-container mb-3">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d513.1769336409643!2d124.82452232533353!3d1.460395973020168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328774f154e294d5%3A0xb4b7a5f06f7d4815!2sGPdI%20Bahu!5e0!3m2!1sid!2skh!4v1726314833638!5m2!1sid!2skh"
-                        width="100%" height="300" style="border: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-
-                <!-- Cards Section -->
-                <div class="wrapper mb-3">
-                    <div class="card card1 ms-5" style="padding: 1em; background-color: #f1f1f1; margin-bottom: 1em;">
-                        <!-- Card 1 content -->
-                        <p>Card 1 Content Here</p>
-                    </div>
-                    <div class="card card2 me-5" style="padding: 1em; background-color: #f1f1f1;">
-                        <!-- Card 2 content -->
-                        <p>Card 2 Content Here</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- News Modals-->
 
 
 
