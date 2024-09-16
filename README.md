@@ -16,19 +16,9 @@ Inspirasi :
 
 - https://www.sinodegkt.org/ (Kalender)
 
-PELAYANAN :
-
-- BAPTISAN AIR
-- PENYERAHAN ANAK
-- PERJAMUAN KUDUS
-
-Checklist front end :
-
-Halaman News All
-
 Halaman Pelayanan :
 
-- Baptisan Air
+- Baptisan Air - ON PROGRESS
 - Penyerahan Anak
 - Perjamuan Kudus
 - Sunday Service
@@ -39,3 +29,7 @@ Halaman Pelayanan :
 - Sekolah Minggu
 
 php spark serve --host 0.0.0.0 --port 8080
+
+https://www.celebration.org/the-bridge/ (Pelayanan)
+
+https://iclv.com/reach/baptism/ (Baptisan Air)

@@ -413,3 +413,80 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setInterval(changeText, 3000);  // Change text every 3 seconds
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const itemsPerPage = 10;
+    const newsContainer = document.getElementById("news-container");
+    const newsItems = Array.from(newsContainer.getElementsByClassName("news-item"));
+    const totalPages = Math.ceil(newsItems.length / itemsPerPage);
+    const pagination = document.getElementById("pagination");
+
+    let currentPage = 1;
+
+    function showPage(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        newsItems.forEach((item, index) => {
+            item.style.display = (index >= start && index < end) ? "block" : "none";
+        });
+    }
+
+    function updatePagination(page) {
+        const prevButton = pagination.querySelector('.page-item:first-child');
+        const nextButton = pagination.querySelector('.page-item:last-child');
+        prevButton.classList.toggle('disabled', page === 1);
+        nextButton.classList.toggle('disabled', page === totalPages);
+    }
+
+    function createPagination() {
+        for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement("li");
+            li.className = "page-item";
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener("click", function (e) {
+                e.preventDefault();
+                currentPage = i;
+                showPage(currentPage);
+                updatePagination(currentPage);
+                setActivePage();
+            });
+            pagination.insertBefore(li, pagination.querySelector('.page-item:last-child'));
+        }
+    }
+
+    function setActivePage() {
+        const pageItems = pagination.querySelectorAll('.page-item');
+        pageItems.forEach(item => item.classList.remove('active'));
+        pageItems[currentPage].classList.add('active');
+    }
+
+    // Initialize the pagination
+    createPagination();
+    showPage(currentPage); // Show the first page by default
+    updatePagination(currentPage);
+
+    // Set the first page as active
+    setActivePage();
+
+    // Add event listeners for the arrow buttons
+    pagination.querySelector('.page-item:first-child').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+            updatePagination(currentPage);
+            setActivePage();
+        }
+    });
+
+    pagination.querySelector('.page-item:last-child').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+            updatePagination(currentPage);
+            setActivePage();
+        }
+    });
+});

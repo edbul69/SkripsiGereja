@@ -7,7 +7,6 @@
     <div class="container">
         <div class="masthead-subheading">Gereja Pantekosta di Indonesia</div>
         <div class="masthead-heading text-uppercase">BAHU</div>
-        <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
     </div>
 </header>
 <!-- About-->
@@ -47,7 +46,7 @@
         <div class="row g-0 m-0">
             <!-- First Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="#">
+                <a href="/Baptisan">
                     <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid w-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Baptisan Air</div>

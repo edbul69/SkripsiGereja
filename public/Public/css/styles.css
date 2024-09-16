@@ -12185,6 +12185,269 @@ section.schead .section-heading {
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
+/* ALL NEWS */
+#all-news {
+  background: linear-gradient(180deg, #1c1c1c, #000000); Subtle gradient effect
+}
+#all-news a {
+  text-decoration: none;
+  color: inherit; /* Ensures that the link does not change color */
+  display: block; /* Makes the anchor tag behave as a block element */
+}
+#all-news .news-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  transition: all 0.3s ease; /* Smooth transition for the entire item */
+}
+#all-news .news-item:last-child {
+  border-bottom: none;
+}
+#all-news .news-badge {
+  background-color: #997800;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease; /* Transition for badge color */
+}
+#all-news .news-time {
+  color: #999;
+  font-size: 14px;
+  transition: color 0.3s ease; /* Transition for time color */
+}
+#all-news .news-title {
+  color: #fff; /* Black color before hover */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: color 0.3s ease; /* Smooth transition for the title color */
+}
+#all-news .news-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden; /* Ensure the image stays within the div when zooming */
+  background-color: #f0f0f0;
+  position: relative;
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Smooth zoom-in and brightness transition */
+}
+#all-news .news-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in-out; /* Smooth image zoom-in effect */
+}
+
+/* Hover effect */
+#all-news .news-item a:hover .news-image img {
+  transform: scale(1.1); /* Slightly increased zoom-in effect within the container */
+  filter: brightness(1.05); /* Slightly brighter effect on hover */
+}
+
+#all-news a:hover .news-title {
+  color: #007bff; /* Blue color on hover */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adding a subtle shadow for better readability */
+}
+
+#all-news a:hover .news-badge {
+  background-color: #ffc800; /* Darker blue badge on hover */
+}
+
+#all-news a:hover .news-time {
+  color: #0056b3; /* Darker blue time color on hover */
+}
+
+
+/* PAGING */
+#all-news .pagination-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+#all-news .pagination .page-item .page-link {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  margin: 0 10px;
+  padding: 15px 20px;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+#all-news .pagination .page-item.active .page-link {
+  background-color: #ffffff;
+  color: #007bff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}
+#all-news .pagination .page-item .page-link:hover {
+  background-color: #ffffff;
+  color: #007bff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+  border-radius: 50%;
+}
+#all-news .pagination .page-item .page-link:focus {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  outline: none;
+  border-radius: 50%;
+}
+#all-news .pagination .page-item.disabled .page-link {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#all-news .pagination .pagination-arrow {
+  width: 30px;
+  height: 30px;
+  display: block;
+  filter: invert(1);
+}
+#all-news .pagination .page-item:first-child .page-link,
+#all-news .pagination .page-item:last-child .page-link {
+  padding: 15px 18px;
+  background-color: transparent;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  #all-news .pagination .page-item .page-link {
+    padding: 12px 18px;
+    font-size: 18px;
+  }
+  #all-news .pagination .pagination-arrow {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media (max-width: 992px) {
+  #all-news .pagination .page-item .page-link {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+  #all-news .pagination .pagination-arrow {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media (max-width: 768px) {
+  #all-news .pagination .page-item .page-link {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  #all-news .pagination .pagination-arrow {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 576px) {
+  #all-news .pagination .page-item .page-link {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  #all-news .pagination .pagination-arrow {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+/* NEWS DETAIL */
+
+#news1 {
+  padding-top: 100px; /* Adjust this value if your navbar height is different */
+}
+#news1 .container {
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+}
+#news1 .news-image img {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+  margin-top: 20px; /* Extra margin to ensure space below the navbar */
+}
+#news1 .news-meta {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+#news1 .news-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+#news1 .news-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #news1 .news-title {
+      font-size: 1.5rem;
+  }
+
+  #news1 .news-content {
+      font-size: 0.9rem;
+  }
+}
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+#baptisan {
+  animation: none !important;
+  background-image: url('../assets/img/pelayanan/baptisan-air.jpg');
+}
+#baptisan .masthead-subheading {
+  font-size: 10em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+/* Accordion Header */
+#baptisan .accordion-button {
+  background-color: #ffffff; /* Set background color to white */
+  color: #000000; /* Set text color to black for contrast */
+  font-size: 1.2rem; /* Increase the font size for better readability */
+  font-weight: bold; /* Make the font bold */
+  padding: 15px; /* Add some padding for better spacing */
+  border-radius: 5px; /* Add slight rounding to corners */
+}
+
+#baptisan .accordion-button:not(.collapsed) {
+  background-color: #e0e0e0; /* Slightly darker when active */
+  color: #000000; /* Ensure the text color remains black */
+}
+
+#baptisan .accordion-button::after {
+  filter: invert(1); /* Invert arrow color to black */
+}
+
+/* Accordion Body */
+#baptisan .accordion-body {
+  background-color: #333333; /* Dark background for the accordion content */
+  color: #ffffff; /* White text for readability */
+  font-size: 1rem; /* Standard font size for the content */
+  line-height: 1.6; /* Increase line-height for readability */
+}
+
+/* Adjust the Accordion Item */
+#baptisan .accordion-item {
+  border: none; /* Remove the default border */
+  margin-bottom: 10px; /* Add space between items */
+}
+
+/* Adjust the Accordion Container */
+#baptisan .accordion {
+  margin-top: 20px; /* Adjust the top margin */
+}
+
+
+
 /* FOOTER */
 .footer {
   text-align: center;
