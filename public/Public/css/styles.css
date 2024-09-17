@@ -12000,13 +12000,6 @@ section.schead .section-heading {
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
-/* CLIENT */
-/* .img-brand {
-  height: 2.75rem;
-} */
-
-/* ==================================================================================================== LINE ==================================================================================================== */
-
 /* CONTACT */
 #contact {
   background-color: #212529;
@@ -12395,10 +12388,7 @@ section.schead .section-heading {
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
-
-
-/* ==================================================================================================== LINE ==================================================================================================== */
-
+/* BAPTISAN AIR */
 #baptisan {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/baptisan-air.jpg');
@@ -12408,8 +12398,16 @@ section.schead .section-heading {
   margin-top: 1em;
   margin-bottom: 1.5em;
 }
+
+#baptisan-body .container h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+#baptisan-body .container p {
+  font-size: 2em;
+}
 /* Accordion Header */
-#baptisan .accordion-button {
+#baptisan-body .accordion-button {
   background-color: #ffffff; /* Set background color to white */
   color: #000000; /* Set text color to black for contrast */
   font-size: 1.2rem; /* Increase the font size for better readability */
@@ -12418,17 +12416,17 @@ section.schead .section-heading {
   border-radius: 5px; /* Add slight rounding to corners */
 }
 
-#baptisan .accordion-button:not(.collapsed) {
+#baptisan-body .accordion-button:not(.collapsed) {
   background-color: #e0e0e0; /* Slightly darker when active */
   color: #000000; /* Ensure the text color remains black */
 }
 
-#baptisan .accordion-button::after {
+#baptisan-body .accordion-button::after {
   filter: invert(1); /* Invert arrow color to black */
 }
 
 /* Accordion Body */
-#baptisan .accordion-body {
+#baptisan-body .accordion-body {
   background-color: #333333; /* Dark background for the accordion content */
   color: #ffffff; /* White text for readability */
   font-size: 1rem; /* Standard font size for the content */
@@ -12436,17 +12434,82 @@ section.schead .section-heading {
 }
 
 /* Adjust the Accordion Item */
-#baptisan .accordion-item {
+#baptisan-body .accordion-item {
   border: none; /* Remove the default border */
   margin-bottom: 10px; /* Add space between items */
 }
 
 /* Adjust the Accordion Container */
-#baptisan .accordion {
+#baptisan-body .accordion {
   margin-top: 20px; /* Adjust the top margin */
 }
 
+/* ==================================================================================================== LINE ==================================================================================================== */
 
+/* PENYERAHAN ANAK */
+#penyerahan {
+  animation: none !important;
+  background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
+}
+#penyerahan .masthead-subheading {
+  font-size: 8em;
+  margin-top: -0.5em;
+  margin-bottom: 0;
+}
+
+#penyerahan-body .container p {
+  font-size: 2em;
+}
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+/* PERJAMUAN KUDUS */
+#perjamuan {
+  animation: none !important;
+  background-image: url('../assets/img/pelayanan/perjamuan-kudus.jpeg');
+}
+#perjamuan .masthead-subheading {
+  font-size: 8em;
+  margin-top: -0.5em;
+  margin-bottom: 0;
+}
+
+#perjamuan-body .container p {
+  font-size: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+
+/* MOC */
+#moc {
+  animation: none !important;
+  background-image: url('../assets/img/pelayanan/moc.jpg');
+}
+#moc .masthead-subheading {
+  font-size: 10em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
 
 /* FOOTER */
 .footer {

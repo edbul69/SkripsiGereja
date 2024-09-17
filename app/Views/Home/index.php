@@ -54,7 +54,7 @@
             </div>
             <!-- Second Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/Penyerahan">
                     <img src="Public/assets/img/pelayanan/penyerahan-anak.jpg" class="img-fluid w-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Penyerahan Anak</div>
@@ -62,7 +62,7 @@
             </div>
             <!-- Third Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/Perjamuan">
                     <img src="Public/assets/img/pelayanan/perjamuan-kudus.jpeg" class="img-fluid w-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Perjamuan Kudus</div>
@@ -70,7 +70,7 @@
             </div>
             <!-- Fourth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/Sunday">
                     <img src="Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid w-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sunday Service</div>
@@ -78,7 +78,7 @@
             </div>
             <!-- Fifth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/Doa">
                     <img src="Public/assets/img/pelayanan/doa-bersama.JPG" class="img-fluid w-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Doa Bersama</div>
@@ -86,7 +86,7 @@
             </div>
             <!-- Sixth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/Ibadah">
                     <img src="Public/assets/img/pelayanan/ibadah-rayon.JPG" class="img-fluid w-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Ibadah Rayon</div>
@@ -94,7 +94,7 @@
             </div>
             <!-- Seventh Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/MOC">
                     <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid w-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">MOC</div>
@@ -102,7 +102,7 @@
             </div>
             <!-- Eight Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/ABA">
                     <img src="Public/assets/img/pelayanan/aba.jpg" class="img-fluid w-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">ABA</div>
@@ -110,7 +110,7 @@
             </div>
             <!-- Ninth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="">
+                <a href="/Sekolah">
                     <img src="Public/assets/img/pelayanan/sekolah-minggu.JPG" class="img-fluid w-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sekolah Minggu</div>

@@ -33,3 +33,11 @@ php spark serve --host 0.0.0.0 --port 8080
 https://www.celebration.org/the-bridge/ (Pelayanan)
 
 https://iclv.com/reach/baptism/ (Baptisan Air)
+
+Update :
+
+Baptisan Air
+Tambahkan konten lebih di dalam page ini
+
+MOC
+Tambah gambar yang sudah di edit seperti refrensi di page ini
