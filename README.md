@@ -18,13 +18,13 @@ Inspirasi :
 
 Halaman Pelayanan :
 
-- Baptisan Air - ON PROGRESS
-- Penyerahan Anak
-- Perjamuan Kudus
+- Baptisan Air - Tambahkan konten lebih di dalam page ini
+- Penyerahan Anak - Structure Done, edit isi konten halaman
+- Perjamuan Kudus - Tambah Konten
 - Sunday Service
 - Doa Bersama
 - Ibadah Rayon
-- MOC
+- MOC - Tambah gambar yang sudah di edit seperti refrensi di page ini
 - ABA
 - Sekolah Minggu
 
@@ -34,10 +34,4 @@ https://www.celebration.org/the-bridge/ (Pelayanan)
 
 https://iclv.com/reach/baptism/ (Baptisan Air)
 
-Update :
-
-Baptisan Air
-Tambahkan konten lebih di dalam page ini
-
-MOC
-Tambah gambar yang sudah di edit seperti refrensi di page ini
+https://webflow.com/blog/parallax-scrolling

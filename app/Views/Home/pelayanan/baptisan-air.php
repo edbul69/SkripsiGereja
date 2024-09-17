@@ -3,17 +3,15 @@
 <?= $this->section('content'); ?>
 
 <header class="masthead" id="baptisan">
-    <div class="container">
-        <div class="masthead-subheading">Baptisan Air</div>
-    </div>
 </header>
 
 <section class="page-section bg-black" id="baptisan-body">
     <div class="container py-5 mb-5">
         <h2 class="text-center text-white mb-4">Baptis | Hidup Baru</h2>
-        <p class="text-center text-white mb-5">
-            <em>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup” Yohanes 5:24</em>
-        </p>
+        <div class="text-center text-white mb-5">
+            <em>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
+            <p class="mt-3"><strong>Yohanes 5:24</strong></p>
+        </div>
         <!-- Accordion -->
         <div class="accordion" id="baptismAccordion">
             <div class="accordion-item bg-dark text-white">

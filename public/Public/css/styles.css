@@ -12392,20 +12392,23 @@ section.schead .section-heading {
 #baptisan {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/baptisan-air.jpg');
-}
-#baptisan .masthead-subheading {
-  font-size: 10em;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
+  background-position: 50% 10%; /* 50% from the left, 75% from the top */
 }
 
 #baptisan-body .container h2 {
   font-size: 2.5em;
   font-weight: bold;
 }
-#baptisan-body .container p {
+#baptisan-body .text-center em {
   font-size: 2em;
 }
+
+#baptisan-body .text-center p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
 /* Accordion Header */
 #baptisan-body .accordion-button {
   background-color: #ffffff; /* Set background color to white */
@@ -12450,15 +12453,75 @@ section.schead .section-heading {
 #penyerahan {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
+  background-position: 50% 50%; /* 50% from the left, 75% from the top */
 }
-#penyerahan .masthead-subheading {
-  font-size: 8em;
-  margin-top: -0.5em;
-  margin-bottom: 0;
+
+#penyerahan-body .container h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#penyerahan-body .text-center em {
+  font-size: 2.5em;
+}
+
+#penyerahan-body .text-center p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: -10px;
 }
 
 #penyerahan-body .container p {
-  font-size: 2em;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+#penyerahan-body .img-fluid {
+  border-radius: 0.75rem;
+}
+
+#janji-tuhan {
+  background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
+  padding: 50px 0;
+}
+
+#janji-tuhan h2 {
+  font-size: 3em;
+  margin-bottom: 1em;
+  color: white;
+}
+
+#janji-tuhan ul {
+  font-size: 1.2em;
+  line-height: 1.8;
+  color: white;
+}
+
+#janji-tuhan ul li {
+  margin-bottom: 10px;
+}
+
+#penyerahan-info {
+  padding: 50px 0;
+}
+
+#penyerahan-info h2 {
+  font-size: 2.5em;
+  color: #dc3545;
+}
+
+#penyerahan-info p {
+  font-size: 1.1em;
+  color: #6c757d;
+}
+
+#penyerahan-info .btn {
+  font-size: 1.2em;
+  padding: 10px 20px;
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */
@@ -12467,20 +12530,40 @@ section.schead .section-heading {
 #perjamuan {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/perjamuan-kudus.jpeg');
-}
-#perjamuan .masthead-subheading {
-  font-size: 8em;
-  margin-top: -0.5em;
-  margin-bottom: 0;
+  background-position: 50% 50%; /* Adjusted for optimal image positioning */
 }
 
-#perjamuan-body .container p {
+#perjamuan-body .container h2 {
   font-size: 2em;
+  font-weight: bold;
 }
 
+#perjamuan-body .text-center em {
+  font-size: 2.5em;
+}
 
+#perjamuan-body .text-center p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: -10px;
+}
 
+#perjamuan-body h2,
+#perjamuan-body h3,
+#perjamuan-body h4 {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
 
+#perjamuan-body p,
+#perjamuan-body ul {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+#perjamuan-body ul li {
+  margin-bottom: 10px;
+}
 
 
 
