@@ -18,13 +18,13 @@ Inspirasi :
 
 Halaman Pelayanan :
 
-- Baptisan Air - Tambahkan konten lebih di dalam page ini
-- Penyerahan Anak - Structure Done, edit isi konten halaman
-- Perjamuan Kudus - Tambah Konten
-- Sunday Service
+- Baptisan Air - On Progressions
+- Penyerahan Anak - On Progressions
+- Perjamuan Kudus - On Progressions
+- Sunday Service - Lanjutin Di Mes
 - Doa Bersama
 - Ibadah Rayon
-- MOC - Tambah gambar yang sudah di edit seperti refrensi di page ini
+- MOC - Revisi
 - ABA
 - Sekolah Minggu
 
@@ -35,3 +35,9 @@ https://www.celebration.org/the-bridge/ (Pelayanan)
 https://iclv.com/reach/baptism/ (Baptisan Air)
 
 https://webflow.com/blog/parallax-scrolling
+
+CATATAN:
+
+Sudah ditambahkan style khusus untuk page pelayanan, mungkin kedepannya masih bisa ditambahkan sebagai temanya
+
+Status On Progressions berarti sudah dibuatnya temanya walaupun belum fix tapi sudah ada strukturnya

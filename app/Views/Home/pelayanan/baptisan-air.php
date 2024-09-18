@@ -5,15 +5,18 @@
 <header class="masthead" id="baptisan">
 </header>
 
-<section class="page-section bg-black" id="baptisan-body">
+<section class="page-section bg-black page-pelayanan" id="baptisan-body">
     <div class="container py-5 mb-5">
-        <h2 class="text-center text-white mb-4">Baptis | Hidup Baru</h2>
-        <div class="text-center text-white mb-5">
+        <h2 class="fw-bold text-white text-center mb-3">Baptis | Hidup Baru</h2>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="divider-bar"></div>
+        </div>
+        <div class="text-center text-white my-3">
             <em>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
-            <p class="mt-3"><strong>Yohanes 5:24</strong></p>
+            <p class="mt-1"><strong>Yohanes 5:24</strong></p>
         </div>
         <!-- Accordion -->
-        <div class="accordion" id="baptismAccordion">
+        <div class="accordion my-5" id="baptismAccordion">
             <div class="accordion-item bg-dark text-white">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

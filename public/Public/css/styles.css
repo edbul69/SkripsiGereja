@@ -12388,28 +12388,33 @@ section.schead .section-heading {
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 
+/* PELAYANAN - MAIN STYLE */
+.page-pelayanan .container h2 {
+  font-size: 5em;
+}
+.page-pelayanan .text-center em {
+  font-size: 1.5em;
+}
+.page-pelayanan .text-center p {
+  font-size: 1.3em;
+  margin-top: -10px;
+}
+.page-pelayanan .container .divider-bar {
+  height: 5px;
+  width: 100%;
+  background-color: #fff;
+}
+
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
 /* BAPTISAN AIR */
 #baptisan {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/baptisan-air.jpg');
-  background-position: 50% 10%; /* 50% from the left, 75% from the top */
+  background-position: 50% 50%; /* 50% from the left, 75% from the top */
 }
 
-#baptisan-body .container h2 {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-#baptisan-body .text-center em {
-  font-size: 2em;
-}
-
-#baptisan-body .text-center p {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-top: -10px;
-}
-
-/* Accordion Header */
 #baptisan-body .accordion-button {
   background-color: #ffffff; /* Set background color to white */
   color: #000000; /* Set text color to black for contrast */
@@ -12418,12 +12423,10 @@ section.schead .section-heading {
   padding: 15px; /* Add some padding for better spacing */
   border-radius: 5px; /* Add slight rounding to corners */
 }
-
 #baptisan-body .accordion-button:not(.collapsed) {
   background-color: #e0e0e0; /* Slightly darker when active */
   color: #000000; /* Ensure the text color remains black */
 }
-
 #baptisan-body .accordion-button::after {
   filter: invert(1); /* Invert arrow color to black */
 }
@@ -12435,14 +12438,10 @@ section.schead .section-heading {
   font-size: 1rem; /* Standard font size for the content */
   line-height: 1.6; /* Increase line-height for readability */
 }
-
-/* Adjust the Accordion Item */
 #baptisan-body .accordion-item {
   border: none; /* Remove the default border */
   margin-bottom: 10px; /* Add space between items */
 }
-
-/* Adjust the Accordion Container */
 #baptisan-body .accordion {
   margin-top: 20px; /* Adjust the top margin */
 }
@@ -12454,26 +12453,6 @@ section.schead .section-heading {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
   background-position: 50% 50%; /* 50% from the left, 75% from the top */
-}
-
-#penyerahan-body .container h2 {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-#penyerahan-body .text-center em {
-  font-size: 2.5em;
-}
-
-#penyerahan-body .text-center p {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-top: -10px;
-}
-
-#penyerahan-body .container p {
-  font-size: 1.2em;
-  line-height: 1.6;
 }
 
 #penyerahan-body .img-fluid {
@@ -12488,37 +12467,30 @@ section.schead .section-heading {
   color: white;
   padding: 50px 0;
 }
-
 #janji-tuhan h2 {
   font-size: 3em;
   margin-bottom: 1em;
   color: white;
 }
-
 #janji-tuhan ul {
   font-size: 1.2em;
   line-height: 1.8;
   color: white;
 }
-
 #janji-tuhan ul li {
   margin-bottom: 10px;
 }
-
 #penyerahan-info {
   padding: 50px 0;
 }
-
 #penyerahan-info h2 {
   font-size: 2.5em;
   color: #dc3545;
 }
-
 #penyerahan-info p {
   font-size: 1.1em;
   color: #6c757d;
 }
-
 #penyerahan-info .btn {
   font-size: 1.2em;
   padding: 10px 20px;
@@ -12531,39 +12503,125 @@ section.schead .section-heading {
   animation: none !important;
   background-image: url('../assets/img/pelayanan/perjamuan-kudus.jpeg');
   background-position: 50% 50%; /* Adjusted for optimal image positioning */
+  background-size: cover;
 }
 
-#perjamuan-body .container h2 {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-#perjamuan-body .text-center em {
-  font-size: 2.5em;
-}
-
-#perjamuan-body .text-center p {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-top: -10px;
-}
-
-#perjamuan-body h2,
-#perjamuan-body h3,
-#perjamuan-body h4 {
+#perjamuan-body .sub-section h2,
+#perjamuan-body .sub-section h3,
+#perjamuan-body .sub-section h4 {
   text-align: center;
   margin-bottom: 1.5em;
 }
-
-#perjamuan-body p,
-#perjamuan-body ul {
+#perjamuan-body .sub-section p,
+#perjamuan-body .sub-section ul {
   font-size: 1.2em;
   line-height: 1.8;
 }
-
-#perjamuan-body ul li {
+#perjamuan-body .sub-section ul li {
   margin-bottom: 10px;
 }
+#perjamuan-body .sub-section h2 {
+  font-size: 3em; /* Customize this specifically for Perjamuan */
+}
+#perjamuan-body .sub-section p,
+#perjamuan-body .sub-section ul {
+  color: #f8f9fa; /* Ensure readability on a black background */
+}
+#perjamuan-body .sub-section .text-danger {
+  color: #dc3545 !important; /* Keep the red for danger class but allow overrides */
+}
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+/* SUNDAY SERVICE */
+#sunday {
+  animation: none !important;
+  background: url('../assets/img/pelayanan/sunday-service.JPG') center/cover no-repeat;
+  box-shadow: inset 0 100px 100px rgba(0, 0, 0, 0.7);
+}
+
+#sunday-body .sub-section {
+  margin: 8em 0;
+}
+#sunday-body .sub-section h4 {
+  font-size: 2em;
+}
+#sunday-body .sub-section .divider {
+  width: 100%;
+  border-top: 2px solid white;
+}
+#sunday-body .sub-section .divider-vertical {
+  border-left: 2px solid white;
+  height: 80px;
+  margin: 0 15px;
+}
+#sunday-body .empty-box img {
+  object-fit: contain;
+}
+
+/* New Section Styling */
+.location-section {
+  margin-top: 5em;
+}
+.location-section h2 {
+  font-size: 3em !important;
+}
+
+/* Location box hover effect */
+.location-box {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  position: relative;
+  margin: 0; /* Ensures no extra margin */
+}
+.location-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.location-box {
+  cursor: pointer;
+}
+.location-box:hover {
+  transform: scale(1.2);
+}
+.location-box:not(:hover) {
+  transform: scale(0.9);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .location-box {
+    height: 250px;
+  }
+
+  .location-box:hover {
+    transform: scale(1.1);
+  }
+
+  .location-box:not(:hover) {
+    transform: scale(0.9);
+  }
+}
+@media (max-width: 576px) {
+  .location-box {
+    height: 200px;
+  }
+
+  .location-box:hover {
+    transform: scale(1.05);
+  }
+}
+
+
 
 
 

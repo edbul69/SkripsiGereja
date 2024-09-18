@@ -5,33 +5,65 @@
 <header class="masthead" id="sunday">
     <div class="container">
         <div class="masthead-subheading">
-            <p>Sunday<br>Service</p>
         </div>
     </div>
 </header>
 
-<section class="container-fluid p-0">
-    <div class="row g-0">
-        <!-- Full-Width Section Above -->
-        <div class="col-12 bg-black py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h2 class="fw-bold text-white">Millenial Of Christ</h2>
-                        <div class="d-flex justify-content-center align-items-center mt-3">
-                            <div style="background-color: #fff; height: 4px; width: 100px;"></div>
-                            <div style="background-color: #9caea9; height: 4px; width: 400px;"></div>
-                        </div>
-                        <p class="mt-3 text-light">CONNECTING OUR PRESENT TO OUR FUTURE</p>
+<section class="page-section bg-black page-pelayanan" id="sunday-body">
+    <div class="container py-5">
+        <h2 class="fw-bold text-white text-center mb-3">Sunday Service</h2>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="divider-bar"></div>
+        </div>
+        <div class="text-center text-white my-3">
+            <em>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
+            <p class="mt-1"><strong>Yohanes 5:24</strong></p>
+        </div>
+
+        <!-- Sub-section with vertical alignment -->
+        <div class="row text-white align-items-center sub-section">
+            <div class="col-md-6 text-center my-5">
+                <h4 class="fw-bold">SETIAP HARI MINGGU</h4>
+                <hr class="divider my-3 mx-auto">
+                <div class="d-flex justify-content-around align-items-center mt-4">
+                    <div>
+                        <p>PAGI</p>
+                        <p>7.00 - 9.00</p>
+                    </div>
+                    <div class="divider-vertical"></div>
+                    <div>
+                        <p>SORE</p>
+                        <p>7.00 - 9.00</p>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-md-8 offset-md-2 text-center">
-                        <p class="text-muted">
-                            THE CHURCH EXISTS AS A BEAUTIFUL EXPRESSION OF GOD’S DESIRE; A NEW HUMANITY UNITED UNDER CHRIST COMMISSIONED TO ADVANCE THE KINGDOM OF GOD ACROSS THE WORLD. AT CELEBRATION CHURCH, WE STRIVE TO PARTICIPATE IN THIS MISSION WITH EXCELLENCE, JOY, AND BOLDNESS. IT IS WITH THIS HEART THAT WE STEP INTO A NEW, SPIRIT-BREATHED STRATEGIC INITIATIVE TO FULFILL THIS MISSION: <strong>"THE BRIDGE."</strong>
-                        </p>
-                    </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center">
+                <figure class="empty-box bg-light rounded mx-auto">
+                    <img src="Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid" alt="Service Image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- New Section with Two Boxes and Clickable Effect -->
+        <div class="location-section text-white text-center">
+            <h2 class="fw-bold mb-3">LOKASI</h2>
+            <div class="row justify-content-center align-items-center g-0"> <!-- Added g-0 to remove gutter -->
+                <div class="col-md-6">
+                    <figure class="location-box bg-secondary mx-auto box" id="box1"> <!-- Removed mb-3 -->
+                        <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid" alt="Location Image">
+                    </figure>
                 </div>
+                <div class="col-md-6">
+                    <figure class="location-box bg-secondary mx-auto box" id="box2"> <!-- Removed mb-3 -->
+                        <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid" alt="Location Image">
+                    </figure>
+                </div>
+            </div>
+            <div class="my-4">
+                <a href="#footer" class="text-white">
+                    <h4 class="fw-bold">LIHAT DI PETA</h4>
+                    <p>&#x2193;</p>
+                </a>
             </div>
         </div>
     </div>

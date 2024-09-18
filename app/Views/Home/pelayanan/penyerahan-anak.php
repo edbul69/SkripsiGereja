@@ -9,14 +9,17 @@
     </div>
 </header>
 
-<section class="page-section bg-black" id="penyerahan-body">
+<section class="page-section bg-black page-pelayanan" id="penyerahan-body">
     <div class="container py-5">
-        <h2 class="text-center text-white mb-4">Penyerahan Anak</h2>
-        <div class="text-center text-white mb-5">
-            <em>“Biarkan anak-anak itu datang kepada-Ku, jangan menghalang-halangi mereka, sebab orang-orang yang seperti itulah yang empunya Kerajaan Allah”</em>
-            <p class="mt-3"><strong>Markus 10:14</strong></p>
+        <h2 class="fw-bold text-white text-center mb-3">Penyerahan Anak</h2>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="divider-bar"></div>
         </div>
-        <div class="row align-items-center">
+        <div class="text-center text-white my-3">
+            <em>““Biarkan anak-anak itu datang kepada-Ku, jangan menghalang-halangi mereka, sebab orang-orang yang seperti itulah yang empunya Kerajaan Allah”</em>
+            <p class="mt-1"><strong>Markus 10:14</strong></p>
+        </div>
+        <div class="row align-items-center my-5">
             <div class="col-md-8">
                 <p class="text-start text-white mb-4">
                     Kita percaya bahwa anak-anak adalah karunia dari Tuhan. Ketika kita mendeklarasikan anak-anak kita kepada Tuhan, kita sedang mendeklarasikan iman, komitmen, dan menunjukkan suatu contoh kepada orang banyak bagaimana kita mengikut Tuhan Yesus.

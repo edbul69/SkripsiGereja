@@ -109,7 +109,7 @@
         </div>
     </section>
     <!-- Footer-->
-    <footer class="footer py-4 bg-dark text-white">
+    <footer class="footer py-4 bg-dark text-white" id="footer">
         <div class="container">
             <div class="row align-items-center text-white">
                 <div class="col-lg-4 text-lg-start"></div>
