@@ -21,8 +21,7 @@ Halaman Pelayanan :
 - Baptisan Air - On Progressions
 - Penyerahan Anak - On Progressions
 - Perjamuan Kudus - On Progressions
-- Sunday Service - Lanjutin Di Mes
-- Doa Bersama
+- Sunday Service - Rapih, tinggal taruh gambar dan terapkan di page yang lain
 - Ibadah Rayon
 - MOC - Revisi
 - ABA

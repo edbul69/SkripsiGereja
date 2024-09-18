@@ -12542,31 +12542,35 @@ section.schead .section-heading {
 #sunday-body .sub-section {
   margin: 8em 0;
 }
+
 #sunday-body .sub-section h4 {
   font-size: 2em;
 }
+
 #sunday-body .sub-section .divider {
   width: 100%;
   border-top: 2px solid white;
 }
+
 #sunday-body .sub-section .divider-vertical {
   border-left: 2px solid white;
   height: 80px;
   margin: 0 15px;
 }
+
 #sunday-body .empty-box img {
   object-fit: contain;
 }
 
-/* New Section Styling */
-.location-section {
+/* LOCATION SECTION */
+#location-section {
   margin-top: 5em;
 }
-.location-section h2 {
+
+#location-section h2 {
   font-size: 3em !important;
 }
 
-/* Location box hover effect */
 .location-box {
   width: 100%;
   max-width: 600px;
@@ -12581,29 +12585,76 @@ section.schead .section-heading {
   position: relative;
   margin: 0; /* Ensures no extra margin */
 }
+
 .location-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-.location-box {
-  cursor: pointer;
-}
+
 .location-box:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
+
 .location-box:not(:hover) {
   transform: scale(0.9);
 }
 
+#location-section a:hover {
+  text-decoration: none;
+} 
+
+
+/* LIVESTREAM SECTION */
+#livestream-section {
+  margin-top: 5em;
+}
+
+#livestream-section h2 {
+  font-size: 3em !important;
+}
+
+#livestream-section iframe {
+  border-radius: 10px; /* Rounded corners for the video */
+}
+
+#livestream-section .btn {
+  margin-top: 2em;
+  transition: all 0.3s ease;
+}
+
+#livestream-section .btn:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+
+/* FULL-WIDTH IMAGE SECTION */
+#full-image-section .image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#full-image-section .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .location-box {
+  #location-section .location-box,
+  #livestream-section iframe {
     height: 250px;
   }
 
-  .location-box:hover {
+  .location-box:hover,
+  #livestream-section iframe:hover {
     transform: scale(1.1);
   }
 
@@ -12611,16 +12662,18 @@ section.schead .section-heading {
     transform: scale(0.9);
   }
 }
+
 @media (max-width: 576px) {
-  .location-box {
+  #location-section .location-box,
+  #livestream-section iframe {
     height: 200px;
   }
 
-  .location-box:hover {
+  .location-box:hover,
+  #livestream-section iframe:hover {
     transform: scale(1.05);
   }
 }
-
 
 
 

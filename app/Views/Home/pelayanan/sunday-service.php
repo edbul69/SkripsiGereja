@@ -2,14 +2,16 @@
 
 <?= $this->section('content'); ?>
 
+
+<!-- Masthead Section -->
 <header class="masthead" id="sunday">
     <div class="container">
-        <div class="masthead-subheading">
-        </div>
+        <div class="masthead-subheading"></div>
     </div>
 </header>
 
-<section class="page-section bg-black page-pelayanan" id="sunday-body">
+<!-- Sunday Service Section -->
+<section class="page-section bg-black page-pelayanan my-0 pb-0" id="sunday-body">
     <div class="container py-5">
         <h2 class="fw-bold text-white text-center mb-3">Sunday Service</h2>
         <div class="d-flex justify-content-center align-items-center mt-3">
@@ -43,29 +45,54 @@
                 </figure>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- New Section with Two Boxes and Clickable Effect -->
-        <div class="location-section text-white text-center">
-            <h2 class="fw-bold mb-3">LOKASI</h2>
-            <div class="row justify-content-center align-items-center g-0"> <!-- Added g-0 to remove gutter -->
-                <div class="col-md-6">
-                    <figure class="location-box bg-secondary mx-auto box" id="box1"> <!-- Removed mb-3 -->
-                        <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid" alt="Location Image">
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <figure class="location-box bg-secondary mx-auto box" id="box2"> <!-- Removed mb-3 -->
-                        <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid" alt="Location Image">
-                    </figure>
-                </div>
+<!-- Location Section -->
+<section class="location-section bg-black text-white text-center my-0 py-0" id="location-section">
+    <div class="container py-5">
+        <h2 class="fw-bold">LOKASI</h2>
+        <div class="row justify-content-center align-items-center g-0 my-5">
+            <div class="col-md-6">
+                <figure class="location-box bg-secondary mx-auto box" id="box1">
+                    <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid" alt="Location Image">
+                </figure>
             </div>
-            <div class="my-4">
-                <a href="#footer" class="text-white">
-                    <h4 class="fw-bold">LIHAT DI PETA</h4>
-                    <p>&#x2193;</p>
-                </a>
+            <div class="col-md-6">
+                <figure class="location-box bg-secondary mx-auto box" id="box2">
+                    <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid" alt="Location Image">
+                </figure>
             </div>
         </div>
+        <div class="mb-4">
+            <a href="#footer" class="text-white">
+                <h4 class="fw-bold">LIHAT DI PETA</h4>
+                <p>&#x2193;</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Livestream Section -->
+<section class="livestream-section bg-black text-white text-center my-0 py-0" id="livestream-section">
+    <div class="container py-5">
+        <h2 class="fw-bold mb-5">LIVESTREAM</h2>
+        <div class="row justify-content-center align-items-center g-5">
+            <div class="col-md-7 text-center">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ByJCiCspAHY?si=Wd1qjJeROqK84QGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-5 text-center">
+                <p class="text-white">Temukan kami di YouTube untuk live ibadah GPDI Bahu</p>
+                <a href="https://www.youtube.com/@gpdibahuofficial3099" class="btn btn-outline-light btn-lg px-5 py-2 rounded-pill">Go to YouTube</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Full Width Image Section -->
+<section class="bg-black" id="full-image-section">
+    <div class="image-container">
+        <img src="Public/assets/img/pelayanan/sunday-service.JPG" alt="Full width image">
     </div>
 </section>
 
