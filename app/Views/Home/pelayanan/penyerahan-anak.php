@@ -9,8 +9,8 @@
     </div>
 </header>
 
-<section class="page-section bg-black page-pelayanan" id="penyerahan-body">
-    <div class="container py-5">
+<section class="page-section bg-black page-pelayanan pb-1" id="penyerahan-body">
+    <div class="container">
         <h2 class="fw-bold text-white text-center mb-3">Penyerahan Anak</h2>
         <div class="d-flex justify-content-center align-items-center mt-3">
             <div class="divider-bar"></div>
@@ -19,6 +19,11 @@
             <em>““Biarkan anak-anak itu datang kepada-Ku, jangan menghalang-halangi mereka, sebab orang-orang yang seperti itulah yang empunya Kerajaan Allah”</em>
             <p class="mt-1"><strong>Markus 10:14</strong></p>
         </div>
+    </div>
+</section>
+
+<section class="page-section bg-black py-1" id="penyerahan-history">
+    <div class="container">
         <div class="row align-items-center my-5">
             <div class="col-md-8">
                 <p class="text-start text-white mb-4">
@@ -44,7 +49,11 @@
 <section class="page-section bg-light text-dark text-center" id="janji-tuhan">
     <div class="container py-5">
         <div class="row">
-            <div class="col-md-8 text-start">
+            <!-- Move the heading first in the column structure -->
+            <div class="col-md-4 text-start order-md-2">
+                <h2>Janji-janji Tuhan</h2>
+            </div>
+            <div class="col-md-8 text-start order-md-1 text-white">
                 <ul class="list-unstyled">
                     <li>➤ Berkat dan perlindungan Tuhan (Malaikat Tuhan) untuk anak-anak. (Matius 18:10)</li>
                     <li>➤ Anak-anak orang percaya memiliki kuasa untuk mengalahkan musuh-musuh mereka di dalam nama Yesus. (Mazmur 8:3 & Mazmur 139:16)</li>
@@ -52,9 +61,6 @@
                     <li>➤ Siapa saja yang menyambut/mengasihi anak-anak kecil dalam nama Yesus, dia menyambut Tuhan Yesus sendiri. (Matius 18:5)</li>
                     <li>➤ Siapa saja yang menyesatkan anak-anak yang percaya kepada Tuhan Yesus akan dihukum. (Matius 18:6)</li>
                 </ul>
-            </div>
-            <div class="col-md-4 text-end">
-                <h2>Janji-janji Tuhan</h2>
             </div>
         </div>
     </div>

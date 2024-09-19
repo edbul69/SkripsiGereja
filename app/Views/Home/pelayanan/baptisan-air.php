@@ -2,21 +2,28 @@
 
 <?= $this->section('content'); ?>
 
+<!-- Masthead Section -->
 <header class="masthead" id="baptisan">
 </header>
 
+<!-- Baptism Body Section -->
 <section class="page-section bg-black page-pelayanan" id="baptisan-body">
-    <div class="container py-5 mb-5">
+    <div class="container">
         <h2 class="fw-bold text-white text-center mb-3">Baptis | Hidup Baru</h2>
         <div class="d-flex justify-content-center align-items-center mt-3">
             <div class="divider-bar"></div>
         </div>
         <div class="text-center text-white my-3">
-            <em>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
-            <p class="mt-1"><strong>Yohanes 5:24</strong></p>
+            <em class="fs-5">“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
+            <p class="mt-2"><strong>Yohanes 5:24</strong></p>
         </div>
-        <!-- Accordion -->
-        <div class="accordion my-5" id="baptismAccordion">
+    </div>
+</section>
+
+<!-- Baptism History Accordion Section -->
+<section class="page-section bg-black" id="baptism-history">
+    <div class="container">
+        <div class="accordion" id="baptismAccordion">
             <div class="accordion-item bg-dark text-white">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -91,31 +98,27 @@
             </div>
         </div>
     </div>
+</section>
 
-    <div class="row g-0 mt-5">
-        <!-- Left Section with Text -->
+<!-- Contact Section -->
+<section class="page-section bg-black" id="baptism-contact">
+    <div class="row g-0">
         <div class="col-md-6 bg-dark text-light p-5">
-            <p>God has supplied Celebration Church with a beautiful set of 8 grace statements, serving as specific expressions of the mission of the church unique to our family...</p>
-            <p>With our 8 grace statements, we are more than a congregation; we are the 8th bridge of unity and transformation in the name of Jesus...</p>
             <p>Guided by Christ’s words, we embrace the kingdom’s core values...</p>
-            <p>In the midst of our endeavor, we remember “for where your treasure is, there your heart will be also”...</p>
+            <p>Remember: "For where your treasure is, there your heart will be also..."</p>
         </div>
-
-        <!-- Right Section with Image and Signature -->
-        <div class="col-md-6 p-5 bg-white">
-            <div class="text-dark">
-                <h3 class="fw-bold">the bridge connects...</h3>
-                <p class="display-4 fw-bold text-dark">OUR PRESENT TO OUR FUTURE.</p>
-                <p class="h4">where we are to where we’re going.</p>
-                <p class="display-5 fw-bold text-dark">HEAVEN & EARTH.</p>
-                <p class="h4">kingdom & culture.</p>
-                <p class="display-5 fw-bold text-warning">THE NOW & THE NOT YET.</p>
-            </div>
+        <div class="col-md-6 p-5 bg-white text-dark">
+            <h3 class="fw-bold">The bridge connects...</h3>
+            <p class="display-4 fw-bold text-dark">OUR PRESENT TO OUR FUTURE.</p>
+            <p class="h4">Heaven and earth, kingdom & culture.</p>
+            <p class="display-5 fw-bold text-warning">THE NOW & THE NOT YET.</p>
         </div>
     </div>
+</section>
 
-    <!-- New Section for Baptism Information with WhatsApp Button -->
-    <div class="container text-center text-white mt-5">
+<!-- Baptism Info Section -->
+<section class="page-section bg-black" id="baptism-info">
+    <div class="container text-center text-white">
         <h3 class="mt-5">Ingin Dibaptis?</h3>
         <p class="mb-5">Jika anda merasa terpanggil untuk dibaptis, jangan sungkan untuk menghubungi kami melalui kotak di bawah ini.</p>
         <a href="https://wa.me/yourwhatsapplink" class="btn btn-success" target="_blank">Chat di WhatsApp</a>
