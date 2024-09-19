@@ -22,7 +22,7 @@ Halaman Pelayanan :
 - Penyerahan Anak - On Progressions
 - Perjamuan Kudus - On Progressions
 - Sunday Service - Rapih, tinggal taruh gambar dan terapkan di page yang lain
-- Ibadah Rayon - DONE, tinggal ganti gambar
+- Ibadah Rayon - Edit Mobile Page
 - MOC - Revisi
 - ABA
 - Sekolah Minggu
