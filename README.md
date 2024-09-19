@@ -40,3 +40,5 @@ CATATAN:
 Sudah ditambahkan style khusus untuk page pelayanan, mungkin kedepannya masih bisa ditambahkan sebagai temanya
 
 Status On Progressions berarti sudah dibuatnya temanya walaupun belum fix tapi sudah ada strukturnya
+
+hati-hati kalau mau pull atau push
