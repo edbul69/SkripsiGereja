@@ -58,7 +58,7 @@
             </div>
             <!-- Text -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center text-container">
-                <p class="text-white fw-bold animated-text animated-right">Rayon 3</p>
+                <p class="text-white fw-bold animated-text animated-right">Rayon Karmel</p>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
         <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon4">
             <!-- Text - Order 2 on larger screens, Order 1 on small -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center order-md-1 order-2 text-container">
-                <p class="text-white fw-bold animated-text animated-left">Rayon 4</p>
+                <p class="text-white fw-bold animated-text animated-left">Rayon Sion</p>
             </div>
             <!-- Image/Placeholder - Order 1 on larger screens, Order 2 on small -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder order-md-2 order-1 p-0">
@@ -76,38 +76,40 @@
 
         <!-- Rayon 5 -->
         <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon5">
-            <!-- Left Text (Rotated) -->
+            <!-- Left Text (Rotated for larger screens, normal for smaller screens) -->
             <div class="col-md-2 col-12 d-flex align-items-center justify-content-center text-container">
-                <p class="text-white fw-bold animated-text animated-right" style="transform:rotate(270deg);">Rayon</p>
+                <p class="text-white fw-bold animated-text animated-right text-left-rotate">Rayon</p>
             </div>
             <!-- Image/Placeholder in the Center -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
                 <img src="Public/assets/img/news/News5.JPG" alt="Image Placeholder" class="img-fluid">
             </div>
-            <!-- Right Text (Rotated) -->
+            <!-- Right Text (Rotated for larger screens, normal for smaller screens) -->
             <div class="col-md-2 col-12 d-flex align-items-center justify-content-center text-container">
-                <p class="text-white fw-bold animated-text animated-left" style="transform:rotate(90deg);">Hermon</p>
+                <p class="text-white fw-bold animated-text animated-left text-right-rotate">Moria</p>
             </div>
         </div>
     </div>
 
     <!-- New Paragraph for Description -->
-    <div class="col-8 mx-auto mt-5 px-5 text-white">
-        <p class="fs-5 description-tex">
-            RAYON MEMBAGI JEMAAT MENJADI BEBERAPA KELOMPOK GUNA UNTUK MEMETAKAN LOKASI PERIBADATAN JEMAAT DARI RUMAH KE RUMAH SETIAP MINGGUNYA BERDASARKAN TEMPAT TINGGALNYA
-        </p>
-    </div>
-
-    <div class="col-6 mx-auto text-white mt-5 p-5">
-        <p class="fw-light fs-4 fst-italic opacity-50">
-            Apakah Kita Bisa Bergabung Untuk Mengikuti Ibadah Rayon?
-        </p>
-        <p class="fw-bold">
-            TENTU SAJA!
-        </p>
-        <p class="fs-4">
-            Siapa Pun Bisa Bergabung Ke Dalam Keluarga GPDI Bahu Dan Menjadi Bagian Dalam Salah Satu Rayon.
-        </p>
+    <div class="container-fluid d-flex justify-content-center align-items-center flex-column text-white">
+        <div class="col-md-8 col-12 m-0 px-0" id="rayon-desc">
+            <p class="fs-5 description-text text-center">
+                RAYON MEMBAGI JEMAAT MENJADI BEBERAPA KELOMPOK GUNA UNTUK MEMETAKAN LOKASI PERIBADATAN JEMAAT DARI RUMAH KE RUMAH SETIAP MINGGUNYA BERDASARKAN TEMPAT TINGGALNYA
+            </p>
+        </div>
+        <div class="divider-bar mb-4" style="width: 50%;"></div>
+        <div class="col-md-6 col-12 text-white mt-5 p-0 d-flex flex-column justify-content-center align-items-center" id="ibadah-footer">
+            <p class="fw-light fs-4 fst-italic opacity-50 text-center">
+                Apakah Kita Bisa Bergabung Untuk Mengikuti Ibadah Rayon?
+            </p>
+            <p class="fw-bold text-center">
+                TENTU SAJA!
+            </p>
+            <p class="fs-4 text-center">
+                Siapa Pun Bisa Bergabung Ke Dalam Keluarga GPDI Bahu Dan Menjadi Bagian Dalam Salah Satu Rayon.
+            </p>
+        </div>
     </div>
 </section>
 

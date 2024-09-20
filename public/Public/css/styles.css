@@ -12381,29 +12381,29 @@ section.schead .section-heading {
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* PELAYANAN - MAIN STYLE */
-.page-pelayanan .container h2 {
+.page-pelayanan h2 {
   font-size: 5em;
 }
-.page-pelayanan .text-center em {
+.page-pelayanan em {
   font-size: 1.5em;
 }
-.page-pelayanan .text-center p {
+.page-pelayanan p {
   font-size: 1.3em;
   margin-top: -10px;
 }
-.page-pelayanan .container .divider-bar {
+.page-pelayanan .divider-bar {
   height: 5px;
   width: 100%;
   background-color: #fff;
 }
 @media (max-width: 430px) {
-  .page-pelayanan .container h2 {
+  .page-pelayanan h2 {
     font-size: 3em;
   }
-  .page-pelayanan .text-center em {
+  .page-pelayanan em {
     font-size: 1em;
   }
-  .page-pelayanan .text-center p {
+  .page-pelayanan p {
     font-size: 1.2em;
   }
 }
@@ -12414,14 +12414,8 @@ section.schead .section-heading {
 /* Masthead Section */
 #baptisan {
   background-image: url('../assets/img/pelayanan/baptisan-air.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
+  animation: none !important;
+  background-position: 50% 20%;
 }
 
 /* General Styling */
@@ -12484,15 +12478,8 @@ section.schead .section-heading {
 /* PENYERAHAN ANAK */
 #penyerahan {
   background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
   animation: none !important;
-  text-align: center;
+  background-position: 50% 50%;
 }
 
 /* General Styling */
@@ -12642,26 +12629,8 @@ section.schead .section-heading {
 /* PERJAMUAN KUDUS */
 #perjamuan {
   background-image: url('../assets/img/pelayanan/perjamuan-kudus.jpeg');
-  background-position: center;
-  background-size: cover;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  position: relative;
-}
-
-#perjamuan::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
-  z-index: 1;
+  animation: none !important;
+  background-position: 50% 50%;
 }
 
 .masthead-subheading {
@@ -12703,10 +12672,6 @@ section.schead .section-heading {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-  #perjamuan {
-    height: 50vh;
-  }
-
   .masthead-subheading h1 {
     font-size: 2rem;
   }
@@ -12723,6 +12688,7 @@ section.schead .section-heading {
   animation: none !important;
   background: url('../assets/img/pelayanan/sunday-service.JPG') center/cover no-repeat;
   box-shadow: inset 0 100px 100px rgba(0, 0, 0, 0.7);
+  background-position: 50% 55%;
 }
 
 #sunday-body .sub-section {
@@ -12865,10 +12831,9 @@ section.schead .section-heading {
 
 /* DOA */
 #doa {
-  height: 60vh;
   animation: none !important;
   background: url('../assets/img/pelayanan/doa-bersama.JPG') center/cover no-repeat;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+  background-position: 50% 45%;
 }
 
 /* General container adjustments */
@@ -12915,34 +12880,25 @@ section.schead .section-heading {
 
 /* IBADAH RAYON */
 #ibadah {
-  height: 60vh;
   animation: none !important;
   background: url('../assets/img/pelayanan/ibadah-rayon.JPG') center/cover no-repeat;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+  background-position: 50% 35%;
 }
 
 #rayon p {
-  font-size: 3em;
+  font-size: 2em;
 }
 
-/* Styling for the image container */
-.rayon-placeholder {
-  width: 100%;  /* Ensure the placeholder takes full width */
-  height: 400px;  /* Set a fixed height for the placeholder */
-  overflow: hidden;  /* Hide overflow */
-  position: relative; /* For positioning */
-}
-
-/* Styling for the image container */
-.rayon-placeholder {
+/* Image container for all screens */
+#rayon .rayon-placeholder {
   width: 100%;
-  height: 400px;
+  height: 400px; /* Fixed height for large screens */
   overflow: hidden;
   position: relative;
 }
 
-/* Make the image take full width and height */
-.rayon-placeholder img {
+/* Image styling */
+#rayon .rayon-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -12950,42 +12906,49 @@ section.schead .section-heading {
 }
 
 /* Text container */
-.text-container {
+#rayon .text-container {
   position: relative;
   overflow: hidden;
 }
 
-/* Initial state for the text, hidden off the left or right */
-.animated-text {
+/* Initial hidden state for the text */
+#rayon .animated-text {
   position: relative;
   opacity: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Rayon 1 and Left Text in Rayon 5 */
-.animated-right {
+/* Animations for text */
+#rayon .animated-right {
   transform: translateX(-100%);
 }
 
-/* Rayon 2 and Right Text in Rayon 5 */
-.animated-left {
+#rayon .animated-left {
   transform: translateX(100%);
 }
 
-/* When hovering on the parent container, move the text into view */
-.rayon-item:hover .animated-right {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.rayon-item:hover .animated-left {
+/* Hover effect on the parent container */
+#rayon .rayon-item:hover .animated-right,
+#rayon .rayon-item:hover .animated-left {
   transform: translateX(0);
   opacity: 1;
 }
 
 /* Image hover effect */
-.rayon-placeholder:hover img {
+#rayon .rayon-placeholder:hover img {
   transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .text-right-rotate {
+    transform: rotate(90deg) !important;
+  }
+  .text-left-rotate {
+    transform: rotate(-90deg) !important;
+  }
+  #rayon p {
+    font-size: 3em;
+  }
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */
@@ -12993,12 +12956,31 @@ section.schead .section-heading {
 /* MOC */
 #moc {
   animation: none !important;
-  background-image: url('../assets/img/pelayanan/moc.jpg');
+  height: 80vh;
 }
-#moc .masthead-subheading {
-  font-size: 10em;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
+
+#moc .right-box {
+  background-image: url(../assets/img/pelayanan/moc.JPG);
+  background-size: cover;
+  background-position: 100% 50%;
+}
+
+#moc .right-box p {
+  left: 0;
+}
+
+#moc .left-box {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2em;
+  font-weight: lighter;
+}
+
+#mocCarousel .carousel-item {
+  height: 50em;
+}
+
+#mocCarousel img {
+  transform: translateY(-10%);
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */

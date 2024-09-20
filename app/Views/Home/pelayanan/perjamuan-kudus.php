@@ -4,10 +4,6 @@
 
 <header class="masthead" id="perjamuan">
     <div class="container">
-        <div class="masthead-subheading text-center text-white">
-            <h1 class="display-4">Perjamuan Kudus</h1>
-            <p class="lead">Sakramen yang Mengingatkan Pengorbanan Tuhan Yesus</p>
-        </div>
     </div>
 </header>
 

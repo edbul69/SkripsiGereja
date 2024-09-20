@@ -56,7 +56,7 @@
         <div class="container hidden">
             <div class="row">
                 <!-- Content Section (Right) -->
-                <div class="col-md-4 content">
+                <div class="col-md-4 content my-3">
                     <div>
                         <h2>GPDI<br>BAHU</h2>
                     </div>
@@ -75,7 +75,7 @@
                 </div>
 
                 <!-- Map and Cards Section (Left) -->
-                <div class="col-md-8">
+                <div class="col-md-8 my-3">
                     <!-- Map Embed -->
                     <div class="map-container mb-3">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d513.1769336409643!2d124.82452232533353!3d1.460395973020168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328774f154e294d5%3A0xb4b7a5f06f7d4815!2sGPdI%20Bahu!5e0!3m2!1sid!2skh!4v1726314833638!5m2!1sid!2skh"

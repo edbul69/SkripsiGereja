@@ -22,8 +22,8 @@ Halaman Pelayanan :
 - Penyerahan Anak - On Progressions
 - Perjamuan Kudus - On Progressions
 - Sunday Service - Rapih, tinggal taruh gambar dan terapkan di page yang lain
-- Ibadah Rayon - Edit Mobile Page
-- MOC - Revisi
+- Ibadah Rayon - Done, tinggal konten di dalam
+- MOC - ON PROGRESS, butuh banyak data dari enci, on progress editing section perkenalan Rebana, Banners, etc... Temanya 2 box yang sebelah kiri isinya foto yang jika di klik akan membesar, kanan berisikan deskripsinya
 - ABA
 - Sekolah Minggu
 
