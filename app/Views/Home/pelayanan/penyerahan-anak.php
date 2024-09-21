@@ -72,7 +72,7 @@
         <p class="text-muted mb-4">
             Sebelum mengikuti acara penyerahan anak, orang tua perlu untuk mengikuti sesi konseling untuk mengetahui arti dari penyerahan anak. Bacaan Alkitab terbaik untuk diskusi adalah dari Ulangan 6:4-7. Pertama-tama, Firman Tuhan memerintahkan orang-orang tua untuk mengasihi Tuhan; jika mereka sungguh-sungguh mau agar anaknya suatu hari nanti untuk mengasihi dan mengikuti Tuhan, maka kehidupan mereka haruslah menjadi suatu contoh. Ini adalah saat terbaik untuk menanyakan orang-orang tua mengenai hubungan pribadi mereka dengan Tuhan Yesus. Kami menyediakan berbagai kesempatan bagi anda untuk mendedikasikan anak anda pada waktu-waktu ibadah raya yang telah ditentukan. Silahkan mendaftar dengan mengirimkan formulir dibawah ini ke sekretariat gereja paling lambat 1 (satu) minggu sebelum acara penyerahan anak.
         </p>
-        <a href="#" class="btn btn-danger">Formulir Penyerahan Anak</a>
+        <a href="#" class="btn btn-danger">Kontak Penyerahan Anak</a>
         <p class="text-muted mt-3">
             <small>*Waktu konseling penyerahan anak akan ditentukan kemudian oleh kantor sekretariat gereja.</small>
         </p>

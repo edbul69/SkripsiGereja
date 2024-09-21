@@ -491,3 +491,73 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Define descriptions for each frame
+    const descriptions = {
+        frame1: `
+            <h1 class="description-title">REBANA</h1>
+            <p class="description-intro">Traditional tambourine-like instrument, often used in worship music. It adds rhythmic depth to the melodies played in church.</p>
+            <p class="description-intro">It has been used for generations to enhance the musical experience during services.</p>
+        `,
+        frame2: `
+            <h1 class="description-title">BANNERS</h1>
+            <p class="description-intro">Symbolize God's promises and the victory of Christ. They are often raised during worship to signify His presence among us.</p>
+            <p class="description-intro">Each color and design tells a story of faith and devotion.</p>
+        `,
+        frame3: `
+            <h1 class="description-title">MUSIK</h1>
+            <p class="description-intro">Powerful role in worship, helping to unite hearts and minds in praise. It bridges the gap between the spiritual and the physical world.</p>
+            <p class="description-intro">From traditional hymns to modern worship songs, music has the power to transform lives.</p>
+        `,
+        frame4: `
+            <h1 class="description-title">SINGERS</h1>
+            <p class="description-intro">Voice of the congregation, leading the church in praise and worship. Their voices help guide the hearts of believers toward the divine.</p>
+            <p class="description-intro">They embody the beauty of worship through song.</p>
+        `,
+        frame5: `
+            <h1 class="description-title">CHOIRS</h1>
+            <p class="description-intro">Uplift the spirit and inspire deep connection to faith through harmonious voices. Each member brings their own contribution to a collective, beautiful sound.</p>
+            <p class="description-intro">They are a vital part of the worship experience in church.</p>
+        `
+    };
+
+    // Select all the frames
+    const frames = document.querySelectorAll("#moc-train .frame");
+
+    // Add a click event listener to each frame
+    frames.forEach(frame => {
+        frame.addEventListener("click", function() {
+            // If the clicked frame already has the 'clicked' class, remove it (toggle back to original position)
+            if (this.classList.contains("clicked")) {
+                this.classList.remove("clicked");
+                this.querySelector('.caption').classList.remove("clicked"); // Reset caption size
+                document.getElementById("description-content").innerHTML = `
+                <h1 class="description-title">BIDANG PELAYANAN MOC</h1>
+                <p class="description-intro">MOC memiliki beberapa bidang pelayanan, antara lain:</p>
+                <ul class="description-list">
+                    <li>- Rebana</li>
+                    <li>- Banners</li>
+                    <li>- Music</li>
+                    <li>- Singers</li>
+                    <li>- Choirs</li>
+                </ul>
+            `;            
+            } else {
+                // Remove the "clicked" class from all frames and captions (so only one can be active at a time)
+                frames.forEach(f => {
+                    f.classList.remove("clicked");
+                    f.querySelector('.caption').classList.remove("clicked");
+                });
+
+                // Add the "clicked" class to the clicked frame (move to center)
+                this.classList.add("clicked");
+                this.querySelector('.caption').classList.add("clicked"); // Increase caption size
+
+                // Update the description box content
+                const frameId = this.id;
+                const descriptionContent = document.getElementById("description-content");
+                descriptionContent.innerHTML = descriptions[frameId] || "<p>Description not available.</p>";
+            }
+        });
+    });
+});

@@ -5,14 +5,14 @@
 <header class="masthead p-0" id="moc">
     <div class="col-12 p-0 m-0 h-100">
         <div class="row h-100 m-0">
-            <!-- Black column -->
-            <div class="left-box col-md-4 col-auto bg-black p-0 m-0 h-100 d-flex justify-content-center align-items-center">
+            <!-- Black column (left-box) -->
+            <div class="left-box col-md-4 d-none d-md-flex bg-black p-0 m-0 h-100 justify-content-center align-items-center">
                 <p class="text-white" style="rotate: 270deg;">
                     MILLENIAL OF CHRIST
                 </p>
             </div>
-            <!-- White column -->
-            <div class="right-box col-md-8 col-12 bg-dark p-1 m-0 h-100 d-flex justify-content-start align-items-end">
+            <!-- White column (right-box) -->
+            <div class="right-box col-12 col-md-8 bg-dark p-1 m-0 h-100 d-flex justify-content-start align-items-end">
                 <p class="text-white ml-5">// MOC - GPDI BAHU</p>
             </div>
         </div>
@@ -128,6 +128,111 @@
         <p class="text-muted mx-auto">
             KOMUNITAS MOC YANG TERDIRI DARI ANAK-ANAK MUDA TIDAK HANYA MENJADI SUATU ORGANISASI ATAUPUN TEMPAT BERKUMPUL DAN BERIBADAH, AKAN TETAPI KAMI PUN SANGAT TERBUKA BAGI SIAPAPUN YANG INGIN BELAJAR UNTUK MELAYANI TUHAN MULAI DARI PEMAIN MUSIK, SINGERS, REBANA, BANNERS, HINGGA CHOIRS BISA KALIAN PELAJARI BERSAMA DENGAN KAMI.
         </p>
+    </div>
+</section>
+
+<section class="page-section p-0" id="moc-train">
+    <div class="col-12 p-0 m-0 h-100">
+        <div class="row h-100 m-0">
+            <!-- Left Box (Gallery) -->
+            <div class="col-md-6 col-12 p-5">
+                <div class="gallery col-12 p-0 w-auto">
+                    <div class="frame" id="frame1">
+                        <div class="img-box">
+                            <img src="Public/assets/img/news/news1.JPG" alt="Image1">
+                        </div>
+                        <div class="caption">Rebana</div>
+                    </div>
+                    <div class="frame" id="frame2">
+                        <div class="img-box">
+                            <img src="Public/assets/img/news/news1.JPG" alt="Image2">
+                        </div>
+                        <div class="caption">Banners</div>
+                    </div>
+                    <div class="frame" id="frame3">
+                        <div class="img-box">
+                            <img src="Public/assets/img/news/news1.JPG" alt="Image3">
+                        </div>
+                        <div class="caption">Music</div>
+                    </div>
+                    <div class="frame" id="frame4">
+                        <div class="img-box">
+                            <img src="Public/assets/img/news/news1.JPG" alt="Image4">
+                        </div>
+                        <div class="caption">Singers</div>
+                    </div>
+                    <div class="frame" id="frame5">
+                        <div class="img-box">
+                            <img src="Public/assets/img/news/news1.JPG" alt="Image5">
+                        </div>
+                        <div class="caption">Choirs</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Box (Description) -->
+            <div class="description col-md-6 col-12 p-5">
+                <div class="col-12 p-5 w-100" id="description-content">
+                    <h1 class="description-title">BIDANG PELAYANAN MOC</h1>
+                    <p class="description-intro">MOC memiliki beberapa bidang pelayanan, antara lain:</p>
+                    <ul class="description-list">
+                        <li>- Rebana</li>
+                        <li>- Banners</li>
+                        <li>- Music</li>
+                        <li>- Singers</li>
+                        <li>- Choirs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section bg-light p-5" id="moc-testimonials">
+    <div class="container">
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
+                    <img src="path-to-image1.jpg" alt="Andre" class="testimonial-img mb-3 rounded-circle" style="width: 80px; height: 80px;">
+                    <p>
+                        "Bergabung dengan MOC adalah keputusan terbaik saya. Melalui komunitas ini, saya belajar banyak tentang melayani Tuhan dan bertumbuh dalam iman."
+                    </p>
+                    <p class="text-muted">- Andre, Anggota MOC</p>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
+                    <img src="path-to-image2.jpg" alt="Maria" class="testimonial-img mb-3 rounded-circle" style="width: 80px; height: 80px;">
+                    <p>
+                        "Di MOC, saya menemukan keluarga baru yang mendukung saya dalam kehidupan rohani. Saya belajar bermain musik untuk melayani di gereja."
+                    </p>
+                    <p class="text-muted">- Maria, Anggota MOC</p>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
+                    <img src="path-to-image3.jpg" alt="Budi" class="testimonial-img mb-3 rounded-circle" style="width: 80px; height: 80px;">
+                    <p>
+                        "MOC bukan hanya tentang musik, tapi tentang persaudaraan yang kuat dan belajar melayani dengan penuh semangat. Saya merasa diberkati menjadi bagian dari ini."
+                    </p>
+                    <p class="text-muted">- Budi, Anggota MOC</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section text-white p-5" id="moc-contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="fw-bold display-4 mb-4">MOC Celebration</h2>
+            <p class="lead mt-3 mb-5">Kami mengundang kamu untuk bergabung dalam acara <strong>MOC Celebration</strong> setiap hari Rabu, setiap minggu. Ini adalah kesempatan yang luar biasa untuk kita semua bersatu dan merayakan bersama!</p>
+            <p class="h5 mb-4">Tempat acara: <span class="text-warning">GPDI Bahu, Manado</span></p>
+            <a href="#footer" class="btn btn-warning btn-lg px-4 py-2 mt-3">Cek Lokasi</a>
+        </div>
     </div>
 </section>
 

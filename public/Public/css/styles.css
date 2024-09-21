@@ -12970,17 +12970,290 @@ section.schead .section-heading {
 }
 
 #moc .left-box {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 2em;
   font-weight: lighter;
 }
 
 #mocCarousel .carousel-item {
-  height: 50em;
+  height: 80vh; /* Full viewport height */
 }
 
 #mocCarousel img {
-  transform: translateY(-10%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distorting */
+}
+
+#moc-train {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+#moc-train .gallery {
+  height: 80vh;
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border: 1px solid #000;
+}
+
+#moc-train .frame {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  width: 350px;
+  transition: all 0.5s ease;
+}
+
+#frame1 {
+  top: -1%;
+  left: 1%;
+  transform: rotate(-10deg);
+}
+
+#frame2 {
+  top: 0;
+  left: 60%;
+  transform: rotate(25deg);
+}
+
+#frame3 {
+  left: 0;
+  top: 60%;
+  transform: rotate(15deg);
+}
+
+#frame4 {
+  left: 60%;
+  top: 60%;
+  transform: rotate(-30deg);
+}
+
+#frame5 {
+  top: 30%;
+  left: 30%;
+  transform: rotate(-3deg);
+}
+
+#moc-train .img-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#moc-train .caption {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #333;
+}
+
+#moc-train .frame.clicked {
+  transform: rotate(0) translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+#moc-train .caption.clicked {
+  font-size: 2rem;
+  transition: font-size 0.5s ease;
+}
+
+#description-content .description-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+#description-content .description-intro {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+#description-content .description-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+#description-content .description-list li {
+  padding: 5px 0;
+  font-weight: 500;
+}
+
+#moc-testimonials {
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#moc-testimonials .testimonial-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+#moc-testimonials .testimonial {
+  text-align: center;
+  align-items: center;
+}
+
+#moc-testimonials .testimonial p {
+  margin-bottom: 0.5rem;
+}
+
+#moc-contact {
+  background: linear-gradient(135deg, #343a40, #000000); /* Subtle gradient using dark tones */
+  padding: 5rem 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#moc-contact h2 {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+#moc-contact p.lead {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+}
+
+#moc-contact p.text-warning {
+  color: #f0ad4e; /* Adjusted for Bootstrap 5 warning color */
+  font-weight: bold;
+}
+
+#moc-contact .btn-warning {
+  background-color: #f0ad4e;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+#moc-contact .btn-warning:hover {
+  background-color: #f39c12;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+@media (max-width: 768px) {
+  #moc-train .frame {
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  #moc-train .frame.clicked {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #moc-train .caption {
+    font-size: 1.2rem;
+  }
+
+  #moc-train .caption.clicked {
+    font-size: 1.5rem;
+  }
+
+  #description-content .description-title {
+    font-size: 1.8rem;
+  }
+
+  #description-content .description-intro,
+  #description-content .description-list li {
+    font-size: 1rem;
+  }
+
+  #moc-train .description,
+  .gallery {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  #moc-train .frame {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  #moc-train .frame.clicked {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  #moc-train .caption {
+    font-size: 1.4rem;
+  }
+
+  #moc-train .caption.clicked {
+    font-size: 1.8rem;
+  }
+
+  #description-content .description-title {
+    font-size: 2rem;
+  }
+
+  #description-content .description-intro,
+  #description-content .description-list li {
+    font-size: 1.1rem;
+  }
+
+  #moc-train .description,
+  .gallery {
+    padding: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #moc-train .frame {
+    width: 350px;
+  }
+
+  #moc-train .frame.clicked {
+    width: 600px;
+  }
+
+  #moc-train .caption {
+    font-size: 1.5rem;
+  }
+
+  #moc-train .caption.clicked {
+    font-size: 2.5rem;
+  }
+
+  #description-content .description-title {
+    font-size: 2.5rem;
+  }
+
+  #description-content .description-intro,
+  #description-content .description-list li {
+    font-size: 1.3rem;
+  }
+
+  #moc-train .description,
+  .gallery {
+    padding: 60px;
+  }
+}
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+/* ABA */
+#aba {
+  animation: none !important;
+  background: url('../assets/img/pelayanan/ibadah-rayon.JPG') center/cover no-repeat;
+  background-position: 50% 35%;
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */

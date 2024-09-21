@@ -18,12 +18,13 @@ Inspirasi :
 
 Halaman Pelayanan :
 
-- Baptisan Air - On Progressions
-- Penyerahan Anak - On Progressions
-- Perjamuan Kudus - On Progressions
-- Sunday Service - Rapih, tinggal taruh gambar dan terapkan di page yang lain
-- Ibadah Rayon - Done, tinggal konten di dalam
-- MOC - ON PROGRESS, butuh banyak data dari enci, on progress editing section perkenalan Rebana, Banners, etc... Temanya 2 box yang sebelah kiri isinya foto yang jika di klik akan membesar, kanan berisikan deskripsinya
+- Baptisan Air - Done, tinggal gambar dan konten
+- Penyerahan Anak - Done, tinggal gambar
+- Perjamuan Kudus - Done, tinggal gambar dan footer
+- Sunday Service - Done, tinggal gambar dan footer
+- Doa Bersaman - Done, tinggal gambar
+- Ibadah Rayon - Done, tinggal gambar
+- MOC - ON PROGRESS, tinggal konten dan gambar
 - ABA
 - Sekolah Minggu
 
@@ -42,3 +43,6 @@ Sudah ditambahkan style khusus untuk page pelayanan, mungkin kedepannya masih bi
 Status On Progressions berarti sudah dibuatnya temanya walaupun belum fix tapi sudah ada strukturnya
 
 hati-hati kalau mau pull atau push
+
+Tampilan ABA
+https://www.youtube.com/watch?v=9CAqojHY42o&ab_channel=WebDevCreative
