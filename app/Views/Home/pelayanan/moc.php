@@ -115,7 +115,7 @@
 </div>
 
 <section class="page-section bg-white pb-5" id="moc-act">
-    <div class="bg-background px-5 text-center">
+    <div class="bg-background px-5 text-center hidden">
         <h1 class="text-4xl font-bold mb-4">M O C</h1>
         <div class="row flex justify-center mb-6">
             <div class="col-2 w-100 bg-black mb-3 rounded-start" style="height: 1em;"></div>
@@ -172,7 +172,7 @@
 
             <!-- Right Box (Description) -->
             <div class="description col-md-6 col-12 p-5">
-                <div class="col-12 p-5 w-100" id="description-content">
+                <div class="col-12 p-5 w-100 text-center hidden" id="description-content">
                     <h1 class="description-title">BIDANG PELAYANAN MOC</h1>
                     <p class="description-intro">MOC memiliki beberapa bidang pelayanan, antara lain:</p>
                     <ul class="description-list">
@@ -189,7 +189,7 @@
 </section>
 
 <section class="page-section bg-light p-5" id="moc-testimonials">
-    <div class="container">
+    <div class="container hidden">
         <div class="row">
             <!-- Testimonial 1 -->
             <div class="col-md-4 mb-4">
@@ -226,9 +226,10 @@
 </section>
 
 <section class="page-section text-white p-5" id="moc-contact">
-    <div class="container">
+    <div class="container hidden">
         <div class="text-center">
-            <h2 class="fw-bold display-4 mb-4">MOC Celebration</h2>
+            <h2 class="fw-bold display-4 mb-4">MOC Celebration
+            </h2>
             <p class="lead mt-3 mb-5">Kami mengundang kamu untuk bergabung dalam acara <strong>MOC Celebration</strong> setiap hari Rabu, setiap minggu. Ini adalah kesempatan yang luar biasa untuk kita semua bersatu dan merayakan bersama!</p>
             <p class="h5 mb-4">Tempat acara: <span class="text-warning">GPDI Bahu, Manado</span></p>
             <a href="#footer" class="btn btn-warning btn-lg px-4 py-2 mt-3">Cek Lokasi</a>

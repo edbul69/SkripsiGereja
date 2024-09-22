@@ -22,7 +22,7 @@
 
 <!-- Baptism History Accordion Section -->
 <section class="page-section bg-black" id="baptism-history">
-    <div class="container">
+    <div class="container hidden">
         <div class="accordion" id="baptismAccordion">
             <div class="accordion-item bg-dark text-white">
                 <h2 class="accordion-header" id="headingOne">
@@ -103,11 +103,11 @@
 <!-- Contact Section -->
 <section class="page-section bg-black" id="baptism-contact">
     <div class="row g-0">
-        <div class="col-md-6 bg-dark text-light p-5">
+        <div class="col-md-6 bg-dark text-light p-5 hidden">
             <p>Guided by Christ’s words, we embrace the kingdom’s core values...</p>
             <p>Remember: "For where your treasure is, there your heart will be also..."</p>
         </div>
-        <div class="col-md-6 p-5 bg-white text-dark">
+        <div class="col-md-6 p-5 bg-white text-dark hidden">
             <h3 class="fw-bold">The bridge connects...</h3>
             <p class="display-4 fw-bold text-dark">OUR PRESENT TO OUR FUTURE.</p>
             <p class="h4">Heaven and earth, kingdom & culture.</p>
@@ -118,7 +118,7 @@
 
 <!-- Baptism Info Section -->
 <section class="page-section bg-black" id="baptism-info">
-    <div class="container text-center text-white">
+    <div class="container text-center text-white hidden">
         <h3 class="mt-5">Ingin Dibaptis?</h3>
         <p class="mb-5">Jika anda merasa terpanggil untuk dibaptis, jangan sungkan untuk menghubungi kami melalui kotak di bawah ini.</p>
         <a href="https://wa.me/yourwhatsapplink" class="btn btn-success" target="_blank">Chat di WhatsApp</a>

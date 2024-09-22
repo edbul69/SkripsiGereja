@@ -24,7 +24,7 @@
 
 <!-- Why We Pray Section -->
 <section class="page-section bg-light text-dark" id="why-pray">
-    <div class="container py-5 text-center">
+    <div class="container py-5 text-center hidden">
         <h2 class="fw-bold">Mengapa Berdoa Itu Penting?</h2>
         <p class="fs-5 mt-3 mb-4">
             Berdoa membawa kita lebih dekat kepada Tuhan dan memperkuat iman kita. Melalui doa, kita membuka hati dan pikiran kita kepada-Nya, mencari petunjuk, dan mempercayai rencana-Nya.
@@ -37,7 +37,7 @@
 
 <!-- Doa Schedule Section -->
 <section class="page-section bg-dark" id="doa-schedule">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <div class="row">
             <div class="col-md-6 text-center">
                 <img src="Public/assets/img/pelayanan/doa-bersama.JPG" alt="Doa Bersama" class="img-fluid rounded shadow-lg mb-4">
@@ -55,7 +55,7 @@
 
 <!-- Encouragement Section -->
 <section class="page-section bg-white text-center text-dark py-5" id="encouragement">
-    <div class="container">
+    <div class="container hidden">
         <h2 class="fw-bold">Mari Bersama Berdoa</h2>
         <p class="fs-5 mt-3">
             Jadikan doa sebagai bagian penting dalam hidup Anda. Setiap Kamis pukul 7.00 malam, bergabunglah bersama kami di GPDI Bahu untuk mencari kekuatan, penghiburan, dan harapan baru dalam doa.

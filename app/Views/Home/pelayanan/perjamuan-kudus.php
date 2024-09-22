@@ -21,7 +21,7 @@
 </section>
 
 <section class="page-section bg-light" id="perjamuan-info">
-    <div class="container">
+    <div class="container hidden">
         <div class="row align-items-center">
             <div class="col-md-6 mb-4 mb-md-0">
                 <h3 class="fw-bold text-dark">Makna dan Tujuan Perjamuan Kudus</h3>
@@ -40,7 +40,7 @@
 </section>
 
 <section class="page-section bg-black text-white" id="perjamuan-bible">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <h3 class="text-center text-white mb-5">Ayat-ayat Alkitab tentang Perjamuan Kudus</h3>
         <div class="row">
             <div class="col-md-4">
@@ -66,7 +66,7 @@
 </section>
 
 <section class="page-section bg-light text-center" id="perjamuan-service">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <h4 class="text-danger mb-4">Informasi Perjamuan Kudus di Gereja Kami</h4>
         <p class="text-muted mb-4">
             Gereja kami selalu melaksanakan Perjamuan Kudus pada minggu pertama setiap bulan. Kami mengundang seluruh jemaat untuk ikut serta dalam sakramen ini.

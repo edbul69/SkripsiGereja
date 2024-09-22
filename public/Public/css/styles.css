@@ -13252,16 +13252,15 @@ section.schead .section-heading {
 /* ABA */
 #aba {
   animation: none !important;
-  background: url('../assets/img/pelayanan/ibadah-rayon.JPG') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/aba.jpg') center/cover no-repeat;
   background-position: 50% 35%;
 }
 
 #book {
-  min-height: 100vh;
+  min-height: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 #book .card {
@@ -13341,7 +13340,238 @@ section.schead .section-heading {
   margin-bottom: 1rem;
 } 
 
+#aba-participation img {
+  max-width: 80%;
+  margin: 0 auto;
+  transition: transform 0.3s ease-in-out;
+}
 
+#aba-participation img:hover {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* ==================================================================================================== LINE ==================================================================================================== */
+
+/* Blackboard Textured Background */
+.blackboard-bg {
+  background: url('../assets/img/blackboard-texture.jpg') center/cover no-repeat;
+  background-attachment: fixed; /* Fixed background when scrolling */
+  position: relative;
+  padding: 4rem 0;
+  color: white;
+}
+
+/* Dark Overlay for readability */
+.blackboard-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% opacity dark overlay */
+  z-index: -1;
+}
+
+/* Content Layer: Ensure all content remains above the background and overlay */
+.blackboard-bg h2, .blackboard-bg p, .blackboard-bg .divider-bar {
+  position: relative;
+  z-index: 1;
+}
+
+/* Masthead (Sekolah Minggu Header) */
+#sekolah {
+  background: url('../assets/img/pelayanan/sekolah-minggu.JPG') center/cover no-repeat;
+  background-position: 50% 60%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Divider Bar */
+.divider-bar {
+  width: 60px;
+  height: 4px;
+  background-color: #ffdd57; /* Bright yellow for contrast */
+  margin: 1.5rem auto;
+}
+
+/* Text Styling for Chalk-Like Effect */
+.chalk-text {
+  font-family: 'Gloria Hallelujah', cursive;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Stronger shadow for legibility */
+  font-size: 1.6rem; /* Slightly increased font size for better readability */
+}
+
+#sekolah-info p, #sekolah-activities p, #sekolah-event-info p, #sekolah-cta p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Colorful Chalk Effect for Headings and Text */
+#sekolah-info h2, #sekolah-activities h2, #sekolah-event-info h2, #sekolah-cta h2 {
+  font-size: 2.7rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  color: #ffdd57; /* Bright yellow heading */
+}
+
+#sekolah-info p:nth-child(4), #sekolah-activities p:nth-child(4), #sekolah-event-info p:nth-child(4), #sekolah-cta p:nth-child(4) {
+  color: #4ecdc4; /* Bright teal for second paragraph */
+}
+
+/* Adjustments for Activity Section */
+#sekolah-activities {
+  padding: 4rem 0;
+}
+
+#sekolah-activities .chalk-text {
+  font-size: 1.5rem; /* Slightly larger for better readability */
+  line-height: 1.7; /* Increase line spacing */
+}
+
+#sekolah-activities h4 {
+  font-size: 2rem; /* Larger size for clarity */
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#sekolah-activities p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+#sekolah-activities .col-md-4 {
+  padding: 1rem 2.5rem; /* Increase padding between columns for balance */
+}
+
+/* Colorful Chalk Effect for Activity Titles */
+#sekolah-activities h4:nth-child(1) {
+  color: #ff6f61;  /* Soft coral for "Bernyanyi" */
+}
+
+#sekolah-activities h4:nth-child(2) {
+  color: #4ecdc4;  /* Bright teal for "Cerita Alkitab" */
+}
+
+#sekolah-activities h4:nth-child(3) {
+  color: #ffdd57;  /* Bright yellow for "Permainan" */
+}
+
+#sekolah-activities img {
+  width: 100%; /* Ensures the image takes full width of its container */
+  height: 200px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+  overflow: hidden; /* Ensures any overflowing content is hidden */
+  margin-bottom: 10px;
+  border-radius: 10px; /* Optional: Rounded corners for a softer look */
+}
+
+/* Button Animation for Interaction */
+/* Custom Button Styling */
+.btn-sekolah {
+  font-family: 'Gloria Hallelujah', cursive; /* Same chalk-like font */
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  background-color: #28a745;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow for visibility */
+}
+
+.btn-sekolah:hover {
+  transform: scale(1.05);
+  background-color: #218838;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); /* Increase shadow on hover */
+}
+
+/* WhatsApp Button Specific Style */
+.btn-sekolah-whatsapp {
+  background-color: #000; /* WhatsApp green */
+  color: white;
+  border: 2px solid #ffffff; /* Add white border for visibility */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Strong shadow for better contrast */
+}
+
+.btn-sekolah-whatsapp:hover {
+  background-color: #128C7E;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8); /* Darken shadow on hover */
+}
+
+/* Location Button Specific Style */
+.btn-sekolah-location {
+  background-color: #000; /* Coral color */
+  color: white;
+  border: 2px solid #ffffff; /* Add white border for visibility */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Strong shadow for better contrast */
+}
+
+.btn-sekolah-location:hover {
+  background-color: #e74c3c; /* Darker coral on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8); /* Darken shadow on hover */
+}
+
+/* Ensure the buttons are visible above the background */
+.btn-sekolah {
+  position: relative;
+  z-index: 10;
+}
+
+/* Make sure the button styles do not interfere with Bootstrap's default */
+.btn-sekolah.btn-lg {
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #sekolah-activities h4 {
+    font-size: 1.8rem; /* Slightly smaller heading for mobile */
+  }
+  
+  #sekolah-activities p {
+    font-size: 1.3rem; /* Adjust font size on mobile */
+  }
+  
+  #sekolah-info p {
+    font-size: 1.2rem;
+  }
+
+  #sekolah-info h2 {
+    font-size: 2.5rem;
+  }
+
+  .btn-sekolah {
+    font-size: 1rem; /* Reduce font size for mobile */
+    padding: 0.6rem 1.5rem;
+  }
+
+  .btn-sekolah.btn-lg {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+/* Carousel Adjustments */
+#sekolah-carousel .carousel-inner {
+  max-height: 400px;
+  overflow: hidden;
+}
+
+#sekolah-carousel img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 

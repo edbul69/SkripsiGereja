@@ -27,7 +27,7 @@
     <p class="fs-5 text-white">GPDI BAHU</p>
     <div class="container d-flex flex-column">
         <!-- Rayon 1 -->
-        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon1">
+        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon1">
             <!-- Image/Placeholder -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
                 <img src="Public/assets/img/news/News1.JPG" alt="Image Placeholder" class="img-fluid">
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Rayon 2 - Inverse Layout -->
-        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon2">
+        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon2">
             <!-- Text - Order 2 on larger screens, Order 1 on small -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center order-md-1 order-2 text-container">
                 <p class="text-white fw-bold animated-text animated-left">Rayon Horeb</p>
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Rayon 3 - Same as Rayon 1 -->
-        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon3">
+        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon3">
             <!-- Image/Placeholder -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
                 <img src="Public/assets/img/news/News3.JPG" alt="Image Placeholder" class="img-fluid">
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Rayon 4 - Same as Rayon 2 (Inverse Layout) -->
-        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon4">
+        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon4">
             <!-- Text - Order 2 on larger screens, Order 1 on small -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center order-md-1 order-2 text-container">
                 <p class="text-white fw-bold animated-text animated-left">Rayon Sion</p>
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Rayon 5 -->
-        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item" id="rayon5">
+        <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon5">
             <!-- Left Text (Rotated for larger screens, normal for smaller screens) -->
             <div class="col-md-2 col-12 d-flex align-items-center justify-content-center text-container">
                 <p class="text-white fw-bold animated-text animated-right text-left-rotate">Rayon</p>
@@ -93,13 +93,13 @@
 
     <!-- New Paragraph for Description -->
     <div class="container-fluid d-flex justify-content-center align-items-center flex-column text-white">
-        <div class="col-md-8 col-12 m-0 px-0" id="rayon-desc">
+        <div class="col-md-8 col-12 m-0 px-0 hidden" id="rayon-desc">
             <p class="fs-5 description-text text-center">
                 RAYON MEMBAGI JEMAAT MENJADI BEBERAPA KELOMPOK GUNA UNTUK MEMETAKAN LOKASI PERIBADATAN JEMAAT DARI RUMAH KE RUMAH SETIAP MINGGUNYA BERDASARKAN TEMPAT TINGGALNYA
             </p>
         </div>
-        <div class="divider-bar mb-4" style="width: 50%;"></div>
-        <div class="col-md-6 col-12 text-white mt-5 p-0 d-flex flex-column justify-content-center align-items-center" id="ibadah-footer">
+        <div class="divider-bar mb-4 hidden" style="width: 50%;"></div>
+        <div class="col-md-6 col-12 text-white mt-5 p-0 d-flex flex-column justify-content-center align-items-center hidden" id="ibadah-footer">
             <p class="fw-light fs-4 fst-italic opacity-50 text-center">
                 Apakah Kita Bisa Bergabung Untuk Mengikuti Ibadah Rayon?
             </p>

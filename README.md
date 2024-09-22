@@ -25,8 +25,8 @@ Halaman Pelayanan :
 - Doa Bersaman - Done, tinggal gambar
 - Ibadah Rayon - Done, tinggal gambar
 - MOC - ON PROGRESS, tinggal konten dan gambar
-- ABA
-- Sekolah Minggu
+- ABA - Done, tinggal gambar dan konten
+- Sekolah Minggu Done, tinggal gambar dan dekorasi
 
 php spark serve --host 0.0.0.0 --port 8080
 

@@ -23,7 +23,7 @@
         </div>
 
         <!-- Sub-section with vertical alignment -->
-        <div class="row text-white align-items-center sub-section">
+        <div class="row text-white align-items-center sub-section hidden">
             <div class="col-md-6 text-center my-5">
                 <h4 class="fw-bold">SETIAP HARI MINGGU</h4>
                 <hr class="divider my-3 mx-auto">
@@ -50,7 +50,7 @@
 
 <!-- Location Section -->
 <section class="location-section bg-black text-white text-center my-0 py-0" id="location-section">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <h2 class="fw-bold">LOKASI</h2>
         <div class="row justify-content-center align-items-center g-0 my-5">
             <div class="col-md-6">
@@ -75,7 +75,7 @@
 
 <!-- Livestream Section -->
 <section class="livestream-section bg-black text-white text-center my-0 py-0" id="livestream-section">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <h2 class="fw-bold mb-5">LIVESTREAM</h2>
         <div class="row justify-content-center align-items-center g-5">
             <div class="col-md-7 text-center">
@@ -91,7 +91,7 @@
 
 <!-- Full Width Image Section -->
 <section class="bg-black" id="full-image-section">
-    <div class="image-container">
+    <div class="image-container hidden">
         <img src="Public/assets/img/pelayanan/sunday-service.JPG" alt="Full width image">
     </div>
 </section>

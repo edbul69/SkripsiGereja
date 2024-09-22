@@ -23,7 +23,7 @@
 </section>
 
 <section class="page-section bg-black py-1" id="penyerahan-history">
-    <div class="container">
+    <div class="container hidden">
         <div class="row align-items-center my-5">
             <div class="col-md-8">
                 <p class="text-start text-white mb-4">
@@ -47,7 +47,7 @@
 </section>
 
 <section class="page-section bg-light text-dark text-center" id="janji-tuhan">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <div class="row">
             <!-- Move the heading first in the column structure -->
             <div class="col-md-4 text-start order-md-2">
@@ -67,7 +67,7 @@
 </section>
 
 <section class="page-section bg-white text-center" id="penyerahan-info">
-    <div class="container py-5">
+    <div class="container py-5 hidden">
         <h2 class="text-danger mb-4">Bagaimana cara untuk mengikuti penyerahan anak?</h2>
         <p class="text-muted mb-4">
             Sebelum mengikuti acara penyerahan anak, orang tua perlu untuk mengikuti sesi konseling untuk mengetahui arti dari penyerahan anak. Bacaan Alkitab terbaik untuk diskusi adalah dari Ulangan 6:4-7. Pertama-tama, Firman Tuhan memerintahkan orang-orang tua untuk mengasihi Tuhan; jika mereka sungguh-sungguh mau agar anaknya suatu hari nanti untuk mengasihi dan mengikuti Tuhan, maka kehidupan mereka haruslah menjadi suatu contoh. Ini adalah saat terbaik untuk menanyakan orang-orang tua mengenai hubungan pribadi mereka dengan Tuhan Yesus. Kami menyediakan berbagai kesempatan bagi anda untuk mendedikasikan anak anda pada waktu-waktu ibadah raya yang telah ditentukan. Silahkan mendaftar dengan mengirimkan formulir dibawah ini ke sekretariat gereja paling lambat 1 (satu) minggu sebelum acara penyerahan anak.
