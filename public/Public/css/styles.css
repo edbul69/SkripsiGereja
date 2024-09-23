@@ -12418,14 +12418,6 @@ section.schead .section-heading {
   background-position: 50% 20%;
 }
 
-/* General Styling */
-.divider-bar {
-  width: 100px;
-  height: 3px;
-  background-color: #ffffff;
-  margin-bottom: 20px;
-}
-
 /* Accordion Styling */
 #baptism-history .accordion-button {
   background-color: #212529;
@@ -12449,18 +12441,70 @@ section.schead .section-heading {
   margin-bottom: 10px;
 }
 
-/* Contact Section Styling */
-#baptism-contact .text-dark h3, #baptism-contact p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+/* Modern Style for Baptism Contact Section */
+#baptism-contact {
+  padding: 2rem 1rem;
 }
 
-#baptism-contact .display-4 {
-  font-size: 2.5rem;
+#baptism-contact .col-md-6 {
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
-#baptism-contact .display-5 {
+#baptism-contact h3 {
   font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#baptism-contact .styled-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#baptism-contact .styled-list li {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem; /* Space for the custom bullet */
+}
+
+#baptism-contact .styled-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem; /* Center it vertically relative to the text */
+  width: 10px;
+  height: 10px;
+  background-color: #ff6f61; /* Modern accent color */
+  border-radius: 50%; /* Creates the dot */
+}
+
+#baptism-contact .bg-dark {
+  background-color: #282828; /* Softer dark background */
+}
+
+#baptism-contact .text-light {
+  color: #f4f4f4; /* Softer white for less harsh contrast */
+}
+
+#baptism-contact .bg-white {
+  background-color: #f9f9f9;
+}
+
+#baptism-contact .text-dark {
+  color: #333; /* Softer dark text */
+}
+
+/* Add subtle hover effects */
+#baptism-contact .styled-list li:hover::before {
+  background-color: #ff9f80; /* Lighter on hover */
 }
 
 /* Baptism Info Section */
@@ -12473,6 +12517,20 @@ section.schead .section-heading {
   padding: 0.75rem 2rem;
 }
 
+@media (max-width: 768px) {
+  #baptism-contact .col-md-6 {
+    padding: 1.5rem;
+  }
+
+  #baptism-contact h3 {
+    font-size: 1.5rem;
+  }
+
+  #baptism-contact .styled-list {
+    font-size: 1.1rem;
+  }
+}
+
 /* ==================================================================================================== LINE ==================================================================================================== */
 
 /* PENYERAHAN ANAK */
@@ -12480,18 +12538,6 @@ section.schead .section-heading {
   background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
   animation: none !important;
   background-position: 50% 50%;
-}
-
-/* General Styling */
-.divider-bar {
-  width: 80px;
-  height: 3px;
-  background-color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.text-center {
-  margin-bottom: 20px;
 }
 
 /* Section Body */
@@ -12533,7 +12579,6 @@ section.schead .section-heading {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  z-index: 1;
 }
 
 #janji-tuhan h2, #janji-tuhan ul {
@@ -12633,19 +12678,202 @@ section.schead .section-heading {
   background-position: 50% 50%;
 }
 
-.masthead-subheading {
+/* Section Styling */
+#perjamuan-info {
+  padding: 4rem 0;
+  box-shadow: inset 0 8px 20px rgba(0, 0, 0, 0.5),  /* Top inner shadow */
+              inset 0 -8px 20px rgba(0, 0, 0, 0.5); /* Bottom inner shadow */
+}
+
+/* Typography */
+#perjamuan-info h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+#perjamuan-info .modern-list {
+  font-size: 1.1rem;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.8;
+  color: #555;
+  list-style-type: none;
+}
+
+#perjamuan-info .modern-list li {
   position: relative;
-  z-index: 2;
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
 }
 
-.divider-bar {
-  width: 60px;
-  height: 4px;
-  background-color: white;
-  margin: 1.5rem auto;
+#perjamuan-info .modern-list li::before {
+  content: '•';
+  color: #dc3545; /* Bootstrap danger color */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
 }
 
-.bible-verse {
+/* Image Styling */
+#perjamuan-info .modern-img {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for modern feel */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+#perjamuan-info .modern-img:hover {
+  transform: scale(1.05); /* Image zoom effect on hover */
+}
+
+/* General Section Styling */
+#perjamuan-service {
+  padding: 4rem 0;
+  box-shadow: inset 0 8px 20px rgba(0, 0, 0, 0.5),  /* Top inner shadow */
+              inset 0 -8px 20px rgba(0, 0, 0, 0.5); /* Bottom inner shadow */
+}
+
+/* Headings */
+#perjamuan-service h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#perjamuan-service h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #444;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Paragraph Styling */
+#perjamuan-service p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Border & Box Styling */
+#perjamuan-service .border {
+  border-color: #e3e6ea; /* Light border color */
+  border-width: 1px;
+}
+
+#perjamuan-service .rounded {
+  border-radius: 10px;
+}
+
+#perjamuan-service .shadow-lg {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+}
+
+/* Padding */
+#perjamuan-service .p-4 {
+  padding: 2rem;
+}
+
+/* Hover Effects */
+#perjamuan-service .border:hover {
+  border-color: #dc3545; /* Bootstrap 'danger' color for hover border */
+}
+
+#perjamuan-service h4:hover {
+  color: #dc3545; /* Bootstrap 'danger' color for hover effect on heading */
+}
+
+/* Section Styling */
+#perjamuan-kudus-info {
+  padding: 4rem 0;
+}
+
+#perjamuan-kudus-info h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#perjamuan-kudus-info p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ccc;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#perjamuan-kudus-info .display-4 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #dc3545; /* Bootstrap 'danger' color for emphasis */
+}
+
+/* Soft Button Styling */
+.btn-soft {
+  background-color: #000; /* Softer red color */
+  border: solid 1px; /* Remove border for cleaner look */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 30px; /* Rounded button for softer feel */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.btn-soft:hover {
+  background-color: #f88f8f; /* Slightly lighter color on hover */
+  transform: translateY(-3px); /* Gentle lift effect on hover */
+  text-decoration: none;
+  color: #000;
+}
+
+.btn-soft:focus, .btn-soft:active {
+  outline: none; /* Remove outline on focus */
+  box-shadow: none; /* Remove shadow on click for simplicity */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #perjamuan-info {
+      padding: 2rem 0;
+  }
+
+  #perjamuan-info h3 {
+      font-size: 1.75rem;
+  }
+
+  #perjamuan-info .modern-list {
+      font-size: 1rem;
+  }
+
+  #perjamuan-info .modern-img {
+      margin-top: 2rem;
+  }
+
+  #perjamuan-service {
+    padding: 2rem 0;
+  }
+
+  #perjamuan-service h1 {
+    font-size: 2rem;
+  }
+
+  #perjamuan-service h4 {
+    font-size: 1.3rem;
+  }
+
+  #perjamuan-service p {
+    font-size: 1.05rem;
+  }
+}
+
+#perjamuan-bible .bible-verse {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
   margin-bottom: 20px;
@@ -12655,30 +12883,6 @@ section.schead .section-heading {
 #perjamuan-info img {
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Button Styling */
-.btn-danger {
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background-color: #dc3545;
-  border: none;
-  border-radius: 5px;
-}
-
-.btn-danger:hover {
-  background-color: #c82333;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .masthead-subheading h1 {
-    font-size: 2rem;
-  }
-
-  #perjamuan-info .text-center {
-    text-align: center;
-  }
 }
 
 /* ==================================================================================================== LINE ==================================================================================================== */
@@ -12723,7 +12927,7 @@ section.schead .section-heading {
   font-size: 3em !important;
 }
 
-.location-box {
+#location-section .location-box {
   width: 100%;
   max-width: 600px;
   height: 300px;
@@ -12738,18 +12942,18 @@ section.schead .section-heading {
   margin: 0; /* Ensures no extra margin */
 }
 
-.location-box img {
+#location-section .location-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.location-box:hover {
+#location-section .location-box:hover {
   transform: scale(1.1);
 }
 
-.location-box:not(:hover) {
+#location-section .location-box:not(:hover) {
   transform: scale(0.9);
 }
 
@@ -12782,22 +12986,6 @@ section.schead .section-heading {
   transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
-
-/* FULL-WIDTH IMAGE SECTION */
-#full-image-section .image-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-#full-image-section .image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   #location-section .location-box,
@@ -12805,12 +12993,12 @@ section.schead .section-heading {
     height: 250px;
   }
 
-  .location-box:hover,
+  #location-section .location-box:hover,
   #livestream-section iframe:hover {
     transform: scale(1.1);
   }
 
-  .location-box:not(:hover) {
+  #location-section .location-box:not(:hover) {
     transform: scale(0.9);
   }
 }
@@ -13370,7 +13558,7 @@ section.schead .section-heading {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* 50% opacity dark overlay */
-  z-index: -1;
+  z-index: -2;
 }
 
 /* Content Layer: Ensure all content remains above the background and overlay */
@@ -13474,7 +13662,6 @@ section.schead .section-heading {
 }
 
 /* Button Animation for Interaction */
-/* Custom Button Styling */
 .btn-sekolah {
   font-family: 'Gloria Hallelujah', cursive; /* Same chalk-like font */
   font-size: 1.2rem;
@@ -13565,6 +13752,7 @@ section.schead .section-heading {
 #sekolah-carousel .carousel-inner {
   max-height: 400px;
   overflow: hidden;
+  z-index: 1;
 }
 
 #sekolah-carousel img {
@@ -13572,6 +13760,61 @@ section.schead .section-heading {
   height: 400px;
   object-fit: cover;
 }
+
+/* Decoration */
+#sekolah-decor .decor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+}
+
+/* Custom Decor - Object */
+#apple img {
+  height: 250px; /* Adjust the size as needed */
+  transform: translate(-250%, -40%); /* Center it vertically and horizontally */
+}
+
+#lamp img {
+  height: 200px; /* Adjust the size as needed */
+  transform: translate(200%, -150%); /* Center it vertically and horizontally */
+}
+
+#clip img {
+  height: 200px; /* Adjust the size as needed */
+  transform: translate(50%, 100%); /* Center it vertically and horizontally */
+}
+
+#root img {
+  height: 150px; /* Adjust the size as needed */
+  transform: translate(-250%, 420%) rotate(30deg); /* Center it vertically and horizontally */
+}
+
+#plane img {
+  height: 200px; /* Adjust the size as needed */
+  transform: translate(100%, 520%) rotate(-30deg); /* Center it vertically and horizontally */
+}
+
+#atom img {
+  height: 200px; /* Adjust the size as needed */
+  transform: translate(-200%, 680%) rotate(35deg); /* Center it vertically and horizontally */
+}
+
+#rainbow-3 img {
+  height: 125px; /* Adjust the size as needed */
+  transform: translate(255%, -1000%); /* Center it vertically and horizontally */
+}
+
+#book img {
+  height: 125px; /* Adjust the size as needed */
+  transform: translate(-355%, -1000%); /* Center it vertically and horizontally */
+}
+
+#ruler img {
+  height: 250px; /* Adjust the size as needed */
+  transform: translate(10%, -375%) rotate(80deg); /* Center it vertically and horizontally */
+}
+
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 

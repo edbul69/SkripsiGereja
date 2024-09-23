@@ -15,9 +15,8 @@
         <div class="divider-bar mx-auto mb-4"></div>
         <div class="text-center text-white my-4">
             <blockquote class="fs-5 fst-italic">
-                “Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”
-            </blockquote>
-            <p class="mt-2"><strong>Yohanes 5:24</strong></p>
+                "Sebab di mana dua atau tiga orang berkumpul dalam nama-Ku, di situ Aku ada di tengah-tengah mereka." </blockquote>
+            <p class="mt-2"><strong>Matius 18:20</strong></p>
         </div>
     </div>
 </section>

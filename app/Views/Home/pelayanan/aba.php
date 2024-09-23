@@ -21,11 +21,11 @@
     <div class="containe hidden">
         <div class="card">
             <div class="cover">
-                <img src="Public/assets/img/book/cover.jpg" alt="">
+                <img src="public/Public/assets/img/blackboard-texture.jpg" alt="">
             </div>
             <div class="content">
-                <h2>Yohanes 5:24</h2>
-                <p>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</p>
+                <h2>Yosua 1:8</h2>
+                <p>"Janganlah engkau lupa memperkatakan kitab Taurat ini, tetapi renungkanlah itu siang dan malam, supaya engkau bertindak hati-hati sesuai dengan segala yang tertulis di dalamnya, sebab dengan demikian perjalananmu akan berhasil dan engkau akan beruntung."</p>
             </div>
         </div>
     </div>

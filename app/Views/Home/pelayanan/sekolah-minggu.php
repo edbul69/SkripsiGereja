@@ -14,8 +14,8 @@
             <div class="divider-bar"></div>
         </div>
         <div class="text-center text-white my-3">
-            <em class="fs-5">“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
-            <p class="mt-2"><strong>Yohanes 5:24</strong></p>
+            <em class="fs-5">"Kami tidak hendak sembunyikan itu kepada anak-anak mereka, tetapi kami akan ceritakan kepada angkatan yang kemudian puji-pujian kepada TUHAN dan kekuatan-Nya, dan perbuatan-perbuatan ajaib yang telah dilakukan-Nya."</em>
+            <p class="mt-2"><strong>Mazmur 78:4</strong></p>
         </div>
     </div>
 </section>
@@ -75,21 +75,21 @@
             Setiap Minggu, anak-anak terlibat dalam berbagai kegiatan yang membantu mereka bertumbuh dalam iman dengan cara yang menyenangkan. Berikut adalah beberapa aktivitas yang kami lakukan:
         </p>
         <div class="row mt-4">
-            <div class="col-md-4">
+            <div class="col-md-4" style="z-index: 1;">
                 <img src="Public/assets/img/news/news1.JPG" alt="Sing Icon" class="img-fluid mb-2">
                 <h4 class="chalk-text" style="color: #4CAF50;">Bernyanyi</h4>
                 <p class="chalk-text">
                     Anak-anak memuji Tuhan dengan penuh sukacita melalui lagu-lagu pujian.
                 </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" style="z-index: 1;">
                 <img src="Public/assets/img/news/news2.JPG" alt="Bible Icon" class="img-fluid mb-2">
                 <h4 class="chalk-text" style="color: #4ecdc4;">Cerita Alkitab</h4>
                 <p class="chalk-text">
                     Anak-anak mendengarkan cerita Alkitab yang mengajarkan nilai-nilai kasih Tuhan.
                 </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" style="z-index: 1;">
                 <img src="Public/assets/img/news/news3.JPG" alt="Play Icon" class="img-fluid mb-2">
                 <h4 class="chalk-text" style="color: #ff6f61;">Permainan</h4>
                 <p class="chalk-text">
@@ -124,9 +124,39 @@
             Jangan lewatkan kesempatan untuk anak-anak Anda bertumbuh dalam iman sambil bersenang-senang! Bergabunglah dengan Sekolah Minggu kami dan ajak mereka untuk merasakan kasih Tuhan bersama teman-teman mereka.
         </p>
         <a href="https://wa.me/1234567890" target="_blank" class="btn-sekolah btn-sekolah-whatsapp btn-lg mt-4">
-            Hubungi Kami di WhatsApp
+            WhatsApp
         </a>
     </div>
 </section>
+
+<div class="decoration" id="sekolah-decor">
+    <div class="decor" id="apple">
+        <img src="Public/assets/img/chalk-icon/apple.svg" alt="">
+    </div>
+    <div class="decor" id="lamp">
+        <img src="Public/assets/img/chalk-icon/lamp.svg" alt="">
+    </div>
+    <div class="decor" id="clip">
+        <img src="Public/assets/img/chalk-icon/clip.svg" alt="">
+    </div>
+    <div class="decor" id="root">
+        <img src="Public/assets/img/chalk-icon/root.svg" alt="">
+    </div>
+    <div class="decor" id="plane">
+        <img src="Public/assets/img/chalk-icon/plane.svg" alt="">
+    </div>
+    <div class="decor" id="atom">
+        <img src="Public/assets/img/chalk-icon/atom.svg" alt="">
+    </div>
+    <div class="decor" id="rainbow-3">
+        <img src="Public/assets/img/chalk-icon/rainbow-3.svg" alt="">
+    </div>
+    <div class="decor" id="book">
+        <img src="Public/assets/img/chalk-icon/book.svg" alt="">
+    </div>
+    <div class="decor" id="ruler">
+        <img src="Public/assets/img/chalk-icon/ruler.svg" alt="">
+    </div>
+</div>
 
 <?= $this->endSection(); ?>

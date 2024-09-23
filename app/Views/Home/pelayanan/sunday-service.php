@@ -18,8 +18,8 @@
             <div class="divider-bar"></div>
         </div>
         <div class="text-center text-white my-3">
-            <em>“Aku berkata kepadamu: Sesungguhnya barangsiapa mendengar perkataan-Ku dan percaya kepada Dia yang mengutus Aku, ia mempunyai hidup yang kekal dan tidak turut dihukum, sebab ia sudah pindah dari dalam maut ke dalam hidup”</em>
-            <p class="mt-1"><strong>Yohanes 5:24</strong></p>
+            <em>"Pada hari pertama dari tiap-tiap minggu hendaklah kamu masing-masing di rumahnya menyisihkan sesuatu dan menyimpannya, menurut apa yang ia peroleh, supaya jangan pengumpulan itu diadakan, kalau aku datang."</em>
+            <p class="mt-1"><strong>1 Korintus 16:</strong></p>
         </div>
 
         <!-- Sub-section with vertical alignment -->
@@ -86,13 +86,6 @@
                 <a href="https://www.youtube.com/@gpdibahuofficial3099" class="btn btn-outline-light btn-lg px-5 py-2 rounded-pill">Go to YouTube</a>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Full Width Image Section -->
-<section class="bg-black" id="full-image-section">
-    <div class="image-container hidden">
-        <img src="Public/assets/img/pelayanan/sunday-service.JPG" alt="Full width image">
     </div>
 </section>
 

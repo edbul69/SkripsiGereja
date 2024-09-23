@@ -18,15 +18,15 @@ Inspirasi :
 
 Halaman Pelayanan :
 
-- Baptisan Air - Done, tinggal gambar dan konten
+- Baptisan Air - Done, tinggal gambar
 - Penyerahan Anak - Done, tinggal gambar
-- Perjamuan Kudus - Done, tinggal gambar dan footer
-- Sunday Service - Done, tinggal gambar dan footer
+- Perjamuan Kudus - Done, tinggal gambar
+- Sunday Service - Done, tinggal gambar
 - Doa Bersaman - Done, tinggal gambar
 - Ibadah Rayon - Done, tinggal gambar
-- MOC - ON PROGRESS, tinggal konten dan gambar
-- ABA - Done, tinggal gambar dan konten
-- Sekolah Minggu Done, tinggal gambar dan dekorasi
+- MOC - ON PROGRESS, tinggal konten
+- ABA - Done, tinggal gambar
+- Sekolah Minggu Done, tinggal gambar
 
 php spark serve --host 0.0.0.0 --port 8080
 
@@ -46,3 +46,7 @@ hati-hati kalau mau pull atau push
 
 Tampilan ABA
 https://www.youtube.com/watch?v=9CAqojHY42o&ab_channel=WebDevCreative
+
+KONSUL UNTUK TAMPILAN PAGENYA!!!
+
+TERAKHIR.. Adjust dengan proposal

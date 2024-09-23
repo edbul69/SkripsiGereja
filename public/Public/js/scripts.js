@@ -561,3 +561,39 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+// Function to calculate the next first Sunday of the month
+function getNextFirstSunday() {
+    const today = new Date();
+    const year = today.getFullYear();
+    let nextMonth = today.getMonth() + 1; // Move to next month
+    if (nextMonth > 11) {
+        nextMonth = 0;
+    }
+    const firstDayOfNextMonth = new Date(year, nextMonth, 1);
+    const firstSunday = new Date(firstDayOfNextMonth.setDate(firstDayOfNextMonth.getDate() + (7 - firstDayOfNextMonth.getDay()) % 7));
+    return firstSunday;
+}
+
+// Countdown timer function
+function updateCountdown() {
+    const countdownElement = document.getElementById('countdown-timer');
+    const nextFirstSunday = getNextFirstSunday();
+    
+    const now = new Date().getTime();
+    const timeRemaining = nextFirstSunday.getTime() - now;
+
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+    countdownElement.innerHTML = `${days} Hari Lagi`;
+
+    if (timeRemaining < 0) {
+        countdownElement.innerHTML = "Perjamuan Kudus sedang berlangsung!";
+    }
+}
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
+
