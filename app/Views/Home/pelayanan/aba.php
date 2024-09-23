@@ -21,7 +21,7 @@
     <div class="containe hidden">
         <div class="card">
             <div class="cover">
-                <img src="public/Public/assets/img/blackboard-texture.jpg" alt="">
+                <img src="/Public/assets/img/book/cover.jpg" alt="">
             </div>
             <div class="content">
                 <h2>Yosua 1:8</h2>

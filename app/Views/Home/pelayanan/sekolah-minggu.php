@@ -151,7 +151,7 @@
     <div class="decor" id="rainbow-3">
         <img src="Public/assets/img/chalk-icon/rainbow-3.svg" alt="">
     </div>
-    <div class="decor" id="book">
+    <div class="decor" id="books">
         <img src="Public/assets/img/chalk-icon/book.svg" alt="">
     </div>
     <div class="decor" id="ruler">

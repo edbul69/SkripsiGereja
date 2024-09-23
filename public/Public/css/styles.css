@@ -13301,7 +13301,7 @@ section.schead .section-heading {
 }
 
 #moc-contact {
-  background: linear-gradient(135deg, #343a40, #000000); /* Subtle gradient using dark tones */
+  background: linear-gradient(135deg, #343a40, #000000);
   padding: 5rem 0;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -13309,7 +13309,6 @@ section.schead .section-heading {
 #moc-contact h2 {
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  position: relative;
   margin-bottom: 2rem;
 }
 
@@ -13318,22 +13317,16 @@ section.schead .section-heading {
   margin-bottom: 2.5rem;
 }
 
-#moc-contact p.text-warning {
-  color: #f0ad4e; /* Adjusted for Bootstrap 5 warning color */
-  font-weight: bold;
-}
-
 #moc-contact .btn-warning {
   background-color: #f0ad4e;
-  border: none;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 #moc-contact .btn-warning:hover {
   background-color: #f39c12;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
+
 
 @media (max-width: 768px) {
   #moc-train .frame {
@@ -13366,6 +13359,19 @@ section.schead .section-heading {
   #moc-train .description,
   .gallery {
     padding: 20px;
+  }
+
+  #moc-contact h2 {
+    font-size: 2rem;
+  }
+
+  #moc-contact p.lead {
+    font-size: 1rem;
+  }
+
+  #moc-contact .btn-lg {
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 }
 
@@ -13805,7 +13811,7 @@ section.schead .section-heading {
   transform: translate(255%, -1000%); /* Center it vertically and horizontally */
 }
 
-#book img {
+#books img {
   height: 125px; /* Adjust the size as needed */
   transform: translate(-355%, -1000%); /* Center it vertically and horizontally */
 }
@@ -13813,6 +13819,18 @@ section.schead .section-heading {
 #ruler img {
   height: 250px; /* Adjust the size as needed */
   transform: translate(10%, -375%) rotate(80deg); /* Center it vertically and horizontally */
+}
+
+@media (max-width: 1280px) {
+  #sekolah-decor .decor {
+    left: 0;
+    top: 0;
+    z-index: -5;
+  }
+  #sekolah-decor img {
+    height: 0;
+    transform: translate(0, 0);
+  }
 }
 
 
