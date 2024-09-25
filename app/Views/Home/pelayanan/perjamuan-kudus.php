@@ -35,7 +35,7 @@
                 </ol>
             </div>
             <div class="col-md-6 text-center">
-                <img src="<?= base_url('Public/assets/img/pelayanan/bread-wine.jpg'); ?>" class="img-fluid rounded shadow-lg modern-img" alt="Bread and Wine">
+                <img src="<?= base_url('Public/assets/img/pelayanan/perjamuan/bread-&-wine.jpg'); ?>" class="img-fluid rounded shadow-lg modern-img" alt="Bread and Wine">
             </div>
         </div>
     </div>

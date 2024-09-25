@@ -40,7 +40,7 @@
                 </p>
             </div>
             <div class="col-md-4">
-                <img src="<?= base_url('Public/assets/img/pelayanan/penyerahan-anak.jpg'); ?>" class="img-fluid rounded shadow-lg" alt="Baby Image">
+                <img src="<?= base_url('Public/assets/img/pelayanan/penyerahan/img-1.png'); ?>" class="img-fluid rounded shadow-lg" alt="Baby Image">
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6 d-flex justify-content-center">
                 <figure class="empty-box bg-light rounded mx-auto">
-                    <img src="Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid" alt="Service Image">
+                    <img src="Public/assets/img/pelayanan/sunday/img-1.png" class="img-fluid" alt="Service Image">
                 </figure>
             </div>
         </div>
@@ -55,12 +55,12 @@
         <div class="row justify-content-center align-items-center g-0 my-5">
             <div class="col-md-6">
                 <figure class="location-box bg-secondary mx-auto box" id="box1">
-                    <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid" alt="Location Image">
+                    <img src="Public/assets/img/pelayanan/sunday/img-maps-1.png" class="img-fluid" alt="Location Image">
                 </figure>
             </div>
             <div class="col-md-6">
                 <figure class="location-box bg-secondary mx-auto box" id="box2">
-                    <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid" alt="Location Image">
+                    <img src="Public/assets/img/pelayanan/sunday/img-maps-2.png" class="img-fluid" alt="Location Image">
                 </figure>
             </div>
         </div>

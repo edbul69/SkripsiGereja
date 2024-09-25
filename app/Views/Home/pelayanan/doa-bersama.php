@@ -39,7 +39,7 @@
     <div class="container py-5 hidden">
         <div class="row">
             <div class="col-md-6 text-center">
-                <img src="Public/assets/img/pelayanan/doa-bersama.JPG" alt="Doa Bersama" class="img-fluid rounded shadow-lg mb-4">
+                <img src="Public/assets/img/pelayanan/doa/img-1.png" alt="Doa Bersama" class="img-fluid rounded shadow-lg mb-4">
             </div>
             <div class="col-md-6 text-center text-white">
                 <div class="p-4">

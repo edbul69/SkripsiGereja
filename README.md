@@ -18,21 +18,17 @@ Inspirasi :
 
 Halaman Pelayanan :
 
-- Baptisan Air - Done, tinggal gambar
-- Penyerahan Anak - Done, tinggal gambar
-- Perjamuan Kudus - Done, tinggal gambar
-- Sunday Service - Done, tinggal gambar
-- Doa Bersaman - Done, tinggal gambar
-- Ibadah Rayon - Done, tinggal gambar
-- MOC - ON PROGRESS, tinggal konten
-- ABA - Done, tinggal gambar
-- Sekolah Minggu Done, tinggal gambar
+- Baptisan Air - Masthead
+- Penyerahan Anak - Masthead
+- Perjamuan Kudus - DONE
+- Sunday Service - DONE
+- Doa Bersaman - DONE
+- Ibadah Rayon - Image Rayon
+- MOC - Logo MOC on masthead, Image ketua, Image carousel, Image bidang MOC, Image review
+- ABA - DONE
+- Sekolah Minggu - DONE
 
 php spark serve --host 0.0.0.0 --port 8080
-
-https://www.celebration.org/the-bridge/ (Pelayanan)
-
-https://iclv.com/reach/baptism/ (Baptisan Air)
 
 https://webflow.com/blog/parallax-scrolling
 

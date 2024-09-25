@@ -12,8 +12,9 @@
                 </p>
             </div>
             <!-- White column (right-box) -->
-            <div class="right-box col-12 col-md-8 bg-dark p-1 m-0 h-100 d-flex justify-content-start align-items-end">
-                <p class="text-white ml-5">// MOC - GPDI BAHU</p>
+            <div class="right-box col-12 col-md-8 bg-dark p-1 m-0 h-100 d-flex flex-column justify-content-end align-items-start">
+                <img src="Public/assets/img/icon/moc-icon-tp.png" alt="" class="ml-5 mb-1">
+                <p class="text-white ml-3">// MOC - GPDI BAHU</p>
             </div>
         </div>
     </div>
@@ -139,31 +140,31 @@
                 <div class="gallery col-12 p-0 w-auto">
                     <div class="frame" id="frame1">
                         <div class="img-box">
-                            <img src="Public/assets/img/news/news1.JPG" alt="Image1">
+                            <img src="Public/assets/img/pelayanan/moc/rebana.png" alt="Image1">
                         </div>
                         <div class="caption">Rebana</div>
                     </div>
                     <div class="frame" id="frame2">
                         <div class="img-box">
-                            <img src="Public/assets/img/news/news1.JPG" alt="Image2">
+                            <img src="Public/assets/img/pelayanan/moc/banners.png" alt="Image2">
                         </div>
                         <div class="caption">Banners</div>
                     </div>
                     <div class="frame" id="frame3">
                         <div class="img-box">
-                            <img src="Public/assets/img/news/news1.JPG" alt="Image3">
+                            <img src="Public/assets/img/pelayanan/moc/music.png" alt="Image3">
                         </div>
                         <div class="caption">Music</div>
                     </div>
                     <div class="frame" id="frame4">
                         <div class="img-box">
-                            <img src="Public/assets/img/news/news1.JPG" alt="Image4">
+                            <img src="Public/assets/img/pelayanan/moc/singers.png" alt="Image4">
                         </div>
                         <div class="caption">Singers</div>
                     </div>
                     <div class="frame" id="frame5">
                         <div class="img-box">
-                            <img src="Public/assets/img/news/news1.JPG" alt="Image5">
+                            <img src="Public/assets/img/pelayanan/moc/choirs.png" alt="Image5">
                         </div>
                         <div class="caption">Choirs</div>
                     </div>
@@ -172,17 +173,19 @@
 
             <!-- Right Box (Description) -->
             <div class="description col-md-6 col-12 p-5">
-                <div class="col-12 p-5 w-100 text-center hidden" id="description-content">
-                    <h1 class="description-title">BIDANG PELAYANAN MOC</h1>
-                    <p class="description-intro">MOC memiliki beberapa bidang pelayanan, antara lain:</p>
-                    <ul class="description-list">
-                        <li>- Rebana</li>
-                        <li>- Banners</li>
-                        <li>- Music</li>
-                        <li>- Singers</li>
-                        <li>- Choirs</li>
-                    </ul>
-                </div>
+                <section class="description-section">
+                    <div class="col-12 p-5 w-100 text-center" id="description-content">
+                        <h1 class="description-title">BIDANG PELAYANAN MOC</h1>
+                        <p class="description-intro">MOC memiliki beberapa bidang pelayanan, antara lain:</p>
+                        <ul class="description-list">
+                            <li>Rebana</li>
+                            <li>Banners</li>
+                            <li>Music</li>
+                            <li>Singers</li>
+                            <li>Choirs</li>
+                        </ul>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -194,31 +197,31 @@
             <!-- Testimonial 1 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="path-to-image1.jpg" alt="Andre" class="testimonial-img mb-3 rounded-circle" style="width: 80px; height: 80px;">
+                    <img src="Public/assets/img/pelayanan/moc/test-1.png" alt="Andre" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
                         "Bergabung dengan MOC adalah keputusan terbaik saya. Melalui komunitas ini, saya belajar banyak tentang melayani Tuhan dan bertumbuh dalam iman."
                     </p>
-                    <p class="text-muted">- Andre, Anggota MOC</p>
+                    <p class="text-muted">- TEST, Anggota MOC</p>
                 </div>
             </div>
             <!-- Testimonial 2 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="path-to-image2.jpg" alt="Maria" class="testimonial-img mb-3 rounded-circle" style="width: 80px; height: 80px;">
+                    <img src="Public/assets/img/pelayanan/moc/test-2.png" alt="Maria" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
                         "Di MOC, saya menemukan keluarga baru yang mendukung saya dalam kehidupan rohani. Saya belajar bermain musik untuk melayani di gereja."
                     </p>
-                    <p class="text-muted">- Maria, Anggota MOC</p>
+                    <p class="text-muted">- TEST, Anggota MOC</p>
                 </div>
             </div>
             <!-- Testimonial 3 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="path-to-image3.jpg" alt="Budi" class="testimonial-img mb-3 rounded-circle" style="width: 80px; height: 80px;">
+                    <img src="Public/assets/img/pelayanan/moc/test-3.png" alt="Budi" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
                         "MOC bukan hanya tentang musik, tapi tentang persaudaraan yang kuat dan belajar melayani dengan penuh semangat. Saya merasa diberkati menjadi bagian dari ini."
                     </p>
-                    <p class="text-muted">- Budi, Anggota MOC</p>
+                    <p class="text-muted">- TEST, Anggota MOC</p>
                 </div>
             </div>
         </div>
