@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index');
 $routes->get('/Berita', 'Home::news');
-$routes->get('/AdminPanel', 'Admin::index');
+$routes->get('/Settings', 'Admin::index');
 $routes->get('/Tes', 'Tes::index');
 
 // Pelayanan
@@ -22,7 +22,17 @@ $routes->get('/MOC', 'Home::moc');
 $routes->get('/ABA', 'Home::aba');
 $routes->get('/Sekolah', 'Home::sekolah');
 
-
+// Admin
+$routes->get('login', 'Admin::login');  // Login page (login.php)
+$routes->get('register', 'Admin::register');  // Register page (register.php)
+$routes->get('forgot-password', 'Admin::forgot'); // Forget page (forget-password.php)
+$routes->get('tables', 'Admin::tables');  // Tables page (tables.php)
+$routes->get('charts', 'Admin::charts');  // Charts page (charts.php)
+$routes->get('buttons', 'Admin::buttons');  // Buttons page (buttons.php)
+$routes->get('cards', 'Admin::cards');  // Buttons page (buttons.php)
+$routes->get('utilities-(:any)', 'Admin::utilities/$1');  // Dynamic route for utility pages (e.g., utilities-color.php)
+$routes->get('404', 'Admin::error404');  // 404 error page (404.php)
+$routes->get('blank', 'Admin::blank');  // 404 error page (404.php)
 
 
 

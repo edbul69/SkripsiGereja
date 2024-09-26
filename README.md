@@ -46,3 +46,43 @@ https://www.youtube.com/watch?v=9CAqojHY42o&ab_channel=WebDevCreative
 KONSUL UNTUK TAMPILAN PAGENYA!!!
 
 TERAKHIR.. Adjust dengan proposal
+
+---
+
+Apa yang dibutuhkan?
+
+- Livestream Ibadah
+- Data jemaat
+- Jadwal Ibadah
+- Berita
+
+Halaman apa aja?
+
+- Dashboard
+- Data jemaat
+- Jadwal Ibadah
+- Berita
+
+Isi halaman Dashboard?
+
+- Countdown ibadah
+- Data jemaat (higlights)
+- Jadwal Ibadah
+- Berita (Recently)
+
+Isi halaman Data Jemaat?
+
+- Tabel data Jemaat
+- Tombol tambah data
+- Tombol edit data
+
+Isi halaman Jadwal Ibadah?
+
+- Calender
+- Tombol tambah data
+- Tombol edit data
+
+Isi halaman Berita?
+
+- List berita + tombol edit
+- Halaman tambah berita
