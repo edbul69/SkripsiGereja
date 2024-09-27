@@ -19,7 +19,8 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!-- <link href="Admin/css/sb-admin-2.min.css" rel="stylesheet"> -->
     <link href="Admin/css/sb-admin-2.css" rel="stylesheet">
 
@@ -31,10 +32,10 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/Settings">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -57,37 +58,39 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJemaat"
+                    aria-expanded="true" aria-controls="collapseJemaat">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>Data Jemaat</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseJemaat" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login">Login</a>
-                        <a class="collapse-item" href="register">Register</a>
-                        <a class="collapse-item" href="forgot-password">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404">404 Page</a>
-                        <a class="collapse-item" href="blank">Blank Page</a>
+                        <a class="collapse-item" href="list-jemaat">List</a>
+                        <a class="collapse-item" href="tambah-jemaat">Tambah Jemaat</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link" href="jadwal-ibadah">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Jadwal Ibadah</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBerita"
+                    aria-expanded="true" aria-controls="collapseBerita">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>Berita</span>
+                </a>
+                <div id="collapseBerita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="list-berita">List</a>
+                        <a class="collapse-item" href="tambah-berita">Tambah Berita</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -193,6 +196,15 @@
         <script src="Admin/js/demo/chart-area-demo.js"></script>
         <script src="Admin/js/demo/chart-pie-demo.js"></script>
 
+        <!-- Include jQuery (required for DataTables) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Include DataTables JavaScript -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+        <!-- TinyMCE CDN -->
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </body>
 
 </html>

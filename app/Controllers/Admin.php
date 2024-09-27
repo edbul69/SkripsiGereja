@@ -4,14 +4,73 @@ namespace App\Controllers;
 
 class Admin extends BaseController
 {
-    // Loads the dashboard (index view)
     public function index(): string
     {
+        $embedCode = ''; // Default video link
+
+        if ($this->request->getMethod() === 'post') {
+            $userVideoLink = $this->request->getPost('youtubeEmbedCode');
+
+            // Convert standard YouTube URL to embed format if a valid URL is submitted
+            if ($userVideoLink && strpos($userVideoLink, 'watch?v=') !== false) {
+                $videoID = explode('watch?v=', $userVideoLink)[1];
+                $embedCode = 'https://www.youtube.com/embed/' . $videoID;
+            }
+        }
+
         $data = [
-            'title' => 'Admin Dashboard'
+            'title' => 'Admin Dashboard',
+            'embedCode' => $embedCode
         ];
+
         return view('Admin/index', $data);
     }
+
+    // Loads the list jemaat Page
+    public function listJemaat(): string
+    {
+        $data = [
+            'title' => 'List Jemaat'
+        ];
+        return view('Admin/list-jemaat', $data);
+    }
+
+    // Loads the tambah jemaat Page
+    public function tambahJemaat(): string
+    {
+        $data = [
+            'title' => 'Tambah Jemaat'
+        ];
+        return view('Admin/tambah-jemaat', $data);
+    }
+
+    // Loads the jadwal ibadah Page
+    public function jadwalIBadah(): string
+    {
+        $data = [
+            'title' => 'Jadwal Ibadah'
+        ];
+        return view('Admin/jadwal-ibadah', $data);
+    }
+
+    // Loads the list berita Page
+    public function listBerita(): string
+    {
+        $data = [
+            'title' => 'List Berita'
+        ];
+        return view('Admin/list-berita', $data);
+    }
+
+    // Loads the tambah berita Page
+    public function tambahBerita(): string
+    {
+        $data = [
+            'title' => 'Tambah Berita'
+        ];
+        return view('Admin/tambah-berita', $data);
+    }
+
 
     // Loads the login page
     public function login(): string
@@ -38,60 +97,6 @@ class Admin extends BaseController
             'title' => 'Forgot Password'
         ];
         return view('Admin/forgot-password', $data);
-    }
-
-    // Loads the charts page
-    public function charts(): string
-    {
-        $data = [
-            'title' => 'Charts'
-        ];
-        return view('Admin/charts', $data);
-    }
-
-    // Loads the tables page
-    public function tables(): string
-    {
-        $data = [
-            'title' => 'Tables'
-        ];
-        return view('Admin/tables', $data);
-    }
-
-    // Loads the buttons page
-    public function buttons(): string
-    {
-        $data = [
-            'title' => 'Buttons'
-        ];
-        return view('Admin/buttons', $data);
-    }
-
-    // Loads the cards page
-    public function cards(): string
-    {
-        $data = [
-            'title' => 'Cards'
-        ];
-        return view('Admin/cards', $data);
-    }
-
-    // Dynamic method for loading utility views
-    public function utilities($type = 'animation'): string
-    {
-        $data = [
-            'title' => 'Utilities - ' . ucfirst($type)
-        ];
-        return view('Admin/utilities-' . $type, $data);
-    }
-
-    // Loads the 404 error page
-    public function error404(): string
-    {
-        $data = [
-            'title' => 'Page Not Found'
-        ];
-        return view('Admin/404', $data);
     }
 
     // Loads the blank page

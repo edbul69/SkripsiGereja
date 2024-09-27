@@ -86,3 +86,15 @@ Isi halaman Berita?
 
 - List berita + tombol edit
 - Halaman tambah berita
+
+---
+
+Struktur Database
+
+tb_jemaat
+
+tb_ibadah
+
+tb_news
+
+tb_live

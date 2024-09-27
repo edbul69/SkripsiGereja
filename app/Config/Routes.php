@@ -7,9 +7,12 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/', 'Home::index');
-$routes->get('/Berita', 'Home::news');
-$routes->get('/Settings', 'Admin::index');
+$routes->match(['get', 'post'], '/Settings', 'Admin::index');
 $routes->get('/Tes', 'Tes::index');
+
+// Berita
+$routes->get('/Berita', 'Home::news');
+$routes->get('/Sample', 'Home::sample');
 
 // Pelayanan
 $routes->get('/Baptisan', 'Home::baptisan');
@@ -23,17 +26,14 @@ $routes->get('/ABA', 'Home::aba');
 $routes->get('/Sekolah', 'Home::sekolah');
 
 // Admin
+$routes->get('list-jemaat', 'Admin::listJemaat');
+$routes->get('tambah-jemaat', 'Admin::tambahJemaat');
+$routes->get('jadwal-ibadah', 'Admin::jadwalIBadah');
+$routes->get('list-berita', 'Admin::listBerita');
+$routes->get('tambah-berita', 'Admin::tambahBerita');
 $routes->get('login', 'Admin::login');  // Login page (login.php)
 $routes->get('register', 'Admin::register');  // Register page (register.php)
 $routes->get('forgot-password', 'Admin::forgot'); // Forget page (forget-password.php)
-$routes->get('tables', 'Admin::tables');  // Tables page (tables.php)
-$routes->get('charts', 'Admin::charts');  // Charts page (charts.php)
-$routes->get('buttons', 'Admin::buttons');  // Buttons page (buttons.php)
-$routes->get('cards', 'Admin::cards');  // Buttons page (buttons.php)
-$routes->get('utilities-(:any)', 'Admin::utilities/$1');  // Dynamic route for utility pages (e.g., utilities-color.php)
-$routes->get('404', 'Admin::error404');  // 404 error page (404.php)
 $routes->get('blank', 'Admin::blank');  // 404 error page (404.php)
-
-
 
 $routes->setAutoRoute(true);

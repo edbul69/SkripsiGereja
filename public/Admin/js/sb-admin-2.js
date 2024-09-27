@@ -54,3 +54,56 @@
   });
 
 })(jQuery); // End of use strict
+
+// Function to dynamically update the video without a full page reload
+function updateVideo(event) {
+  event.preventDefault(); // Prevent the form from submitting normally
+
+  let url = document.getElementById('youtubeEmbedCode').value.trim();
+
+  // Check if the link is a standard YouTube video URL (e.g., watch?v=ID)
+  if (url.includes("watch?v=")) {
+      let videoID = url.split("watch?v=")[1].split("&")[0]; // Get video ID, excluding additional parameters
+      url = "https://www.youtube.com/embed/" + videoID;
+
+  // Handle shortened YouTube links (e.g., youtu.be/ID)
+  } else if (url.includes("youtu.be/")) {
+      let videoID = url.split("youtu.be/")[1].split("&")[0];
+      url = "https://www.youtube.com/embed/" + videoID;
+
+  // Handle YouTube live links (e.g., youtube.com/live/ID)
+  } else if (url.includes("youtube.com/live/")) {
+      let videoID = url.split("youtube.com/live/")[1].split("?")[0];
+      url = "https://www.youtube.com/embed/" + videoID;
+  }
+
+  // Check if the final URL is in the correct embed format
+  if (!url.includes("https://www.youtube.com/embed/")) {
+      alert("Please enter a valid YouTube URL in the format: https://www.youtube.com/watch?v=VIDEO_ID, https://youtu.be/VIDEO_ID, or https://www.youtube.com/live/VIDEO_ID");
+      return false;
+  }
+
+  // Update the iframe's src attribute with the new video link
+  document.getElementById('youtube-video').src = url;
+  
+  // Optional: Clear the input field after posting the video
+  document.getElementById('youtubeEmbedCode').value = '';
+}
+
+$(document).ready(function() {
+  // Initialize DataTables on the #dataTable element
+  var table = $('#dataTable').DataTable({
+      "pageLength": 20, // Number of rows per page
+      "lengthMenu": [10, 20, 50, 100], // Options for number of rows to show per page
+      "paging": true,   // Enable pagination
+      "searching": true, // Enable search bar
+      "ordering": true,  // Enable column sorting
+      "info": true,     // Show table information (e.g., "Showing 1 to 10 of 57 entries")
+      "responsive": true // Ensure table adapts to different screen sizes
+  });
+
+  // Custom button to set the page length dynamically
+  window.setPageLength = function(value) {
+      table.page.len(value).draw(); // Change the number of rows displayed and redraw
+  };
+});

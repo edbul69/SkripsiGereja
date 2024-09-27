@@ -25,7 +25,6 @@ class Home extends BaseController
         ];
         return view('Home/news-sample', $data);
     }
-    ////////////////////////////////////////////////////////////////
     public function baptisan(): string
     {
         $data = [
