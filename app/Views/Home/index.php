@@ -259,8 +259,6 @@
     </div>
 </section>
 
-
-
 <!-- Modal for Event Details -->
 <div id="eventModal" class="modal">
     <div class="modal-content">

@@ -6,7 +6,7 @@
     <div class="container mt-5">
         <div id="news-container">
             <div class="news-item">
-                <a href="/Sample">
+                <a href="/Berita/Putri-GPDI-Bahu">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="news-image">

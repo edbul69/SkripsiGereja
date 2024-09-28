@@ -19,12 +19,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="Public/css/styles.css" rel="stylesheet" />
+    <!-- FullCalendar theme CSS -->
+    <link href="Public/css/fullcalendar-style.css" rel="stylesheet" />
     <!-- FullCalendar JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body id="page-top">
@@ -38,11 +41,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">BERANDA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">PELAYANAN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#news">BERITA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#schedule">JADWAL</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#media">MEDIA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#">BERANDA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#services">PELAYANAN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#news">BERITA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#schedule">JADWAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#media">MEDIA</a></li>
                 </ul>
             </div>
         </div>

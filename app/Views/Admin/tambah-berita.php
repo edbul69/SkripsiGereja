@@ -10,7 +10,7 @@
 
     <!-- Article Form Container -->
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Form Pembuatan Artikel</h6>
@@ -20,7 +20,7 @@
                         <!-- Main Image Upload -->
                         <div class="mb-3">
                             <label for="articleImage" class="form-label">Gambar Utama Artikel</label>
-                            <input type="file" class="form-control" id="articleImage" name="articleImage">
+                            <input type="file" class="form-control h-100" id="articleImage" name="articleImage">
                             <small class="form-text text-muted">Upload gambar utama untuk artikel (jpeg, png).</small>
                         </div>
 
@@ -56,32 +56,10 @@
             </div>
         </div>
     </div>
-
 </div>
-<!-- /.container-fluid -->
+<!-- container-fluid -->
 
 </div>
 <!-- End of Main Content -->
 
-<?= $this->endSection(); ?>
-
-<?= $this->section('scripts'); ?>
-<!-- TinyMCE Initialization Script -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize TinyMCE editor on the textarea with ID 'articleContent'
-        tinymce.init({
-            selector: '#articleContent',
-            plugins: 'lists link image media table code paste',
-            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link image media | code',
-            menubar: false,
-            height: 400,
-            branding: false,
-            setup: function(editor) {
-                // Check if TinyMCE is correctly initialized
-                console.log('TinyMCE initialized for:', editor.id);
-            }
-        });
-    });
-</script>
 <?= $this->endSection(); ?>

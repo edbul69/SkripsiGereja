@@ -30,10 +30,6 @@
                         <input type="text" class="form-control" id="inputName" placeholder="Masukkan nama lengkap">
                     </div>
                     <div class="mb-3">
-                        <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Masukkan email">
-                    </div>
-                    <div class="mb-3">
                         <label for="inputAddress" class="form-label">Alamat</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="Masukkan alamat">
                     </div>

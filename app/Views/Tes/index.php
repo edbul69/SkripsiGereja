@@ -12,12 +12,8 @@
     <textarea id="testEditor">This is a test editor</textarea>
     <script>
         tinymce.init({
-            selector: '#testEditor',
-            plugins: 'lists link image media table code paste',
-            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link image media | code',
-            menubar: false,
-            height: 400,
-            branding: false
+            selector: 'textarea', // change this value according to your HTML
+            toolbar: 'undo redo | styles | bold italic | link image'
         });
     </script>
 </body>

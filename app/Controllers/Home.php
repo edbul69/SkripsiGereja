@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\JadwalModel;
+
 class Home extends BaseController
 {
     public function index(): string
@@ -11,7 +13,32 @@ class Home extends BaseController
         ];
         return view('Home/index', $data);
     }
-    public function news(): string
+
+    // Method to return JSON data for FullCalendar
+    public function getEvents()
+    {
+        $jadwalModel = new JadwalModel();
+
+        // Fetch all events from the table
+        $events = $jadwalModel->findAll();
+
+        // Format the data for FullCalendar
+        $data = [];
+        foreach ($events as $event) {
+            $data[] = [
+                'id' => $event['id'],
+                'title' => $event['title'],
+                'start' => $event['start'],
+                'end' => $event['end'],
+                'description' => $event['description']
+            ];
+        }
+
+        // Return the JSON-encoded data
+        return $this->response->setJSON($data);
+    }
+
+    public function berita(): string
     {
         $data = [
             'title' => 'GPDI BAHU - Berita'

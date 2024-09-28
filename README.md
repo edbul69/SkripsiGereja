@@ -98,3 +98,23 @@ tb_ibadah
 tb_news
 
 tb_live
+
+---
+
+ADMIN PAGE Belum selesai
+
+Dashboard:
+Data Jemaat
+Kalender Ibadah
+List berita
+
+Data Jemaat:
+Tambah Jemaat
+
+Jadwal Ibadah
+
+Berita:
+List Berita
+
+PELAJARI LAGI ROUTING
+BELAJAR MODELLING

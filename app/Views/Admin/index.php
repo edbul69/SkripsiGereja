@@ -117,15 +117,13 @@
     </div>
 
     <!-- Content Calendar -->
-    <div class="row" id="calendar">
-
+    <div class="row" id="jadwal">
         <!-- Area Chart -->
         <div class="col-xl-12">
             <div class="card shadow mb-4">
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-area">
-                    </div>
+                    <div id='calendar'></div>
                 </div>
             </div>
         </div>
@@ -147,6 +145,16 @@
     </div>
 </div>
 <!-- /.container-fluid -->
+
+<!-- Modal for Event Details -->
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="eventTitle"></h2>
+        <p id="eventTime"></p>
+        <p id="eventDescription"></p>
+    </div>
+</div>
 
 </div>
 <!-- End of Main Content -->

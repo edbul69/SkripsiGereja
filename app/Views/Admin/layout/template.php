@@ -23,6 +23,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!-- <link href="Admin/css/sb-admin-2.min.css" rel="stylesheet"> -->
     <link href="Admin/css/sb-admin-2.css" rel="stylesheet">
+    <!-- FullCalendar theme CSS -->
+    <link href="Public/css/fullcalendar-style.css" rel="stylesheet" />
+    <!-- TinyMCE JS -->
+    <script src="https://cdn.tiny.cloud/1/532t8pezk0zc3kjogn02qzmkbbvxc4rf0asbbfggpg4vxypo/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
 
 </head>
 
@@ -65,15 +73,15 @@
                 </a>
                 <div id="collapseJemaat" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="list-jemaat">List</a>
-                        <a class="collapse-item" href="tambah-jemaat">Tambah Jemaat</a>
+                        <a class="collapse-item" href="/list-jemaat">List</a>
+                        <a class="collapse-item" href="/tambah-jemaat">Tambah Jemaat</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="jadwal-ibadah">
+                <a class="nav-link" href="/jadwal-ibadah">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jadwal Ibadah</span></a>
             </li>
@@ -87,8 +95,8 @@
                 </a>
                 <div id="collapseBerita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="list-berita">List</a>
-                        <a class="collapse-item" href="tambah-berita">Tambah Berita</a>
+                        <a class="collapse-item" href="/list-berita">List</a>
+                        <a class="collapse-item" href="/tambah-berita">Tambah Berita</a>
                     </div>
                 </div>
             </li>
@@ -203,8 +211,10 @@
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
-        <!-- TinyMCE CDN -->
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <!-- Include FullCalendar -->
+        <script src="Public/js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
 </body>
 
 </html>

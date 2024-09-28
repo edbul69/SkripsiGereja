@@ -2,22 +2,40 @@
 
 namespace App\Controllers;
 
+use App\Models\JemaatModel;
+use App\Models\LiveModel;
+
 class Admin extends BaseController
 {
+    protected $jemaatModel;
+    protected $liveModel;
+
+    public function __construct()
+    {
+        $this->jemaatModel = new JemaatModel();
+        $this->liveModel = new LiveModel();
+    }
+
     public function index(): string
     {
+        // Fetch the link from the database where id = 1
+        $liveData = $this->liveModel->find(1); // Retrieves the row with id 1
         $embedCode = ''; // Default video link
 
-        if ($this->request->getMethod() === 'post') {
-            $userVideoLink = $this->request->getPost('youtubeEmbedCode');
+        // Check if liveData is valid and contains the 'link' field
+        if ($liveData && isset($liveData['link'])) {
+            $iframeString = $liveData['link'];
 
-            // Convert standard YouTube URL to embed format if a valid URL is submitted
-            if ($userVideoLink && strpos($userVideoLink, 'watch?v=') !== false) {
-                $videoID = explode('watch?v=', $userVideoLink)[1];
-                $embedCode = 'https://www.youtube.com/embed/' . $videoID;
+            // Use regular expression to extract the src attribute value from the iframe
+            if (preg_match('/src="([^"]+)"/', $iframeString, $matches)) {
+                $embedCode = $matches[1];  // Extracted URL from the iframe
+            } else {
+                // If it's not an iframe, set it directly as the link
+                $embedCode = $iframeString;
             }
         }
 
+        // Prepare data to pass to the view
         $data = [
             'title' => 'Admin Dashboard',
             'embedCode' => $embedCode
@@ -29,9 +47,14 @@ class Admin extends BaseController
     // Loads the list jemaat Page
     public function listJemaat(): string
     {
+        $jemaat = $this->jemaatModel->findAll();
+
         $data = [
-            'title' => 'List Jemaat'
+            'title' => 'List Jemaat',
+            'jemaat' => $jemaat
         ];
+
+
         return view('Admin/list-jemaat', $data);
     }
 
@@ -71,6 +94,14 @@ class Admin extends BaseController
         return view('Admin/tambah-berita', $data);
     }
 
+    // Loads the preview berita Page
+    public function previewBerita(): string
+    {
+        $data = [
+            'title' => 'Preview'
+        ];
+        return view('Admin/preview-berita', $data);
+    }
 
     // Loads the login page
     public function login(): string
