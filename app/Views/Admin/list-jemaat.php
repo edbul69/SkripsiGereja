@@ -22,6 +22,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Tanggal Lahir</th>
+                                    <th>Asal</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Nomor Telp</th>
                                     <th>Alamat</th>
@@ -32,6 +33,7 @@
                                     <tr>
                                         <td><?= $j['nama']; ?></td>
                                         <td><?= $j['tgl_lahir']; ?></td>
+                                        <td><?= $j['asal']; ?></td>
                                         <td><?= $j['jns_kelamin']; ?></td>
                                         <td><?= $j['telp']; ?></td>
                                         <td><?= $j['alamat']; ?></td>

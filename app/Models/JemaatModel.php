@@ -8,8 +8,6 @@ class JemaatModel extends Model
 {
     protected $table = 'tb_jemaat';
     protected $useTimestamp = true;
-    protected $createdField = 'created';
-    protected $updatedField = 'modified';
     protected $allowedFields = ['nama', 'alamat', 'telp', 'tgl_lahir', 'jns_kelamin'];
 
     public function simpanJemaat($data)
