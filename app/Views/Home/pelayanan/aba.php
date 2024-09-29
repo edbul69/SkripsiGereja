@@ -50,7 +50,7 @@
         <div class="row align-items-center">
             <!-- Left side (Image) -->
             <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-                <img src="Public/assets/img/pelayanan/aba/ss-aba.jpeg" alt="Group Activity Screenshot" class="img-fluid rounded shadow-lg">
+                <img src="../Public/assets/img/pelayanan/aba/ss-aba.jpeg" alt="Group Activity Screenshot" class="img-fluid rounded shadow-lg">
             </div>
 
             <!-- Right side (Text) -->

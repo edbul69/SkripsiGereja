@@ -12,19 +12,19 @@
     <title><?= $title; ?></title>
 
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="Admin/img/icon/icon.png" />
+    <link rel="icon" type="image/x-icon" href="../Admin/img/icon/icon.png" />
     <!-- Custom fonts for this template-->
-    <link href="Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
-    <!-- <link href="Admin/css/sb-admin-2.min.css" rel="stylesheet"> -->
-    <link href="Admin/css/sb-admin-2.css" rel="stylesheet">
+    <!-- <link href="../Admin/css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <link href="../Admin/css/sb-admin-2.css" rel="stylesheet">
     <!-- FullCalendar theme CSS -->
-    <link href="Public/css/fullcalendar-style.css" rel="stylesheet" />
+    <link href="../Public/css/fullcalendar-style.css" rel="stylesheet" />
     <!-- TinyMCE JS -->
     <script src="https://cdn.tiny.cloud/1/532t8pezk0zc3kjogn02qzmkbbvxc4rf0asbbfggpg4vxypo/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -73,15 +73,15 @@
                 </a>
                 <div id="collapseJemaat" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/list-jemaat">List</a>
-                        <a class="collapse-item" href="/tambah-jemaat">Tambah Jemaat</a>
+                        <a class="collapse-item" href="<?= base_url('Settings/listJemaat') ?>">List</a>
+                        <a class="collapse-item" href="<?= base_url('Settings/tambahJemaat') ?>">Tambah Jemaat</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/jadwal-ibadah">
+                <a class="nav-link" href="<?= base_url('Settings/jadwalIbadah') ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jadwal Ibadah</span></a>
             </li>
@@ -95,8 +95,8 @@
                 </a>
                 <div id="collapseBerita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/list-berita">List</a>
-                        <a class="collapse-item" href="/tambah-berita">Tambah Berita</a>
+                        <a class="collapse-item" href="<?= base_url('Settings/listBerita') ?>">List</a>
+                        <a class="collapse-item" href="<?= base_url('Settings/tambahBerita') ?>">Tambah Berita</a>
                     </div>
                 </div>
             </li>
@@ -137,7 +137,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
-                                    src="Admin/img/undraw_profile.svg">
+                                    src="../Admin/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -187,22 +187,22 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="Admin/vendor/jquery/jquery.min.js"></script>
-        <script src="Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="../Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="../Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <!-- <script src="Admin/js/sb-admin-2.min.js"></script> -->
-        <script src="Admin/js/sb-admin-2.js"></script>
+        <!-- <script src="../Admin/js/sb-admin-2.min.js"></script> -->
+        <script src="../Admin/js/sb-admin-2.js"></script>
 
         <!-- Page level plugins -->
-        <script src="Admin/vendor/chart.js/Chart.min.js"></script>
+        <script src="../Admin/vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="Admin/js/demo/chart-area-demo.js"></script>
-        <script src="Admin/js/demo/chart-pie-demo.js"></script>
+        <script src="../Admin/js/demo/chart-area-demo.js"></script>
+        <script src="../Admin/js/demo/chart-pie-demo.js"></script>
 
         <!-- Include jQuery (required for DataTables) -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -212,7 +212,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
         <!-- Include FullCalendar -->
-        <script src="Public/js/scripts.js"></script>
+        <script src="../Public/js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 
 </body>

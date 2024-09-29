@@ -32,7 +32,7 @@
                                     <tr>
                                         <td><?= $j['nama']; ?></td>
                                         <td><?= $j['tgl_lahir']; ?></td>
-                                        <td><?= $j['jk']; ?></td>
+                                        <td><?= $j['jns_kelamin']; ?></td>
                                         <td><?= $j['telp']; ?></td>
                                         <td><?= $j['alamat']; ?></td>
                                     </tr>

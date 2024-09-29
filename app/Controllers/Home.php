@@ -3,9 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\JadwalModel;
+use App\Models\BeritaModel;
 
 class Home extends BaseController
 {
+
+    protected $jadwalModel;
+    protected $beritaModel;
+
+    public function __construct()
+    {
+        $this->jadwalModel = new JadwalModel();
+        $this->beritaModel = new BeritaModel();
+    }
+
     public function index(): string
     {
         $data = [
@@ -14,44 +25,38 @@ class Home extends BaseController
         return view('Home/index', $data);
     }
 
-    // Method to return JSON data for FullCalendar
-    public function getEvents()
-    {
-        $jadwalModel = new JadwalModel();
-
-        // Fetch all events from the table
-        $events = $jadwalModel->findAll();
-
-        // Format the data for FullCalendar
-        $data = [];
-        foreach ($events as $event) {
-            $data[] = [
-                'id' => $event['id'],
-                'title' => $event['title'],
-                'start' => $event['start'],
-                'end' => $event['end'],
-                'description' => $event['description']
-            ];
-        }
-
-        // Return the JSON-encoded data
-        return $this->response->setJSON($data);
-    }
-
+    // BERITA CONTROLLER
     public function berita(): string
     {
+
+        // Prepare the data array to pass to the view
         $data = [
-            'title' => 'GPDI BAHU - Berita'
+            'title' => 'GPDI BAHU - Berita',
+            'berita' => $this->beritaModel->getBerita()
         ];
+
+        // Return the view with the prepared data
         return view('Home/all-news', $data);
     }
-    public function sample(): string
+
+    public function detail($id): string
     {
+        $berita = $this->beritaModel->getBerita($id);
+
+        if (!$berita) {
+            return 'No news found for the given ID';
+        }
+
         $data = [
-            'title' => 'Berita - Sample'
+            'title' => 'GPDI BAHU - Sample',
+            'berita' => $berita
         ];
+
         return view('Home/news-sample', $data);
     }
+
+
+    // PELAYANAN CONTROLLER
     public function baptisan(): string
     {
         $data = [
@@ -94,7 +99,6 @@ class Home extends BaseController
         ];
         return view('Home/pelayanan/ibadah-rayon', $data);
     }
-
     public function moc(): string
     {
         $data = [
@@ -115,5 +119,27 @@ class Home extends BaseController
             'title' => 'GPDI BAHU - Sekolah Minggu'
         ];
         return view('Home/pelayanan/sekolah-minggu', $data);
+    }
+
+    // Method to return JSON data for FullCalendar
+    public function getEvents()
+    {
+
+        $events = $this->jadwalModel->findAll();
+
+        // Format the data for FullCalendar
+        $data = [];
+        foreach ($events as $event) {
+            $data[] = [
+                'id' => $event['id'],
+                'title' => $event['title'],
+                'start' => $event['start'],
+                'end' => $event['end'],
+                'description' => $event['description']
+            ];
+        }
+
+        // Return the JSON-encoded data
+        return $this->response->setJSON($data);
     }
 }

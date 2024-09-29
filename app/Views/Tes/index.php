@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <img src="../Admin/img/icon/icon.png" alt="">
     <textarea id="testEditor">This is a test editor</textarea>
     <script>
         tinymce.init({

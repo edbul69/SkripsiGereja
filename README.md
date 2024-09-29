@@ -87,34 +87,5 @@ Isi halaman Berita?
 - List berita + tombol edit
 - Halaman tambah berita
 
----
-
-Struktur Database
-
-tb_jemaat
-
-tb_ibadah
-
-tb_news
-
-tb_live
-
----
-
-ADMIN PAGE Belum selesai
-
-Dashboard:
-Data Jemaat
-Kalender Ibadah
-List berita
-
-Data Jemaat:
-Tambah Jemaat
-
-Jadwal Ibadah
-
-Berita:
-List Berita
-
-PELAJARI LAGI ROUTING
-BELAJAR MODELLING
+BUAT SLUG, TUTOR DARI YOUTUBE
+PERBAIKI HALAMAN TAMBAH JEMAAT

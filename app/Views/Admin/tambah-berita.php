@@ -16,7 +16,8 @@
                     <h6 class="m-0 font-weight-bold text-primary">Form Pembuatan Artikel</h6>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="post" enctype="multipart/form-data">
+                    <form action="Admin/simpanBerita" method="post" enctype="multipart/form-data">
+                        <?= csrf_field(); ?>
                         <!-- Main Image Upload -->
                         <div class="mb-3">
                             <label for="articleImage" class="form-label">Gambar Utama Artikel</label>

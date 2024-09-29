@@ -18,7 +18,7 @@
         </div>
         <div class="row align-items-center hidden">
             <div class="col-md-6 image-content">
-                <img src="Public/assets/img/main-banner.jpg" alt="Group of people" clas>
+                <img src="../Public/assets/img/main-banner.jpg" alt="Group of people" clas>
             </div>
             <div class="col-md-6 text-content">
                 <h1>KELUARGA<br><span>BESAR</span><br>GPDI</h1>
@@ -47,7 +47,7 @@
             <!-- First Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Baptisan">
-                    <img src="Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Baptisan Air</div>
                 </a>
@@ -55,7 +55,7 @@
             <!-- Second Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Penyerahan">
-                    <img src="Public/assets/img/pelayanan/penyerahan-anak.jpg" class="img-fluid h-100" alt="I'm New">
+                    <img src="../Public/assets/img/pelayanan/penyerahan-anak.jpg" class="img-fluid h-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Penyerahan Anak</div>
                 </a>
@@ -63,7 +63,7 @@
             <!-- Third Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Perjamuan">
-                    <img src="Public/assets/img/pelayanan/perjamuan-kudus.JPG" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/perjamuan-kudus.JPG" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Perjamuan Kudus</div>
                 </a>
@@ -71,7 +71,7 @@
             <!-- Fourth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Sunday">
-                    <img src="Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sunday Service</div>
                 </a>
@@ -79,7 +79,7 @@
             <!-- Fifth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Doa">
-                    <img src="Public/assets/img/pelayanan/doa-bersama.png" class="img-fluid h-100" alt="I'm New">
+                    <img src="../Public/assets/img/pelayanan/doa-bersama.png" class="img-fluid h-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Doa Bersama</div>
                 </a>
@@ -87,7 +87,7 @@
             <!-- Sixth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Ibadah">
-                    <img src="Public/assets/img/pelayanan/ibadah-rayon.JPG" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/ibadah-rayon.JPG" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Ibadah Rayon</div>
                 </a>
@@ -95,7 +95,7 @@
             <!-- Seventh Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/MOC">
-                    <img src="Public/assets/img/pelayanan/moc.JPG" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/moc.JPG" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">MOC</div>
                 </a>
@@ -103,7 +103,7 @@
             <!-- Eight Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/ABA">
-                    <img src="Public/assets/img/pelayanan/aba.jpg" class="img-fluid h-100" alt="I'm New">
+                    <img src="../Public/assets/img/pelayanan/aba.jpg" class="img-fluid h-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">ABA</div>
                 </a>
@@ -111,7 +111,7 @@
             <!-- Ninth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Sekolah">
-                    <img src="Public/assets/img/pelayanan/sekolah-minggu.JPG" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/sekolah-minggu.JPG" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sekolah Minggu</div>
                 </a>
@@ -129,7 +129,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="Public/assets/img/news/news1.JPG" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
+                    <img src="../Public/assets/img/news/news1.JPG" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Putri GPDI Sulawesi Utara, Aurelia David<i class="fas fa-chevron-right"></i></a>
@@ -139,7 +139,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="Public/assets/img/news/news2.JPG" class="card-img-top card-img-fixed rounded-4" alt="Fall Small Group Signups">
+                    <img src="../Public/assets/img/news/news2.JPG" class="card-img-top card-img-fixed rounded-4" alt="Fall Small Group Signups">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Mayor TNI Membuka Ibadah Persemian <i class="fas fa-chevron-right"></i></a>
@@ -149,7 +149,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="Public/assets/img/news/news3.JPG" class="card-img-top card-img-fixed rounded-4" alt="College & Young Adult Kickoff">
+                    <img src="../Public/assets/img/news/news3.JPG" class="card-img-top card-img-fixed rounded-4" alt="College & Young Adult Kickoff">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Majelis Daerah GPDI Menghadiri Acara Peresmian <i class="fas fa-chevron-right"></i></a>
@@ -159,7 +159,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="Public/assets/img/news/news4.JPG" class="card-img-top card-img-fixed rounded-4" alt="Step One">
+                    <img src="../Public/assets/img/news/news4.JPG" class="card-img-top card-img-fixed rounded-4" alt="Step One">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Penandatangan Peresmian Gedung Baru GPDI Bahu <i class="fas fa-chevron-right"></i></a>
@@ -169,7 +169,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="Public/assets/img/news/news5.JPG" class="card-img-top card-img-fixed rounded-4" alt="Serve Day">
+                    <img src="../Public/assets/img/news/news5.JPG" class="card-img-top card-img-fixed rounded-4" alt="Serve Day">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Ibadah Peresmian Gedung Baru GPDI Bahu <i class="fas fa-chevron-right"></i></a>
@@ -179,7 +179,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 border-0 bg-transparent">
-                    <img src="Public/assets/img/news/news6.JPG" class="card-img-top card-img-fixed rounded-4" alt="New Series: Binge the Bible">
+                    <img src="../Public/assets/img/news/news6.JPG" class="card-img-top card-img-fixed rounded-4" alt="New Series: Binge the Bible">
                     <div class="card-body text-white">
                         <h5 class="card-title">
                             <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Moment Kebersamaan Jemaat GPDI Bahu <i class="fas fa-chevron-right"></i></a>

@@ -24,32 +24,33 @@
             </div>
             <div class="card-body">
                 <!-- Form Structure -->
-                <form>
+                <form action="/Admin/simpanJemaat" method="post">
+                    <?= csrf_field(); ?>
                     <div class="mb-3">
-                        <label for="inputName" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Masukkan nama lengkap">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama lengkap">
                     </div>
                     <div class="mb-3">
-                        <label for="inputAddress" class="form-label">Alamat</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Masukkan alamat">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
                     </div>
                     <div class="mb-3">
-                        <label for="inputPhone" class="form-label">Nomor Telepon</label>
-                        <input type="tel" class="form-control" id="inputPhone" placeholder="Masukkan nomor telepon">
+                        <label for="telp" class="form-label">Nomor Telepon</label>
+                        <input type="tel" class="form-control" id="telp" name="telp" placeholder="Masukkan nomor telepon">
                     </div>
                     <div class="mb-3">
-                        <label for="inputDOB" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="inputDOB">
+                        <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
                     </div>
                     <div class="mb-3">
-                        <label for="inputGender" class="form-label">Jenis Kelamin</label>
-                        <select id="inputGender" class="form-select">
+                        <label for="jns_kelamin" class="form-label">Jenis Kelamin</label>
+                        <select id="jns_kelamin" class="form-select" name="jns_kelamin">
                             <option selected>Pilih...</option>
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-primary">Simpan Data</button>
+                    <button type="submit" class="btn btn-primary">Simpan Data</button>
                 </form>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title><?= $title; ?></title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="Public/assets/icon.png" />
+    <link rel="icon" type="image/x-icon" href="../Public/assets/icon.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="Public/css/styles.css" rel="stylesheet" />
+    <link href="../Public/css/styles.css" rel="stylesheet" />
     <!-- FullCalendar theme CSS -->
-    <link href="Public/css/fullcalendar-style.css" rel="stylesheet" />
+    <link href="../Public/css/fullcalendar-style.css" rel="stylesheet" />
     <!-- FullCalendar JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <!-- Font Awesome -->
@@ -34,7 +34,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="/Home"><img src="Public/assets/img/navbar-logo.png" alt="..." /></a>
+            <a class="navbar-brand" href="/Home"><img src="../Public/assets/img/navbar-logo.png" alt="..." /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -92,7 +92,7 @@
                             <div class="card card1 ms-5">
                                 <!-- Card 1 content -->
                                 <div class="card-content">
-                                    <img src="Public/assets/img/icon/bahu-icon-tp.png" alt="">
+                                    <img src="../Public/assets/img/icon/bahu-icon-tp.png" alt="">
                                     <!-- The link is only visible and clickable on hover -->
                                     <a href="https://www.instagram.com/gpdibahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@gpdi.bahu</a>
                                 </div>
@@ -100,7 +100,7 @@
                             <div class="card card2 me-5">
                                 <!-- Card 2 content -->
                                 <div class="card-content">
-                                    <img src="Public/assets/img/icon/moc-icon-tp.png" alt="">
+                                    <img src="../Public/assets/img/icon/moc-icon-tp.png" alt="">
                                     <!-- The link is only visible and clickable on hover -->
                                     <a href="https://www.instagram.com/moc.gpdibahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@moc.gpdibahu</a>
                                 </div>
@@ -128,7 +128,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="Public/js/scripts.js"></script>
+    <script src="../Public/js/scripts.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

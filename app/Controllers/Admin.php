@@ -46,6 +46,7 @@ class Admin extends BaseController
 
     // Loads the list jemaat Page
     public function listJemaat(): string
+
     {
         $jemaat = $this->jemaatModel->findAll();
 
@@ -66,6 +67,32 @@ class Admin extends BaseController
         ];
         return view('Admin/tambah-jemaat', $data);
     }
+
+    public function simpanJemaat()
+    {
+        // Use the default insert method from CodeIgniter's Model class and store the returned ID
+        $insertedID = $this->jemaatModel->insert([
+            'nama'       => $this->request->getVar('nama'),
+            'alamat'     => $this->request->getVar('alamat'),
+            'telp'       => $this->request->getVar('telp'),
+            'tgl_lahir'  => $this->request->getVar('tgl_lahir'),
+            'jns_kelamin' => $this->request->getVar('jns_kelamin')
+        ]);
+
+        // Check if the data was successfully inserted
+        if ($insertedID) {
+            // Set a flash data message for success
+            session()->setFlashdata('success', 'Data successfully inserted with ID: ' . $insertedID);
+        } else {
+            // Set a flash data message for failure
+            session()->setFlashdata('error', 'Data insertion failed.');
+        }
+
+        // Redirect to the tambahJemaat page
+        return redirect()->to('/Settings/tambahJemaat');
+    }
+
+
 
     // Loads the jadwal ibadah Page
     public function jadwalIBadah(): string
