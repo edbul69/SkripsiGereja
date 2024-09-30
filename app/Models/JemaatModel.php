@@ -6,12 +6,15 @@ use CodeIgniter\Model;
 
 class JemaatModel extends Model
 {
-    protected $table = 'tb_jemaat';
-    protected $useTimestamp = true;
-    protected $allowedFields = ['nama', 'alamat', 'telp', 'tgl_lahir', 'jns_kelamin'];
+    protected $table = 'tb_jemaat'; // Your table name
 
-    public function simpanJemaat($data)
-    {
-        return $this->insert($data);
-    }
+    // Enable automatic timestamps for the `created` and `modified` fields
+    protected $useTimestamps = true;
+
+    // Define the column names for created and modified timestamps
+    protected $createdField = 'created';  // Column for record creation time
+    protected $updatedField = 'modified'; // Column for record last update time
+
+    // Specify which columns can be set by insert/update
+    protected $allowedFields = ['nama', 'tgl_lahir', 'asal', 'jns_kelamin', 'telp', 'alamat'];
 }

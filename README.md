@@ -49,47 +49,10 @@ TERAKHIR.. Adjust dengan proposal
 
 ---
 
-Apa yang dibutuhkan?
+PUJI TUHAN SOMO KELAR
 
-- Livestream Ibadah
-- Data jemaat
-- Jadwal Ibadah
-- Berita
+PR:
 
-Halaman apa aja?
-
-- Dashboard
-- Data jemaat
-- Jadwal Ibadah
-- Berita
-
-Isi halaman Dashboard?
-
-- Countdown ibadah
-- Data jemaat (higlights)
-- Jadwal Ibadah
-- Berita (Recently)
-
-Isi halaman Data Jemaat?
-
-- Tabel data Jemaat
-- Tombol tambah data
-- Tombol edit data
-
-Isi halaman Jadwal Ibadah?
-
-- Calender
-- Tombol tambah data
-- Tombol edit data
-
-Isi halaman Berita?
-
-- List berita + tombol edit
-- Halaman tambah berita
-
-BUAT SLUG, TUTOR DARI YOUTUBE
-PERBAIKI HALAMAN TAMBAH JEMAAT
-
-REVISI DATABASE JEMAAT
-REVISI TABEL JEMAAT
-REVISI HALAMAN TAMBAH JEMAAT
+- Halaman Berita
+- Jemaat di Dashboard
+- Login

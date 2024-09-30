@@ -30,12 +30,19 @@
                 <div class="card-body">
                     <h5>Enter YouTube Video Link</h5>
                     <!-- Use POST method to submit the form data -->
-                    <form id="embedForm" method="POST" action="<?= site_url('Settings') ?>" onsubmit="return updateVideo(event)">
+                    <form method="POST" action="/Settings/updateVideo/1">
                         <div class="mb-3">
-                            <input type="text" name="youtubeEmbedCode" id="youtubeEmbedCode" class="form-control" placeholder="Enter YouTube Video URL Here">
+                            <input type="text" name="youtubeEmbedCode" id="youtubeEmbedCode" class="form-control" placeholder="Enter YouTube Embed Code Here">
                         </div>
                         <button type="submit" id="postEmbed" class="btn btn-primary">Post Video</button>
                     </form>
+
+                    <!-- Optional: Display Success/Failure Message -->
+                    <?php if (session()->getFlashdata('message')) : ?>
+                        <div class="alert mt-3 <?= session()->getFlashdata('alert-class'); ?>">
+                            <?= session()->getFlashdata('message'); ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -122,7 +129,7 @@
         <div class="col-xl-12">
             <div class="card shadow mb-4">
                 <!-- Card Body -->
-                <div class="card-body">
+                <div class="card-body bg-gray-800">
                     <div id='calendar'></div>
                 </div>
             </div>

@@ -8,6 +8,14 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Buat Artikel Baru</h1>
 
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success mt-3" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php $validation = session()->getFlashdata('validation'); ?>
+
     <!-- Article Form Container -->
     <div class="row justify-content-center">
         <div class="col-lg-12">
@@ -16,37 +24,46 @@
                     <h6 class="m-0 font-weight-bold text-primary">Form Pembuatan Artikel</h6>
                 </div>
                 <div class="card-body">
-                    <form action="Admin/simpanBerita" method="post" enctype="multipart/form-data">
+                    <form id="beritaForm" action="/Admin/simpanBerita" method="post">
                         <?= csrf_field(); ?>
-                        <!-- Main Image Upload -->
+                        <!-- Article Title -->
                         <div class="mb-3">
-                            <label for="articleImage" class="form-label">Gambar Utama Artikel</label>
-                            <input type="file" class="form-control h-100" id="articleImage" name="articleImage">
-                            <small class="form-text text-muted">Upload gambar utama untuk artikel (jpeg, png).</small>
+                            <label for="title" class="form-label">Judul Artikel</label>
+                            <input type="text" class="form-control <?= ($validation && $validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="title" name="title" placeholder="Masukkan judul artikel" value="<?= old('title'); ?>">
+                            <?php if ($validation && $validation->hasError('title')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('title'); ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
 
-                        <!-- Publication Date -->
+                        <!-- Main Image Upload -->
                         <div class="mb-3">
-                            <label for="articleDate" class="form-label">Tanggal Publikasi</label>
-                            <input type="date" class="form-control" id="articleDate" name="articleDate">
+                            <label for="img" class="form-label">Gambar Utama Artikel</label>
+                            <input type="file" class="form-control py-1 <?= ($validation && $validation->hasError('img')) ? 'is-invalid' : ''; ?>" id="img" name="img" placeholder="Masukkan URL gambar utama" value="<?= old('img'); ?>">
+                            <?php if ($validation && $validation->hasError('img')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('img'); ?>
+                                </div>
+                            <?php endif; ?>
+                            <small class="form-text text-muted">Upload gambar utama untuk artikel (jpeg, png).</small>
                         </div>
 
                         <!-- Article Source -->
                         <div class="mb-3">
-                            <label for="articleSource" class="form-label">Sumber Artikel</label>
-                            <input type="text" class="form-control" id="articleSource" name="articleSource" placeholder="Masukkan sumber artikel (contoh: GPDI BAHU)">
-                        </div>
-
-                        <!-- Article Title -->
-                        <div class="mb-3">
-                            <label for="articleTitle" class="form-label">Judul Artikel</label>
-                            <input type="text" class="form-control" id="articleTitle" name="articleTitle" placeholder="Masukkan judul artikel">
+                            <label for="source" class="form-label">Sumber Artikel</label>
+                            <input type="text" class="form-control" id="source" name="source" placeholder="Masukkan sumber artikel (contoh: GPDI BAHU)">
                         </div>
 
                         <!-- Article Content -->
                         <div class="mb-3">
-                            <label for="articleContent" class="form-label">Isi Artikel</label>
-                            <textarea id="articleContent" class="form-control" rows="10" name="articleContent" placeholder="Masukkan isi artikel di sini..."></textarea>
+                            <label for="text" class="form-label">Isi Artikel</label>
+                            <textarea id="text" class="form-control <?= ($validation && $validation->hasError('text')) ? 'is-invalid' : ''; ?>" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
+                            <?php if ($validation && $validation->hasError('text')) : ?>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('text'); ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
 
                         <!-- Preview and Save Buttons -->

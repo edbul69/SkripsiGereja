@@ -2,20 +2,27 @@
 
 namespace App\Controllers;
 
+use App\Models\JadwalModel;
 use App\Models\JemaatModel;
 use App\Models\LiveModel;
+use App\Models\BeritaModel;
 
 class Admin extends BaseController
 {
     protected $jemaatModel;
     protected $liveModel;
+    protected $jadwalModel;
+    protected $beritaModel;
 
     public function __construct()
     {
         $this->jemaatModel = new JemaatModel();
         $this->liveModel = new LiveModel();
+        $this->jadwalModel = new JadwalModel();
+        $this->beritaModel = new BeritaModel();
     }
 
+    // HALAMAN DASHBOARD
     public function index(): string
     {
         // Fetch the link from the database where id = 1
@@ -44,9 +51,40 @@ class Admin extends BaseController
         return view('Admin/index', $data);
     }
 
-    // Loads the list jemaat Page
-    public function listJemaat(): string
+    // ------------------------------ LIVE STREAM ----------------------------------
 
+    public function updateVideo($id)
+    {
+        // Validate that the YouTube Embed Code is not empty
+        $embedCode = $this->request->getPost('youtubeEmbedCode');
+
+        if ($embedCode) {
+            // Update the `link` field where `id = 1`
+            $updated = $this->liveModel->update($id, ['link' => $embedCode]);
+
+            if ($updated) {
+                // Set a success message
+                session()->setFlashdata('message', 'Video updated successfully.');
+                session()->setFlashdata('alert-class', 'alert-success');
+            } else {
+                // Set a failure message
+                session()->setFlashdata('message', 'Failed to update the video.');
+                session()->setFlashdata('alert-class', 'alert-danger');
+            }
+        } else {
+            // Set a validation error message
+            session()->setFlashdata('message', 'Please provide a valid YouTube Embed Code.');
+            session()->setFlashdata('alert-class', 'alert-warning');
+        }
+
+        // Redirect back to the form page
+        return redirect()->to('/Settings');
+    }
+
+    // ------------------------------ JEMAAT ----------------------------------
+
+    // HALAMAN LIST JEMAAT
+    public function listJemaat(): string
     {
         $jemaat = $this->jemaatModel->findAll();
 
@@ -59,7 +97,7 @@ class Admin extends BaseController
         return view('Admin/list-jemaat', $data);
     }
 
-    // Loads the tambah jemaat Page
+    // HALAMAN TAMBAH JEMAAT
     public function tambahJemaat(): string
     {
         $data = [
@@ -68,33 +106,112 @@ class Admin extends BaseController
         return view('Admin/tambah-jemaat', $data);
     }
 
+    // FUNCTION SIMPAN DATA JEMAAT
     public function simpanJemaat()
     {
-        // Use the default insert method from CodeIgniter's Model class and store the returned ID
-        $insertedID = $this->jemaatModel->insert([
-            'nama'       => $this->request->getVar('nama'),
-            'alamat'     => $this->request->getVar('alamat'),
-            'telp'       => $this->request->getVar('telp'),
-            'tgl_lahir'  => $this->request->getVar('tgl_lahir'),
-            'jns_kelamin' => $this->request->getVar('jns_kelamin')
-        ]);
-
-        // Check if the data was successfully inserted
-        if ($insertedID) {
-            // Set a flash data message for success
-            session()->setFlashdata('success', 'Data successfully inserted with ID: ' . $insertedID);
-        } else {
-            // Set a flash data message for failure
-            session()->setFlashdata('error', 'Data insertion failed.');
+        // Validate input fields
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'tgl_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Lahir harus diisi.'
+                ]
+            ],
+            'asal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'jns_kelamin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jenis Kelamin harus dipilih.'
+                ]
+            ],
+            'telp' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => '{field} harus diisi.',
+                    'numeric' => '{field} harus berupa angka.'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ]
+        ])) {
+            // Return back to form with validation errors
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Admin/tambahJemaat')->withInput()->with('validation', $validation);
         }
 
+        // If validation is successful, save the data
+        $this->jemaatModel->save([
+            'nama'       => $this->request->getVar('nama'),
+            'tgl_lahir'  => $this->request->getVar('tgl_lahir'),
+            'asal'       => $this->request->getVar('asal'),
+            'jns_kelamin' => $this->request->getVar('jns_kelamin'),
+            'telp'       => $this->request->getVar('telp'),
+            'alamat'     => $this->request->getVar('alamat')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan.');
+
         // Redirect to the tambahJemaat page
-        return redirect()->to('/Settings/tambahJemaat');
+        return redirect()->to('/Admin/tambahJemaat');
     }
 
+    // FUNCTION EDIT DATA JEMAAT
+    public function updateJemaat()
+    {
+        $model = new JemaatModel();
 
+        // Get the data from the request
+        $data = [
+            'id'         => $this->request->getVar('id'),
+            'nama'       => $this->request->getVar('nama'),
+            'tgl_lahir'  => $this->request->getVar('tgl_lahir'),
+            'asal'       => $this->request->getVar('asal'),
+            'jns_kelamin' => $this->request->getVar('jns_kelamin'),
+            'telp'       => $this->request->getVar('telp'),
+            'alamat'     => $this->request->getVar('alamat')
+        ];
 
-    // Loads the jadwal ibadah Page
+        // Update the record
+        $model->save($data);
+
+        session()->setFlashdata('pesan', 'Data Berhasil diubah.');
+
+        // Redirect back to the list page
+        return redirect()->to('/Admin/listJemaat');
+    }
+
+    // FUNCTION HAPUS DATA JEMAAT
+    public function deleteJemaat($id)
+    {
+        $model = new JemaatModel();
+
+        // Delete the record
+        $model->delete($id);
+
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus.');
+
+        // Redirect back to the list after deletion
+        return redirect()->to('/Admin/listJemaat');
+    }
+
+    // ------------------------------ JADWAL ----------------------------------
+
+    // HALAMAN JADWAL IBADAH
     public function jadwalIBadah(): string
     {
         $data = [
@@ -103,7 +220,72 @@ class Admin extends BaseController
         return view('Admin/jadwal-ibadah', $data);
     }
 
-    // Loads the list berita Page
+    // HALAMAN TAMBAH JADWAL IBADAH
+    public function tambahIbadah()
+    {
+        $model = new JadwalModel();
+
+        // Insert data into the database
+        $model->insert([
+            'title'       => $this->request->getVar('title'),
+            'start'       => $this->request->getVar('start'),
+            'end'         => $this->request->getVar('end'),
+            'description' => $this->request->getVar('description')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan.');
+
+        // Redirect after successful insertion
+        return redirect()->to('/Admin/jadwalIbadah')->with('message', 'Event saved successfully!');
+    }
+
+    // FUNCTION EDIT JADWAL IBADAH
+    public function updateEvent($id)
+    {
+        // Check if the event exists before attempting to update it
+        $event = $this->jadwalModel->find($id);
+
+        if ($event) {
+            // Get the updated event data from the request
+            $updatedData = $this->request->getJSON(true); // Fetch the data as an associative array
+
+            // Update the event record in the database
+            $this->jadwalModel->update($id, [
+                'title'       => $updatedData['title'],
+                'start'       => $updatedData['start'],
+                'end'         => $updatedData['end'],
+                'description' => $updatedData['description']
+            ]);
+
+            // Return a success message as JSON response
+            return $this->response->setJSON(['success' => true, 'message' => 'Jadwal Berhasil Diubah.']);
+        } else {
+            // If the event is not found, return an error message
+            return $this->response->setJSON(['success' => false, 'message' => 'Data Tidak Ditemukan!']);
+        }
+    }
+
+    // FUNCTION HAPUS JADWAL IBADAH
+    public function deleteEvent($id)
+    {
+        // Check if the event exists before attempting to delete it
+        $event = $this->jadwalModel->find($id);
+
+        if ($event) {
+            // Delete the event from the database using the correct model
+            $this->jadwalModel->delete($id);
+
+            // Return a success message as JSON response
+            return $this->response->setJSON(['success' => true, 'message' => 'Jadwal Berhasil Dihapus.']);
+        } else {
+            // If the event is not found, return an error message
+            return $this->response->setJSON(['success' => false, 'message' => 'Data Tidak Ditemukan!']);
+        }
+    }
+
+    // ------------------------------ BERITA ----------------------------------
+
+    // HALAMAN LIST BERITA
     public function listBerita(): string
     {
         $data = [
@@ -112,16 +294,60 @@ class Admin extends BaseController
         return view('Admin/list-berita', $data);
     }
 
-    // Loads the tambah berita Page
+    // HALAMAN TAMBAH BERITA
     public function tambahBerita(): string
     {
         $data = [
-            'title' => 'Tambah Berita'
+            'title' => 'Tambah Berita',
+            'validation' => \Config\Services::validation()
         ];
         return view('Admin/tambah-berita', $data);
     }
 
-    // Loads the preview berita Page
+
+    // FUNCTION TAMBAH BERITA
+    public function simpanBerita()
+    {
+        // validasi input
+        if (!$this->validate([
+            'title' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} berita harus diisi.'
+                ]
+            ],
+            'img' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} berita harus diisi.'
+                ]
+            ],
+            'text' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} berita harus diisi.'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('Settings/tambahBerita')->withInput()->with('validation', $validation);
+        }
+
+        $slug = url_title($this->request->getVar('title'), '-', true);
+        $this->beritaModel->save([
+            'title' => $this->request->getVar('title'),
+            'slug' => $slug,
+            'img' => $this->request->getVar('img'),
+            'source' => $this->request->getVar('source'),
+            'text' => $this->request->getVar('text')
+        ]);
+
+        session()->setFlashdata('pesan', 'Berita berhasil ditambahkan.');
+
+        return redirect()->to('Settings/tambahBerita');
+    }
+
+    // PREVIEW BERITA
     public function previewBerita(): string
     {
         $data = [
@@ -130,7 +356,9 @@ class Admin extends BaseController
         return view('Admin/preview-berita', $data);
     }
 
-    // Loads the login page
+    // ------------------------------ LOGIN ----------------------------------
+
+    // HALAMAN LOGIN
     public function login(): string
     {
         $data = [
@@ -139,25 +367,9 @@ class Admin extends BaseController
         return view('Admin/login', $data);
     }
 
-    // Loads the register page
-    public function register(): string
-    {
-        $data = [
-            'title' => 'Register'
-        ];
-        return view('Admin/register', $data);
-    }
+    // ------------------------------ TEMPLATE ----------------------------------
 
-    // Loads the register page
-    public function forgot(): string
-    {
-        $data = [
-            'title' => 'Forgot Password'
-        ];
-        return view('Admin/forgot-password', $data);
-    }
-
-    // Loads the blank page
+    // HALAMAN TEMPLATE
     public function blank(): string
     {
         $data = [

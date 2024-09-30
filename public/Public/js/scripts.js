@@ -56,8 +56,9 @@ window.addEventListener('DOMContentLoaded', event => {
 // FullCalendar Function
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
+    var isAdmin = window.location.pathname.includes('/Admin'); // Detect if the page is the Admin page
 
-    // Helper function to format date
+    // Helper function to format date in Indonesian locale
     function formatDate(date) {
         return date.toLocaleString('id-ID', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
     }
@@ -79,17 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
             week: 'MINGGUAN',
             day: 'HARIAN',
             list: 'ACARA'
-          },
-        locale: 'id',
-        customButtons: {
-            currentDate: {
-                text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),
-                click: function() {
-                    // Optional: You can add any action you want when the date is clicked
-                }
-            }
         },
-        events: '/events',
+        locale: 'id',
+        events: '/events', // Fetch events from your server
         dayMaxEvents: true, // Enable the "more" link when too many events
         eventClick: function(info) {
             var modal = document.getElementById("eventModal");
@@ -99,29 +92,115 @@ document.addEventListener('DOMContentLoaded', function () {
             var startDate = formatDate(info.event.start);
             var endDate = info.event.end ? formatDate(info.event.end) : 'N/A';
             
+            // Populate modal details
             document.getElementById("eventTitle").innerText = info.event.title;
             document.getElementById("eventTime").innerText = startDate + (endDate !== 'N/A' ? " - " + endDate : "");
             document.getElementById("eventDescription").innerText = info.event.extendedProps.description;
 
+            // If it's the admin page, dynamically add edit and delete buttons
+            if (isAdmin) {
+                // Add buttons only if not already present
+                if (!document.getElementById("editBtn")) {
+                    var modalFooter = document.createElement("div");
+                    modalFooter.classList.add("modal-footer");
+
+                    // Create and append Edit button
+                    var editBtn = document.createElement("button");
+                    editBtn.id = "editBtn";
+                    editBtn.className = "btn btn-warning";
+                    editBtn.innerText = "Edit";
+                    editBtn.setAttribute("data-id", info.event.id);
+                    modalFooter.appendChild(editBtn);
+
+                    // Create and append Delete button
+                    var deleteBtn = document.createElement("button");
+                    deleteBtn.id = "deleteBtn";
+                    deleteBtn.className = "btn btn-danger";
+                    deleteBtn.innerText = "Delete";
+                    deleteBtn.setAttribute("data-id", info.event.id);
+                    modalFooter.appendChild(deleteBtn);
+
+                    // Append the footer to the modal content
+                    document.querySelector("#eventModal .modal-content").appendChild(modalFooter);
+
+                    // Set up event listeners for these buttons
+                    setupAdminButtons(editBtn, deleteBtn);
+                } else {
+                    // Update the IDs in existing buttons
+                    document.getElementById("editBtn").setAttribute("data-id", info.event.id);
+                    document.getElementById("deleteBtn").setAttribute("data-id", info.event.id);
+                }
+            }
+
+            // Show the modal
             modal.style.display = "block";
 
+            // Close the modal when the close button is clicked
             closeBtn.onclick = function() {
                 modal.style.display = "none";
             };
 
+            // Close the modal when clicking outside of the modal
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
             };
 
+            // Prevent default action (e.g., navigating to event's URL)
             info.jsEvent.preventDefault();
         }
     });
 
     calendar.render();
-});
 
+    // Function to set up admin-specific button event handlers
+    function setupAdminButtons(editBtn, deleteBtn) {
+        // Handle the Edit Button Click
+        editBtn.addEventListener('click', function () {
+            var eventId = this.getAttribute('data-id');
+            if (eventId) {
+                window.location.href = `/Admin/editEvent/${eventId}`; // Redirect to the edit event page
+            }
+        });
+
+        // Handle the Delete Button Click
+        deleteBtn.addEventListener('click', function () {
+            var eventId = this.getAttribute('data-id'); // Get the event ID from the data-id attribute
+
+            if (eventId && confirm('Apakah Anda Yakin Untuk Menghapus Jadwal Ini?')) {
+                // Send AJAX request to delete the event
+                fetch(`/Settings/deleteEvent/${eventId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Close the modal
+                        document.getElementById("eventModal").style.display = "none";
+
+                        // Remove the event from FullCalendar
+                        var event = calendar.getEventById(eventId);
+                        if (event) {
+                            event.remove(); // Remove the event from the calendar
+                        }
+
+                        alert('Jadwal Berhasil Dihapus.');
+                    } else {
+                        alert('Gagal Menghapus Jadwal.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi Error Saat Menghapus Jadwal.');
+                });
+            }
+        });
+    }
+});
 
 document.addEventListener('scroll', function() {
     const sections = document.querySelectorAll('.hidden');

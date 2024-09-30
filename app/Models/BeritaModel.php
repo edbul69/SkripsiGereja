@@ -7,7 +7,14 @@ use CodeIgniter\Model;
 class BeritaModel extends Model
 {
     protected $table = 'tb_berita';
-    protected $allowedFields = ['title', 'img', 'text', 'source', 'created', 'modified', 'author'];
+
+    protected $useTimestamps = true;
+
+
+    protected $createdField = 'created';  // Column for record creation time
+    protected $updatedField = 'modified'; // Column for record last update time
+
+    protected $allowedFields = ['title', 'slug', 'img', 'text', 'source'];
 
     public function getBerita($id = false)
     {
