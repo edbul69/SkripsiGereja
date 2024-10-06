@@ -170,44 +170,19 @@ class Admin extends BaseController
         return redirect()->to('/Admin/tambahJemaat');
     }
 
-    // FUNCTION EDIT DATA JEMAAT
-    public function updateJemaat()
-    {
-        $model = new JemaatModel();
-
-        // Get the data from the request
-        $data = [
-            'id'         => $this->request->getVar('id'),
-            'nama'       => $this->request->getVar('nama'),
-            'tgl_lahir'  => $this->request->getVar('tgl_lahir'),
-            'asal'       => $this->request->getVar('asal'),
-            'jns_kelamin' => $this->request->getVar('jns_kelamin'),
-            'telp'       => $this->request->getVar('telp'),
-            'alamat'     => $this->request->getVar('alamat')
-        ];
-
-        // Update the record
-        $model->save($data);
-
-        session()->setFlashdata('pesan', 'Data Berhasil diubah.');
-
-        // Redirect back to the list page
-        return redirect()->to('/Admin/listJemaat');
-    }
-
     // FUNCTION HAPUS DATA JEMAAT
     public function deleteJemaat($id)
     {
-        $model = new JemaatModel();
 
         // Delete the record
-        $model->delete($id);
+        $this->jemaatModel->delete($id);
 
         session()->setFlashdata('pesan', 'Data Berhasil dihapus.');
 
         // Redirect back to the list after deletion
         return redirect()->to('/Admin/listJemaat');
     }
+
 
     // ------------------------------ JADWAL ----------------------------------
 
@@ -288,8 +263,11 @@ class Admin extends BaseController
     // HALAMAN LIST BERITA
     public function listBerita(): string
     {
+        $berita = $this->beritaModel->findAll();
+
         $data = [
-            'title' => 'List Berita'
+            'title' => 'List Berita',
+            'berita' => $berita
         ];
         return view('Admin/list-berita', $data);
     }
@@ -298,12 +276,12 @@ class Admin extends BaseController
     public function tambahBerita(): string
     {
         $data = [
+
             'title' => 'Tambah Berita',
             'validation' => \Config\Services::validation()
         ];
         return view('Admin/tambah-berita', $data);
     }
-
 
     // FUNCTION TAMBAH BERITA
     public function simpanBerita()
@@ -347,14 +325,7 @@ class Admin extends BaseController
         return redirect()->to('Settings/tambahBerita');
     }
 
-    // PREVIEW BERITA
-    public function previewBerita(): string
-    {
-        $data = [
-            'title' => 'Preview'
-        ];
-        return view('Admin/preview-berita', $data);
-    }
+
 
     // ------------------------------ LOGIN ----------------------------------
 

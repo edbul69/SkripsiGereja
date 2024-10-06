@@ -17,4 +17,13 @@ class JemaatModel extends Model
 
     // Specify which columns can be set by insert/update
     protected $allowedFields = ['nama', 'tgl_lahir', 'asal', 'jns_kelamin', 'telp', 'alamat'];
+
+
+    public function getJemaat($id = false)
+    {
+        if ($id === false) {
+            return $this->findAll();
+        }
+        return $this->where(['id' => $id])->first();
+    }
 }

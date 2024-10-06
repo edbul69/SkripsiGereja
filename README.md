@@ -56,3 +56,11 @@ PR:
 - Halaman Berita
 - Jemaat di Dashboard
 - Login
+
+Roadmap: (SKIP DULU BERITA)
+
+- Pelajari Tutor Delete & Edit + Implementasi ke Data Jemaat
+
+- Implementasi ke Data Berita
+
+- Pelajari Tutor Upload + Implementasi ke Data Berita

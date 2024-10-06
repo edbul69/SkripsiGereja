@@ -133,33 +133,3 @@ tinymce.init({
   ],
   ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
 });
-
-// Edit Data Jemaat
-document.querySelectorAll('.edit-btn').forEach(button => {
-  button.addEventListener('click', function () {
-      // Get the data attributes from the clicked button
-      const id = this.getAttribute('data-id');
-      const nama = this.getAttribute('data-nama');
-      const tgl_lahir = this.getAttribute('data-tgl_lahir');
-      const asal = this.getAttribute('data-asal');
-      const jns_kelamin = this.getAttribute('data-jns_kelamin'); // Get the gender value
-      const telp = this.getAttribute('data-telp');
-      const alamat = this.getAttribute('data-alamat');
-
-      // Populate the fields in the modal with the corresponding data
-      document.getElementById('edit-id').value = id;
-      document.getElementById('edit-nama').value = nama;
-      document.getElementById('edit-tgl_lahir').value = tgl_lahir;
-      document.getElementById('edit-asal').value = asal;
-      document.getElementById('edit-telp').value = telp;
-      document.getElementById('edit-alamat').value = alamat;
-
-      // Add this code snippet to set the correct option in the dropdown
-      const selectJenisKelamin = document.getElementById('edit-jns_kelamin');
-      Array.from(selectJenisKelamin.options).forEach(option => {
-          if (option.value === jns_kelamin) {
-              option.selected = true; // Set the correct option as selected
-          }
-      });
-  });
-});

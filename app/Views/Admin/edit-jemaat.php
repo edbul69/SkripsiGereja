@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Tambah Jemaat</h1>
+    <h1 class="h3 mb-4 text-gray-800">Edit Jemaat</h1>
 
     <?php $validation = session()->getFlashdata('validation'); ?>
 
@@ -82,7 +82,7 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                <button type="submit" class="btn btn-primary" id="submitBtn">Simpan Data</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Ubah Data</button>
                 <?php if (session()->getFlashdata('pesan')) : ?>
                     <div class="alert alert-success mt-3" role="alert">
                         <?= session()->getFlashdata('pesan'); ?>

@@ -39,9 +39,9 @@ class Home extends BaseController
         return view('Home/all-news', $data);
     }
 
-    public function detail($id): string
+    public function isiBerita($slug): string
     {
-        $berita = $this->beritaModel->getBerita($id);
+        $berita = $this->beritaModel->getBerita($slug);
 
         if (!$berita) {
             return 'No news found for the given ID';
@@ -52,7 +52,7 @@ class Home extends BaseController
             'berita' => $berita
         ];
 
-        return view('Home/news-sample', $data);
+        return view('Home/news-body', $data);
     }
 
 
