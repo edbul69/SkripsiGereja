@@ -37,6 +37,9 @@ use PhpParser\Node\Stmt\Foreach_;
                                         <td><?= $b['title']; ?></td>
                                         <td><?= $b['author']; ?></td>
                                         <td><?= $b['created']; ?></td>
+                                        <td>
+                                            <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-success">Lihat</a>
+                                        </td>
 
                                     </tr>
                                 <?php endforeach; ?>

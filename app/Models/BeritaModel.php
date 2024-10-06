@@ -16,11 +16,11 @@ class BeritaModel extends Model
 
     protected $allowedFields = ['title', 'slug', 'img', 'text', 'source'];
 
-    public function getBerita($id = false)
+    public function getBerita($slug = false)
     {
-        if ($id === false) {
+        if ($slug === false) {
             return $this->findAll();
         }
-        return $this->where(['id' => $id])->first();
+        return $this->where(['slug' => $slug])->first();
     }
 }

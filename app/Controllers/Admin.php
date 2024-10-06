@@ -263,13 +263,12 @@ class Admin extends BaseController
     // HALAMAN LIST BERITA
     public function listBerita(): string
     {
-        $berita = $this->beritaModel->findAll();
 
         $data = [
             'title' => 'List Berita',
-            'berita' => $berita
+            'berita' => $this->beritaModel->getBerita()
         ];
-        return view('Admin/list-berita', $data);
+        return view('Admin/berita/list-berita', $data);
     }
 
     // HALAMAN TAMBAH BERITA
@@ -280,50 +279,18 @@ class Admin extends BaseController
             'title' => 'Tambah Berita',
             'validation' => \Config\Services::validation()
         ];
-        return view('Admin/tambah-berita', $data);
+        return view('Admin/berita/tambah-berita', $data);
     }
 
-    // FUNCTION TAMBAH BERITA
-    public function simpanBerita()
+    public function viewBerita($slug)
     {
-        // validasi input
-        if (!$this->validate([
-            'title' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} berita harus diisi.'
-                ]
-            ],
-            'img' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} berita harus diisi.'
-                ]
-            ],
-            'text' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} berita harus diisi.'
-                ]
-            ]
-        ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('Settings/tambahBerita')->withInput()->with('validation', $validation);
-        }
-
-        $slug = url_title($this->request->getVar('title'), '-', true);
-        $this->beritaModel->save([
-            'title' => $this->request->getVar('title'),
-            'slug' => $slug,
-            'img' => $this->request->getVar('img'),
-            'source' => $this->request->getVar('source'),
-            'text' => $this->request->getVar('text')
-        ]);
-
-        session()->setFlashdata('pesan', 'Berita berhasil ditambahkan.');
-
-        return redirect()->to('Settings/tambahBerita');
+        $data = [
+            'title' => 'Detail Berita',
+            'berita' => $this->beritaModel->getBerita($slug)
+        ];
+        return view('Home/news-body', $data);
     }
+
 
 
 

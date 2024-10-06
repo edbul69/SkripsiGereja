@@ -247,81 +247,7 @@ sup {
 
 a {
   color: var(--bs-link-color);
-<<<<<<< Tabnine <<<<<<<
-/**undefined+
- * Initializes and renders the FullCalendar instance with custom configurations.undefined+
- * This function sets up the calendar with custom buttons, events, and event click functionality.undefined+
- *undefined+
- * @returns {void}undefined+
- */undefined+
-document.addEventListener('DOMContentLoaded', function () {undefined+
-    var calendarEl = document.getElementById('calendar');undefined+
-undefined+
-    // Helper function to format dateundefined+
-    function formatDate(date) {undefined+
-        return date.toLocaleString('id-ID', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });undefined+
-    }undefined+
-undefined+
-    var calendar = new FullCalendar.Calendar(calendarEl, {undefined+
-        headerToolbar: {undefined+
-            left: 'prev',undefined+
-            center: 'title',undefined+
-            right: 'next'undefined+
-        },undefined+
-        footerToolbar: {undefined+
-            left: '',undefined+
-            center: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',undefined+
-            right: ''undefined+
-        },undefined+
-        buttonText: {undefined+
-            today: 'HARI INI',undefined+
-            month: 'BULANAN',undefined+
-            week: 'MINGGUAN',undefined+
-            day: 'HARIAN',undefined+
-            list: 'ACARA'undefined+
-          },undefined+
-        locale: 'id',undefined+
-        customButtons: {undefined+
-            currentDate: {undefined+
-                text: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),undefined+
-                click: function() {undefined+
-                    // Optional: You can add any action you want when the date is clickedundefined+
-                }undefined+
-            }undefined+
-        },undefined+
-        events: [undefined+
-            // ... event objects ...undefined+
-        ],undefined+
-        dayMaxEvents: true, // Enable the "more" link when too many eventsundefined+
-        eventClick: function(info) {undefined+
-            // ... event click handling code ...undefined+
-        }undefined+
-    });undefined+
-undefined+
-    calendar.render();undefined+
-});undefined+
-undefined+
-/**undefined+
- * Adds a 'visible' class to elements with the 'hidden' class when they become visible in the viewport.undefined+
- * This function is triggered on the 'scroll' event.undefined+
- *undefined+
- * @returns {void}undefined+
- */undefined+
-document.addEventListener('scroll', function() {undefined+
-    const sections = document.querySelectorAll('.hidden');undefined+
-    undefined+
-    sections.forEach(section => {undefined+
-      const rect = section.getBoundingClientRect();undefined+
-      const isVisible = (rect.top <= window.innerHeight) && (rect.bottom >= 0);undefined+
-  undefined+
-      if (isVisible) {undefined+
-        section.classList.add('visible');undefined+
-      } else {undefined+
-        section.classList.remove('visible');undefined+
-      }undefined+
-    });undefined+
-});undefined+
->>>>>>> Tabnine >>>>>>>
+
   text-decoration: underline;
 }
 a:hover {
@@ -13553,6 +13479,88 @@ section.schead .section-heading {
   }
 }
 
+/* ==================================================================================================== NEWS BODY ==================================================================================================== */
+
+/* Custom CSS for #news-body Section */
+#news-body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for readability */
+  padding: 60px 0; /* Top and bottom padding */
+}
+
+#news-body .news-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Image shadow */
+}
+
+#news-body .news-meta {
+  font-size: 0.875rem; /* Slightly smaller font */
+  color: #b0b0b0; /* Light gray color for meta info */
+}
+
+#news-body .news-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; /* Larger title */
+  font-weight: bold;
+  color: #ffffff; /* Pure white for contrast */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#news-body .news-content {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.7;
+  font-size: 1.125rem; /* Slightly larger for readability */
+  text-align: justify;
+  padding: 10px 15px;
+  border-left: 4px solid #b0b0b0; /* Left border styling */
+  background: rgba(255, 255, 255, 0.05); /* Light background for content */
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#news-body .news-content p {
+  margin-bottom: 1.25rem; /* Spacing between paragraphs */
+}
+
+#news-body .news-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0; /* Spacing for inline images */
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Image shadow */
+}
+
+#news-body .news-content h2,
+#news-body .news-content h3 {
+  margin-top: 1.5rem;
+  color: #f0f0f0;
+}
+
+#news-body .news-content blockquote {
+  margin: 20px 0;
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #f0a500; /* Highlight border color */
+  font-style: italic;
+}
+
+#news-body .news-content ul,
+#news-body .news-content ol {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+#news-body .news-content a {
+  color: #ffd700; /* Link color */
+  text-decoration: underline;
+}
+
+#news-body .news-content a:hover {
+  color: #ff6347; /* Hover color for links */
+}
 
 /* ==================================================================================================== LINE ==================================================================================================== */
 

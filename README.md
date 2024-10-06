@@ -57,14 +57,7 @@ PR:
 - Jemaat di Dashboard
 - Login
 
-Roadmap: (SKIP DULU BERITA)
+Roadmap:
 
-- Pelajari Tutor Delete & Edit + Implementasi ke Data Jemaat
-
-- Implementasi ke Data Berita
-
-- Pelajari Tutor Upload + Implementasi ke Data Berita
-
-tes
-tes
-tes
+- No Need to rush, pelajari dulu tutorialnya -> implementasikan ke Berita
+- JANGAN DULU SENTUH BAGIAN LAIN, FOKUS HINGGA SELESAI TUTORIAL
