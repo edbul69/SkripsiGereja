@@ -288,7 +288,29 @@ class Admin extends BaseController
             'title' => 'Detail Berita',
             'berita' => $this->beritaModel->getBerita($slug)
         ];
+
+        if (empty($data['berita'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita Tidak Ditemukan');
+        }
+
         return view('Home/news-body', $data);
+    }
+
+    public function saveBerita()
+    {
+        $slug = url_title($this->request->getVar('title'), '-', true);
+
+        $this->beritaModel->save([
+            'title' => $this->request->getVar('title'),
+            'slug' => $slug,
+            'img' => $this->request->getVar('img'),
+            'source' => $this->request->getVar('source'),
+            'text' => $this->request->getVar('text')
+        ]);
+
+        session()->setFlashdata('pesan', 'Berita Berhasil Ditambahkan');
+
+        return redirect()->to('/Settings/tambahBerita');
     }
 
 

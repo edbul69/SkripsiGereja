@@ -24,7 +24,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Form Pembuatan Artikel</h6>
                 </div>
                 <div class="card-body">
-                    <form id="beritaForm" action="/Admin/simpanBerita" method="post">
+                    <form id="beritaForm" action="/Admin/saveBerita" method="post">
                         <?= csrf_field(); ?>
                         <!-- Article Title -->
                         <div class="mb-3">
