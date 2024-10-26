@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 // ROUTES HOME
-$routes->get('/', 'Home:index');
+$routes->get('/', 'Home::index');
 $routes->get('/Home', 'Home::index'); // Main Page Routes
 $routes->get('/(?!Settings|events|Sample|Tes)([a-zA-Z]+)', 'Home::$1'); // Sub Page Routes
 $routes->get('/Berita/(:segment)', 'Home::isiBerita/$1'); // News Pages Routes
