@@ -105,25 +105,25 @@
     </div>
 </section>
 
-<div class="col-12 divider-bar mx-auto my-0 bg-white p-0" style="height: 1em;">
+<div class="col-12 mx-auto my-0 bg-white p-0" style="height: 1em;">
     <div class="row m-0 p-0 h-100">
-        <div class="col-5 m-0 p-0 w-100 h-100" style="background-color: #111;"></div>
-        <div class="col-3 m-0 p-0 w-100 h-100" style="background-color: #333;"></div>
-        <div class="col-2 m-0 p-0 w-100 h-100" style="background-color: #555;"></div>
-        <div class="col-1 m-0 p-0 w-100 h-100" style="background-color: #777;"></div>
-        <div class="col-1 m-0 p-0 w-100 h-100" style="background-color: #999;"></div>
+        <div class="col-5 m-0 p-0 h-100" style="background-color: #111;"></div>
+        <div class="col-3 m-0 p-0 h-100" style="background-color: #333;"></div>
+        <div class="col-2 m-0 p-0 h-100" style="background-color: #555;"></div>
+        <div class="col-1 m-0 p-0 h-100" style="background-color: #777;"></div>
+        <div class="col-1 m-0 p-0 h-100" style="background-color: #999;"></div>
     </div>
 </div>
 
 <section class="page-section bg-white pb-5" id="moc-act">
     <div class="bg-background px-5 text-center hidden">
         <h1 class="text-4xl font-bold mb-4">M O C</h1>
-        <div class="row flex justify-center mb-6">
-            <div class="col-2 w-100 bg-black mb-3 rounded-start" style="height: 1em;"></div>
-            <div class="col-3 w-100 mb-3 opacity-75" style="height: 1em; background-color: rgb(212 212 216);"></div>
-            <div class="col-2 w-100 mb-3 opacity-75" style="height: 1em; background-color: darkorange;"></div>
-            <div class="col-3 w-100 mb-3 opacity-75" style="height: 1em; background-color: rgb(212 212 216);"></div>
-            <div class="col-2 w-100 bg-black mb-3 rounded-end" style="height: 1em;"></div>
+        <div class="row justify-content-center mb-6">
+            <div class="col-2 bg-black mb-3 rounded-start" style="height: 1em;"></div>
+            <div class="col-3 mb-3 opacity-75" style="height: 1em; background-color: rgb(212, 212, 216);"></div>
+            <div class="col-2 mb-3 opacity-75" style="height: 1em; background-color: darkorange;"></div>
+            <div class="col-3 mb-3 opacity-75" style="height: 1em; background-color: rgb(212, 212, 216);"></div>
+            <div class="col-2 bg-black mb-3 rounded-end" style="height: 1em;"></div>
         </div>
         <h2 class="fs-1 fw-semibold mb-4">GROW TOGETHER IN PRAISE AND WORSHIP</h2>
         <p class="text-muted mx-auto">
