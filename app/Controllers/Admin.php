@@ -274,6 +274,7 @@ class Admin extends BaseController
     // HALAMAN TAMBAH BERITA
     public function tambahBerita(): string
     {
+        session();
         $data = [
 
             'title' => 'Tambah Berita',
@@ -298,6 +299,16 @@ class Admin extends BaseController
 
     public function saveBerita()
     {
+
+        // validasi input
+        if (!$this->validate([
+            'title' => 'required|is_unique[tb_berita.title]',
+
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/Settings/tambahBerita')->withInput()->with('validation', $validation);
+        }
+
         $slug = url_title($this->request->getVar('title'), '-', true);
 
         $this->beritaModel->save([

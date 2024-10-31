@@ -23,7 +23,6 @@ use PhpParser\Node\Stmt\Foreach_;
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Gambar</th>
                                     <th>Judul</th>
                                     <th>Editor</th>
                                     <th>Tanggal Publikasi</th>
@@ -33,12 +32,13 @@ use PhpParser\Node\Stmt\Foreach_;
                             <tbody>
                                 <?php foreach ($berita as $b) : ?>
                                     <tr>
-                                        <td><img src="<?= $b['img']; ?>" alt=""></td>
                                         <td><?= $b['title']; ?></td>
                                         <td><?= $b['author']; ?></td>
                                         <td><?= $b['created']; ?></td>
                                         <td>
                                             <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-success">Lihat</a>
+                                            <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-warning">Edit</a>
+                                            <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-danger">Hapus</a>
                                         </td>
 
                                     </tr>

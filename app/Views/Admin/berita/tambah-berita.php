@@ -14,7 +14,7 @@
         </div>
     <?php endif; ?>
 
-    <?php $validation = session()->getFlashdata('validation'); ?>
+    <?= $validation->listErrors(); ?> <!-- belum keluar -->
 
     <!-- Article Form Container -->
     <div class="row justify-content-center">
@@ -29,23 +29,13 @@
                         <!-- Article Title -->
                         <div class="mb-3">
                             <label for="title" class="form-label">Judul Artikel</label>
-                            <input type="text" class="form-control <?= ($validation && $validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="title" name="title" placeholder="Masukkan judul artikel" value="<?= old('title'); ?>">
-                            <?php if ($validation && $validation->hasError('title')) : ?>
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('title'); ?>
-                                </div>
-                            <?php endif; ?>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan judul artikel" value="<?= old('title'); ?>">
                         </div>
 
                         <!-- Main Image Upload -->
                         <div class="mb-3">
                             <label for="img" class="form-label">Gambar Utama Artikel</label>
-                            <input type="file" class="form-control py-1 <?= ($validation && $validation->hasError('img')) ? 'is-invalid' : ''; ?>" id="img" name="img" placeholder="Masukkan URL gambar utama" value="<?= old('img'); ?>">
-                            <?php if ($validation && $validation->hasError('img')) : ?>
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('img'); ?>
-                                </div>
-                            <?php endif; ?>
+                            <input type="file" class="form-control py-1" id="img" name="img" placeholder="Masukkan URL gambar utama" value="<?= old('img'); ?>">
                             <small class="form-text text-muted">Upload gambar utama untuk artikel (jpeg, png).</small>
                         </div>
 
@@ -58,12 +48,7 @@
                         <!-- Article Content -->
                         <div class="mb-3">
                             <label for="text" class="form-label">Isi Artikel</label>
-                            <textarea id="text" class="form-control <?= ($validation && $validation->hasError('text')) ? 'is-invalid' : ''; ?>" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
-                            <?php if ($validation && $validation->hasError('text')) : ?>
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('text'); ?>
-                                </div>
-                            <?php endif; ?>
+                            <textarea id="text" class="form-control" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
                         </div>
 
                         <!-- Preview and Save Buttons -->

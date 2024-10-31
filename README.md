@@ -16,29 +16,9 @@ Inspirasi :
 
 - https://www.sinodegkt.org/ (Kalender)
 
-Halaman Pelayanan :
-
-- Baptisan Air - Masthead
-- Penyerahan Anak - Masthead
-- Perjamuan Kudus - DONE
-- Sunday Service - DONE
-- Doa Bersaman - DONE
-- Ibadah Rayon - Image Rayon
-- MOC - Logo MOC on masthead, Image ketua, Image carousel, Image bidang MOC, Image review
-- ABA - DONE
-- Sekolah Minggu - DONE
-
 php spark serve --host 0.0.0.0 --port 8080
 
 https://webflow.com/blog/parallax-scrolling
-
-CATATAN:
-
-Sudah ditambahkan style khusus untuk page pelayanan, mungkin kedepannya masih bisa ditambahkan sebagai temanya
-
-Status On Progressions berarti sudah dibuatnya temanya walaupun belum fix tapi sudah ada strukturnya
-
-hati-hati kalau mau pull atau push
 
 Tampilan ABA
 https://www.youtube.com/watch?v=9CAqojHY42o&ab_channel=WebDevCreative
@@ -61,3 +41,7 @@ Roadmap:
 
 - No Need to rush, pelajari dulu tutorialnya -> implementasikan ke Berita
 - JANGAN DULU SENTUH BAGIAN LAIN, FOKUS HINGGA SELESAI TUTORIAL
+
+REMINDER PROGRESS KEMARIN:
+
+sementara belajar lagi bagian validation, tapi pas masukkin validation ke $data, gak ada outputnya di tampilan

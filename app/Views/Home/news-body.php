@@ -19,9 +19,7 @@
                 <!-- News Title -->
                 <h1 class="news-title mb-4 text-white"><?= $berita['title']; ?></h1>
                 <!-- News Content -->
-                <p class="news-content text-white-50">
-                    <?= $berita['text']; ?>
-                </p>
+                <?= $berita['text']; ?>
             </div>
         </div>
     </div>
