@@ -274,11 +274,9 @@ class Admin extends BaseController
     // HALAMAN TAMBAH BERITA
     public function tambahBerita(): string
     {
-        session();
         $data = [
-
             'title' => 'Tambah Berita',
-            'validation' => \Config\Services::validation()
+            'validation' => session('validation') ?? \Config\Services::validation()
         ];
         return view('Admin/berita/tambah-berita', $data);
     }
@@ -302,11 +300,16 @@ class Admin extends BaseController
 
         // validasi input
         if (!$this->validate([
-            'title' => 'required|is_unique[tb_berita.title]',
-
+            'title' => [
+                'rules' => 'required|is_unique[tb_berita.title]',
+                'errors' => [
+                    'required' => 'judul harus diisi',
+                    'is_unique' => 'berita sudah ada'
+                ]
+            ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/Settings/tambahBerita')->withInput()->with('validation', $validation);
+            return redirect()->to('/Settings/tambahBerita')->withInput()->with('validation', $this->validator);
         }
 
         $slug = url_title($this->request->getVar('title'), '-', true);

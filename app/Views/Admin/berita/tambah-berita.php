@@ -14,8 +14,6 @@
         </div>
     <?php endif; ?>
 
-    <?= $validation->listErrors(); ?> <!-- belum keluar -->
-
     <!-- Article Form Container -->
     <div class="row justify-content-center">
         <div class="col-lg-12">
@@ -24,12 +22,15 @@
                     <h6 class="m-0 font-weight-bold text-primary">Form Pembuatan Artikel</h6>
                 </div>
                 <div class="card-body">
-                    <form id="beritaForm" action="/Admin/saveBerita" method="post">
+                    <form id="beritaForm" action="/Settings/saveBerita" method="post">
                         <?= csrf_field(); ?>
                         <!-- Article Title -->
                         <div class="mb-3">
                             <label for="title" class="form-label">Judul Artikel</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan judul artikel" value="<?= old('title'); ?>">
+                            <input type="text" class="form-control <?= ($validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="title" name="title" placeholder="Masukkan judul artikel" value="<?= old('title'); ?>">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('title');; ?>
+                            </div>
                         </div>
 
                         <!-- Main Image Upload -->
@@ -42,11 +43,11 @@
                         <!-- Article Source -->
                         <div class="mb-3">
                             <label for="source" class="form-label">Sumber Artikel</label>
-                            <input type="text" class="form-control" id="source" name="source" placeholder="Masukkan sumber artikel (contoh: GPDI BAHU)">
+                            <input type="text" class="form-control" id="source" name="source" placeholder="Masukkan sumber artikel (contoh: GPDI BAHU)" value="<?= old('source'); ?>">
                         </div>
 
                         <!-- Article Content -->
-                        <div class="mb-3">
+                        <div class=" mb-3">
                             <label for="text" class="form-label">Isi Artikel</label>
                             <textarea id="text" class="form-control" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
                         </div>
