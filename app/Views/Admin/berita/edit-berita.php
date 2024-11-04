@@ -4,8 +4,6 @@
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Edit Artikel</h1>
 
     <?php if (session()->getFlashdata('pesan')) : ?>
@@ -78,7 +76,8 @@
                         </div>
 
                         <!-- Preview and Save Buttons -->
-                        <button type="submit" class="btn btn-primary">Edit Artikel</button>
+                        <button type="submit" class="btn btn-secondary me-2" name="action" value="preview" formtarget="_blank">Preview Artikel</button>
+                        <button type="submit" class="btn btn-primary" name="action" value="save">Edit Artikel</button>
                     </form>
                 </div>
             </div>
@@ -92,30 +91,23 @@
 <?= $this->section('scripts'); ?>
 
 <script>
-    // Select the file input, preview image, and label elements
     const imgInput = document.querySelector('#img');
     const imgPreview = document.querySelector('.img-preview');
     const imgLabel = document.querySelector('.custom-file-label');
 
     imgInput.addEventListener('change', function() {
-        const file = imgInput.files[0]; // Get the selected file
+        const file = imgInput.files[0];
 
-        // Check if a file was selected
         if (file) {
-            // Update the label with the file name
             imgLabel.textContent = file.name;
-
-            const reader = new FileReader(); // Create a FileReader object
+            const reader = new FileReader();
 
             reader.onload = function(e) {
-                // Set the preview image's src to the loaded file's URL
                 imgPreview.src = e.target.result;
             };
 
-            // Read the file as a Data URL (base64 string)
             reader.readAsDataURL(file);
         } else {
-            // Reset the label and image preview if no file is selected
             imgLabel.textContent = 'Pilih Gambar';
             imgPreview.src = '<?= base_url('uploads/images/' . ($berita['img'] ?? 'placeholder.png')); ?>';
         }

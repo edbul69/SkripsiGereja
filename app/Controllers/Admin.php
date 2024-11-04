@@ -432,6 +432,8 @@ class Admin extends BaseController
 
     public function updateBerita($id) // Edit Berita
     {
+        $action = $this->request->getPost('action'); // Get the action value from the form
+
         // Get the existing article data by ID
         $beritaLama = $this->beritaModel->find($id);
 
@@ -448,11 +450,11 @@ class Admin extends BaseController
                 ]
             ],
             'img' => [
-                'rules' => 'is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]|max_size[img,4096]',
+                'rules' => 'is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]|max_size[img,5120]',
                 'errors' => [
                     'is_image' => 'File harus berupa gambar',
                     'mime_in' => 'Format gambar harus jpg, jpeg, atau png',
-                    'max_size' => 'Ukuran gambar maksimal 4MB'
+                    'max_size' => 'Ukuran gambar maksimal 5MB'
                 ]
             ],
             'source' => [
@@ -471,37 +473,55 @@ class Admin extends BaseController
             return redirect()->to('/Settings/berita/edit/' . $beritaLama['slug'])->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $slug = url_title($this->request->getVar('title'), '-', true);
+        $title = $this->request->getVar('title');
+        $source = $this->request->getVar('source');
+        $text = $this->request->getVar('text');
+        $slug = url_title($title, '-', true);
 
         // Handle image upload if a new image is provided
         $fileImg = $this->request->getFile('img');
         if ($fileImg && $fileImg->isValid() && !$fileImg->hasMoved()) {
-            // Check if there is an existing image and delete it
             if (!empty($beritaLama['img']) && file_exists('uploads/images/' . $beritaLama['img'])) {
                 unlink('uploads/images/' . $beritaLama['img']);
             }
-
-            // Move the new image and generate a new name
             $imgName = $fileImg->getRandomName();
-            $fileImg->move('uploads/images', $imgName);
+            $fileImg->move('uploads/tmp', $imgName);
+            $imgUrl = base_url('uploads/tmp/' . $imgName);
         } else {
-            // Keep the old image if no new image was uploaded
             $imgName = $beritaLama['img'];
+            $imgUrl = base_url('uploads/images/' . $imgName);
         }
 
-        // Update the database record
-        $this->beritaModel->save([
-            'id' => $id,
-            'title' => $this->request->getVar('title'),
-            'slug' => $slug,
-            'img' => $imgName,
-            'source' => $this->request->getVar('source'),
-            'text' => $this->request->getVar('text')
-        ]);
+        if ($action === 'preview') {
+            // Store data in session for preview
+            session()->set([
+                'previewTitle' => $title,
+                'previewSource' => $source,
+                'previewText' => $text,
+                'previewImage' => $imgUrl
+            ]);
 
-        session()->setFlashdata('pesan', 'Berita Berhasil Diubah');
+            // Redirect to the preview page
+            return redirect()->to('/Settings/berita/preview');
+        } elseif ($action === 'save') {
+            // Move the image from the temporary folder to the permanent uploads directory if needed
+            if (strpos($imgUrl, 'tmp') !== false) {
+                rename(FCPATH . 'uploads/tmp/' . $imgName, FCPATH . 'uploads/images/' . $imgName);
+            }
 
-        return redirect()->to('/Settings/listBerita');
+            // Update the database record
+            $this->beritaModel->save([
+                'id' => $id,
+                'title' => $title,
+                'slug' => $slug,
+                'img' => $imgName,
+                'source' => $source,
+                'text' => $text
+            ]);
+
+            session()->setFlashdata('pesan', 'Berita Berhasil Diubah');
+            return redirect()->to('/Settings/listBerita');
+        }
     }
 
     public function previewBerita() // Preview Berita
