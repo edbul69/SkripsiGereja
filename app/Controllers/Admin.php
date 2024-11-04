@@ -301,11 +301,14 @@ class Admin extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita Tidak Ditemukan');
         }
 
-        return view('Admin/berita/berita-preview', $data);
+        return view('Home/news-body', $data);
     }
 
-    public function saveBerita() // Simpan Berita
+    public function saveBerita() // Handle Save and Preview Actions
     {
+        $action = $this->request->getPost('action'); // Get the action value from the form
+
+        // Validate input
         if (!$this->validate([
             'title' => [
                 'rules' => 'required|is_unique[tb_berita.title]',
@@ -315,12 +318,12 @@ class Admin extends BaseController
                 ]
             ],
             'img' => [
-                'rules' => 'uploaded[img]|is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]|max_size[img,4096]',
+                'rules' => 'uploaded[img]|is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]|max_size[img,5120]',
                 'errors' => [
                     'uploaded' => 'Gambar utama harus diunggah',
                     'is_image' => 'File harus berupa gambar',
                     'mime_in' => 'Format gambar harus jpg, jpeg, atau png',
-                    'max_size' => 'Ukuran gambar maksimal 4MB'
+                    'max_size' => 'Ukuran gambar maksimal 5MB'
                 ]
             ],
             'source' => [
@@ -339,24 +342,62 @@ class Admin extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Handle image upload
+        // Collect form data
+        $title = $this->request->getVar('title');
+        $source = $this->request->getVar('source');
+        $text = $this->request->getVar('text');
+
+        // Handle image upload and save it temporarily
         $fileImg = $this->request->getFile('img');
-        $imgName = $fileImg->getRandomName();
-        $fileImg->move('uploads/images', $imgName);
+        if ($fileImg->isValid() && !$fileImg->hasMoved()) {
+            $imgName = $fileImg->getRandomName();
+            $tempPath = FCPATH . 'uploads/tmp/'; // Full path under public
+            if (!is_dir($tempPath)) {
+                mkdir($tempPath, 0777, true); // Create the directory if it doesn't exist
+            }
+            $fileImg->move($tempPath, $imgName);
+            $tempFilePath = $tempPath . $imgName; // Full temporary file path
+            $imgUrl = base_url('uploads/tmp/' . $imgName); // Adjusted path to point to public directory
+        } else {
+            return redirect()->back()->withInput()->with('errors', ['img' => 'Error uploading the image.']);
+        }
 
-        $slug = url_title($this->request->getVar('title'), '-', true);
+        if ($action === 'preview') {
+            // Store data in session for preview
+            session()->set([
+                'previewTitle' => $title,
+                'previewSource' => $source,
+                'previewText' => $text,
+                'previewImage' => $imgUrl
+            ]);
 
-        $this->beritaModel->save([
-            'title' => $this->request->getVar('title'),
-            'slug' => $slug,
-            'img' => $imgName,
-            'source' => $this->request->getVar('source'),
-            'text' => $this->request->getVar('text')
-        ]);
+            // Redirect to the preview page
+            return redirect()->to('/Settings/berita/preview');
+        } elseif ($action === 'save') {
+            // Move the image from the temporary folder to the permanent uploads directory
+            $permanentPath = 'uploads/images/' . $imgName;
+            if (rename($tempFilePath, FCPATH . $permanentPath)) {
+                // Delete the original temporary file after moving it (should already be moved)
+                if (file_exists($tempFilePath)) {
+                    unlink($tempFilePath);
+                }
 
-        session()->setFlashdata('pesan', 'Berita Berhasil Ditambahkan');
+                // Save the article to the database
+                $this->beritaModel->save([
+                    'title' => $title,
+                    'slug' => url_title($title, '-', true),
+                    'img' => $imgName,
+                    'source' => $source,
+                    'text' => $text
+                ]);
 
-        return redirect()->to('/Settings/tambahBerita');
+                session()->setFlashdata('pesan', 'Berita Berhasil Ditambahkan');
+                return redirect()->to('/Settings/tambahBerita');
+            } else {
+                // Handle error in moving file
+                return redirect()->back()->withInput()->with('errors', ['img' => 'Error moving the image to the permanent location.']);
+            }
+        }
     }
 
 
@@ -462,6 +503,19 @@ class Admin extends BaseController
 
         return redirect()->to('/Settings/listBerita');
     }
+
+    public function previewBerita() // Preview Berita
+    {
+        $data = [
+            'title' => session()->get('previewTitle') ?? 'Judul Tidak Tersedia',
+            'source' => session()->get('previewSource') ?? 'N/A',
+            'text' => session()->get('previewText') ?? 'Isi artikel belum dimasukkan.',
+            'img' => session()->get('previewImage') ?? base_url('uploads/images/placeholder.png')
+        ];
+
+        return view('Admin/berita/berita-preview', $data);
+    }
+
 
     // ------------------------------ LOGIN ----------------------------------
 

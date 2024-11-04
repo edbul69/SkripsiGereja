@@ -75,7 +75,8 @@
                         </div>
 
                         <!-- Save Button -->
-                        <button type="submit" class="btn btn-primary">Simpan Artikel</button>
+                        <button type="submit" class="btn btn-secondary me-2" name="action" value="preview" formtarget="_blank">Preview Artikel</button>
+                        <button type="submit" class="btn btn-primary" name="action" value="save">Simpan Artikel</button>
                     </form>
                 </div>
             </div>

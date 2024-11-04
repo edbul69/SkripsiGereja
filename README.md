@@ -46,6 +46,4 @@ UPDATE KERJAAN SEBELUMNNYA:
 
 - Stop ikut tutorial karena banyak error
 
-- Upload file done, edit page done, validation done
-
-- Sedang berusaha buat bikin preview pagenya sebelum upload the data to database
+- Buat program untuk membersihkan tmp secara otomatis dalam setiap 24 jam

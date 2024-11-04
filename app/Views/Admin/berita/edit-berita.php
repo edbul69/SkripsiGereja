@@ -78,7 +78,6 @@
                         </div>
 
                         <!-- Preview and Save Buttons -->
-                        <button type="button" class="btn btn-secondary me-2">Preview Artikel</button>
                         <button type="submit" class="btn btn-primary">Edit Artikel</button>
                     </form>
                 </div>

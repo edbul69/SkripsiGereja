@@ -22,6 +22,7 @@ $routes->get('/Settings/berita/edit/(:segment)', 'Admin::editBerita/$1'); // Vie
 $routes->get('/Settings/berita/list/(:segment)', 'Admin::detailBerita/$1'); // View Detail Berita
 $routes->delete('/Settings/berita/hapus/(:num)', 'Admin::deleteBerita/$1'); // Delete Berita
 $routes->post('/Settings/berita/update/(:num)', 'Admin::updateBerita/$1'); // Edit Berita
+$routes->get('/Settings/berita/preview', 'Admin::previewBerita'); // Edit Berita
 
 $routes->get('/Settings/updateJemaat/(:num)', 'Admin::updateJemaat/$1');
 $routes->delete('/Settings/(:num)', 'Admin::deleteJemaat/$1');
