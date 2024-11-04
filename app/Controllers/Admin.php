@@ -260,8 +260,7 @@ class Admin extends BaseController
 
     // ------------------------------ BERITA ----------------------------------
 
-    // HALAMAN LIST BERITA
-    public function listBerita(): string
+    public function listBerita(): string // Halaman List Berita
     {
 
         $data = [
@@ -271,17 +270,27 @@ class Admin extends BaseController
         return view('Admin/berita/list-berita', $data);
     }
 
-    // HALAMAN TAMBAH BERITA
-    public function tambahBerita(): string
+    public function tambahBerita(): string // Halaman Tambah Berita
     {
         $data = [
             'title' => 'Tambah Berita',
-            'validation' => session('validation') ?? \Config\Services::validation()
+            'validation' => \Config\Services::validation(), // This will be used if session data isn't set
+            'errors' => session()->getFlashdata('errors') // Check flashdata for errors
         ];
         return view('Admin/berita/tambah-berita', $data);
     }
 
-    public function viewBerita($slug)
+    public function editBerita($slug) // Halaman Edit Berita
+    {
+        $data = [
+            'title' => 'Edit Berita',
+            'validation' => \Config\Services::validation(),
+            'berita' => $this->beritaModel->getBerita($slug)
+        ];
+        return view('Admin/berita/edit-berita', $data);
+    }
+
+    public function detailBerita($slug) // Halaman Detail Berita
     {
         $data = [
             'title' => 'Detail Berita',
@@ -292,13 +301,11 @@ class Admin extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita Tidak Ditemukan');
         }
 
-        return view('Home/news-body', $data);
+        return view('Admin/berita/berita-preview', $data);
     }
 
-    public function saveBerita()
+    public function saveBerita() // Simpan Berita
     {
-
-        // validasi input
         if (!$this->validate([
             'title' => [
                 'rules' => 'required|is_unique[tb_berita.title]',
@@ -306,18 +313,43 @@ class Admin extends BaseController
                     'required' => 'judul harus diisi',
                     'is_unique' => 'berita sudah ada'
                 ]
+            ],
+            'img' => [
+                'rules' => 'uploaded[img]|is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]|max_size[img,4096]',
+                'errors' => [
+                    'uploaded' => 'Gambar utama harus diunggah',
+                    'is_image' => 'File harus berupa gambar',
+                    'mime_in' => 'Format gambar harus jpg, jpeg, atau png',
+                    'max_size' => 'Ukuran gambar maksimal 4MB'
+                ]
+            ],
+            'source' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'sumber harus diisi'
+                ]
+            ],
+            'text' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'isi berita tidak boleh kosong'
+                ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/Settings/tambahBerita')->withInput()->with('validation', $this->validator);
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+
+        // Handle image upload
+        $fileImg = $this->request->getFile('img');
+        $imgName = $fileImg->getRandomName();
+        $fileImg->move('uploads/images', $imgName);
 
         $slug = url_title($this->request->getVar('title'), '-', true);
 
         $this->beritaModel->save([
             'title' => $this->request->getVar('title'),
             'slug' => $slug,
-            'img' => $this->request->getVar('img'),
+            'img' => $imgName,
             'source' => $this->request->getVar('source'),
             'text' => $this->request->getVar('text')
         ]);
@@ -328,7 +360,108 @@ class Admin extends BaseController
     }
 
 
+    public function deleteBerita($id) // Hapus Berita
+    {
+        // Get the article data by ID
+        $berita = $this->beritaModel->find($id);
 
+        if ($berita) {
+            // Get the image file path
+            $imagePath = 'uploads/images/' . $berita['img'];
+
+            // Check if the image file exists and delete it
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            // Delete the article record from the database
+            $this->beritaModel->delete($id);
+
+            // Set flashdata for success message
+            session()->setFlashdata('pesan', 'Berita Berhasil Dihapus');
+        } else {
+            // Set flashdata for an error message if the record is not found
+            session()->setFlashdata('error', 'Berita tidak ditemukan atau sudah dihapus');
+        }
+
+        // Redirect back to the list of articles
+        return redirect()->to('/Settings/listBerita');
+    }
+
+
+    public function updateBerita($id) // Edit Berita
+    {
+        // Get the existing article data by ID
+        $beritaLama = $this->beritaModel->find($id);
+
+        // Determine validation rule for the title field
+        $rule_judul = ($beritaLama['title'] === $this->request->getVar('title')) ? 'required' : 'required|is_unique[tb_berita.title]';
+
+        // Validate form input
+        if (!$this->validate([
+            'title' => [
+                'rules' => $rule_judul,
+                'errors' => [
+                    'required' => 'Judul harus diisi',
+                    'is_unique' => 'Judul berita sudah ada'
+                ]
+            ],
+            'img' => [
+                'rules' => 'is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]|max_size[img,4096]',
+                'errors' => [
+                    'is_image' => 'File harus berupa gambar',
+                    'mime_in' => 'Format gambar harus jpg, jpeg, atau png',
+                    'max_size' => 'Ukuran gambar maksimal 4MB'
+                ]
+            ],
+            'source' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Sumber harus diisi'
+                ]
+            ],
+            'text' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Isi berita tidak boleh kosong'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/Settings/berita/edit/' . $beritaLama['slug'])->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $slug = url_title($this->request->getVar('title'), '-', true);
+
+        // Handle image upload if a new image is provided
+        $fileImg = $this->request->getFile('img');
+        if ($fileImg && $fileImg->isValid() && !$fileImg->hasMoved()) {
+            // Check if there is an existing image and delete it
+            if (!empty($beritaLama['img']) && file_exists('uploads/images/' . $beritaLama['img'])) {
+                unlink('uploads/images/' . $beritaLama['img']);
+            }
+
+            // Move the new image and generate a new name
+            $imgName = $fileImg->getRandomName();
+            $fileImg->move('uploads/images', $imgName);
+        } else {
+            // Keep the old image if no new image was uploaded
+            $imgName = $beritaLama['img'];
+        }
+
+        // Update the database record
+        $this->beritaModel->save([
+            'id' => $id,
+            'title' => $this->request->getVar('title'),
+            'slug' => $slug,
+            'img' => $imgName,
+            'source' => $this->request->getVar('source'),
+            'text' => $this->request->getVar('text')
+        ]);
+
+        session()->setFlashdata('pesan', 'Berita Berhasil Diubah');
+
+        return redirect()->to('/Settings/listBerita');
+    }
 
     // ------------------------------ LOGIN ----------------------------------
 

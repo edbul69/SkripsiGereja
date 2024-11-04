@@ -42,6 +42,10 @@ Roadmap:
 - No Need to rush, pelajari dulu tutorialnya -> implementasikan ke Berita
 - JANGAN DULU SENTUH BAGIAN LAIN, FOKUS HINGGA SELESAI TUTORIAL
 
-REMINDER PROGRESS KEMARIN:
+UPDATE KERJAAN SEBELUMNNYA:
 
-sementara belajar lagi bagian validation, tapi pas masukkin validation ke $data, gak ada outputnya di tampilan
+- Stop ikut tutorial karena banyak error
+
+- Upload file done, edit page done, validation done
+
+- Sedang berusaha buat bikin preview pagenya sebelum upload the data to database

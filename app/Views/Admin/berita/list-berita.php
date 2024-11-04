@@ -12,6 +12,12 @@ use PhpParser\Node\Stmt\Foreach_;
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">List Berita</h1>
 
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success mt-3" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
+
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
@@ -36,9 +42,13 @@ use PhpParser\Node\Stmt\Foreach_;
                                         <td><?= $b['author']; ?></td>
                                         <td><?= $b['created']; ?></td>
                                         <td>
-                                            <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-success">Lihat</a>
-                                            <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-warning">Edit</a>
-                                            <a href="/Settings/listBerita/<?= $b['slug']; ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="/Settings/berita/list/<?= $b['slug']; ?>" class="btn btn-success" target="_blank">Lihat</a>
+                                            <a href="/Settings/berita/edit/<?= $b['slug']; ?>" class="btn btn-warning">Edit</a>
+                                            <form action="/Settings/berita/hapus/<?= $b['id']; ?>" method="post" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">Hapus</button>
+                                            </form>
                                         </td>
 
                                     </tr>

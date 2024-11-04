@@ -18,8 +18,10 @@ $routes->match(['get', 'post'], '/Settings/(:segment)', 'Admin::$1'); // Sub Das
 
 $routes->post('Settings/updateVideo/(:num)', 'Admin::updateVideo/$1'); // Update Video Live Routes
 
-$routes->get('/Settings/listBerita/(:segment)', 'Admin::viewBerita/$1'); // View Berita Routes
-
+$routes->get('/Settings/berita/edit/(:segment)', 'Admin::editBerita/$1'); // View Edit Berita
+$routes->get('/Settings/berita/list/(:segment)', 'Admin::detailBerita/$1'); // View Detail Berita
+$routes->delete('/Settings/berita/hapus/(:num)', 'Admin::deleteBerita/$1'); // Delete Berita
+$routes->post('/Settings/berita/update/(:num)', 'Admin::updateBerita/$1'); // Edit Berita
 
 $routes->get('/Settings/updateJemaat/(:num)', 'Admin::updateJemaat/$1');
 $routes->delete('/Settings/(:num)', 'Admin::deleteJemaat/$1');
