@@ -68,3 +68,30 @@ use PhpParser\Node\Stmt\Foreach_;
 <!-- End of Main Content -->
 
 <?= $this->endSection(); ?>
+
+<?= $this->section('scripts'); ?>
+
+<script>
+    $(document).ready(function() {
+        // Initialize DataTables on the #dataTable element
+        var table = $('#dataTable').DataTable({
+            "pageLength": 10, // Number of rows per page
+            "lengthMenu": [10, 20, 50, 100], // Options for number of rows to show per page
+            "paging": true, // Enable pagination
+            "searching": true, // Enable search bar
+            "ordering": true, // Enable column sorting
+            "info": true, // Show table information (e.g., "Showing 1 to 10 of 57 entries")
+            "responsive": true, // Ensure table adapts to different screen sizes
+            "order": [
+                [2, "desc"]
+            ] // Sort by the third column (index 2) in descending order
+        });
+
+        // Custom button to set the page length dynamically
+        window.setPageLength = function(value) {
+            table.page.len(value).draw(); // Change the number of rows displayed and redraw
+        };
+    });
+</script>
+
+<?= $this->endSection(); ?>

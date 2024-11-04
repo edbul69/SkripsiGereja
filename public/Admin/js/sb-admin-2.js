@@ -90,25 +90,6 @@ function updateVideo(event) {
   document.getElementById('youtubeEmbedCode').value = '';
 }
 
-// DataTable JS
-$(document).ready(function() {
-  // Initialize DataTables on the #dataTable element
-  var table = $('#dataTable').DataTable({
-      "pageLength": 20, // Number of rows per page
-      "lengthMenu": [10, 20, 50, 100], // Options for number of rows to show per page
-      "paging": true,   // Enable pagination
-      "searching": true, // Enable search bar
-      "ordering": true,  // Enable column sorting
-      "info": true,     // Show table information (e.g., "Showing 1 to 10 of 57 entries")
-      "responsive": true // Ensure table adapts to different screen sizes
-  });
-
-  // Custom button to set the page length dynamically
-  window.setPageLength = function(value) {
-      table.page.len(value).draw(); // Change the number of rows displayed and redraw
-  };
-});
-
 // TinyMCE JS
 tinymce.init({
   selector: 'textarea',

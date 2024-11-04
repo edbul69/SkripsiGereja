@@ -47,3 +47,5 @@ UPDATE KERJAAN SEBELUMNNYA:
 - Stop ikut tutorial karena banyak error
 
 - Buat program untuk membersihkan tmp secara otomatis dalam setiap 24 jam
+
+BERITA BAGIAN ADMIN SELESAI!!!

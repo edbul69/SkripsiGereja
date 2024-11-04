@@ -83,8 +83,7 @@ class Admin extends BaseController
 
     // ------------------------------ JEMAAT ----------------------------------
 
-    // HALAMAN LIST JEMAAT
-    public function listJemaat(): string
+    public function listJemaat(): string // Halaman List Jemaat
     {
         $jemaat = $this->jemaatModel->findAll();
 
@@ -93,95 +92,180 @@ class Admin extends BaseController
             'jemaat' => $jemaat
         ];
 
-
-        return view('Admin/list-jemaat', $data);
+        return view('Admin/jemaat/list-jemaat', $data);
     }
 
-    // HALAMAN TAMBAH JEMAAT
-    public function tambahJemaat(): string
+    public function tambahJemaat(): string // Halaman Tambah Jemaat
     {
-        $data = [
-            'title' => 'Tambah Jemaat'
-        ];
-        return view('Admin/tambah-jemaat', $data);
-    }
+        $url = "https://wilayah.id/api/regencies/71.json"; // Replace with the correct province code URL
 
-    // FUNCTION SIMPAN DATA JEMAAT
-    public function simpanJemaat()
-    {
-        // Validate input fields
-        if (!$this->validate([
-            'nama' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'tgl_lahir' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Tanggal Lahir harus diisi.'
-                ]
-            ],
-            'asal' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'jns_kelamin' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jenis Kelamin harus dipilih.'
-                ]
-            ],
-            'telp' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'required' => '{field} harus diisi.',
-                    'numeric' => '{field} harus berupa angka.'
-                ]
-            ],
-            'alamat' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ]
-        ])) {
-            // Return back to form with validation errors
-            $validation = \Config\Services::validation();
-            return redirect()->to('/Admin/tambahJemaat')->withInput()->with('validation', $validation);
+        try {
+            $response = file_get_contents($url);
+            if ($response === FALSE) {
+                throw new Exception("Failed to fetch city data");
+            }
+            $citiesData = json_decode($response, true);
+            $cities = $citiesData['data'] ?? []; // Extract the 'data' array if it exists
+        } catch (Exception $e) {
+            $cities = []; // Fallback to an empty array on error
         }
 
-        // If validation is successful, save the data
-        $this->jemaatModel->save([
-            'nama'       => $this->request->getVar('nama'),
-            'tgl_lahir'  => $this->request->getVar('tgl_lahir'),
-            'asal'       => $this->request->getVar('asal'),
-            'jns_kelamin' => $this->request->getVar('jns_kelamin'),
-            'telp'       => $this->request->getVar('telp'),
-            'alamat'     => $this->request->getVar('alamat')
+        $data = [
+            'title' => 'Tambah Jemaat',
+            'validation' => \Config\Services::validation(), // This will be used if session data isn't set
+            'errors' => session()->getFlashdata('errors'), // Check flashdata for errors
+            'cities' => $cities // Pass the cities array to the view
+        ];
+        return view('Admin/jemaat/tambah-jemaat', $data);
+    }
+
+    public function saveJemaat() // Save Jemaat
+    {
+        $action = $this->request->getPost('action');
+
+        // Validate input
+        if (!$this->validate($this->getValidationRules())) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // Collect form data
+        $formData = $this->request->getPost([
+            'nama',
+            'tgl_lahir',
+            'asal',
+            'jns_kelamin',
+            'telp',
+            'city',
+            'kecamatan',
+            'kelurahan',
+            'lingkungan'
         ]);
 
-        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan.');
+        try {
+            $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
 
-        // Redirect to the tambahJemaat page
-        return redirect()->to('/Admin/tambahJemaat');
+            if ($action === 'save') {
+                $this->jemaatModel->save(array_merge($formData, ['alamat' => $alamat]));
+
+                session()->setFlashdata('pesan', 'Data Jemaat Berhasil Ditambahkan');
+                return redirect()->to('/Admin/tambahJemaat');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
+        }
     }
 
-    // FUNCTION HAPUS DATA JEMAAT
-    public function deleteJemaat($id)
+    public function getCities() // API Kota
     {
+        $provinceCode = '71'; // Sulawesi Utara province code
+        $url = "https://wilayah.id/api/regencies/{$provinceCode}.json";
 
-        // Delete the record
-        $this->jemaatModel->delete($id);
+        try {
+            $response = file_get_contents($url);
+            if ($response === FALSE) {
+                throw new Exception("Failed to fetch data from the API");
+            }
 
-        session()->setFlashdata('pesan', 'Data Berhasil dihapus.');
+            // Log response for debugging (optional)
+            log_message('info', 'API response: ' . $response);
 
-        // Redirect back to the list after deletion
-        return redirect()->to('/Admin/listJemaat');
+            return $this->response->setJSON(json_decode($response, true));
+        } catch (Exception $e) {
+            log_message('error', 'API fetch error: ' . $e->getMessage());
+            return $this->response->setJSON(['error' => $e->getMessage()]);
+        }
     }
+
+    public function getKecamatan($regencyCode) // API Kecamata
+    {
+        $url = "https://wilayah.id/api/districts/{$regencyCode}.json";
+
+        try {
+            $response = file_get_contents($url);
+            if ($response === FALSE) {
+                throw new Exception("Failed to fetch data from the API");
+            }
+
+            // Send the response as JSON
+            return $this->response->setJSON(json_decode($response, true));
+        } catch (Exception $e) {
+            // Handle error
+            return $this->response->setJSON(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function getKelurahan($districtCode) // API Kelurahan
+    {
+        $url = "https://wilayah.id/api/villages/{$districtCode}.json";
+
+        try {
+            $response = file_get_contents($url);
+            if ($response === FALSE) {
+                throw new Exception("Failed to fetch data from the API");
+            }
+
+            // Send the response as JSON
+            return $this->response->setJSON(json_decode($response, true));
+        } catch (Exception $e) {
+            // Handle error
+            return $this->response->setJSON(['error' => $e->getMessage()]);
+        }
+    }
+
+
+    private function getValidationRules() // Private -> Validation Rules
+    {
+        return [
+            'nama' => ['rules' => 'required', 'errors' => ['required' => 'Nama harus diisi']],
+            'tgl_lahir' => ['rules' => 'required|valid_date', 'errors' => ['required' => 'Tanggal lahir harus diisi', 'valid_date' => 'Format tanggal lahir tidak valid']],
+            'asal' => ['rules' => 'required', 'errors' => ['required' => 'Asal harus diisi']],
+            'jns_kelamin' => ['rules' => 'required|in_list[Laki-laki,Perempuan]', 'errors' => ['required' => 'Jenis kelamin harus dipilih', 'in_list' => 'Jenis kelamin tidak valid']],
+            'telp' => ['rules' => 'required|numeric|min_length[10]', 'errors' => ['required' => 'Nomor telepon harus diisi', 'numeric' => 'Nomor telepon harus berupa angka', 'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka']],
+            'city' => ['rules' => 'required', 'errors' => ['required' => 'Kota harus dipilih']],
+            'kecamatan' => ['rules' => 'required', 'errors' => ['required' => 'Kecamatan harus dipilih']],
+            'kelurahan' => ['rules' => 'required', 'errors' => ['required' => 'Kelurahan harus dipilih']],
+            'lingkungan' => ['rules' => 'required|numeric|min_length[1]', 'errors' => ['required' => 'Lingkungan harus diisi', 'numeric' => 'Lingkungan harus berupa angka', 'min_length' => 'Lingkungan harus valid']]
+        ];
+    }
+
+    private function formatAddress($cityCode, $kecamatanCode, $kelurahanCode, $lingkungan) // Private -> Formatting Alamat
+    {
+        $areaNames = [];
+        $apiData = [
+            'city' => $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json"),
+            'kecamatan' => $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json"),
+            'kelurahan' => $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")
+        ];
+
+        foreach (['city' => $cityCode, 'kecamatan' => $kecamatanCode, 'kelurahan' => $kelurahanCode] as $key => $code) {
+            $areaNames[] = $this->findAreaName($apiData[$key], $code);
+        }
+
+        return implode(', ', $areaNames) . ", Lingkungan {$lingkungan}";
+    }
+
+    private function fetchDataFromApi($url) // Private -> Fetching Data Dari APA
+    {
+        $response = file_get_contents($url);
+
+        if ($response === FALSE) {
+            throw new \Exception("Failed to fetch data from the API");
+        }
+
+        return json_decode($response, true);
+    }
+
+    private function findAreaName($data, $code) // Private -> Cari Nama Area Dari Kode Daerah
+    {
+        foreach ($data['data'] as $area) {
+            if ($area['code'] == $code) {
+                return $area['name'];
+            }
+        }
+
+        return 'Unknown';
+    }
+
 
 
     // ------------------------------ JADWAL ----------------------------------
@@ -304,7 +388,7 @@ class Admin extends BaseController
         return view('Home/news-body', $data);
     }
 
-    public function saveBerita() // Handle Save and Preview Actions
+    public function saveBerita() // Simpan Berita
     {
         $action = $this->request->getPost('action'); // Get the action value from the form
 

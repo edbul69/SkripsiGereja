@@ -18,14 +18,20 @@ $routes->match(['get', 'post'], '/Settings/(:segment)', 'Admin::$1'); // Sub Das
 
 $routes->post('Settings/updateVideo/(:num)', 'Admin::updateVideo/$1'); // Update Video Live Routes
 
+$routes->get('admin/get-cities', 'Admin::getCities'); // API Kota
+$routes->get('admin/get-kecamatan/(:segment)', 'Admin::getKecamatan/$1'); // API Kecamatan
+$routes->get('admin/get-kelurahan/(:segment)', 'Admin::getKelurahan/$1'); // API Kelurahan
+
+
+
+$routes->get('/Settings/updateJemaat/(:num)', 'Admin::updateJemaat/$1');
+$routes->delete('/Settings/(:num)', 'Admin::deleteJemaat/$1');
+
 $routes->get('/Settings/berita/edit/(:segment)', 'Admin::editBerita/$1'); // View Edit Berita
 $routes->get('/Settings/berita/list/(:segment)', 'Admin::detailBerita/$1'); // View Detail Berita
 $routes->delete('/Settings/berita/hapus/(:num)', 'Admin::deleteBerita/$1'); // Delete Berita
 $routes->post('/Settings/berita/update/(:num)', 'Admin::updateBerita/$1'); // Edit Berita
-$routes->get('/Settings/berita/preview', 'Admin::previewBerita'); // Edit Berita
-
-$routes->get('/Settings/updateJemaat/(:num)', 'Admin::updateJemaat/$1');
-$routes->delete('/Settings/(:num)', 'Admin::deleteJemaat/$1');
+$routes->get('/Settings/berita/preview', 'Admin::previewBerita'); // Preview Berita
 
 $routes->post('Settings/updateEvent/(:num)', 'Admin::updateEvent/$1');
 $routes->delete('Settings/deleteEvent/(:num)', 'Admin::deleteEvent/$1');
