@@ -48,4 +48,8 @@ UPDATE KERJAAN SEBELUMNNYA:
 
 - Buat program untuk membersihkan tmp secara otomatis dalam setiap 24 jam
 
+- Sementara bangun edit page buat jemaat, tapi ada permasalahan di ambil data oldnya jemaat
+
+detail: sempat beberapa kali update ke GPT sciptnya tapi udah di undo dan balik ke stable version yang mana habis selesai-in old data di bagian jenis kelamin dan udah aman, tinggal di bagian alamat
+
 BERITA BAGIAN ADMIN SELESAI!!!

@@ -153,15 +153,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<!-- Modal for Event Details -->
-<div id="eventModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="eventTitle"></h2>
-        <p id="eventTime"></p>
-        <p id="eventDescription"></p>
-    </div>
-</div>
+<?= $this->include('Admin/jadwal/modal-ibadah'); ?>
 
 </div>
 <!-- End of Main Content -->

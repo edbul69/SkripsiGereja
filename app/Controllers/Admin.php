@@ -85,11 +85,10 @@ class Admin extends BaseController
 
     public function listJemaat(): string // Halaman List Jemaat
     {
-        $jemaat = $this->jemaatModel->findAll();
 
         $data = [
             'title' => 'List Jemaat',
-            'jemaat' => $jemaat
+            'jemaat' => $this->jemaatModel->getJemaat()
         ];
 
         return view('Admin/jemaat/list-jemaat', $data);
@@ -119,6 +118,54 @@ class Admin extends BaseController
         return view('Admin/jemaat/tambah-jemaat', $data);
     }
 
+    public function editJemaat($id) // Halaman Edit Jemaat
+    {
+        $jemaat = $this->jemaatModel->find($id);
+
+        if (!$jemaat) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
+        }
+
+        // Decode the API data stored in `api_code` column
+        $apiCodeData = json_decode($jemaat['api_code'], true);
+
+        // Extract codes from the decoded API data
+        $cityCode = $apiCodeData['city'] ?? '';
+        $kecamatanCode = $apiCodeData['kecamatan'] ?? '';
+        $kelurahanCode = $apiCodeData['kelurahan'] ?? '';
+        $lingkungan = $apiCodeData['lingkungan'] ?? ''; // Extract the lingkungan value
+
+        // Fetch cities data from the API
+        $cities = $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json")['data'] ?? [];
+
+        // Ensure `$kecamatanData` and `$kelurahanData` are defined as arrays
+        $kecamatanData = [];
+        $kelurahanData = [];
+
+        if ($cityCode) {
+            $kecamatanData = $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json")['data'] ?? [];
+        }
+
+        if ($kecamatanCode) {
+            $kelurahanData = $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")['data'] ?? [];
+        }
+
+        $data = [
+            'title' => 'Edit Data Jemaat',
+            'validation' => \Config\Services::validation(),
+            'jemaat' => $jemaat,
+            'cities' => $cities,
+            'kecamatanData' => $kecamatanData,
+            'kelurahanData' => $kelurahanData,
+            'selectedCityCode' => $cityCode,
+            'selectedKecamatanCode' => $kecamatanCode,
+            'selectedKelurahanCode' => $kelurahanCode,
+            'selectedLingkungan' => $lingkungan // Pass the lingkungan value to the view
+        ];
+
+        return view('Admin/jemaat/edit-jemaat', $data);
+    }
+
     public function saveJemaat() // Save Jemaat
     {
         $action = $this->request->getPost('action');
@@ -142,10 +189,22 @@ class Admin extends BaseController
         ]);
 
         try {
+            // Prepare only the raw data for the address to be stored in the api_code column
+            $rawAddressData = json_encode([
+                'city' => $formData['city'],
+                'kecamatan' => $formData['kecamatan'],
+                'kelurahan' => $formData['kelurahan'],
+                'lingkungan' => $formData['lingkungan']
+            ]);
+
+            // Format the address using the provided method
             $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
 
             if ($action === 'save') {
-                $this->jemaatModel->save(array_merge($formData, ['alamat' => $alamat]));
+                $this->jemaatModel->save(array_merge($formData, [
+                    'alamat' => $alamat,
+                    'api_code' => $rawAddressData // Store only the raw address data in the api_code column
+                ]));
 
                 session()->setFlashdata('pesan', 'Data Jemaat Berhasil Ditambahkan');
                 return redirect()->to('/Admin/tambahJemaat');
@@ -154,6 +213,155 @@ class Admin extends BaseController
             return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
         }
     }
+
+    public function deleteJemaat($id) // Hapus Jemaat
+    {
+        // Get the jemaat data by ID
+        $jemaat = $this->jemaatModel->find($id);
+
+        if ($jemaat) {
+            // Delete the jemaat record from the database
+            $this->jemaatModel->delete($id);
+
+            // Set flashdata for success message
+            session()->setFlashdata('pesan', 'Data Jemaat Berhasil Dihapus');
+        } else {
+            // Set flashdata for an error message if the record is not found
+            session()->setFlashdata('error', 'Data Jemaat tidak ditemukan atau sudah dihapus');
+        }
+
+        // Redirect back to the list of jemaat
+        return redirect()->to('/Settings/listJemaat');
+    }
+
+    public function updateJemaat($id) // Edit Jemaat
+    {
+        $action = $this->request->getPost('action'); // Get the action value from the form
+
+        // Get the existing data by ID
+        $jemaatLama = $this->jemaatModel->find($id);
+
+        if (!$jemaatLama) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
+        }
+
+        // Validate form input
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama harus diisi'
+                ]
+            ],
+            'tgl_lahir' => [
+                'rules' => 'required|valid_date',
+                'errors' => [
+                    'required' => 'Tanggal lahir harus diisi',
+                    'valid_date' => 'Format tanggal lahir tidak valid'
+                ]
+            ],
+            'asal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Asal harus diisi'
+                ]
+            ],
+            'jns_kelamin' => [
+                'rules' => 'required|in_list[Laki-laki,Perempuan]',
+                'errors' => [
+                    'required' => 'Jenis kelamin harus dipilih',
+                    'in_list' => 'Jenis kelamin tidak valid'
+                ]
+            ],
+            'telp' => [
+                'rules' => 'required|numeric|min_length[10]',
+                'errors' => [
+                    'required' => 'Nomor telepon harus diisi',
+                    'numeric' => 'Nomor telepon harus berupa angka',
+                    'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka'
+                ]
+            ],
+            'city' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kota harus dipilih'
+                ]
+            ],
+            'kecamatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kecamatan harus dipilih'
+                ]
+            ],
+            'kelurahan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kelurahan harus dipilih'
+                ]
+            ],
+            'lingkungan' => [
+                'rules' => 'required|numeric|min_length[1]',
+                'errors' => [
+                    'required' => 'Lingkungan harus diisi',
+                    'numeric' => 'Lingkungan harus berupa angka',
+                    'min_length' => 'Lingkungan harus valid'
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // Collect form data
+        $formData = $this->request->getPost([
+            'nama',
+            'tgl_lahir',
+            'asal',
+            'jns_kelamin',
+            'telp',
+            'city',
+            'kecamatan',
+            'kelurahan',
+            'lingkungan',
+            'api_code'
+        ]);
+
+        try {
+            // Format the address using the provided method
+            $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
+
+            // Prepare the raw data for storage in the `api_code` column
+            $apiCode = json_encode([
+                'city' => $formData['city'],
+                'kecamatan' => $formData['kecamatan'],
+                'kelurahan' => $formData['kelurahan'],
+                'lingkungan' => $formData['lingkungan']
+            ]);
+
+            // Handle the "save" action
+            if ($action === 'save') {
+                $this->jemaatModel->save([
+                    'id' => $id,
+                    'nama' => $formData['nama'],
+                    'tgl_lahir' => $formData['tgl_lahir'],
+                    'asal' => $formData['asal'],
+                    'jns_kelamin' => $formData['jns_kelamin'],
+                    'telp' => $formData['telp'],
+                    'city' => $formData['city'],
+                    'kecamatan' => $formData['kecamatan'],
+                    'kelurahan' => $formData['kelurahan'],
+                    'lingkungan' => $formData['lingkungan'],
+                    'alamat' => $alamat,
+                    'api_code' => $apiCode
+                ]);
+
+                session()->setFlashdata('pesan', 'Data Jemaat Berhasil Diubah');
+                return redirect()->to('/Admin/listJemaat');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
+        }
+    }
+
 
     public function getCities() // API Kota
     {
@@ -212,7 +420,6 @@ class Admin extends BaseController
         }
     }
 
-
     private function getValidationRules() // Private -> Validation Rules
     {
         return [
@@ -266,80 +473,90 @@ class Admin extends BaseController
         return 'Unknown';
     }
 
-
-
     // ------------------------------ JADWAL ----------------------------------
 
-    // HALAMAN JADWAL IBADAH
-    public function jadwalIBadah(): string
+    public function listIbadah() // Halaman List Ibadah
     {
         $data = [
-            'title' => 'Jadwal Ibadah'
+            'title' => 'Jadwal Ibadah',
+            'jadwalData' => $this->jadwalModel->getJadwal(), // Pass the schedule data to the view
+            'validation' => \Config\Services::validation(), // Include validation service for error handling
+            'errors' => session()->getFlashdata('errors') // Get flashdata errors if available
         ];
-        return view('Admin/jadwal-ibadah', $data);
+
+        return view('Admin/jadwal/list-ibadah', $data);
     }
 
-    // HALAMAN TAMBAH JADWAL IBADAH
-    public function tambahIbadah()
+    public function saveIbadah() // Save Ibadah
     {
-        $model = new JadwalModel();
+        $validationRules = [
+            'title' => [
+                'rules' => 'required|max_length[50]',
+                'errors' => [
+                    'required' => 'Nama ibadah harus diisi',
+                    'max_length' => 'Nama ibadah tidak boleh lebih dari 50 karakter'
+                ]
+            ],
+            'start' => [
+                'rules' => 'required|valid_date[Y-m-d\TH:i]',
+                'errors' => [
+                    'required' => 'Tanggal mulai harus diisi',
+                    'valid_date' => 'Format tanggal mulai tidak valid'
+                ]
+            ],
+            'end' => [
+                'rules' => 'required|valid_date[Y-m-d\TH:i]',
+                'errors' => [
+                    'required' => 'Tanggal selesai harus diisi',
+                    'valid_date' => 'Format tanggal selesai tidak valid'
+                ]
+            ],
+            'location' => [
+                'rules' => 'max_length[255]',
+                'errors' => [
+                    'max_length' => 'Lokasi tidak boleh lebih dari 255 karakter'
+                ]
+            ],
+            'description' => [
+                'rules' => 'max_length[255]',
+                'errors' => [
+                    'max_length' => 'Deskripsi tidak boleh lebih dari 255 karakter'
+                ]
+            ]
+        ];
 
-        // Insert data into the database
-        $model->insert([
-            'title'       => $this->request->getVar('title'),
-            'start'       => $this->request->getVar('start'),
-            'end'         => $this->request->getVar('end'),
-            'description' => $this->request->getVar('description')
-        ]);
-
-        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan.');
-
-        // Redirect after successful insertion
-        return redirect()->to('/Admin/jadwalIbadah')->with('message', 'Event saved successfully!');
-    }
-
-    // FUNCTION EDIT JADWAL IBADAH
-    public function updateEvent($id)
-    {
-        // Check if the event exists before attempting to update it
-        $event = $this->jadwalModel->find($id);
-
-        if ($event) {
-            // Get the updated event data from the request
-            $updatedData = $this->request->getJSON(true); // Fetch the data as an associative array
-
-            // Update the event record in the database
-            $this->jadwalModel->update($id, [
-                'title'       => $updatedData['title'],
-                'start'       => $updatedData['start'],
-                'end'         => $updatedData['end'],
-                'description' => $updatedData['description']
-            ]);
-
-            // Return a success message as JSON response
-            return $this->response->setJSON(['success' => true, 'message' => 'Jadwal Berhasil Diubah.']);
-        } else {
-            // If the event is not found, return an error message
-            return $this->response->setJSON(['success' => false, 'message' => 'Data Tidak Ditemukan!']);
+        if (!$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+
+        $start = $this->request->getPost('start');
+        $end = $this->request->getPost('end');
+
+        if (strtotime($end) <= strtotime($start)) {
+            return redirect()->back()->withInput()->with('errors', ['end' => 'Tanggal selesai harus setelah tanggal mulai']);
+        }
+
+        $formData = $this->request->getPost(['title', 'start', 'end', 'location', 'description']);
+        $this->jadwalModel->save($formData);
+
+        session()->setFlashdata('pesan', 'Jadwal Ibadah berhasil ditambahkan.');
+        return redirect()->to('/Admin/listIbadah');
     }
 
-    // FUNCTION HAPUS JADWAL IBADAH
-    public function deleteEvent($id)
+    public function deleteIbadah($id)
     {
-        // Check if the event exists before attempting to delete it
-        $event = $this->jadwalModel->find($id);
+        if ($this->request->isAJAX()) {
+            $event = $this->jadwalModel->find($id);
 
-        if ($event) {
-            // Delete the event from the database using the correct model
-            $this->jadwalModel->delete($id);
-
-            // Return a success message as JSON response
-            return $this->response->setJSON(['success' => true, 'message' => 'Jadwal Berhasil Dihapus.']);
-        } else {
-            // If the event is not found, return an error message
-            return $this->response->setJSON(['success' => false, 'message' => 'Data Tidak Ditemukan!']);
+            if ($event) {
+                $this->jadwalModel->delete($id);
+                return $this->response->setJSON(['success' => true, 'message' => 'Event deleted successfully']);
+            } else {
+                return $this->response->setJSON(['success' => false, 'message' => 'Event not found'])->setStatusCode(404);
+            }
         }
+
+        return redirect()->to('/Settings'); // Fallback redirect if not an AJAX request
     }
 
     // ------------------------------ BERITA ----------------------------------
@@ -484,7 +701,6 @@ class Admin extends BaseController
         }
     }
 
-
     public function deleteBerita($id) // Hapus Berita
     {
         // Get the article data by ID
@@ -512,7 +728,6 @@ class Admin extends BaseController
         // Redirect back to the list of articles
         return redirect()->to('/Settings/listBerita');
     }
-
 
     public function updateBerita($id) // Edit Berita
     {
@@ -619,7 +834,6 @@ class Admin extends BaseController
 
         return view('Admin/berita/berita-preview', $data);
     }
-
 
     // ------------------------------ LOGIN ----------------------------------
 

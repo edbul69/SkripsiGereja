@@ -259,15 +259,8 @@
     </div>
 </section>
 
-<!-- Modal for Event Details -->
-<div id="eventModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="eventTitle"></h2>
-        <p id="eventTime"></p>
-        <p id="eventDescription"></p>
-    </div>
-</div>
+<!-- Include the modal -->
+<?= $this->include('Admin/jadwal/modal-ibadah'); ?>
 
 <?= $this->endSection(); ?>
 

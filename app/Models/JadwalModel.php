@@ -13,5 +13,13 @@ class JadwalModel extends Model
     protected $createdField = 'created';  // Column for record creation time
     protected $updatedField = 'modified'; // Column for record last update time
 
-    protected $allowedFields = ['title', 'start', 'end', 'description'];
+    protected $allowedFields = ['title', 'start', 'end', 'location', 'description'];
+
+    public function getJadwal($id = false)
+    {
+        if ($id === false) {
+            return $this->findAll();
+        }
+        return $this->where(['id' => $id])->first();
+    }
 }

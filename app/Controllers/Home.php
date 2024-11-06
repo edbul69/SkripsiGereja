@@ -55,7 +55,6 @@ class Home extends BaseController
         return view('Home/news-body', $data);
     }
 
-
     // PELAYANAN CONTROLLER
     public function baptisan(): string
     {
@@ -135,7 +134,8 @@ class Home extends BaseController
                 'title' => $event['title'],
                 'start' => $event['start'],
                 'end' => $event['end'],
-                'description' => $event['description']
+                'description' => $event['description'],
+                'location' => $event['location']
             ];
         }
 
