@@ -21,8 +21,8 @@ use PhpParser\Node\Stmt\Foreach_;
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tabel Berita</h6>
+                <div class="card-header py-3" style="background-color: #4e73df; color: white;">
+                    <h6 class="m-0 font-weight-bold">Tabel Berita</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

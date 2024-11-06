@@ -53,6 +53,8 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+// ---------------------------------------------------------------- SEPARATOR ----------------------------------------------------------------
+
 // Utility functions
 function formatDate(date) {
     return date.toLocaleString('id-ID', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -168,9 +170,7 @@ function deleteEvent() {
     }
 }
 
-
-
-
+// ---------------------------------------------------------------- SEPARATOR ----------------------------------------------------------------
 
 document.addEventListener('scroll', function() {
     const sections = document.querySelectorAll('.hidden');
@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
+// ---------------------------------------------------------------- SEPARATOR ----------------------------------------------------------------
 
 // Function to calculate the next first Sunday of the month
 function getNextFirstSunday() {

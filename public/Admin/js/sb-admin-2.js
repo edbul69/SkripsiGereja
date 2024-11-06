@@ -1,6 +1,10 @@
 (function($) {
   "use strict"; // Start of use strict
 
+  // Set sidebar toggled by default
+  $("body").addClass("sidebar-toggled");
+  $(".sidebar").addClass("toggled");
+
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
     $("body").toggleClass("sidebar-toggled");

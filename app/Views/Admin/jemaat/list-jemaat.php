@@ -18,13 +18,13 @@
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tabel Jemaat</h6>
+                <div class="card-header py-3" style="background-color: #4e73df; color: white;">
+                    <h6 class="m-0 font-weight-bold">Tabel Jemaat</h6>
                 </div>
                 <div class="card-body p-2">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-sm" id="dataTable" width="100%" cellspacing="0">
-                            <thead class="thead-light sticky-top">
+                            <thead class="thead-light">
                                 <tr>
                                     <th>Name</th>
                                     <th>Tanggal Lahir</th>

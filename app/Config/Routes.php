@@ -25,7 +25,10 @@ $routes->get('admin/get-cities', 'Admin::getCities'); // API Kota
 $routes->get('admin/get-kecamatan/(:segment)', 'Admin::getKecamatan/$1'); // API Kecamatan
 $routes->get('admin/get-kelurahan/(:segment)', 'Admin::getKelurahan/$1'); // API Kelurahan
 
-$routes->post('/Settings/ibadah/delete/(:num)', 'Admin::deleteIbadah/$1');
+$routes->match(['delete', 'post'], '/Settings/ibadah/delete/(:num)', 'Admin::deleteIbadah/$1');
+$routes->post('/Settings/ibadah/update/(:num)', 'Admin::updateIbadah/$1');
+
+
 
 $routes->get('/Settings/berita/edit/(:segment)', 'Admin::editBerita/$1'); // View Edit Berita
 $routes->get('/Settings/berita/list/(:segment)', 'Admin::detailBerita/$1'); // View Detail Berita

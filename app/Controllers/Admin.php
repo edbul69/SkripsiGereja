@@ -51,7 +51,7 @@ class Admin extends BaseController
         return view('Admin/index', $data);
     }
 
-    // ------------------------------ LIVE STREAM ----------------------------------
+    // ------------------------------------------------------------ LIVE STREAM ----------------------------------------------------------------
 
     public function updateVideo($id)
     {
@@ -81,7 +81,7 @@ class Admin extends BaseController
         return redirect()->to('/Settings');
     }
 
-    // ------------------------------ JEMAAT ----------------------------------
+    // ---------------------------------------------------------------- JEMAAT --------------------------------------------------------------------
 
     public function listJemaat(): string // Halaman List Jemaat
     {
@@ -362,7 +362,6 @@ class Admin extends BaseController
         }
     }
 
-
     public function getCities() // API Kota
     {
         $provinceCode = '71'; // Sulawesi Utara province code
@@ -473,93 +472,135 @@ class Admin extends BaseController
         return 'Unknown';
     }
 
-    // ------------------------------ JADWAL ----------------------------------
+    // ------------------------------------------------------------ JADWAL ----------------------------------------------------------------
 
-    public function listIbadah() // Halaman List Ibadah
+    public function listIbadah() // Modified Halaman List Ibadah
     {
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_jadwal');
+
+        // Group data by date and order by start date
+        $query = $builder->select('id, DATE(start) as date, title, start, end, location, description')
+            ->orderBy('start', 'ASC')
+            ->get();
+
+        $groupedData = [];
+        foreach ($query->getResult() as $row) {
+            $date = $row->date;
+            if (!isset($groupedData[$date])) {
+                $groupedData[$date] = [];
+            }
+            $groupedData[$date][] = $row;
+        }
+
         $data = [
             'title' => 'Jadwal Ibadah',
             'jadwalData' => $this->jadwalModel->getJadwal(), // Pass the schedule data to the view
-            'validation' => \Config\Services::validation(), // Include validation service for error handling
-            'errors' => session()->getFlashdata('errors') // Get flashdata errors if available
+            'groupedJadwalData' => $groupedData, // Pass grouped data for the table
+            'validation' => \Config\Services::validation(),
+            'errors' => session()->getFlashdata('errors')
         ];
 
         return view('Admin/jadwal/list-ibadah', $data);
     }
 
-    public function saveIbadah() // Save Ibadah
+    public function saveIbadah()
     {
+        $id = $this->request->getPost('id'); // Get the ID, if present
+
         $validationRules = [
-            'title' => [
-                'rules' => 'required|max_length[50]',
-                'errors' => [
-                    'required' => 'Nama ibadah harus diisi',
-                    'max_length' => 'Nama ibadah tidak boleh lebih dari 50 karakter'
-                ]
-            ],
-            'start' => [
-                'rules' => 'required|valid_date[Y-m-d\TH:i]',
-                'errors' => [
-                    'required' => 'Tanggal mulai harus diisi',
-                    'valid_date' => 'Format tanggal mulai tidak valid'
-                ]
-            ],
-            'end' => [
-                'rules' => 'required|valid_date[Y-m-d\TH:i]',
-                'errors' => [
-                    'required' => 'Tanggal selesai harus diisi',
-                    'valid_date' => 'Format tanggal selesai tidak valid'
-                ]
-            ],
-            'location' => [
-                'rules' => 'max_length[255]',
-                'errors' => [
-                    'max_length' => 'Lokasi tidak boleh lebih dari 255 karakter'
-                ]
-            ],
-            'description' => [
-                'rules' => 'max_length[255]',
-                'errors' => [
-                    'max_length' => 'Deskripsi tidak boleh lebih dari 255 karakter'
-                ]
-            ]
+            'title' => 'required|max_length[50]',
+            'start' => 'required|valid_date[Y-m-d\TH:i]',
+            'end' => 'required|valid_date[Y-m-d\TH:i]',
+            'location' => 'max_length[255]',
+            'description' => 'max_length[255]',
         ];
 
         if (!$this->validate($validationRules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $start = $this->request->getPost('start');
-        $end = $this->request->getPost('end');
+        $data = [
+            'title' => $this->request->getPost('title'),
+            'start' => $this->request->getPost('start'),
+            'end' => $this->request->getPost('end'),
+            'location' => $this->request->getPost('location'),
+            'description' => $this->request->getPost('description')
+        ];
 
-        if (strtotime($end) <= strtotime($start)) {
-            return redirect()->back()->withInput()->with('errors', ['end' => 'Tanggal selesai harus setelah tanggal mulai']);
+        if ($id) {
+            // Update existing record
+            $this->jadwalModel->update($id, $data);
+            session()->setFlashdata('pesan', 'Jadwal berhasil diperbarui.');
+        } else {
+            // Insert new record
+            $this->jadwalModel->insert($data);
+            session()->setFlashdata('pesan', 'Jadwal berhasil ditambahkan.');
         }
 
-        $formData = $this->request->getPost(['title', 'start', 'end', 'location', 'description']);
-        $this->jadwalModel->save($formData);
-
-        session()->setFlashdata('pesan', 'Jadwal Ibadah berhasil ditambahkan.');
         return redirect()->to('/Admin/listIbadah');
     }
 
-    public function deleteIbadah($id)
+
+    public function deleteIbadah($id) // Delete Ibadah
     {
         if ($this->request->isAJAX()) {
             $event = $this->jadwalModel->find($id);
 
             if ($event) {
                 $this->jadwalModel->delete($id);
-                return $this->response->setJSON(['success' => true, 'message' => 'Event deleted successfully']);
+                return $this->response->setJSON(['success' => true, 'message' => 'Jadwal Ibadah Berhasil Dihapus']);
             } else {
-                return $this->response->setJSON(['success' => false, 'message' => 'Event not found'])->setStatusCode(404);
+                return $this->response->setJSON(['success' => false, 'message' => 'Jadwal Ibadah Tidak Ditemukan'])->setStatusCode(404);
             }
+        } else {
+            $event = $this->jadwalModel->find($id);
+
+            if ($event) {
+                // Delete the jemaat record from the database
+                $this->jadwalModel->delete($id);
+
+                // Set flashdata for success message
+                session()->setFlashdata('pesan', 'Jadwal Ibadah Berhasil Dihapus');
+            } else {
+                // Set flashdata for an error message if the record is not found
+                session()->setFlashdata('error', 'Jadwal Ibadah Tidak Ditemukan');
+            }
+            return redirect()->to('/Settings/listIbadah');
         }
 
-        return redirect()->to('/Settings'); // Fallback redirect if not an AJAX request
+        return redirect()->to('/Settings/listIbadah'); // Fallback redirect if not an AJAX request
     }
 
-    // ------------------------------ BERITA ----------------------------------
+    public function updateIbadah($id)
+    {
+        $validationRules = [
+            'title' => 'required|max_length[50]',
+            'start' => 'required|valid_date[Y-m-d\TH:i]',
+            'end' => 'required|valid_date[Y-m-d\TH:i]',
+            'location' => 'max_length[255]',
+            'description' => 'max_length[255]',
+        ];
+
+        if (!$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'title' => $this->request->getPost('title'),
+            'start' => $this->request->getPost('start'),
+            'end' => $this->request->getPost('end'),
+            'location' => $this->request->getPost('location'),
+            'description' => $this->request->getPost('description')
+        ];
+
+        $this->jadwalModel->update($id, $data);
+
+        session()->setFlashdata('pesan', 'Jadwal berhasil diperbarui.');
+        return redirect()->to('/Admin/listIbadah');
+    }
+
+    // ---------------------------------------------------------------- BERITA --------------------------------------------------------------------
 
     public function listBerita(): string // Halaman List Berita
     {
@@ -835,7 +876,7 @@ class Admin extends BaseController
         return view('Admin/berita/berita-preview', $data);
     }
 
-    // ------------------------------ LOGIN ----------------------------------
+    // ------------------------------------------------------------ LOGIN --------------------------------------------------------------------
 
     // HALAMAN LOGIN
     public function login(): string
@@ -846,7 +887,7 @@ class Admin extends BaseController
         return view('Admin/login', $data);
     }
 
-    // ------------------------------ TEMPLATE ----------------------------------
+    // ---------------------------------------------------------------- TEMPLATE --------------------------------------------------------------------
 
     // HALAMAN TEMPLATE
     public function blank(): string
