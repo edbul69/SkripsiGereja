@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <?php $errors = session()->getFlashdata('errors') ?? []; ?>
 
-                    <form id="jemaatForm" method="post" enctype="multipart/form-data" action="/Settings/jemaat/update/<?= $jemaat['id']; ?>">
+                    <form id="jemaatForm" method="post" enctype="multipart/form-data" action="/Dashboard/jemaat/update/<?= $jemaat['id']; ?>">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="api_code" value="<?= $jemaat['api_code']; ?>">
 

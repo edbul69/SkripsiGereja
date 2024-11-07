@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <?php $errors = session()->getFlashdata('errors') ?? []; ?>
 
-                    <form id="beritaForm" method="post" enctype="multipart/form-data" action="/Settings/saveBerita">
+                    <form id="beritaForm" method="post" enctype="multipart/form-data" action="/Dashboard/saveBerita">
                         <?= csrf_field(); ?>
 
                         <!-- Article Title -->

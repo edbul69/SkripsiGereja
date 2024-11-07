@@ -99,7 +99,7 @@ class Admin extends BaseController
         }
 
         // Redirect back to the form page
-        return redirect()->to('/Settings');
+        return redirect()->to('/Dashboard');
     }
 
     // ---------------------------------------------------------------- JEMAAT --------------------------------------------------------------------
@@ -252,7 +252,7 @@ class Admin extends BaseController
         }
 
         // Redirect back to the list of jemaat
-        return redirect()->to('/Settings/listJemaat');
+        return redirect()->to('/Dashboard/listJemaat');
     }
 
     public function updateJemaat($id) // Edit Jemaat
@@ -614,10 +614,10 @@ class Admin extends BaseController
                 // Set flashdata for an error message if the record is not found
                 session()->setFlashdata('error', 'Jadwal Ibadah Tidak Ditemukan');
             }
-            return redirect()->to('/Settings/listIbadah');
+            return redirect()->to('/Dashboard/listIbadah');
         }
 
-        return redirect()->to('/Settings/listIbadah'); // Fallback redirect if not an AJAX request
+        return redirect()->to('/Dashboard/listIbadah'); // Fallback redirect if not an AJAX request
     }
 
     public function updateIbadah($id) // Edit Ibadah
@@ -789,7 +789,7 @@ class Admin extends BaseController
             ]);
 
             // Redirect to the preview page
-            return redirect()->to('/Settings/berita/preview');
+            return redirect()->to('/Dashboard/berita/preview');
         } elseif ($action === 'save') {
             // Move the image from the temporary folder to the permanent uploads directory
             $permanentPath = 'uploads/images/' . $imgName;
@@ -809,7 +809,7 @@ class Admin extends BaseController
                 ]);
 
                 session()->setFlashdata('pesan', 'Berita Berhasil Ditambahkan');
-                return redirect()->to('/Settings/tambahBerita');
+                return redirect()->to('/Dashboard/tambahBerita');
             } else {
                 // Handle error in moving file
                 return redirect()->back()->withInput()->with('errors', ['img' => 'Error moving the image to the permanent location.']);
@@ -842,7 +842,7 @@ class Admin extends BaseController
         }
 
         // Redirect back to the list of articles
-        return redirect()->to('/Settings/listBerita');
+        return redirect()->to('/Dashboard/listBerita');
     }
 
     public function updateBerita($id) // Edit Berita
@@ -885,7 +885,7 @@ class Admin extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->to('/Settings/berita/edit/' . $beritaLama['slug'])->withInput()->with('errors', $this->validator->getErrors());
+            return redirect()->to('/Dashboard/berita/edit/' . $beritaLama['slug'])->withInput()->with('errors', $this->validator->getErrors());
         }
 
         $title = $this->request->getVar('title');
@@ -917,7 +917,7 @@ class Admin extends BaseController
             ]);
 
             // Redirect to the preview page
-            return redirect()->to('/Settings/berita/preview');
+            return redirect()->to('/Dashboard/berita/preview');
         } elseif ($action === 'save') {
             // Move the image from the temporary folder to the permanent uploads directory if needed
             if (strpos($imgUrl, 'tmp') !== false) {
@@ -935,7 +935,7 @@ class Admin extends BaseController
             ]);
 
             session()->setFlashdata('pesan', 'Berita Berhasil Diubah');
-            return redirect()->to('/Settings/listBerita');
+            return redirect()->to('/Dashboard/listBerita');
         }
     }
 
@@ -1004,7 +1004,7 @@ class Admin extends BaseController
             'role' => $this->request->getVar('role')
         ]);
 
-        return redirect()->to('/Settings/listAkses')->with('pesan', 'Data pengguna berhasil ditambahkan');
+        return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Data pengguna berhasil ditambahkan');
     }
 
     public function deleteAkses($id) // Hapus Akun
@@ -1014,9 +1014,9 @@ class Admin extends BaseController
 
         if ($user) {
             $this->aksesModel->delete($id);
-            return redirect()->to('/Settings/listAkses')->with('pesan', 'Data pengguna berhasil dihapus');
+            return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Data pengguna berhasil dihapus');
         } else {
-            return redirect()->to('/Settings/listAkses')->with('pesan', 'Pengguna tidak ditemukan');
+            return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Pengguna tidak ditemukan');
         }
     }
 
@@ -1069,7 +1069,7 @@ class Admin extends BaseController
 
         $this->aksesModel->update($id, $data);
 
-        return redirect()->to('/Settings/listAkses')->with('pesan', 'Data pengguna berhasil diperbarui');
+        return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Data pengguna berhasil diperbarui');
     }
 
     // ---------------------------------------------------------------- TEMPLATE --------------------------------------------------------------------

@@ -145,7 +145,7 @@
                                                     data-description="<?= esc($event->description) ?>">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </button>
-                                                <form action="/Settings/ibadah/delete/<?= $event->id ?>" method="post" class="d-inline">
+                                                <form action="/Dashboard/ibadah/delete/<?= $event->id ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" title="Delete">
@@ -219,7 +219,7 @@
             submitBtn.textContent = 'Simpan Perubahan';
             submitBtn.classList.replace('btn-primary', 'btn-success');
             cancelBtn.classList.remove('d-none');
-            jadwalForm.action = `/Settings/ibadah/update/${id}`;
+            jadwalForm.action = `/Dashboard/ibadah/update/${id}`;
 
             // Populate form fields with data
             document.getElementById('jadwal-id').value = id;

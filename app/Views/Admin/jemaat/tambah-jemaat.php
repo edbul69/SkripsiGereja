@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <?php $errors = session()->getFlashdata('errors') ?? []; ?>
 
-                    <form id="jemaatForm" method="post" enctype="multipart/form-data" action="/Settings/saveJemaat">
+                    <form id="jemaatForm" method="post" enctype="multipart/form-data" action="/Dashboard/saveJemaat">
                         <?= csrf_field(); ?>
 
                         <!-- Nama -->

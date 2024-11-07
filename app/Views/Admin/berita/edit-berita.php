@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <?php $errors = session()->getFlashdata('errors') ?? []; ?>
 
-                    <form id="beritaForm" action="/Settings/berita/update/<?= $berita['id']; ?>" method="post" enctype="multipart/form-data">
+                    <form id="beritaForm" action="/Dashboard/berita/update/<?= $berita['id']; ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="slug" value="<?= $berita['slug']; ?>">
 

@@ -46,10 +46,10 @@
                                         <td style="white-space: normal; word-break: break-word;"><?= $j['alamat']; ?></td> <!-- Ensure full address is shown -->
                                         <!-- Action buttons for Edit and Delete -->
                                         <td class="text-center">
-                                            <a href="/Settings/jemaat/edit/<?= $j['id']; ?>" class="btn btn-warning btn-sm" title="Edit">
+                                            <a href="/Dashboard/jemaat/edit/<?= $j['id']; ?>" class="btn btn-warning btn-sm" title="Edit">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-                                            <form action="/Settings/jemaat/delete/<?= $j['id']; ?>" method="post" class="d-inline">
+                                            <form action="/Dashboard/jemaat/delete/<?= $j['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" title="Delete">

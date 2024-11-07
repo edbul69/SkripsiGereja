@@ -18,7 +18,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Form Tambah Pengguna</h6>
         </div>
         <div class="card-body">
-            <form action="<?= isset($user) ? '/Settings/akses/update/' . $user['username'] : '/Settings/tambahAkses'; ?>" method="post">
+            <form action="<?= isset($user) ? '/Dashboard/akses/update/' . $user['username'] : '/Dashboard/tambahAkses'; ?>" method="post">
                 <?= csrf_field(); ?>
 
                 <!-- Username Input -->
@@ -58,7 +58,7 @@
 
                 <!-- Cancel Button: Only show when editing -->
                 <?php if (isset($user)) : ?>
-                    <a href="/Settings/listAkses" class="btn btn-danger">Cancel</a>
+                    <a href="/Dashboard/listAkses" class="btn btn-danger">Cancel</a>
                 <?php endif; ?>
             </form>
         </div>
@@ -87,9 +87,9 @@
                                 <td><?= esc($item['role']); ?></td>
                                 <td><?= isset($item['last_login']) ? esc($item['last_login']) : 'N/A'; ?></td>
                                 <td>
-                                    <a href="/Settings/akses/edit/<?= $item['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/Dashboard/akses/edit/<?= $item['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
 
-                                    <form action="/Settings/akses/delete/<?= $item['id']; ?>" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                    <form action="/Dashboard/akses/delete/<?= $item['id']; ?>" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this user?');">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>

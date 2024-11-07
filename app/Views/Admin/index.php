@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <h5>Enter YouTube Video Link</h5>
                     <!-- Use POST method to submit the form data -->
-                    <form method="POST" action="/Settings/updateVideo/1">
+                    <form method="POST" action="/Dashboard/updateVideo/1">
                         <div class="mb-3">
                             <input type="text" name="youtubeEmbedCode" id="youtubeEmbedCode" class="form-control" placeholder="Enter YouTube Embed Code Here">
                         </div>
@@ -145,7 +145,7 @@
                     <div class="list-group">
                         <?php if (!empty($latestNews)) : ?>
                             <?php foreach ($latestNews as $news) : ?>
-                                <a href="/Settings/berita/list/<?= esc($news['slug']); ?>" class="list-group-item list-group-item-action" target="_blank">
+                                <a href="/Dashboard/berita/list/<?= esc($news['slug']); ?>" class="list-group-item list-group-item-action" target="_blank">
                                     <div class="d-flex w-100 justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <img src="/uploads/images/<?= esc($news['img']); ?>" alt="<?= esc($news['title']); ?>" style="width: 80px; height: 60px; object-fit: cover; margin-right: 15px;">

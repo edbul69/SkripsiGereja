@@ -72,7 +72,7 @@ function isValidUrl(string) {
 // Main FullCalendar setup
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
-    const isAdmin = window.location.pathname === '/Settings/listIbadah';
+    const isAdmin = window.location.pathname === '/Dashboard/listIbadah';
 
     // Calendar configuration
     const calendar = new FullCalendar.Calendar(calendarEl, {
@@ -147,7 +147,7 @@ function deleteEvent() {
     
     if (eventId && confirm("Apakah Anda yakin ingin menghapus jadwal ini?")) {
         // AJAX request to delete event
-        fetch(`/Settings/ibadah/delete/${eventId}`, {
+        fetch(`/Dashboard/ibadah/delete/${eventId}`, {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',

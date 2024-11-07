@@ -42,9 +42,9 @@ use PhpParser\Node\Stmt\Foreach_;
                                         <td><?= $b['author']; ?></td>
                                         <td><?= $b['created']; ?></td>
                                         <td>
-                                            <a href="/Settings/berita/list/<?= $b['slug']; ?>" class="btn btn-success" target="_blank">Lihat</a>
-                                            <a href="/Settings/berita/edit/<?= $b['slug']; ?>" class="btn btn-warning">Edit</a>
-                                            <form action="/Settings/berita/hapus/<?= $b['id']; ?>" method="post" class="d-inline">
+                                            <a href="/Dashboard/berita/list/<?= $b['slug']; ?>" class="btn btn-success" target="_blank">Lihat</a>
+                                            <a href="/Dashboard/berita/edit/<?= $b['slug']; ?>" class="btn btn-warning">Edit</a>
+                                            <form action="/Dashboard/berita/hapus/<?= $b['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">Hapus</button>

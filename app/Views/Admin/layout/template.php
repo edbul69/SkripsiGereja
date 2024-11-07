@@ -54,7 +54,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/Settings">
+                <a class="nav-link" href="/Dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -72,15 +72,15 @@
                 </a>
                 <div id="collapseJemaat" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('Settings/listJemaat') ?>">List</a>
-                        <a class="collapse-item" href="<?= base_url('Settings/tambahJemaat') ?>">Tambah Jemaat</a>
+                        <a class="collapse-item" href="<?= base_url('Dashboard/listJemaat') ?>">List</a>
+                        <a class="collapse-item" href="<?= base_url('Dashboard/tambahJemaat') ?>">Tambah Jemaat</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Settings/listIbadah') ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard/listIbadah') ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Jadwal Ibadah</span>
                 </a>
@@ -95,14 +95,14 @@
                 </a>
                 <div id="collapseBerita" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('Settings/listBerita') ?>">List</a>
-                        <a class="collapse-item" href="<?= base_url('Settings/tambahBerita') ?>">Tambah Berita</a>
+                        <a class="collapse-item" href="<?= base_url('Dashboard/listBerita') ?>">List</a>
+                        <a class="collapse-item" href="<?= base_url('Dashboard/tambahBerita') ?>">Tambah Berita</a>
                     </div>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Settings/listAkses') ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard/listAkses') ?>">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Akun</span>
                 </a>
