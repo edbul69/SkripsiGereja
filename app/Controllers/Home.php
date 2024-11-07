@@ -19,9 +19,16 @@ class Home extends BaseController
 
     public function index(): string
     {
+        // Load the BeritaModel to fetch the latest news
+        $beritaModel = new \App\Models\BeritaModel();
+        $latestNews = $beritaModel->orderBy('created', 'DESC')->limit(6)->findAll();
+
+        // Pass the news data to the view
         $data = [
-            'title' => 'GPDI BAHU'
+            'title' => 'GPDI BAHU',
+            'latestNews' => $latestNews
         ];
+
         return view('Home/index', $data);
     }
 
@@ -39,18 +46,16 @@ class Home extends BaseController
         return view('Home/all-news', $data);
     }
 
-    public function isiBerita($slug): string
+    public function isiBerita($slug) // Halaman Detail Berita
     {
-        $berita = $this->beritaModel->getBerita($slug);
-
-        if (!$berita) {
-            return 'No news found for the given ID';
-        }
-
         $data = [
-            'title' => 'GPDI BAHU - Sample',
-            'berita' => $berita
+            'title' => 'Detail Berita',
+            'berita' => $this->beritaModel->getBerita($slug)
         ];
+
+        if (empty($data['berita'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita Tidak Ditemukan');
+        }
 
         return view('Home/news-body', $data);
     }

@@ -11850,8 +11850,10 @@ section.schead .section-heading {
   transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Smooth zoom-in and brightness transition */
 }
 #all-news .news-image img {
-  width: 100%;
-  height: auto;
+  width: 100%; /* Set full width to fit the container */
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+  border-radius: 4px; /* Optional: rounded corners */
   transition: transform 0.5s ease-in-out; /* Smooth image zoom-in effect */
 }
 

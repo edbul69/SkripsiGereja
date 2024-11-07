@@ -72,7 +72,7 @@ function isValidUrl(string) {
 // Main FullCalendar setup
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
-    const isAdmin = window.location.pathname === '/Settings' || window.location.pathname === '/Settings/listIbadah';
+    const isAdmin = window.location.pathname === '/Settings/listIbadah';
 
     // Calendar configuration
     const calendar = new FullCalendar.Calendar(calendarEl, {

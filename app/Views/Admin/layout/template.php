@@ -43,8 +43,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="<?= base_url('Admin/img/icon/icon.png'); ?>" alt="GPDI BAHU Logo" style="width: 40px; height: 40px;">
                 </div>
                 <div class="sidebar-brand-text mx-3">GPDI BAHU</div>
             </a>
@@ -82,7 +82,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Settings/listIbadah') ?>">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Jadwal Ibadah</span></a>
+                    <span>Jadwal Ibadah</span>
+                </a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -98,6 +99,13 @@
                         <a class="collapse-item" href="<?= base_url('Settings/tambahBerita') ?>">Tambah Berita</a>
                     </div>
                 </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('Settings/listAkses') ?>">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Akun</span>
+                </a>
             </li>
 
             <!-- Divider -->

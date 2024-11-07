@@ -6,6 +6,7 @@ use App\Models\JadwalModel;
 use App\Models\JemaatModel;
 use App\Models\LiveModel;
 use App\Models\BeritaModel;
+use App\Models\AksesModel;
 
 class Admin extends BaseController
 {
@@ -13,6 +14,7 @@ class Admin extends BaseController
     protected $liveModel;
     protected $jadwalModel;
     protected $beritaModel;
+    protected $aksesModel;
 
     public function __construct()
     {
@@ -20,36 +22,55 @@ class Admin extends BaseController
         $this->liveModel = new LiveModel();
         $this->jadwalModel = new JadwalModel();
         $this->beritaModel = new BeritaModel();
+        $this->aksesModel = new AksesModel();
+        helper('form'); // Load form helper if needed
     }
 
     // HALAMAN DASHBOARD
     public function index(): string
     {
-        // Fetch the link from the database where id = 1
+        // Fetch the live video embed code from the database
         $liveData = $this->liveModel->find(1); // Retrieves the row with id 1
         $embedCode = ''; // Default video link
 
-        // Check if liveData is valid and contains the 'link' field
         if ($liveData && isset($liveData['link'])) {
             $iframeString = $liveData['link'];
 
-            // Use regular expression to extract the src attribute value from the iframe
+            // Extract the src attribute from the iframe
             if (preg_match('/src="([^"]+)"/', $iframeString, $matches)) {
                 $embedCode = $matches[1];  // Extracted URL from the iframe
             } else {
-                // If it's not an iframe, set it directly as the link
                 $embedCode = $iframeString;
             }
         }
 
+        // Load BeritaModel to get the 6 newest news items
+        $beritaModel = new \App\Models\BeritaModel();
+        $latestNews = $beritaModel->orderBy('created', 'DESC')->limit(6)->findAll();
+
+        // Load JemaatModel to get member data
+        $jemaatModel = new \App\Models\JemaatModel();
+        $totalJemaat = $jemaatModel->countAllResults();
+        $totalPria = $jemaatModel->where('jns_kelamin', 'Laki-laki')->countAllResults();
+        $totalWanita = $jemaatModel->where('jns_kelamin', 'Perempuan')->countAllResults();
+
+        // Count members aged 18 or younger
+        $totalRemajaAnak = $jemaatModel->where('tgl_lahir >=', date('Y-m-d', strtotime('-18 years')))->countAllResults();
+
         // Prepare data to pass to the view
         $data = [
             'title' => 'Admin Dashboard',
-            'embedCode' => $embedCode
+            'embedCode' => $embedCode,
+            'latestNews' => $latestNews,
+            'totalJemaat' => $totalJemaat,
+            'totalPria' => $totalPria,
+            'totalWanita' => $totalWanita,
+            'totalRemajaAnak' => $totalRemajaAnak,
         ];
 
         return view('Admin/index', $data);
     }
+
 
     // ------------------------------------------------------------ LIVE STREAM ----------------------------------------------------------------
 
@@ -474,7 +495,7 @@ class Admin extends BaseController
 
     // ------------------------------------------------------------ JADWAL ----------------------------------------------------------------
 
-    public function listIbadah() // Modified Halaman List Ibadah
+    public function listIbadah() // Halaman List Ibadah
     {
         $db = \Config\Database::connect();
         $builder = $db->table('tb_jadwal');
@@ -504,16 +525,44 @@ class Admin extends BaseController
         return view('Admin/jadwal/list-ibadah', $data);
     }
 
-    public function saveIbadah()
+    public function saveIbadah() // Simpan Ibadah
     {
         $id = $this->request->getPost('id'); // Get the ID, if present
 
         $validationRules = [
-            'title' => 'required|max_length[50]',
-            'start' => 'required|valid_date[Y-m-d\TH:i]',
-            'end' => 'required|valid_date[Y-m-d\TH:i]',
-            'location' => 'max_length[255]',
-            'description' => 'max_length[255]',
+            'title' => [
+                'rules' => 'required|max_length[50]',
+                'errors' => [
+                    'required' => 'Judul harus diisi',
+                    'max_length' => 'Judul tidak boleh lebih dari 50 karakter'
+                ]
+            ],
+            'start' => [
+                'rules' => 'required|valid_date[Y-m-d\TH:i]',
+                'errors' => [
+                    'required' => 'Waktu mulai harus diisi',
+                    'valid_date' => 'Format waktu mulai tidak valid'
+                ]
+            ],
+            'end' => [
+                'rules' => 'required|valid_date[Y-m-d\TH:i]',
+                'errors' => [
+                    'required' => 'Waktu selesai harus diisi',
+                    'valid_date' => 'Format waktu selesai tidak valid'
+                ]
+            ],
+            'location' => [
+                'rules' => 'max_length[255]',
+                'errors' => [
+                    'max_length' => 'Lokasi tidak boleh lebih dari 255 karakter'
+                ]
+            ],
+            'description' => [
+                'rules' => 'max_length[255]',
+                'errors' => [
+                    'max_length' => 'Deskripsi tidak boleh lebih dari 255 karakter'
+                ]
+            ]
         ];
 
         if (!$this->validate($validationRules)) {
@@ -540,7 +589,6 @@ class Admin extends BaseController
 
         return redirect()->to('/Admin/listIbadah');
     }
-
 
     public function deleteIbadah($id) // Delete Ibadah
     {
@@ -572,16 +620,43 @@ class Admin extends BaseController
         return redirect()->to('/Settings/listIbadah'); // Fallback redirect if not an AJAX request
     }
 
-    public function updateIbadah($id)
+    public function updateIbadah($id) // Edit Ibadah
     {
         $validationRules = [
-            'title' => 'required|max_length[50]',
-            'start' => 'required|valid_date[Y-m-d\TH:i]',
-            'end' => 'required|valid_date[Y-m-d\TH:i]',
-            'location' => 'max_length[255]',
-            'description' => 'max_length[255]',
+            'title' => [
+                'rules' => 'required|max_length[50]',
+                'errors' => [
+                    'required' => 'Judul harus diisi',
+                    'max_length' => 'Judul tidak boleh lebih dari 50 karakter'
+                ]
+            ],
+            'start' => [
+                'rules' => 'required|valid_date[Y-m-d\TH:i]',
+                'errors' => [
+                    'required' => 'Waktu mulai harus diisi',
+                    'valid_date' => 'Format waktu mulai tidak valid'
+                ]
+            ],
+            'end' => [
+                'rules' => 'required|valid_date[Y-m-d\TH:i]',
+                'errors' => [
+                    'required' => 'Waktu selesai harus diisi',
+                    'valid_date' => 'Format waktu selesai tidak valid'
+                ]
+            ],
+            'location' => [
+                'rules' => 'max_length[255]',
+                'errors' => [
+                    'max_length' => 'Lokasi tidak boleh lebih dari 255 karakter'
+                ]
+            ],
+            'description' => [
+                'rules' => 'max_length[255]',
+                'errors' => [
+                    'max_length' => 'Deskripsi tidak boleh lebih dari 255 karakter'
+                ]
+            ]
         ];
-
         if (!$this->validate($validationRules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
@@ -876,15 +951,125 @@ class Admin extends BaseController
         return view('Admin/berita/berita-preview', $data);
     }
 
-    // ------------------------------------------------------------ LOGIN --------------------------------------------------------------------
+    // ------------------------------------------------------------ AKSES --------------------------------------------------------------------
 
-    // HALAMAN LOGIN
-    public function login(): string
+    public function listAkses() // Halaman List Akun
     {
         $data = [
-            'title' => 'Login'
+            'title' => 'List Akses',
+            'akses' => $this->aksesModel->getAkses()
         ];
-        return view('Admin/login', $data);
+
+        return view('Admin/list-akses', $data);
+    }
+
+    public function tambahAkses() // Tambah Akun
+    {
+        $validation = \Config\Services::validation();
+
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required|min_length[3]|is_unique[tb_akses.username]',
+                'errors' => [
+                    'required' => 'Username harus diisi',
+                    'min_length' => 'Username harus memiliki minimal 3 karakter',
+                    'is_unique' => 'Username sudah digunakan'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[6]',
+                'errors' => [
+                    'required' => 'Password harus diisi',
+                    'min_length' => 'Password harus memiliki minimal 6 karakter'
+                ]
+            ],
+            'role' => [
+                'rules' => 'required|in_list[admin,engineer]',
+                'errors' => [
+                    'required' => 'Role harus dipilih',
+                    'in_list' => 'Role tidak valid, harus salah satu dari admin atau engineer'
+                ]
+            ]
+        ])) {
+            return view('Admin/list-akses', [
+                'akses' => $this->aksesModel->findAll(),
+                'validation' => $this->validator,
+                'title' => 'Tambah Data Pengguna'
+            ]);
+        }
+
+        $this->aksesModel->save([
+            'username' => $this->request->getVar('username'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'role' => $this->request->getVar('role')
+        ]);
+
+        return redirect()->to('/Settings/listAkses')->with('pesan', 'Data pengguna berhasil ditambahkan');
+    }
+
+    public function deleteAkses($id) // Hapus Akun
+    {
+        // Ensure the user exists before attempting to delete
+        $user = $this->aksesModel->find($id);
+
+        if ($user) {
+            $this->aksesModel->delete($id);
+            return redirect()->to('/Settings/listAkses')->with('pesan', 'Data pengguna berhasil dihapus');
+        } else {
+            return redirect()->to('/Settings/listAkses')->with('pesan', 'Pengguna tidak ditemukan');
+        }
+    }
+
+    public function editAkses($id) // Halaman Edit Akun
+    {
+        $user = $this->aksesModel->getAkses($id);
+        if (!$user) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('User not found');
+        }
+
+        $data = [
+            'title' => 'Edit Data Pengguna',
+            'akses' => $this->aksesModel->findAll(), // Include existing users to display in the table
+            'user' => $user, // Pass the user data for editing
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('Admin/list-akses', $data);
+    }
+
+    public function updateAkses($id) // Edit Akun
+    {
+        $validation = \Config\Services::validation();
+
+        if (!$this->validate([
+            'password' => [
+                'rules' => 'permit_empty|min_length[6]',
+                'errors' => [
+                    'min_length' => 'Password harus memiliki minimal 6 karakter'
+                ]
+            ],
+            'role' => [
+                'rules' => 'required|in_list[admin,engineer]',
+                'errors' => [
+                    'required' => 'Role harus dipilih',
+                    'in_list' => 'Role tidak valid, harus salah satu dari admin atau engineer'
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $data = [
+            'role' => $this->request->getVar('role')
+        ];
+
+        if ($this->request->getVar('password')) {
+            $data['password'] = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+        }
+
+        $this->aksesModel->update($id, $data);
+
+        return redirect()->to('/Settings/listAkses')->with('pesan', 'Data pengguna berhasil diperbarui');
     }
 
     // ---------------------------------------------------------------- TEMPLATE --------------------------------------------------------------------

@@ -127,70 +127,25 @@
         </div>
         <!-- Card Grid -->
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-            <div class="col">
-                <div class="card h-100 border-0 bg-transparent">
-                    <img src="../Public/assets/img/news/news1.JPG" class="card-img-top card-img-fixed rounded-4" alt="Piedmont Students">
-                    <div class="card-body text-white">
-                        <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Putri GPDI Sulawesi Utara, Aurelia David<i class="fas fa-chevron-right"></i></a>
-                        </h5>
+            <?php foreach ($latestNews as $news): ?>
+                <div class="col">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <img src="/uploads/images/<?= esc($news['img']) ?>" class="card-img-top card-img-fixed rounded-4" alt="<?= esc($news['title']) ?>">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">
+                                <a href="/berita/<?= esc($news['slug']) ?>" class="text-white text-decoration-none">
+                                    <?= esc($news['title']) ?> <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 bg-transparent">
-                    <img src="../Public/assets/img/news/news2.JPG" class="card-img-top card-img-fixed rounded-4" alt="Fall Small Group Signups">
-                    <div class="card-body text-white">
-                        <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Mayor TNI Membuka Ibadah Persemian <i class="fas fa-chevron-right"></i></a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 bg-transparent">
-                    <img src="../Public/assets/img/news/news3.JPG" class="card-img-top card-img-fixed rounded-4" alt="College & Young Adult Kickoff">
-                    <div class="card-body text-white">
-                        <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Majelis Daerah GPDI Menghadiri Acara Peresmian <i class="fas fa-chevron-right"></i></a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 bg-transparent">
-                    <img src="../Public/assets/img/news/news4.JPG" class="card-img-top card-img-fixed rounded-4" alt="Step One">
-                    <div class="card-body text-white">
-                        <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Penandatangan Peresmian Gedung Baru GPDI Bahu <i class="fas fa-chevron-right"></i></a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 bg-transparent">
-                    <img src="../Public/assets/img/news/news5.JPG" class="card-img-top card-img-fixed rounded-4" alt="Serve Day">
-                    <div class="card-body text-white">
-                        <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Ibadah Peresmian Gedung Baru GPDI Bahu <i class="fas fa-chevron-right"></i></a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0 bg-transparent">
-                    <img src="../Public/assets/img/news/news6.JPG" class="card-img-top card-img-fixed rounded-4" alt="New Series: Binge the Bible">
-                    <div class="card-body text-white">
-                        <h5 class="card-title">
-                            <a href="YOUR_URL_HERE" class="text-white text-decoration-none">Moment Kebersamaan Jemaat GPDI Bahu <i class="fas fa-chevron-right"></i></a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="text-center mt-4">
             <a href="/Berita" class="btn btn-outline-light btn-lg">Berita Lainnya</a>
         </div>
+    </div>
 </section>
 <!-- Schedule-->
 <section class="schead" id="schedule">
