@@ -62,13 +62,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJemaat"
                     aria-expanded="true" aria-controls="collapseJemaat">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Jemaat</span>
+                    <span>Jemaat</span>
                 </a>
                 <div id="collapseJemaat" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -82,7 +81,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Dashboard/listIbadah') ?>">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Jadwal Ibadah</span>
+                    <span>Jadwal</span>
                 </a>
             </li>
 

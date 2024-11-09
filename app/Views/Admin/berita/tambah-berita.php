@@ -68,7 +68,7 @@
                         <!-- Article Content -->
                         <div class="mb-3">
                             <label for="text" class="form-label">Isi Artikel</label>
-                            <textarea id="text" class="form-control <?= isset($errors['text']) ? 'is-invalid' : ''; ?>" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
+                            <textarea id="text" class="form-control TinyMCE <?= isset($errors['text']) ? 'is-invalid' : ''; ?>" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
                             <div class="invalid-feedback">
                                 <?= isset($errors['text']) ? $errors['text'] : ''; ?>
                             </div>

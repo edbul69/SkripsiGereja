@@ -12,29 +12,29 @@
         </div>
     <?php endif; ?>
 
-    <!-- Form to add new user -->
+    <!-- Form to add or update a user -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Form Tambah Pengguna</h6>
+            <h6 class="m-0 font-weight-bold text-primary"><?= isset($user) ? 'Form Edit Pengguna' : 'Form Tambah Pengguna'; ?></h6>
         </div>
         <div class="card-body">
-            <form action="<?= isset($user) ? '/Dashboard/akses/update/' . $user['username'] : '/Dashboard/tambahAkses'; ?>" method="post">
+            <form action="<?= isset($user) ? '/Dashboard/akses/update/' . $user['id'] : '/Dashboard/tambahAkses'; ?>" method="post">
                 <?= csrf_field(); ?>
 
                 <!-- Username Input -->
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control <?= (isset($validation) && $validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" placeholder="Masukkan username" value="<?= old('username', isset($user) ? $user['username'] : ''); ?>" <?= isset($user) ? 'readonly' : ''; ?>>
-                    <div class="invalid-feedback d-block">
+                    <div class="invalid-feedback">
                         <?= (isset($validation) && $validation->hasError('username')) ? $validation->getError('username') : ''; ?>
                     </div>
                 </div>
 
-                <!-- name Input -->
+                <!-- Name Input -->
                 <div class="mb-3">
-                    <label for="name" class="form-label">name</label>
-                    <input type="text" class="form-control <?= (isset($validation) && $validation->hasError('name')) ? 'is-invalid' : ''; ?>" id="name" name="name" placeholder="masukkan nama" value="<?= old('name', isset($user) ? $user['name'] : ''); ?>">
-                    <div class="invalid-feedback d-block">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control <?= (isset($validation) && $validation->hasError('name')) ? 'is-invalid' : ''; ?>" id="name" name="name" placeholder="Masukkan nama" value="<?= old('name', isset($user) ? $user['name'] : ''); ?>">
+                    <div class="invalid-feedback">
                         <?= (isset($validation) && $validation->hasError('name')) ? $validation->getError('name') : ''; ?>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control <?= (isset($validation) && $validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" placeholder="<?= isset($user) ? 'Leave blank to keep current password' : 'Masukkan password'; ?>">
-                    <div class="invalid-feedback d-block">
+                    <div class="invalid-feedback">
                         <?= (isset($validation) && $validation->hasError('password')) ? $validation->getError('password') : ''; ?>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                         <option value="admin" <?= (old('role', isset($user) ? $user['role'] : '') == 'admin') ? 'selected' : ''; ?>>Admin</option>
                         <option value="engineer" <?= (old('role', isset($user) ? $user['role'] : '') == 'engineer') ? 'selected' : ''; ?>>Engineer</option>
                     </select>
-                    <div class="invalid-feedback d-block">
+                    <div class="invalid-feedback">
                         <?= (isset($validation) && $validation->hasError('role')) ? $validation->getError('role') : ''; ?>
                     </div>
                 </div>

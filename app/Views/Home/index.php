@@ -162,7 +162,7 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase mb-5 mt-0">Media GPDI BAHU</h2>
         </div>
-        <div class="swiper mySwiper">
+        <div class="swiper mySwiper pt-0">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="content-wrapper">

@@ -59,7 +59,7 @@
                         <!-- Deskripsi -->
                         <div class="mb-3">
                             <label for="description" class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control <?= isset($errors['description']) ? 'is-invalid' : ''; ?>" id="description" name="description" placeholder="Masukkan deskripsi" value="<?= old('description'); ?>" maxlength="255">
+                            <textarea type="text" class="form-control <?= isset($errors['description']) ? 'is-invalid' : ''; ?>" id="description" name="description" placeholder="Masukkan deskripsi" value="<?= old('description'); ?>" maxlength="255"></textarea>
                             <div class="invalid-feedback"><?= isset($errors['description']) ? $errors['description'] : ''; ?></div>
                         </div>
 

@@ -28,7 +28,7 @@ $routes->group('Dashboard', ['filter' => 'adminfilter'], function ($routes) {
     $routes->post('ibadah/update/(:num)', 'Admin::updateIbadah/$1');
     $routes->get('berita/edit/(:segment)', 'Admin::editBerita/$1');
     $routes->get('berita/list/(:segment)', 'Admin::detailBerita/$1');
-    $routes->delete('berita/hapus/(:num)', 'Admin::deleteBerita/$1');
+    $routes->delete('berita/delete/(:num)', 'Admin::deleteBerita/$1');
     $routes->post('berita/update/(:num)', 'Admin::updateBerita/$1');
     $routes->get('berita/preview', 'Admin::previewBerita');
     $routes->delete('akses/delete/(:segment)', 'Admin::deleteAkses/$1');

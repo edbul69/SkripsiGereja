@@ -30,7 +30,6 @@ class Admin extends BaseController
     // HALAMAN DASHBOARD
     public function index(): string
     {
-        // Fetch the live video embed code from the database
         $liveData = $this->liveModel->find(1); // Retrieves the row with id 1
         $embedCode = ''; // Default video link
 
@@ -77,7 +76,6 @@ class Admin extends BaseController
 
         return view('Admin/index', $data);
     }
-
 
     // ------------------------------------------------------------ LIVE STREAM ----------------------------------------------------------------
 
@@ -999,7 +997,6 @@ class Admin extends BaseController
 
     public function listAkses() // Halaman List Akun
     {
-
         $session = session();
         $loggedInUserRole = $session->get('role');
         $loggedInUserName = $session->get('name');
@@ -1012,7 +1009,8 @@ class Admin extends BaseController
             'title' => 'List Akses',
             'akses' => $this->aksesModel->getAkses(),
             'loggedInUserName' => $loggedInUserName,
-            'loggedInUserRole' => $loggedInUserRole
+            'loggedInUserRole' => $loggedInUserRole,
+            'validation' => session('validation') ?? \Config\Services::validation()
         ];
 
         return view('Admin/user/list-akses', $data);
@@ -1033,7 +1031,7 @@ class Admin extends BaseController
             'title' => 'Edit Data Pengguna',
             'akses' => $this->aksesModel->findAll(), // Include existing users to display in the table
             'user' => $user, // Pass the user data for editing
-            'validation' => \Config\Services::validation(),
+            'validation' => session('validation') ?? \Config\Services::validation(),
             'loggedInUserName' => $loggedInUserName,
             'loggedInUserRole' => $loggedInUserRole
         ];
@@ -1043,7 +1041,9 @@ class Admin extends BaseController
 
     public function tambahAkses() // Tambah Akun
     {
-        $validation = \Config\Services::validation();
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
 
         if (!$this->validate([
             'username' => [
@@ -1075,11 +1075,7 @@ class Admin extends BaseController
                 ]
             ]
         ])) {
-            return view('Admin/user/list-akses', [
-                'akses' => $this->aksesModel->findAll(),
-                'validation' => $this->validator,
-                'title' => 'Tambah Data Pengguna'
-            ]);
+            return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
         $this->aksesModel->save([
@@ -1107,9 +1103,27 @@ class Admin extends BaseController
 
     public function updateAkses($id) // Edit Akun
     {
-        $validation = \Config\Services::validation();
+        // Get the existing user data by ID
+        $userLama = $this->aksesModel->find($id);
 
+        // Check if the user data exists
+        if (!$userLama) {
+            // Redirect back with an error message if the user is not found
+            return redirect()->to('/Dashboard/listAkses')->with('error', 'User not found.');
+        }
+
+        // Determine validation rule for the username field
+        $rule_username = ($userLama['username'] === $this->request->getVar('username')) ? 'required' : 'required|is_unique[tb_akses.username]';
+
+        // Validate form input
         if (!$this->validate([
+            'username' => [
+                'rules' => $rule_username,
+                'errors' => [
+                    'required' => 'Username harus diisi',
+                    'is_unique' => 'Username sudah digunakan'
+                ]
+            ],
             'password' => [
                 'rules' => 'permit_empty|min_length[6]',
                 'errors' => [
@@ -1130,26 +1144,32 @@ class Admin extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->back()->withInput()->with('validation', $validation);
+            return redirect()->to('/Dashboard/akses/edit/' . $id)->withInput()->with('validation', $this->validator);
         }
 
-        // Initialize data to be updated
-        $data = [
-            'name' => $this->request->getVar('name'),
-            'role' => $this->request->getVar('role')
-        ];
+        // Collect form data
+        $username = $this->request->getVar('username');
+        $name = $this->request->getVar('name');
+        $role = $this->request->getVar('role');
 
         // Only update the password if a new one is provided
         $password = $this->request->getVar('password');
         if (!empty($password)) {
-            $data['password'] = password_hash($password, PASSWORD_DEFAULT);
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        } else {
+            $hashedPassword = $userLama['password']; // Keep the old password if none is provided
         }
 
         // Update the user data in the database
-        if ($this->aksesModel->update($id, $data)) {
-            return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Data pengguna berhasil diperbarui');
-        } else {
-            return redirect()->back()->with('error', 'Data pengguna gagal diperbarui');
-        }
+        $this->aksesModel->save([
+            'id' => $id,
+            'username' => $username,
+            'name' => $name,
+            'password' => $hashedPassword,
+            'role' => $role
+        ]);
+
+        session()->setFlashdata('pesan', 'Data pengguna berhasil diperbarui');
+        return redirect()->to('/Dashboard/listAkses');
     }
 }
