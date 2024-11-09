@@ -9,7 +9,7 @@ class AksesModel extends Model
     protected $table = 'tb_akses';
     protected $primaryKey = 'id'; // Set 'id' as the primary key
 
-    protected $allowedFields = ['username', 'password', 'role'];
+    protected $allowedFields = ['username', 'name', 'password', 'role', 'last_login'];
 
     public function getAkses($id = false)
     {

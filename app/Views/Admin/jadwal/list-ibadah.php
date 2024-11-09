@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form id="jadwalForm" method="post" action="/Admin/saveIbadah">
+                    <form id="jadwalForm" method="post" action="/Dashboard/saveIbadah">
                         <?= csrf_field(); ?>
                         <input type="hidden" id="jadwal-id" name="id" value="">
 
@@ -236,7 +236,7 @@
             submitBtn.textContent = 'Simpan Jadwal';
             submitBtn.classList.replace('btn-success', 'btn-primary');
             cancelBtn.classList.add('d-none');
-            jadwalForm.action = '/Admin/saveIbadah';
+            jadwalForm.action = '/Dashboard/saveIbadah';
 
             // Clear form fields
             document.getElementById('jadwal-id').value = '';

@@ -26,6 +26,7 @@ class Admin extends BaseController
         helper('form'); // Load form helper if needed
     }
 
+
     // HALAMAN DASHBOARD
     public function index(): string
     {
@@ -57,6 +58,10 @@ class Admin extends BaseController
         // Count members aged 18 or younger
         $totalRemajaAnak = $jemaatModel->where('tgl_lahir >=', date('Y-m-d', strtotime('-18 years')))->countAllResults();
 
+        $session = session();
+        $loggedInUserRole = $session->get('role'); //+
+        $loggedInUserName = $session->get('name'); //+        
+
         // Prepare data to pass to the view
         $data = [
             'title' => 'Admin Dashboard',
@@ -66,6 +71,8 @@ class Admin extends BaseController
             'totalPria' => $totalPria,
             'totalWanita' => $totalWanita,
             'totalRemajaAnak' => $totalRemajaAnak,
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole,
         ];
 
         return view('Admin/index', $data);
@@ -106,10 +113,15 @@ class Admin extends BaseController
 
     public function listJemaat(): string // Halaman List Jemaat
     {
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
 
         $data = [
             'title' => 'List Jemaat',
-            'jemaat' => $this->jemaatModel->getJemaat()
+            'jemaat' => $this->jemaatModel->getJemaat(),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole,
         ];
 
         return view('Admin/jemaat/list-jemaat', $data);
@@ -127,14 +139,20 @@ class Admin extends BaseController
             $citiesData = json_decode($response, true);
             $cities = $citiesData['data'] ?? []; // Extract the 'data' array if it exists
         } catch (Exception $e) {
-            $cities = []; // Fallback to an empty array on error
+            $cities = [];
         }
+
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
 
         $data = [
             'title' => 'Tambah Jemaat',
-            'validation' => \Config\Services::validation(), // This will be used if session data isn't set
-            'errors' => session()->getFlashdata('errors'), // Check flashdata for errors
-            'cities' => $cities // Pass the cities array to the view
+            'validation' => \Config\Services::validation(),
+            'errors' => session()->getFlashdata('errors'),
+            'cities' => $cities,
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole,
         ];
         return view('Admin/jemaat/tambah-jemaat', $data);
     }
@@ -171,6 +189,10 @@ class Admin extends BaseController
             $kelurahanData = $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")['data'] ?? [];
         }
 
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
         $data = [
             'title' => 'Edit Data Jemaat',
             'validation' => \Config\Services::validation(),
@@ -181,7 +203,9 @@ class Admin extends BaseController
             'selectedCityCode' => $cityCode,
             'selectedKecamatanCode' => $kecamatanCode,
             'selectedKelurahanCode' => $kelurahanCode,
-            'selectedLingkungan' => $lingkungan // Pass the lingkungan value to the view
+            'selectedLingkungan' => $lingkungan,
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole,
         ];
 
         return view('Admin/jemaat/edit-jemaat', $data);
@@ -228,7 +252,7 @@ class Admin extends BaseController
                 ]));
 
                 session()->setFlashdata('pesan', 'Data Jemaat Berhasil Ditambahkan');
-                return redirect()->to('/Admin/tambahJemaat');
+                return redirect()->to('/Dashboard/tambahJemaat');
             }
         } catch (Exception $e) {
             return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
@@ -376,7 +400,7 @@ class Admin extends BaseController
                 ]);
 
                 session()->setFlashdata('pesan', 'Data Jemaat Berhasil Diubah');
-                return redirect()->to('/Admin/listJemaat');
+                return redirect()->to('/Dashboard/listJemaat');
             }
         } catch (Exception $e) {
             return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
@@ -514,12 +538,18 @@ class Admin extends BaseController
             $groupedData[$date][] = $row;
         }
 
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
         $data = [
             'title' => 'Jadwal Ibadah',
             'jadwalData' => $this->jadwalModel->getJadwal(), // Pass the schedule data to the view
             'groupedJadwalData' => $groupedData, // Pass grouped data for the table
             'validation' => \Config\Services::validation(),
-            'errors' => session()->getFlashdata('errors')
+            'errors' => session()->getFlashdata('errors'),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole
         ];
 
         return view('Admin/jadwal/list-ibadah', $data);
@@ -587,7 +617,7 @@ class Admin extends BaseController
             session()->setFlashdata('pesan', 'Jadwal berhasil ditambahkan.');
         }
 
-        return redirect()->to('/Admin/listIbadah');
+        return redirect()->to('/Dashboard/listIbadah');
     }
 
     public function deleteIbadah($id) // Delete Ibadah
@@ -672,7 +702,7 @@ class Admin extends BaseController
         $this->jadwalModel->update($id, $data);
 
         session()->setFlashdata('pesan', 'Jadwal berhasil diperbarui.');
-        return redirect()->to('/Admin/listIbadah');
+        return redirect()->to('/Dashboard/listIbadah');
     }
 
     // ---------------------------------------------------------------- BERITA --------------------------------------------------------------------
@@ -680,29 +710,49 @@ class Admin extends BaseController
     public function listBerita(): string // Halaman List Berita
     {
 
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
         $data = [
             'title' => 'List Berita',
-            'berita' => $this->beritaModel->getBerita()
+            'berita' => $this->beritaModel->getBerita(),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole
         ];
         return view('Admin/berita/list-berita', $data);
     }
 
     public function tambahBerita(): string // Halaman Tambah Berita
     {
+
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
         $data = [
             'title' => 'Tambah Berita',
-            'validation' => \Config\Services::validation(), // This will be used if session data isn't set
-            'errors' => session()->getFlashdata('errors') // Check flashdata for errors
+            'validation' => \Config\Services::validation(),
+            'errors' => session()->getFlashdata('errors'),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole
         ];
         return view('Admin/berita/tambah-berita', $data);
     }
 
     public function editBerita($slug) // Halaman Edit Berita
     {
+
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
         $data = [
             'title' => 'Edit Berita',
             'validation' => \Config\Services::validation(),
-            'berita' => $this->beritaModel->getBerita($slug)
+            'berita' => $this->beritaModel->getBerita($slug),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole
         ];
         return view('Admin/berita/edit-berita', $data);
     }
@@ -809,7 +859,7 @@ class Admin extends BaseController
                 ]);
 
                 session()->setFlashdata('pesan', 'Berita Berhasil Ditambahkan');
-                return redirect()->to('/Dashboard/tambahBerita');
+                return redirect()->to('/Dashboard/listBerita');
             } else {
                 // Handle error in moving file
                 return redirect()->back()->withInput()->with('errors', ['img' => 'Error moving the image to the permanent location.']);
@@ -893,7 +943,6 @@ class Admin extends BaseController
         $text = $this->request->getVar('text');
         $slug = url_title($title, '-', true);
 
-        // Handle image upload if a new image is provided
         $fileImg = $this->request->getFile('img');
         if ($fileImg && $fileImg->isValid() && !$fileImg->hasMoved()) {
             if (!empty($beritaLama['img']) && file_exists('uploads/images/' . $beritaLama['img'])) {
@@ -908,7 +957,6 @@ class Admin extends BaseController
         }
 
         if ($action === 'preview') {
-            // Store data in session for preview
             session()->set([
                 'previewTitle' => $title,
                 'previewSource' => $source,
@@ -916,15 +964,11 @@ class Admin extends BaseController
                 'previewImage' => $imgUrl
             ]);
 
-            // Redirect to the preview page
             return redirect()->to('/Dashboard/berita/preview');
         } elseif ($action === 'save') {
-            // Move the image from the temporary folder to the permanent uploads directory if needed
             if (strpos($imgUrl, 'tmp') !== false) {
                 rename(FCPATH . 'uploads/tmp/' . $imgName, FCPATH . 'uploads/images/' . $imgName);
             }
-
-            // Update the database record
             $this->beritaModel->save([
                 'id' => $id,
                 'title' => $title,
@@ -955,12 +999,46 @@ class Admin extends BaseController
 
     public function listAkses() // Halaman List Akun
     {
+
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
+        if ($loggedInUserRole === 'admin') {
+            return redirect()->to('/Dashboard');
+        }
+
         $data = [
             'title' => 'List Akses',
-            'akses' => $this->aksesModel->getAkses()
+            'akses' => $this->aksesModel->getAkses(),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole
         ];
 
-        return view('Admin/list-akses', $data);
+        return view('Admin/user/list-akses', $data);
+    }
+
+    public function editAkses($id) // Halaman Edit Akun
+    {
+        $user = $this->aksesModel->getAkses($id);
+        if (!$user) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('User not found');
+        }
+
+        $session = session();
+        $loggedInUserRole = $session->get('role');
+        $loggedInUserName = $session->get('name');
+
+        $data = [
+            'title' => 'Edit Data Pengguna',
+            'akses' => $this->aksesModel->findAll(), // Include existing users to display in the table
+            'user' => $user, // Pass the user data for editing
+            'validation' => \Config\Services::validation(),
+            'loggedInUserName' => $loggedInUserName,
+            'loggedInUserRole' => $loggedInUserRole
+        ];
+
+        return view('Admin/user/list-akses', $data);
     }
 
     public function tambahAkses() // Tambah Akun
@@ -974,6 +1052,12 @@ class Admin extends BaseController
                     'required' => 'Username harus diisi',
                     'min_length' => 'Username harus memiliki minimal 3 karakter',
                     'is_unique' => 'Username sudah digunakan'
+                ]
+            ],
+            'name' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama harus diisi'
                 ]
             ],
             'password' => [
@@ -991,7 +1075,7 @@ class Admin extends BaseController
                 ]
             ]
         ])) {
-            return view('Admin/list-akses', [
+            return view('Admin/user/list-akses', [
                 'akses' => $this->aksesModel->findAll(),
                 'validation' => $this->validator,
                 'title' => 'Tambah Data Pengguna'
@@ -1000,6 +1084,7 @@ class Admin extends BaseController
 
         $this->aksesModel->save([
             'username' => $this->request->getVar('username'),
+            'name' => $this->request->getVar('name'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'role' => $this->request->getVar('role')
         ]);
@@ -1020,23 +1105,6 @@ class Admin extends BaseController
         }
     }
 
-    public function editAkses($id) // Halaman Edit Akun
-    {
-        $user = $this->aksesModel->getAkses($id);
-        if (!$user) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('User not found');
-        }
-
-        $data = [
-            'title' => 'Edit Data Pengguna',
-            'akses' => $this->aksesModel->findAll(), // Include existing users to display in the table
-            'user' => $user, // Pass the user data for editing
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('Admin/list-akses', $data);
-    }
-
     public function updateAkses($id) // Edit Akun
     {
         $validation = \Config\Services::validation();
@@ -1046,6 +1114,12 @@ class Admin extends BaseController
                 'rules' => 'permit_empty|min_length[6]',
                 'errors' => [
                     'min_length' => 'Password harus memiliki minimal 6 karakter'
+                ]
+            ],
+            'name' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama harus diisi'
                 ]
             ],
             'role' => [
@@ -1059,27 +1133,23 @@ class Admin extends BaseController
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
+        // Initialize data to be updated
         $data = [
+            'name' => $this->request->getVar('name'),
             'role' => $this->request->getVar('role')
         ];
 
-        if ($this->request->getVar('password')) {
-            $data['password'] = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+        // Only update the password if a new one is provided
+        $password = $this->request->getVar('password');
+        if (!empty($password)) {
+            $data['password'] = password_hash($password, PASSWORD_DEFAULT);
         }
 
-        $this->aksesModel->update($id, $data);
-
-        return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Data pengguna berhasil diperbarui');
-    }
-
-    // ---------------------------------------------------------------- TEMPLATE --------------------------------------------------------------------
-
-    // HALAMAN TEMPLATE
-    public function blank(): string
-    {
-        $data = [
-            'title' => 'Blank Page'
-        ];
-        return view('Admin/blank', $data);
+        // Update the user data in the database
+        if ($this->aksesModel->update($id, $data)) {
+            return redirect()->to('/Dashboard/listAkses')->with('pesan', 'Data pengguna berhasil diperbarui');
+        } else {
+            return redirect()->back()->with('error', 'Data pengguna gagal diperbarui');
+        }
     }
 }

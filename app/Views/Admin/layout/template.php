@@ -101,12 +101,14 @@
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Dashboard/listAkses') ?>">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Akun</span>
-                </a>
-            </li>
+            <?php if (session()->get('role') === 'engineer'): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('Dashboard/listAkses') ?>">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Akun</span>
+                    </a>
+                </li>
+            <?php endif; ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -142,7 +144,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $loggedInUserName; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="<?= base_url('Admin/img/undraw_profile.svg') ?>">
                             </a>
@@ -187,7 +189,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <a class="btn btn-primary" href="login">Logout</a>
+                        <a class="btn btn-primary" href="<?php echo base_url('/logout'); ?>">Logout</a>
                     </div>
                 </div>
             </div>

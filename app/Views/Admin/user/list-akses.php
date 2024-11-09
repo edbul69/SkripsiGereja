@@ -30,6 +30,15 @@
                     </div>
                 </div>
 
+                <!-- name Input -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">name</label>
+                    <input type="text" class="form-control <?= (isset($validation) && $validation->hasError('name')) ? 'is-invalid' : ''; ?>" id="name" name="name" placeholder="masukkan nama" value="<?= old('name', isset($user) ? $user['name'] : ''); ?>">
+                    <div class="invalid-feedback d-block">
+                        <?= (isset($validation) && $validation->hasError('name')) ? $validation->getError('name') : ''; ?>
+                    </div>
+                </div>
+
                 <!-- Password Input -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
@@ -75,6 +84,7 @@
                     <thead>
                         <tr>
                             <th>Username</th>
+                            <th>Nama</th>
                             <th>Role</th>
                             <th>Last Login</th> <!-- Example additional column -->
                             <th>Actions</th> <!-- New column for actions -->
@@ -84,6 +94,7 @@
                         <?php foreach ($akses as $item) : ?>
                             <tr>
                                 <td><?= esc($item['username']); ?></td>
+                                <td><?= esc($item['name']) ?></td>
                                 <td><?= esc($item['role']); ?></td>
                                 <td><?= isset($item['last_login']) ? esc($item['last_login']) : 'N/A'; ?></td>
                                 <td>
