@@ -79,7 +79,7 @@
         <h2 class="fw-bold mb-5">LIVESTREAM</h2>
         <div class="row justify-content-center align-items-center g-5">
             <div class="col-md-7 text-center">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ByJCiCspAHY?si=Wd1qjJeROqK84QGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="youtube-video" width="100%" height="315" src="<?= esc($embedCode) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="col-md-5 text-center">
                 <p class="text-white">Temukan kami di YouTube untuk live ibadah GPDI Bahu</p>

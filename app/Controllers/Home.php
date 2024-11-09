@@ -4,21 +4,39 @@ namespace App\Controllers;
 
 use App\Models\JadwalModel;
 use App\Models\BeritaModel;
+use App\Models\LiveModel;
 
 class Home extends BaseController
 {
 
     protected $jadwalModel;
     protected $beritaModel;
+    protected $liveModel;
 
     public function __construct()
     {
         $this->jadwalModel = new JadwalModel();
         $this->beritaModel = new BeritaModel();
+        $this->liveModel = new LiveModel();
     }
 
     public function index(): string
     {
+
+        $liveData = $this->liveModel->find(1); // Retrieves the row with id 1
+        $embedCode = ''; // Default video link
+
+        if ($liveData && isset($liveData['link'])) {
+            $iframeString = $liveData['link'];
+
+            // Extract the src attribute from the iframe
+            if (preg_match('/src="([^"]+)"/', $iframeString, $matches)) {
+                $embedCode = $matches[1];  // Extracted URL from the iframe
+            } else {
+                $embedCode = $iframeString;
+            }
+        }
+
         // Load the BeritaModel to fetch the latest news
         $beritaModel = new \App\Models\BeritaModel();
         $latestNews = $beritaModel->orderBy('created', 'DESC')->limit(6)->findAll();
@@ -26,6 +44,7 @@ class Home extends BaseController
         // Pass the news data to the view
         $data = [
             'title' => 'GPDI BAHU',
+            'embedCode' => $embedCode,
             'latestNews' => $latestNews
         ];
 
@@ -84,8 +103,23 @@ class Home extends BaseController
     }
     public function sunday(): string
     {
+        $liveData = $this->liveModel->find(1); // Retrieves the row with id 1
+        $embedCode = ''; // Default video link
+
+        if ($liveData && isset($liveData['link'])) {
+            $iframeString = $liveData['link'];
+
+            // Extract the src attribute from the iframe
+            if (preg_match('/src="([^"]+)"/', $iframeString, $matches)) {
+                $embedCode = $matches[1];  // Extracted URL from the iframe
+            } else {
+                $embedCode = $iframeString;
+            }
+        }
+
         $data = [
-            'title' => 'GPDI BAHU - Sunday Service'
+            'title' => 'GPDI BAHU - Sunday Service',
+            'embedCode' => $embedCode
         ];
         return view('Home/pelayanan/sunday-service', $data);
     }

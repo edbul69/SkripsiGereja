@@ -167,14 +167,14 @@
                 <div class="swiper-slide">
                     <div class="content-wrapper">
                         <div class="rotated-text-left">
-                            <span>Informasi COVID-19</span>
+                            <span>Live Ibadah</span>
                         </div>
                         <div class="iframe-and-text">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UzNtC2SDHiQ?si=GV147dAGp9k6NV_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <p class="iframe-caption">Dalam upaya menangani wabah COVID-19, GPDI pun menjalankan prosedur kesehatan yang secara langsung di berikan oleh salah satu pelayan, yaitu Dr. Suryadi Tatura</p>
+                            <iframe id="youtube-video" width="100%" height="315" src="<?= esc($embedCode) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <p class="iframe-caption">Ibadah Raya GPDI Bahu Setiap Hari Minggu Pada Pukul 8 Pagi dan 6 Malam</p>
                         </div>
                         <div class="rotated-text-right">
-                            <span>Informasi COVID-19</span>
+                            <span>Live Ibadah</span>
                         </div>
                     </div>
                 </div>

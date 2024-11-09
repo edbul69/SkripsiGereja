@@ -8,9 +8,9 @@ use CodeIgniter\Router\RouteCollection;
 
 // ROUTES HOME
 $routes->get('/', 'Home::index');
-// $routes->get('/Home', 'Home::index'); // Main Page Routes
-// $routes->get('/(?!Dashboard|events|Sample|Tes|login|logout)([a-zA-Z]+)', 'Home::$1'); // Sub Page Routes
-// $routes->get('/Berita/(:segment)', 'Home::isiBerita/$1'); // News Pages Routes
+$routes->get('/Home', 'Home::index'); // Main Page Routes
+$routes->get('/(?!Dashboard|events|Sample|Tes|login|logout)([a-zA-Z]+)', 'Home::$1'); // Sub Page Routes
+$routes->get('/Berita/(:segment)', 'Home::isiBerita/$1'); // News Pages Routes
 
 // ROUTES ADMIN
 $routes->get('/login', 'Auth::index'); // Login Routes
