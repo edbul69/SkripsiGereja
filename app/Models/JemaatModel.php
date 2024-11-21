@@ -16,7 +16,7 @@ class JemaatModel extends Model
     protected $updatedField = 'modified'; // Column for record last update time
 
     // Specify which columns can be set by insert/update
-    protected $allowedFields = ['nama', 'tgl_lahir', 'asal', 'jns_kelamin', 'telp', 'alamat', 'api_code'];
+    protected $allowedFields = ['nama', 'tgl_lahir', 'asal', 'jns_kelamin', 'telp', 'alamat', 'api_code', 'by'];
 
 
     public function getJemaat($id = false)

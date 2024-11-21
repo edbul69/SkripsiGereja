@@ -5,7 +5,14 @@
 <section class="page-section" id="all-news">
     <div class="container mt-5">
         <div id="news-container">
-            <?php foreach ($berita as $b) : ?>
+            <?php
+            // Sort the $berita array by 'created' date in descending order
+            usort($berita, function ($a, $b) {
+                return strtotime($b['created']) - strtotime($a['created']);
+            });
+
+            foreach ($berita as $b) :
+            ?>
                 <div class="news-item mb-4">
                     <a href="/Berita/<?= esc($b['slug']); ?>" class="text-decoration-none" target="_blank">
                         <div class="row">

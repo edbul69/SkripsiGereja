@@ -45,13 +45,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../Public/assets/img/pelayanan/aba.jpg" class="d-block w-100" alt="Sekolah Minggu Activity 1">
+                    <img src="https://placehold.co/600x400" class="d-block w-100" alt="Sekolah Minggu Activity 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="../Public/assets/img/pelayanan/baptisan-air.jpg" class="d-block w-100" alt="Sekolah Minggu Activity 2">
+                    <img src="https://placehold.co/400" class="d-block w-100" alt="Sekolah Minggu Activity 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="../Public/assets/img/pelayanan/doa-bersama.JPG" class="d-block w-100" alt="Sekolah Minggu Activity 3">
+                    <img src="https://placehold.co/150" class="d-block w-100" alt="Sekolah Minggu Activity 3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -76,21 +76,21 @@
         </p>
         <div class="row mt-4">
             <div class="col-md-4" style="z-index: 1;">
-                <img src="../Public/assets/img/news/news1.JPG" alt="Sing Icon" class="img-fluid mb-2">
+                <img src="https://placehold.co/150" alt="Sing Icon" class="img-fluid mb-2">
                 <h4 class="chalk-text" style="color: #4CAF50;">Bernyanyi</h4>
                 <p class="chalk-text">
                     Anak-anak memuji Tuhan dengan penuh sukacita melalui lagu-lagu pujian.
                 </p>
             </div>
             <div class="col-md-4" style="z-index: 1;">
-                <img src="../Public/assets/img/news/news2.JPG" alt="Bible Icon" class="img-fluid mb-2">
+                <img src="https://placehold.co/150" alt="Bible Icon" class="img-fluid mb-2">
                 <h4 class="chalk-text" style="color: #4ecdc4;">Cerita Alkitab</h4>
                 <p class="chalk-text">
                     Anak-anak mendengarkan cerita Alkitab yang mengajarkan nilai-nilai kasih Tuhan.
                 </p>
             </div>
             <div class="col-md-4" style="z-index: 1;">
-                <img src="../Public/assets/img/news/news3.JPG" alt="Play Icon" class="img-fluid mb-2">
+                <img src="https://placehold.co/150" alt="Play Icon" class="img-fluid mb-2">
                 <h4 class="chalk-text" style="color: #ff6f61;">Permainan</h4>
                 <p class="chalk-text">
                     Permainan yang menyenangkan membantu mereka memahami lebih banyak tentang Firman Tuhan.

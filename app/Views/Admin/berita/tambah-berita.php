@@ -67,8 +67,11 @@
 
                         <!-- Article Content -->
                         <div class="mb-3">
-                            <label for="text" class="form-label">Isi Artikel</label>
-                            <textarea id="text" class="form-control TinyMCE <?= isset($errors['text']) ? 'is-invalid' : ''; ?>" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text'); ?></textarea>
+                            <label for="editor-container" class="form-label">Isi Artikel</label>
+                            <div id="editor-container" class="form-control <?= isset($errors['text']) ? 'is-invalid' : ''; ?>" style="height: 200px;">
+                                <?= old('text') ?: ($berita['text'] ?? ''); ?>
+                            </div>
+                            <textarea name="text" id="text" class="d-none"><?= old('text') ?: ($berita['text'] ?? ''); ?></textarea>
                             <div class="invalid-feedback">
                                 <?= isset($errors['text']) ? $errors['text'] : ''; ?>
                             </div>
@@ -110,6 +113,40 @@
             imgLabel.textContent = 'Pilih Gambar';
             imgPreview.src = 'https://placehold.jp/150x150.png';
         }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const quill = new Quill('#editor-container', {
+            theme: 'snow',
+            placeholder: 'Masukkan isi artikel di sini...',
+            modules: {
+                toolbar: [
+                    [{
+                        header: [1, 2, false]
+                    }],
+                    ['bold', 'italic', 'underline'],
+                    ['blockquote', 'code-block'],
+                    [{
+                        list: 'ordered'
+                    }, {
+                        list: 'bullet'
+                    }],
+                    ['link', 'image'],
+                    ['clean']
+                ]
+            }
+        });
+
+        // Populate Quill with old or existing content
+        const initialContent = document.querySelector('#text').value;
+        quill.root.innerHTML = initialContent;
+
+        // Add form submission handling
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function() {
+            const textarea = document.querySelector('#text');
+            textarea.value = quill.root.innerHTML.trim(); // Update textarea with Quill's content
+        });
     });
 </script>
 

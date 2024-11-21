@@ -25,11 +25,15 @@
     <link href="<?= base_url('Admin/css/sb-admin-2.css'); ?>" rel="stylesheet">
     <!-- FullCalendar theme CSS -->
     <link href="<?= base_url('Public/css/fullcalendar-style.css'); ?>" rel="stylesheet" />
-    <!-- TinyMCE JS -->
-    <script src="https://cdn.tiny.cloud/1/532t8pezk0zc3kjogn02qzmkbbvxc4rf0asbbfggpg4vxypo/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- FullCalendar JS -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+    <!-- Quill Styles -->
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+
+    <!-- Quill Script -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
 
 </head>
 

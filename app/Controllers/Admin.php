@@ -228,8 +228,12 @@ class Admin extends BaseController
             'city',
             'kecamatan',
             'kelurahan',
-            'lingkungan'
+            'lingkungan',
         ]);
+
+        $session = session();
+        $loggedInUserName = $session->get('name');
+        $formData['by'] = $loggedInUserName;
 
         try {
             // Prepare only the raw data for the address to be stored in the api_code column
@@ -557,6 +561,9 @@ class Admin extends BaseController
     {
         $id = $this->request->getPost('id'); // Get the ID, if present
 
+        $session = session();
+        $loggedInUserName = $session->get('name');
+
         $validationRules = [
             'title' => [
                 'rules' => 'required|max_length[50]',
@@ -602,7 +609,8 @@ class Admin extends BaseController
             'start' => $this->request->getPost('start'),
             'end' => $this->request->getPost('end'),
             'location' => $this->request->getPost('location'),
-            'description' => $this->request->getPost('description')
+            'description' => $this->request->getPost('description'),
+            'by' => $loggedInUserName
         ];
 
         if ($id) {
@@ -808,9 +816,11 @@ class Admin extends BaseController
         }
 
         // Collect form data
+        $session = session();
         $title = $this->request->getVar('title');
         $source = $this->request->getVar('source');
         $text = $this->request->getVar('text');
+        $loggedInUserName = $session->get('name');
 
         // Handle image upload and save it temporarily
         $fileImg = $this->request->getFile('img');
@@ -853,7 +863,8 @@ class Admin extends BaseController
                     'slug' => url_title($title, '-', true),
                     'img' => $imgName,
                     'source' => $source,
-                    'text' => $text
+                    'text' => $text,
+                    'author' => $loggedInUserName
                 ]);
 
                 session()->setFlashdata('pesan', 'Berita Berhasil Ditambahkan');

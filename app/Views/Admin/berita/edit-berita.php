@@ -68,8 +68,14 @@
 
                         <!-- Article Content -->
                         <div class="mb-3">
-                            <label for="text" class="form-label">Isi Artikel</label>
-                            <textarea id="text" class="form-control <?= isset($errors['text']) ? 'is-invalid' : ''; ?>" rows="10" name="text" placeholder="Masukkan isi artikel di sini..."><?= old('text') ?: $berita['text']; ?></textarea>
+                            <label for="editor-container" class="form-label">Isi Artikel</label>
+                            <!-- Quill editor container -->
+                            <div id="editor-container" class="form-control <?= isset($errors['text']) ? 'is-invalid' : ''; ?>" style="height: 200px;">
+                                <!-- Quill content will be dynamically populated -->
+                                <?= old('text') ?: ($berita['text'] ?? ''); ?>
+                            </div>
+                            <!-- Hidden textarea for form submission -->
+                            <textarea name="text" id="text" class="d-none"><?= old('text') ?: ($berita['text'] ?? ''); ?></textarea>
                             <div class="invalid-feedback">
                                 <?= isset($errors['text']) ? $errors['text'] : ''; ?>
                             </div>
@@ -111,6 +117,41 @@
             imgLabel.textContent = 'Pilih Gambar';
             imgPreview.src = '<?= base_url('uploads/images/' . ($berita['img'] ?? 'placeholder.png')); ?>';
         }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize Quill editor
+        const quill = new Quill('#editor-container', {
+            theme: 'snow',
+            placeholder: 'Masukkan isi artikel di sini...',
+            modules: {
+                toolbar: [
+                    [{
+                        header: [1, 2, false]
+                    }],
+                    ['bold', 'italic', 'underline'],
+                    ['blockquote', 'code-block'],
+                    [{
+                        list: 'ordered'
+                    }, {
+                        list: 'bullet'
+                    }],
+                    ['link', 'image'],
+                    ['clean'] // Clear formatting
+                ]
+            }
+        });
+
+        // Populate Quill editor with old input or existing data
+        const initialContent = document.querySelector('#text').value; // Hidden textarea value
+        quill.root.innerHTML = initialContent;
+
+        // Update the hidden textarea before form submission
+        const form = document.querySelector('form'); // Replace with your form selector if needed
+        form.addEventListener('submit', function() {
+            const textarea = document.querySelector('#text');
+            textarea.value = quill.root.innerHTML.trim(); // Set Quill content in the textarea
+        });
     });
 </script>
 

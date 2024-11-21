@@ -63,7 +63,7 @@
             <!-- Third Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Perjamuan">
-                    <img src="../Public/assets/img/pelayanan/perjamuan-kudus.JPG" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/perjamuan-kudus.jpg" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Perjamuan Kudus</div>
                 </a>
@@ -71,7 +71,7 @@
             <!-- Fourth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Sunday">
-                    <img src="../Public/assets/img/pelayanan/sunday-service.JPG" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/sunday-service.jpg" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sunday Service</div>
                 </a>
@@ -111,7 +111,7 @@
             <!-- Ninth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Sekolah">
-                    <img src="../Public/assets/img/pelayanan/sekolah-minggu.JPG" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/sekolah-minggu.jpg" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sekolah Minggu</div>
                 </a>
@@ -133,7 +133,7 @@
                         <img src="/uploads/images/<?= esc($news['img']) ?>" class="card-img-top card-img-fixed rounded-4" alt="<?= esc($news['title']) ?>">
                         <div class="card-body text-white">
                             <h5 class="card-title">
-                                <a href="/berita/<?= esc($news['slug']) ?>" class="text-white text-decoration-none">
+                                <a href="/Berita/<?= esc($news['slug']) ?>" class="text-white text-decoration-none">
                                     <?= esc($news['title']) ?> <i class="fas fa-chevron-right"></i>
                                 </a>
                             </h5>

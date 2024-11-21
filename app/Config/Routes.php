@@ -41,5 +41,4 @@ $routes->get('admin/get-kecamatan/(:segment)', 'Admin::getKecamatan/$1'); // API
 $routes->get('admin/get-kelurahan/(:segment)', 'Admin::getKelurahan/$1'); // API Kelurahan
 $routes->get('/events', 'Home::getEvents');
 
-// Tes
-// $routes->get('/Tes', 'Tes::index');
+$routes->get('/sitemap.xml', 'Sitemap::index');

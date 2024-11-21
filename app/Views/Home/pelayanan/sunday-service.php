@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6 d-flex justify-content-center">
                 <figure class="empty-box bg-light rounded mx-auto">
-                    <img src="../Public/assets/img/pelayanan/sunday/img-1.png" class="img-fluid" alt="Service Image">
+                    <img src="../Public/assets/img/pelayanan/sunday/img-1.jpg" class="img-fluid" alt="Service Image">
                 </figure>
             </div>
         </div>

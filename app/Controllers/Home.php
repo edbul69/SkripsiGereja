@@ -43,7 +43,7 @@ class Home extends BaseController
 
         // Pass the news data to the view
         $data = [
-            'title' => 'GPDI BAHU',
+            'title' => 'GPDI BAHU - Gereja Pantekosta di Indonesia Bahu, Welcome!',
             'embedCode' => $embedCode,
             'latestNews' => $latestNews
         ];
@@ -57,7 +57,7 @@ class Home extends BaseController
 
         // Prepare the data array to pass to the view
         $data = [
-            'title' => 'GPDI BAHU - Berita',
+            'title' => 'GPDI BAHU - Berita Terbaru Seputar GPDI Bahu, Breaking News!',
             'berita' => $this->beritaModel->getBerita()
         ];
 
@@ -67,14 +67,17 @@ class Home extends BaseController
 
     public function isiBerita($slug) // Halaman Detail Berita
     {
-        $data = [
-            'title' => 'Detail Berita',
-            'berita' => $this->beritaModel->getBerita($slug)
-        ];
-
-        if (empty($data['berita'])) {
+        
+        $title = $this->beritaModel->getTitleBySlug($slug);
+        
+        if (!$title) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita Tidak Ditemukan');
         }
+
+        $data = [
+            'title' => $title,
+            'berita' => $this->beritaModel->getBerita($slug)
+        ];
 
         return view('Home/news-body', $data);
     }

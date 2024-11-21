@@ -1,14 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="GPDI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPDI Indonesia" />
+    <meta name="keywords" content="GPDI Bahu, Gereja, Sulawesi Utara, GPDI, Pantekosta, Bahu, Manado">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="GPDI Bahu Team" />
+    <meta name="publisher" content="GPDI Bahu">
+    <link rel="canonical" href="https://gpdi-bahu.com/">
+    <link rel="icon" type="image/x-icon" href="<?= base_url('Public/assets/icon.png'); ?>">
+    <link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>">
     <title><?= $title; ?></title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="<?= base_url('Public/assets/icon.png'); ?>" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="<?= $title; ?>">
+    <meta property="og:description" content="GPDI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPDI Indonesia">
+    <meta property="og:image" content="<?= base_url('Public/assets/icon.png'); ?>">
+    <meta property="og:url" content="<?= current_url(); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GPDI Bahu">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= $title; ?>">
+    <meta name="twitter:description" content="GPDI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPDI Indonesia">
+    <meta name="twitter:image" content="<?= base_url('Public/assets/icon.png'); ?>">
+    <meta name="twitter:site" content="@gpdi.bahu">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "GPDI Bahu",
+        "url": "https://gpdi-bahu.com",
+        "logo": "<?= base_url('Public/assets/icon.png'); ?>",
+        "sameAs": [
+            "https://www.facebook.com/gpdibahu",
+            "https://www.instagram.com/gpdibahu"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Makalayang, Manado",
+            "addressRegion": "Sulawesi Utara",
+            "postalCode": "95115",
+            "streetAddress": "Kel. Bahu II, Jl. P. Bunaken"
+        }
+    }
+    </script>
+    
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -27,8 +69,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    <!-- Progressive Web App -->
+    <link rel="manifest" href="/manifest.json">
 </head>
+
 
 <body id="page-top">
     <!-- Navigation-->
@@ -128,6 +172,15 @@
     <script src="<?= base_url('Public/js/scripts.js'); ?>"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Progressive Web App -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/service-worker.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch((error) => console.error('Service Worker Registration Failed:', error));
+        }
+    </script>
 </body>
 <?= $this->renderSection('scripts'); ?>
 

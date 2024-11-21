@@ -27,52 +27,34 @@
                 <p>Dear Family,</p>
 
                 <p>
-                    Our hearts are full of gratitude and excitement as we embark on a significant journey together.
-                    We stand on the verge of a new season in the life of our church—a season marked by transformation,
-                    growth, and above all, the overflow of God’s abundant blessings.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur. Vivamus tincidunt sit amet purus sed lobortis. Vivamus sollicitudin ante at ante tincidunt gravida. Sed et lacus id arcu posuere pretium at tempus enim. Vestibulum tincidunt libero sed purus finibus, et venenatis lorem bibendum. Fusce vestibulum rutrum arcu, id tincidunt quam faucibus at. Maecenas aliquet dolor sed ex sagittis mollis.
                 </p>
 
                 <p>
-                    As your lead pastors, we have witnessed firsthand the incredible power of generosity within our
-                    church community. Time and time again, we have seen the love of Christ on display through your
-                    generous hearts, allowing us to touch countless lives, both near and far. From the unwavering
-                    commitment to missions to the support for local initiatives, you have exemplified the love of God
-                    for so many.
+                    Nam quis efficitur enim, facilisis accumsan velit. Curabitur metus ligula, vulputate ut viverra sed, auctor nec est. Phasellus vitae nulla turpis. Fusce rhoncus enim ut rhoncus mollis. Aliquam id porta sem. Phasellus malesuada erat lacinia interdum scelerisque. In rutrum lorem sed nunc maximus, cursus viverra lectus euismod. Vivamus laoreet molestie eleifend. Pellentesque tempor vestibulum pharetra.
                 </p>
 
                 <p>
-                    Today, we present you with a unique opportunity—a chance to take our generosity to new heights and
-                    make an even greater impact on the world around us in the name of Jesus. The Bridge campaign is not
-                    just about finances; it is about a lifestyle of selfless love and radical compassion that mirrors
-                    the heart of our heavenly Father.
+                    Sed id vulputate nunc, et porta libero. Aliquam erat volutpat. Morbi accumsan, ante non viverra interdum, ligula arcu tincidunt eros, in posuere mauris neque in dui. Nullam vitae vehicula risus, elementum laoreet erat. In molestie ex ut nibh ultricies, eu porttitor nisi dictum. Vivamus convallis, justo eget feugiat sodales, odio nunc vehicula dui, ac congue ante erat sed erat. Cras nisi velit, imperdiet sed massa sed, pellentesque commodo risus. Vivamus mollis ante ac fermentum hendrerit. Aliquam odio sem, mattis sed dolor a, dignissim aliquet sapien. Vestibulum non finibus neque.
                 </p>
 
                 <p>
-                    We invite you to embark on this transformative journey alongside us. Together, let us seek God’s
-                    guidance and provision as we sacrificially give our time, talents, and resources to advance His
-                    Kingdom here on earth. Let us embrace the challenge to step out of our comfort zones, trusting
-                    that God will provide exceedingly and abundantly beyond what we can ask or imagine.
-                </p>
-
-                <p>
-                    We understand that each person’s capacity to give will differ, and we honor and appreciate every act
-                    of generosity, no matter the size. Our desire is to create an atmosphere of unity where everyone can
-                    participate according to their means and be a part of this incredible movement of the love of Christ.
+                    Duis non neque neque. Nam ex libero, venenatis eget felis nec, euismod porttitor nibh. Sed porta nulla diam, ac sodales nibh laoreet nec. Vivamus hendrerit tortor nunc, et sagittis turpis gravida nec. Fusce porta augue non elementum auctor. Etiam elementum massa mi, ut pulvinar libero tristique nec. Sed vitae tristique orci. Nullam lacus elit, aliquam ut tempus sit amet, elementum ac diam. Phasellus eu finibus justo.
                 </p>
             </div>
             <div class="col-md-6 col-12 bg-white p-5">
                 <!-- Image Section -->
                 <div class="image-container mb-4">
-                    <img src="path-to-your-image.jpg" alt="Family Image" class="img-fluid">
+                    <img src="https://placehold.co/400x300" alt="Family Image" class="img-fluid">
                 </div>
 
                 <!-- Text Section -->
                 <div class="text-section mb-4">
                     <p>
-                        Let us walk forward in faith, hand in hand, knowing that we are not alone but a united body under Christ’s loving leadership. Together, let us impact our community, our city, and our world.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur. Vivamus tincidunt sit amet purus sed lobortis. Vivamus sollicitudin ante at ante tincidunt gravida. Sed et lacus id arcu posuere pretium at tempus enim. Vestibulum tincidunt libero sed purus finibus, et venenatis lorem bibendum. Fusce vestibulum rutrum arcu, id tincidunt quam faucibus at. Maecenas aliquet dolor sed ex sagittis mollis.
                     </p>
                     <p>
-                        We are filled with anticipation as we embark on this remarkable journey of generosity, and we eagerly await the testimonies of lives transformed, families restored, and communities revitalized by God’s abundant love flowing through us.
+                        Nam quis efficitur enim, facilisis accumsan velit. Curabitur metus ligula, vulputate ut viverra sed, auctor nec est. Phasellus vitae nulla turpis. Fusce rhoncus enim ut rhoncus mollis. Aliquam id porta sem. Phasellus malesuada erat lacinia interdum scelerisque. In rutrum lorem sed nunc maximus, cursus viverra lectus euismod. Vivamus laoreet molestie eleifend. Pellentesque tempor vestibulum pharetra.
                     </p>
                 </div>
 
@@ -80,7 +62,7 @@
                 <div class="signature-section mt-5">
                     <p class="mb-0">In His love,</p>
                     <p class="signature" style="font-family: 'Cursive', sans-serif; font-size: 1.5rem;">
-                        Tim & Jen Timberlake
+                        Lorem Ipsum
                     </p>
                 </div>
             </div>
@@ -93,13 +75,13 @@
         <!-- Carousel Inner (Slides) -->
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="3000">
-                <img src="../Public/assets/img/news/news1.JPG" class="d-block w-100" alt="Slide 1">
+                <img src="../Public/assets/img/header/header-bg1.jpg" class="d-block w-100" alt="Slide 1">
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../Public/assets/img/news/news2.JPG" class="d-block w-100" alt="Slide 2">
+                <img src="../Public/assets/img/header/header-bg2.jpg" class="d-block w-100" alt="Slide 2">
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../Public/assets/img/news/news3.JPG" class="d-block w-100" alt="Slide 3">
+                <img src="../Public/assets/img/header/header-bg3.jpg" class="d-block w-100" alt="Slide 3">
             </div>
         </div>
     </div>
@@ -140,31 +122,31 @@
                 <div class="gallery col-12 p-0 w-auto">
                     <div class="frame" id="frame1">
                         <div class="img-box">
-                            <img src="../Public/assets/img/pelayanan/moc/rebana.png" alt="Image1">
+                            <img src="../Public/assets/img/pelayanan/moc/rebana.jpg" alt="Image1">
                         </div>
                         <div class="caption">Rebana</div>
                     </div>
                     <div class="frame" id="frame2">
                         <div class="img-box">
-                            <img src="../Public/assets/img/pelayanan/moc/banners.png" alt="Image2">
+                            <img src="../Public/assets/img/pelayanan/moc/banners.jpg" alt="Image2">
                         </div>
                         <div class="caption">Banners</div>
                     </div>
                     <div class="frame" id="frame3">
                         <div class="img-box">
-                            <img src="../Public/assets/img/pelayanan/moc/music.png" alt="Image3">
+                            <img src="../Public/assets/img/pelayanan/moc/music.jpg" alt="Image3">
                         </div>
                         <div class="caption">Music</div>
                     </div>
                     <div class="frame" id="frame4">
                         <div class="img-box">
-                            <img src="../Public/assets/img/pelayanan/moc/singers.png" alt="Image4">
+                            <img src="../Public/assets/img/pelayanan/moc/singers.jpg" alt="Image4">
                         </div>
                         <div class="caption">Singers</div>
                     </div>
                     <div class="frame" id="frame5">
                         <div class="img-box">
-                            <img src="../Public/assets/img/pelayanan/moc/choirs.png" alt="Image5">
+                            <img src="../Public/assets/img/pelayanan/moc/choirs.jpg" alt="Image5">
                         </div>
                         <div class="caption">Choirs</div>
                     </div>
@@ -197,9 +179,9 @@
             <!-- Testimonial 1 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="../Public/assets/img/pelayanan/moc/test-1.png" alt="Andre" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
+                    <img src="https://placehold.co/150" alt="Andre" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
-                        "Bergabung dengan MOC adalah keputusan terbaik saya. Melalui komunitas ini, saya belajar banyak tentang melayani Tuhan dan bertumbuh dalam iman."
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur."
                     </p>
                     <p class="text-muted">- TEST, Anggota MOC</p>
                 </div>
@@ -207,9 +189,9 @@
             <!-- Testimonial 2 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="../Public/assets/img/pelayanan/moc/test-2.png" alt="Maria" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
+                    <img src="https://placehold.co/150" alt="Maria" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
-                        "Di MOC, saya menemukan keluarga baru yang mendukung saya dalam kehidupan rohani. Saya belajar bermain musik untuk melayani di gereja."
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur."
                     </p>
                     <p class="text-muted">- TEST, Anggota MOC</p>
                 </div>
@@ -217,9 +199,9 @@
             <!-- Testimonial 3 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="../Public/assets/img/pelayanan/moc/test-3.png" alt="Budi" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
+                    <img src="https://placehold.co/150" alt="Budi" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
-                        "MOC bukan hanya tentang musik, tapi tentang persaudaraan yang kuat dan belajar melayani dengan penuh semangat. Saya merasa diberkati menjadi bagian dari ini."
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur."
                     </p>
                     <p class="text-muted">- TEST, Anggota MOC</p>
                 </div>

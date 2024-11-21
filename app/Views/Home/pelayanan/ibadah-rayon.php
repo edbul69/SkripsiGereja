@@ -29,7 +29,7 @@
         <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon1">
             <!-- Image/Placeholder -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
-                <img src="../Public/assets/img/news/News1.JPG" alt="Image Placeholder" class="img-fluid">
+                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
             </div>
             <!-- Text -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center text-container">
@@ -45,7 +45,7 @@
             </div>
             <!-- Image/Placeholder - Order 1 on larger screens, Order 2 on small -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder order-md-2 order-1 p-0">
-                <img src="../Public/assets/img/news/News2.JPG" alt="Image Placeholder" class="img-fluid">
+                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
             </div>
         </div>
 
@@ -53,7 +53,7 @@
         <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon3">
             <!-- Image/Placeholder -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
-                <img src="../Public/assets/img/news/News3.JPG" alt="Image Placeholder" class="img-fluid">
+                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
             </div>
             <!-- Text -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center text-container">
@@ -69,7 +69,7 @@
             </div>
             <!-- Image/Placeholder - Order 1 on larger screens, Order 2 on small -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder order-md-2 order-1 p-0">
-                <img src="../Public/assets/img/news/News4.JPG" alt="Image Placeholder" class="img-fluid">
+                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
             </div>
         </div>
 
@@ -81,7 +81,7 @@
             </div>
             <!-- Image/Placeholder in the Center -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
-                <img src="../Public/assets/img/news/News5.JPG" alt="Image Placeholder" class="img-fluid">
+                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
             </div>
             <!-- Right Text (Rotated for larger screens, normal for smaller screens) -->
             <div class="col-md-2 col-12 d-flex align-items-center justify-content-center text-container">
