@@ -116,24 +116,45 @@
     ksort($cityCounts); // Sort cities alphabetically
     ?>
 
-    <!-- City Summary -->
-    <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kota</h5>
-    <div class="row">
-        <?php foreach ($cityCounts as $city => $count) : ?>
-            <div class="col-md-3 mb-3">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            <?= esc($city) ?>
-                        </div>
-                        <div class="h6 mb-0 font-weight-bold text-gray-800">
-                            <?= $count ?>
+    <div class="row g-2 mb-3">
+        <div class="col-md-4">
+            <button class="btn btn-outline-primary w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#citySummary" aria-expanded="false" aria-controls="citySummary">
+                <i class="bi bi-geo-alt-fill"></i> Jemaat Berdasarkan Kota
+            </button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-success w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#kecamatanSummary" aria-expanded="false" aria-controls="kecamatanSummary">
+                <i class="bi bi-map-fill"></i> Jemaat Berdasarkan Kecamatan
+            </button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-info w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#kelurahanSummary" aria-expanded="false" aria-controls="kelurahanSummary">
+                <i class="bi bi-map-fill"></i> Jemaat Berdasarkan Kelurahan
+            </button>
+        </div>
+    </div>
+
+    <!-- Collapsible City Summary -->
+    <div class="collapse" id="citySummary">
+        <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kota</h5>
+        <div class="row">
+            <?php foreach ($cityCounts as $city => $count) : ?>
+                <div class="col-md-3 mb-3">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <?= esc($city) ?>
+                            </div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                <?= $count ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
+
 
     <?php
     $kecamatanCounts = [];
@@ -152,23 +173,25 @@
     ksort($kecamatanCounts); // Optional: sort alphabetically
     ?>
 
-    <!-- Kecamatan Summary -->
-    <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kecamatan</h5>
-    <div class="row">
-        <?php foreach ($kecamatanCounts as $kecamatan => $count) : ?>
-            <div class="col-md-3 mb-3">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            <?= esc($kecamatan) ?>
-                        </div>
-                        <div class="h6 mb-0 font-weight-bold text-gray-800">
-                            <?= $count ?>
+    <!-- Collapsible Kecamatan Summary -->
+    <div class="collapse" id="kecamatanSummary">
+        <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kecamatan</h5>
+        <div class="row">
+            <?php foreach ($kecamatanCounts as $kecamatan => $count) : ?>
+                <div class="col-md-3 mb-3">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <?= esc($kecamatan) ?>
+                            </div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                <?= $count ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <?php
@@ -188,23 +211,25 @@
     ksort($kelurahanCounts); // Sort alphabetically if desired
     ?>
 
-    <!-- Kelurahan Summary -->
-    <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kelurahan</h5>
-    <div class="row">
-        <?php foreach ($kelurahanCounts as $kelurahan => $count) : ?>
-            <div class="col-md-3 mb-3">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                            <?= esc($kelurahan) ?>
-                        </div>
-                        <div class="h6 mb-0 font-weight-bold text-gray-800">
-                            <?= $count ?>
+    <!-- Collapsible Kelurahan Summary -->
+    <div class="collapse" id="kelurahanSummary">
+        <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kelurahan</h5>
+        <div class="row">
+            <?php foreach ($kelurahanCounts as $kelurahan => $count) : ?>
+                <div class="col-md-3 mb-3">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                <?= esc($kelurahan) ?>
+                            </div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                <?= $count ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <!-- DataTales Example -->

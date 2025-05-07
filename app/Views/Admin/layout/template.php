@@ -35,6 +35,10 @@
     <!-- Quill Script -->
     <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
 </head>
 
 <body id="page-top">
@@ -226,6 +230,10 @@
         <!-- Include FullCalendar -->
         <script src="<?= base_url('Public/js/scripts.js') ?>"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
+        <!-- Bootstrap Bundle JS (includes Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
