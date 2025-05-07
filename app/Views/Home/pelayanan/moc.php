@@ -24,45 +24,50 @@
     <div class="col-12 p-0 m-0 h-100">
         <div class="row h-100 m-0">
             <div class="col-md-6 col-12 bg-dark text-white p-5">
-                <p>Dear Family,</p>
+                <p>Hai pemuda dan mahasiswa,</p>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur. Vivamus tincidunt sit amet purus sed lobortis. Vivamus sollicitudin ante at ante tincidunt gravida. Sed et lacus id arcu posuere pretium at tempus enim. Vestibulum tincidunt libero sed purus finibus, et venenatis lorem bibendum. Fusce vestibulum rutrum arcu, id tincidunt quam faucibus at. Maecenas aliquet dolor sed ex sagittis mollis.
+                    Hai pemuda dan mahasiswa! Apakah kamu mencari komunitas yang bisa menjadi tempat bertumbuh dalam iman dan persekutuan yang erat? Millennial of Christ (MOC) hadir sebagai wadah bagi generasi muda di GPDI Bahu untuk bersama-sama memperkuat hubungan dengan Tuhan, mempererat persaudaraan, dan menjadi terang bagi dunia. Kami percaya bahwa masa muda adalah waktu yang tepat untuk mengenal Tuhan lebih dalam, menemukan tujuan hidup yang sejati, dan melayani dengan penuh semangat.
                 </p>
 
                 <p>
-                    Nam quis efficitur enim, facilisis accumsan velit. Curabitur metus ligula, vulputate ut viverra sed, auctor nec est. Phasellus vitae nulla turpis. Fusce rhoncus enim ut rhoncus mollis. Aliquam id porta sem. Phasellus malesuada erat lacinia interdum scelerisque. In rutrum lorem sed nunc maximus, cursus viverra lectus euismod. Vivamus laoreet molestie eleifend. Pellentesque tempor vestibulum pharetra.
+                    Sebagai pemuda Kristen, kita dipanggil bukan hanya untuk beribadah pada hari Minggu, tetapi juga untuk hidup dalam iman yang nyata setiap hari. Melalui berbagai kegiatan seperti ibadah pemuda, diskusi rohani, pelayanan sosial, mentoring, serta kegiatan kreatif, MOC menjadi tempat di mana kamu bisa mengembangkan potensi dan karakter yang berlandaskan nilai-nilai Kristus. Kami ingin membantu setiap pemuda untuk bertumbuh dalam panggilan Tuhan, baik di gereja, di kampus, di tempat kerja, maupun di lingkungan sekitar.
                 </p>
 
                 <p>
-                    Sed id vulputate nunc, et porta libero. Aliquam erat volutpat. Morbi accumsan, ante non viverra interdum, ligula arcu tincidunt eros, in posuere mauris neque in dui. Nullam vitae vehicula risus, elementum laoreet erat. In molestie ex ut nibh ultricies, eu porttitor nisi dictum. Vivamus convallis, justo eget feugiat sodales, odio nunc vehicula dui, ac congue ante erat sed erat. Cras nisi velit, imperdiet sed massa sed, pellentesque commodo risus. Vivamus mollis ante ac fermentum hendrerit. Aliquam odio sem, mattis sed dolor a, dignissim aliquet sapien. Vestibulum non finibus neque.
+                    Tidak hanya itu, Millennial of Christ juga merupakan keluarga rohani yang siap mendukung dan menguatkan setiap anggotanya. Di sini, kamu tidak akan berjalan sendirian. Ketika menghadapi tantangan hidup, pergumulan iman, atau tekanan dunia, komunitas ini hadir untuk saling menguatkan, berdoa bersama, dan membangun satu sama lain. Kami percaya bahwa persahabatan yang dibangun dalam Tuhan akan bertahan lama dan memberikan dampak besar dalam kehidupan kita.
                 </p>
 
                 <p>
-                    Duis non neque neque. Nam ex libero, venenatis eget felis nec, euismod porttitor nibh. Sed porta nulla diam, ac sodales nibh laoreet nec. Vivamus hendrerit tortor nunc, et sagittis turpis gravida nec. Fusce porta augue non elementum auctor. Etiam elementum massa mi, ut pulvinar libero tristique nec. Sed vitae tristique orci. Nullam lacus elit, aliquam ut tempus sit amet, elementum ac diam. Phasellus eu finibus justo.
+                    Jangan biarkan dirimu merasa sendiri dalam perjalanan iman ini! Mari bergabung dengan Millennial of Christ dan jadilah bagian dari generasi yang berani bersinar bagi Kristus. Kita dipanggil untuk menjadi garam dan terang, membawa dampak positif bagi gereja, masyarakat, dan dunia. Saatnya kita melangkah dalam iman, melayani dengan sukacita, dan bersama-sama membangun generasi yang berakar kuat dalam Kristus.
+                </p>
+                
+                <p>
+                    Kami menantikan kehadiranmu! Jangan ragu untuk datang ke setiap kegiatan kami, berkenalan dengan teman-teman baru, dan rasakan sendiri sukacita dalam komunitas ini. Bersama Kristus, kita lebih kuat, lebih berani, dan lebih berdampak!
                 </p>
             </div>
             <div class="col-md-6 col-12 bg-white p-5">
                 <!-- Image Section -->
                 <div class="image-container mb-4">
-                    <img src="https://placehold.co/400x300" alt="Family Image" class="img-fluid">
+                    <img src="../Public/assets/img/pelayanan/moc/ketua.jpg" alt="Ketua MOC" class="img-fluid" style="width:35%;">
                 </div>
 
                 <!-- Text Section -->
                 <div class="text-section mb-4">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur. Vivamus tincidunt sit amet purus sed lobortis. Vivamus sollicitudin ante at ante tincidunt gravida. Sed et lacus id arcu posuere pretium at tempus enim. Vestibulum tincidunt libero sed purus finibus, et venenatis lorem bibendum. Fusce vestibulum rutrum arcu, id tincidunt quam faucibus at. Maecenas aliquet dolor sed ex sagittis mollis.
+                        Millennial of Christ adalah komunitas pemuda dan mahasiswa di GPDI Bahu yang hadir sebagai wadah untuk bertumbuh dalam iman, mempererat persaudaraan, dan menjadi terang bagi dunia. Sebagai ketua, saya percaya bahwa generasi muda memiliki peran besar dalam gereja dan masyarakat. Oleh karena itu, melalui berbagai kegiatan seperti ibadah pemuda, pelayanan sosial, dan diskusi rohani, kami ingin membangun komunitas yang saling menguatkan dan menginspirasi untuk hidup dalam kebenaran firman Tuhan.
+
                     </p>
                     <p>
-                        Nam quis efficitur enim, facilisis accumsan velit. Curabitur metus ligula, vulputate ut viverra sed, auctor nec est. Phasellus vitae nulla turpis. Fusce rhoncus enim ut rhoncus mollis. Aliquam id porta sem. Phasellus malesuada erat lacinia interdum scelerisque. In rutrum lorem sed nunc maximus, cursus viverra lectus euismod. Vivamus laoreet molestie eleifend. Pellentesque tempor vestibulum pharetra.
+                        Tujuan utama kami adalah membentuk pemuda yang tidak hanya aktif di gereja, tetapi juga memiliki karakter Kristus dalam kehidupan sehari-hari. Dalam tantangan zaman ini, kami ingin menjadi generasi yang berani, berintegritas, dan penuh kasih dalam menyatakan iman. Dengan semangat kebersamaan, kami mengajak semua pemuda dan mahasiswa untuk bergabung, bertumbuh, dan melayani bersama dalam Millennial of Christ, karena bersama dalam Tuhan, kita bisa membawa perubahan!
                     </p>
                 </div>
 
                 <!-- Signature Section -->
                 <div class="signature-section mt-5">
-                    <p class="mb-0">In His love,</p>
+                    <p class="mb-0">Ketua MOC,</p>
                     <p class="signature" style="font-family: 'Cursive', sans-serif; font-size: 1.5rem;">
-                        Lorem Ipsum
+                        Inneke Pandeiroth
                     </p>
                 </div>
             </div>
@@ -179,31 +184,31 @@
             <!-- Testimonial 1 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="https://placehold.co/150" alt="Andre" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
+                    <img src="../Public/assets/img/pelayanan/moc/review-1.png" alt="Valen" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur."
+                        "Bergabung dengan MOC adalah salah satu keputusan terbaik dalam hidup saya. Sebelumnya, saya merasa sulit menemukan komunitas yang benar-benar mendukung pertumbuhan iman saya. Di MOC, saya tidak hanya mendapat teman-teman baru, tetapi juga keluarga rohani yang selalu ada untuk berdoa dan mendukung saya dalam segala hal. Kegiatan ibadah dan diskusi rohani benar-benar membangun iman saya!"
                     </p>
-                    <p class="text-muted">- TEST, Anggota MOC</p>
+                    <p class="text-muted">- Valen, Anggota MOC</p>
                 </div>
             </div>
             <!-- Testimonial 2 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="https://placehold.co/150" alt="Maria" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
+                    <img src="../Public/assets/img/pelayanan/moc/review-2.png" alt="Cia" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur."
+                        "Di MOC, saya belajar bahwa hidup sebagai pemuda Kristen bukan hanya soal beribadah, tetapi juga bagaimana kita bisa berdampak bagi orang lain. Lewat pelayanan sosial dan berbagai aktivitas kreatif, saya merasa lebih bersemangat untuk melayani Tuhan dan membagikan kasih-Nya kepada sesama. Saya bersyukur bisa menjadi bagian dari komunitas ini!"
                     </p>
-                    <p class="text-muted">- TEST, Anggota MOC</p>
+                    <p class="text-muted">- Cia, Anggota MOC</p>
                 </div>
             </div>
             <!-- Testimonial 3 -->
             <div class="col-md-4 mb-4">
                 <div class="testimonial bg-white p-4 shadow d-flex flex-column align-items-center text-center">
-                    <img src="https://placehold.co/150" alt="Budi" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
+                    <img src="../Public/assets/img/pelayanan/moc/review-3.png" alt="Arwin" class="testimonial-img mb-3 rounded-circle" style="width: 160px; height: 160px;">
                     <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit dolor in ipsum tincidunt, nec feugiat augue laoreet. Vivamus imperdiet eu dui et mollis. Aliquam auctor auctor neque ac aliquet. Morbi ultrices varius neque at efficitur."
+                        "LoremSebagai seorang yang baru memulai karier, saya sering merasa terbebani dengan tekanan dunia kerja. Namun, melalui MOC, saya menemukan tempat di mana saya bisa dikuatkan, mendapatkan pengajaran rohani, dan berbagi pengalaman dengan teman-teman seiman. MOC bukan hanya sekadar komunitas, tetapi rumah bagi setiap pemuda yang ingin bertumbuh dalam iman dan karakter Kristus!"
                     </p>
-                    <p class="text-muted">- TEST, Anggota MOC</p>
+                    <p class="text-muted">- Arwin, Anggota MOC</p>
                 </div>
             </div>
         </div>

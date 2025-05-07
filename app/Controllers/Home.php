@@ -67,9 +67,9 @@ class Home extends BaseController
 
     public function isiBerita($slug) // Halaman Detail Berita
     {
-        
+
         $title = $this->beritaModel->getTitleBySlug($slug);
-        
+
         if (!$title) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita Tidak Ditemukan');
         }
@@ -175,7 +175,6 @@ class Home extends BaseController
                 'id' => $event['id'],
                 'title' => $event['title'],
                 'start' => $event['start'],
-                'end' => $event['end'],
                 'description' => $event['description'],
                 'location' => $event['location']
             ];

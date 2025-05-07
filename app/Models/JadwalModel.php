@@ -13,7 +13,7 @@ class JadwalModel extends Model
     protected $createdField = 'created';  // Column for record creation time
     protected $updatedField = 'modified'; // Column for record last update time
 
-    protected $allowedFields = ['title', 'start', 'end', 'location', 'description', 'by'];
+    protected $allowedFields = ['title', 'start', 'location', 'description', 'by'];
 
     public function getJadwal($id = false)
     {

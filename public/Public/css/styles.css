@@ -13223,7 +13223,7 @@ section.schead .section-heading {
 
 /* Masthead (Sekolah Minggu Header) */
 #sekolah {
-  background: url('../assets/img/pelayanan/sekolah-minggu.JPG') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/sekolah-minggu.jpg') center/cover no-repeat;
   background-position: 50% 60%;
   min-height: 60vh;
   display: flex;

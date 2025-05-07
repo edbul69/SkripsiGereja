@@ -14,6 +14,199 @@
         </div>
     <?php endif; ?>
 
+    <!-- Gender Summary -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Jumlah Laki-laki
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?= count(array_filter($jemaat, fn($j) => $j['jns_kelamin'] === 'laki-laki')); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card border-left-pink shadow h-100 py-2" style="border-left: 0.25rem solid #e83e8c !important;">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="text-xs font-weight-bold text-pink text-uppercase mb-1">
+                        Jumlah Perempuan
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?= count(array_filter($jemaat, fn($j) => $j['jns_kelamin'] === 'perempuan')); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php
+
+    use Carbon\Carbon; // Make sure Carbon is installed via Composer
+
+    $ageGroups = [
+        '0-5' => 0,
+        '6-12' => 0,
+        '13-17' => 0,
+        '18-25' => 0,
+        '26-35' => 0,
+        '36-45' => 0,
+        '46-60' => 0,
+        '61+' => 0,
+    ];
+
+    foreach ($jemaat as $j) {
+        $age = Carbon::parse($j['tgl_lahir'])->age;
+
+        if ($age <= 5) {
+            $ageGroups['0-5']++;
+        } elseif ($age <= 12) {
+            $ageGroups['6-12']++;
+        } elseif ($age <= 17) {
+            $ageGroups['13-17']++;
+        } elseif ($age <= 25) {
+            $ageGroups['18-25']++;
+        } elseif ($age <= 35) {
+            $ageGroups['26-35']++;
+        } elseif ($age <= 45) {
+            $ageGroups['36-45']++;
+        } elseif ($age <= 60) {
+            $ageGroups['46-60']++;
+        } else {
+            $ageGroups['61+']++;
+        }
+    }
+    ?>
+
+    <!-- Age Group Summary -->
+    <div class="row">
+        <?php foreach ($ageGroups as $range => $count) : ?>
+            <div class="col-md-3 mb-3">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Usia <?= $range ?>
+                        </div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800">
+                            <?= $count ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php
+    $cityCounts = [];
+
+    foreach ($jemaat as $j) {
+        $alamat = $j['alamat'];
+        $parts = explode(',', $alamat);
+        $city = trim($parts[0]); // Get the first segment and trim spaces
+
+        if ($city) {
+            if (!isset($cityCounts[$city])) {
+                $cityCounts[$city] = 0;
+            }
+            $cityCounts[$city]++;
+        }
+    }
+    ksort($cityCounts); // Sort cities alphabetically
+    ?>
+
+    <!-- City Summary -->
+    <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kota</h5>
+    <div class="row">
+        <?php foreach ($cityCounts as $city => $count) : ?>
+            <div class="col-md-3 mb-3">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <?= esc($city) ?>
+                        </div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800">
+                            <?= $count ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php
+    $kecamatanCounts = [];
+
+    foreach ($jemaat as $j) {
+        $alamat = $j['alamat'];
+        $parts = explode(',', $alamat);
+        $kecamatan = isset($parts[1]) ? trim($parts[1]) : 'Tidak Diketahui'; // 2nd part of the address
+
+        if (!isset($kecamatanCounts[$kecamatan])) {
+            $kecamatanCounts[$kecamatan] = 0;
+        }
+        $kecamatanCounts[$kecamatan]++;
+    }
+
+    ksort($kecamatanCounts); // Optional: sort alphabetically
+    ?>
+
+    <!-- Kecamatan Summary -->
+    <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kecamatan</h5>
+    <div class="row">
+        <?php foreach ($kecamatanCounts as $kecamatan => $count) : ?>
+            <div class="col-md-3 mb-3">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            <?= esc($kecamatan) ?>
+                        </div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800">
+                            <?= $count ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php
+    $kelurahanCounts = [];
+
+    foreach ($jemaat as $j) {
+        $alamat = $j['alamat'];
+        $parts = explode(',', $alamat);
+        $kelurahan = isset($parts[2]) ? trim($parts[2]) : 'Tidak Diketahui'; // 3rd part of the address
+
+        if (!isset($kelurahanCounts[$kelurahan])) {
+            $kelurahanCounts[$kelurahan] = 0;
+        }
+        $kelurahanCounts[$kelurahan]++;
+    }
+
+    ksort($kelurahanCounts); // Sort alphabetically if desired
+    ?>
+
+    <!-- Kelurahan Summary -->
+    <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kelurahan</h5>
+    <div class="row">
+        <?php foreach ($kelurahanCounts as $kelurahan => $count) : ?>
+            <div class="col-md-3 mb-3">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            <?= esc($kelurahan) ?>
+                        </div>
+                        <div class="h6 mb-0 font-weight-bold text-gray-800">
+                            <?= $count ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
     <!-- DataTales Example -->
     <div class="row justify-content-center">
         <div class="col-lg-12">

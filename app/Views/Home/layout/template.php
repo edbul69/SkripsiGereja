@@ -31,26 +31,26 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "GPDI Bahu",
-        "url": "https://gpdi-bahu.com",
-        "logo": "<?= base_url('Public/assets/icon.png'); ?>",
-        "sameAs": [
-            "https://www.facebook.com/gpdibahu",
-            "https://www.instagram.com/gpdibahu"
-        ],
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Makalayang, Manado",
-            "addressRegion": "Sulawesi Utara",
-            "postalCode": "95115",
-            "streetAddress": "Kel. Bahu II, Jl. P. Bunaken"
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "GPDI Bahu",
+            "url": "https://gpdi-bahu.com",
+            "logo": "<?= base_url('Public/assets/icon.png'); ?>",
+            "sameAs": [
+                "https://www.facebook.com/gpdibahu",
+                "https://www.instagram.com/gpdibahu"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Makalayang, Manado",
+                "addressRegion": "Sulawesi Utara",
+                "postalCode": "95115",
+                "streetAddress": "Kel. Bahu II, Jl. P. Bunaken"
+            }
         }
-    }
     </script>
-    
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->

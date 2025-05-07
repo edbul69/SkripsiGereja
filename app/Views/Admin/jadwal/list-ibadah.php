@@ -42,13 +42,6 @@
                             <div class="invalid-feedback"><?= isset($errors['start']) ? $errors['start'] : ''; ?></div>
                         </div>
 
-                        <!-- Selesai -->
-                        <div class="mb-3">
-                            <label for="end" class="form-label">Selesai</label>
-                            <input type="datetime-local" class="form-control <?= isset($errors['end']) ? 'is-invalid' : ''; ?>" id="end" name="end" value="<?= old('end'); ?>" onclick="this.showPicker()">
-                            <div class="invalid-feedback"><?= isset($errors['end']) ? $errors['end'] : ''; ?></div>
-                        </div>
-
                         <!-- Lokasi Input -->
                         <div class="mb-3">
                             <label for="location" class="form-label">Lokasi</label>
@@ -103,7 +96,6 @@
                                 <tr>
                                     <th>Nama Ibadah</th>
                                     <th>Mulai</th>
-                                    <th>Selesai</th>
                                     <th>Lokasi</th>
                                     <th>Deskripsi</th>
                                     <th></th>
@@ -124,7 +116,6 @@
                                         <tr class="event-row" data-month="<?= date('n', strtotime($event->start)) ?>">
                                             <td><?= esc($event->title) ?></td>
                                             <td><?= date('H:i', strtotime($event->start)) ?></td>
-                                            <td><?= date('H:i', strtotime($event->end)) ?></td>
                                             <td>
                                                 <?php
                                                 $locationText = esc($event->location);
@@ -140,7 +131,6 @@
                                                     data-id="<?= $event->id ?>"
                                                     data-title="<?= esc($event->title) ?>"
                                                     data-start="<?= date('Y-m-d\TH:i', strtotime($event->start)) ?>"
-                                                    data-end="<?= date('Y-m-d\TH:i', strtotime($event->end)) ?>"
                                                     data-location="<?= esc($event->location) ?>"
                                                     data-description="<?= esc($event->description) ?>">
                                                     <i class="fas fa-edit"></i> Edit
@@ -214,7 +204,7 @@
         const cancelBtn = document.getElementById('cancel-btn');
 
         // Function to load data into the form for editing
-        function loadFormData(id, title, start, end, location, description) {
+        function loadFormData(id, title, start, location, description) {
             formTitle.textContent = 'Edit Jadwal';
             submitBtn.textContent = 'Simpan Perubahan';
             submitBtn.classList.replace('btn-primary', 'btn-success');
@@ -225,7 +215,6 @@
             document.getElementById('jadwal-id').value = id;
             document.getElementById('title').value = title;
             document.getElementById('start').value = start;
-            document.getElementById('end').value = end;
             document.getElementById('location').value = location;
             document.getElementById('description').value = description;
         }
@@ -242,7 +231,6 @@
             document.getElementById('jadwal-id').value = '';
             document.getElementById('title').value = '';
             document.getElementById('start').value = '';
-            document.getElementById('end').value = '';
             document.getElementById('location').value = '';
             document.getElementById('description').value = '';
         }
@@ -253,11 +241,10 @@
                 const id = this.getAttribute('data-id');
                 const title = this.getAttribute('data-title');
                 const start = this.getAttribute('data-start');
-                const end = this.getAttribute('data-end');
                 const location = this.getAttribute('data-location');
                 const description = this.getAttribute('data-description');
 
-                loadFormData(id, title, start, end, location, description);
+                loadFormData(id, title, start, location, description);
             });
         });
 

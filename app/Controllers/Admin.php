@@ -527,7 +527,7 @@ class Admin extends BaseController
         $builder = $db->table('tb_jadwal');
 
         // Group data by date and order by start date
-        $query = $builder->select('id, DATE(start) as date, title, start, end, location, description')
+        $query = $builder->select('id, DATE(start) as date, title, start, location, description')
             ->orderBy('start', 'ASC')
             ->get();
 
@@ -579,13 +579,6 @@ class Admin extends BaseController
                     'valid_date' => 'Format waktu mulai tidak valid'
                 ]
             ],
-            'end' => [
-                'rules' => 'required|valid_date[Y-m-d\TH:i]',
-                'errors' => [
-                    'required' => 'Waktu selesai harus diisi',
-                    'valid_date' => 'Format waktu selesai tidak valid'
-                ]
-            ],
             'location' => [
                 'rules' => 'max_length[255]',
                 'errors' => [
@@ -607,7 +600,6 @@ class Admin extends BaseController
         $data = [
             'title' => $this->request->getPost('title'),
             'start' => $this->request->getPost('start'),
-            'end' => $this->request->getPost('end'),
             'location' => $this->request->getPost('location'),
             'description' => $this->request->getPost('description'),
             'by' => $loggedInUserName
@@ -673,13 +665,6 @@ class Admin extends BaseController
                     'valid_date' => 'Format waktu mulai tidak valid'
                 ]
             ],
-            'end' => [
-                'rules' => 'required|valid_date[Y-m-d\TH:i]',
-                'errors' => [
-                    'required' => 'Waktu selesai harus diisi',
-                    'valid_date' => 'Format waktu selesai tidak valid'
-                ]
-            ],
             'location' => [
                 'rules' => 'max_length[255]',
                 'errors' => [
@@ -700,7 +685,6 @@ class Admin extends BaseController
         $data = [
             'title' => $this->request->getPost('title'),
             'start' => $this->request->getPost('start'),
-            'end' => $this->request->getPost('end'),
             'location' => $this->request->getPost('location'),
             'description' => $this->request->getPost('description')
         ];
