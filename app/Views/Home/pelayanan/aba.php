@@ -36,7 +36,7 @@
     <div class="container hidden">
         <h3 class="fw-bold text-center mb-4">Apa Itu ABA?</h3>
         <p class="lead text-center mb-4">
-            ABA (Ayo Baca Alkitab) adalah kegiatan di GPDI Bahu yang bertujuan untuk meningkatkan kebiasaan membaca Alkitab setiap hari dan membagikan renungan yang didapat dari bacaan tersebut.
+            ABA (Ayo Baca Alkitab) adalah kegiatan di GPdI Bahu yang bertujuan untuk meningkatkan kebiasaan membaca Alkitab setiap hari dan membagikan renungan yang didapat dari bacaan tersebut.
         </p>
         <p class="text-center">
             Setiap harinya, jemaat diajak untuk membaca satu pasal Alkitab dan membagikan renungan atau wawasan yang mereka peroleh. Kegiatan ini dilakukan sebagai upaya untuk memperdalam iman dan pemahaman firman Tuhan.

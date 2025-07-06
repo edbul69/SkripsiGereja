@@ -59,7 +59,7 @@
                         <!-- Article Source -->
                         <div class="mb-3">
                             <label for="source" class="form-label">Sumber Artikel</label>
-                            <input type="text" class="form-control <?= isset($errors['source']) ? 'is-invalid' : ''; ?>" id="source" name="source" placeholder="Masukkan sumber artikel (contoh: GPDI BAHU)" value="<?= old('source'); ?>">
+                            <input type="text" class="form-control <?= isset($errors['source']) ? 'is-invalid' : ''; ?>" id="source" name="source" placeholder="Masukkan sumber artikel (contoh: GPdI BAHU)" value="<?= old('source'); ?>">
                             <div class="invalid-feedback">
                                 <?= isset($errors['source']) ? $errors['source'] : ''; ?>
                             </div>

@@ -43,7 +43,7 @@ class Home extends BaseController
 
         // Pass the news data to the view
         $data = [
-            'title' => 'GPDI BAHU - Gereja Pantekosta di Indonesia Bahu, Welcome!',
+            'title' => 'GPdI BAHU - Gereja Pantekosta di Indonesia Bahu, Welcome!',
             'embedCode' => $embedCode,
             'latestNews' => $latestNews
         ];
@@ -57,7 +57,7 @@ class Home extends BaseController
 
         // Prepare the data array to pass to the view
         $data = [
-            'title' => 'GPDI BAHU - Berita Terbaru Seputar GPDI Bahu, Breaking News!',
+            'title' => 'GPdI BAHU - Berita Terbaru Seputar GPdI Bahu, Breaking News!',
             'berita' => $this->beritaModel->getBerita()
         ];
 
@@ -86,21 +86,21 @@ class Home extends BaseController
     public function baptisan(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - Baptisan Air'
+            'title' => 'GPdI BAHU - Baptisan Air'
         ];
         return view('Home/pelayanan/baptisan-air', $data);
     }
     public function penyerahan(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - Penyerahan Anak'
+            'title' => 'GPdI BAHU - Penyerahan Anak'
         ];
         return view('Home/pelayanan/penyerahan-anak', $data);
     }
     public function perjamuan(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - Perjamuan Kudus'
+            'title' => 'GPdI BAHU - Perjamuan Kudus'
         ];
         return view('Home/pelayanan/perjamuan-kudus', $data);
     }
@@ -121,7 +121,7 @@ class Home extends BaseController
         }
 
         $data = [
-            'title' => 'GPDI BAHU - Sunday Service',
+            'title' => 'GPdI BAHU - Sunday Service',
             'embedCode' => $embedCode
         ];
         return view('Home/pelayanan/sunday-service', $data);
@@ -129,38 +129,64 @@ class Home extends BaseController
     public function doa(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - Doa Bersama'
+            'title' => 'GPdI BAHU - Doa Bersama'
         ];
         return view('Home/pelayanan/doa-bersama', $data);
     }
     public function ibadah(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - Ibadah Rayon'
+            'title' => 'GPdI BAHU - Ibadah Rayon'
         ];
         return view('Home/pelayanan/ibadah-rayon', $data);
     }
     public function moc(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - MOC'
+            'title' => 'GPdI BAHU - MOC'
         ];
         return view('Home/pelayanan/moc', $data);
     }
+
+    public function tog(): string
+    {
+        $data = [
+            'title' => 'GPdI BAHU - TOG'
+        ];
+        return view('Home/pelayanan/tog', $data);
+    }
+
     public function aba(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - ABA'
+            'title' => 'GPdI BAHU - ABA'
         ];
         return view('Home/pelayanan/aba', $data);
     }
     public function sekolah(): string
     {
         $data = [
-            'title' => 'GPDI BAHU - Sekolah Minggu'
+            'title' => 'GPdI BAHU - Sekolah Minggu'
         ];
         return view('Home/pelayanan/sekolah-minggu', $data);
     }
+
+    public function calender(): string
+    {
+        $data = [
+            'title' => 'GPdI BAHU - Kalender'
+        ];
+        return view('Home/calender', $data);
+    }
+
+    public function warta(): string
+    {
+        $data = [
+            'title' => 'GPdI BAHU - Warta'
+        ];
+        return view('Home/warta', $data);
+    }
+
 
     // Method to return JSON data for FullCalendar
     public function getEvents()

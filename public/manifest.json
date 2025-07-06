@@ -1,7 +1,7 @@
 {
-  "name": "GPDI Bahu Mobile",
+  "name": "GPdI Bahu Mobile",
   "short_name": "BahuMobile",
-  "description": "Aplikasi mobile GPDI Bahu untuk berita terkini seputar gereja kami.",
+  "description": "Aplikasi mobile GPdI Bahu untuk berita terkini seputar gereja kami.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

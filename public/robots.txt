@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: https://gpdi-bahu.com/sitemap.xml
+Sitemap: https://GPdI-bahu.com/sitemap.xml

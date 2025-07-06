@@ -108,7 +108,7 @@
                 <div id="countdown-timer" class="display-4 mb-4 text-danger"></div>
 
                 <!-- Event Place Information -->
-                <p class="text-white mb-4">Perjamuan Kudus berikutnya akan dilaksanakan di <strong>Gereja GPDI Bahu</strong>. Persiapkan diri Anda untuk menyambutnya!</p>
+                <p class="text-white mb-4">Perjamuan Kudus berikutnya akan dilaksanakan di <strong>Gereja GPdI Bahu</strong>. Persiapkan diri Anda untuk menyambutnya!</p>
 
                 <!-- Button for Location Info -->
                 <a href="#footer" class="btn-soft btn-lg">Lokasi</a>

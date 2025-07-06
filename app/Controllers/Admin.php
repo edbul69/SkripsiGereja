@@ -3,26 +3,34 @@
 namespace App\Controllers;
 
 use App\Models\JadwalModel;
-use App\Models\JemaatModel;
+use App\Models\AnggotaModel;
+use App\Models\KeluargaModel;
+use App\Models\AnggotaKeluargaModel;
 use App\Models\LiveModel;
 use App\Models\BeritaModel;
 use App\Models\AksesModel;
+use Carbon\Carbon; // Pastikan Carbon terinstal dan di-import di sini (controller)
 
 class Admin extends BaseController
 {
-    protected $jemaatModel;
     protected $liveModel;
     protected $jadwalModel;
     protected $beritaModel;
     protected $aksesModel;
+    protected $anggotaModel;
+    protected $keluargaModel;
+    protected $anggotakeluargaModel;
 
     public function __construct()
     {
-        $this->jemaatModel = new JemaatModel();
+        // $this->jemaatModel = new JemaatModel();
         $this->liveModel = new LiveModel();
         $this->jadwalModel = new JadwalModel();
         $this->beritaModel = new BeritaModel();
         $this->aksesModel = new AksesModel();
+        $this->anggotaModel = new AnggotaModel();
+        $this->keluargaModel = new KeluargaModel();
+        $this->anggotakeluargaModel = new AnggotaKeluargaModel();
         helper('form'); // Load form helper if needed
     }
 
@@ -48,14 +56,34 @@ class Admin extends BaseController
         $beritaModel = new \App\Models\BeritaModel();
         $latestNews = $beritaModel->orderBy('created', 'DESC')->limit(6)->findAll();
 
-        // Load JemaatModel to get member data
-        $jemaatModel = new \App\Models\JemaatModel();
-        $totalJemaat = $jemaatModel->countAllResults();
-        $totalPria = $jemaatModel->where('jns_kelamin', 'Laki-laki')->countAllResults();
-        $totalWanita = $jemaatModel->where('jns_kelamin', 'Perempuan')->countAllResults();
+        // Load  to get member data
+        $anggotaModel = new \App\Models\AnggotaModel();
+        $keluargaModel = new \App\Models\KeluargaModel();
+        $totalJemaat = $anggotaModel->countAllResults();
+        $totalKeluarga = $keluargaModel->countAllResults();
 
         // Count members aged 18 or younger
-        $totalRemajaAnak = $jemaatModel->where('tgl_lahir >=', date('Y-m-d', strtotime('-18 years')))->countAllResults();
+        $totalRemajaAnak = $anggotaModel->where('tanggallahir >=', date('Y-m-d', strtotime('-18 years')))->countAllResults();
+
+        // --- LOGIKA BARU UNTUK RATA-RATA JUMLAH ANGGOTA KELUARGA ---
+        $averageFamilySizeResult = $this->anggotakeluargaModel
+            ->select('COUNT(idanggota) AS jumlah_anggota')
+            ->groupBy('idkeluarga')
+            ->get() // Dapatkan hasil dari sub-kueri
+            ->getResultArray(); // Ubah ke array
+
+        $totalMembersInFamilies = 0;
+        $numberOfFamiliesWithMembers = 0;
+
+        foreach ($averageFamilySizeResult as $row) {
+            $totalMembersInFamilies += $row['jumlah_anggota'];
+            $numberOfFamiliesWithMembers++;
+        }
+
+        $averageFamilySize = 0;
+        if ($numberOfFamiliesWithMembers > 0) {
+            $averageFamilySize = $totalMembersInFamilies / $numberOfFamiliesWithMembers;
+        }
 
         $session = session();
         $loggedInUserRole = $session->get('role'); //+
@@ -67,9 +95,9 @@ class Admin extends BaseController
             'embedCode' => $embedCode,
             'latestNews' => $latestNews,
             'totalJemaat' => $totalJemaat,
-            'totalPria' => $totalPria,
-            'totalWanita' => $totalWanita,
+            'totalKeluarga' => $totalKeluarga,
             'totalRemajaAnak' => $totalRemajaAnak,
+            'averageFamilySize' => round($averageFamilySize, 2),
             'loggedInUserName' => $loggedInUserName,
             'loggedInUserRole' => $loggedInUserRole,
         ];
@@ -115,9 +143,101 @@ class Admin extends BaseController
         $loggedInUserRole = $session->get('role');
         $loggedInUserName = $session->get('name');
 
+        // Mengambil data jemaat dengan JOIN dari tabel tb_anggota, tb_anggotakeluarga, dan tb_keluarga
+        $jemaatList = $this->anggotaModel
+            ->select('tb_anggota.idanggota, tb_anggota.namalengkap, tb_anggota.tanggallahir, tb_anggota.rayon, tb_keluarga.namakeluarga, tb_anggotakeluarga.peran')
+            ->join('tb_anggotakeluarga', 'tb_anggotakeluarga.idanggota = tb_anggota.idanggota', 'left')
+            ->join('tb_keluarga', 'tb_keluarga.idkeluarga = tb_anggotakeluarga.idkeluarga', 'left')
+            ->findAll(); // Mengambil semua hasil
+
+        // --- LOGIKA UNTUK JUMLAH JEMAAT BERDASARKAN RAYON (untuk Ringkasan Rayon yang sudah ada) ---
+        $rayonCounts = $this->anggotaModel
+            ->select('rayon, COUNT(idanggota) as total_members')
+            ->groupBy('rayon')
+            ->orderBy('rayon', 'ASC')
+            ->findAll();
+        // --- AKHIR LOGIKA RAYON ---
+
+        // --- LOGIKA BARU UNTUK DATA GRAFIK ---
+        $membersByRayonAndAge = []; // Data untuk grafik usia per rayon
+        $allRayons = []; // Untuk menyimpan semua nama rayon unik
+        $ageRanges = ['0-5', '6-12', '13-17', '18-25', '26-35', '36-45', '46-60', '61+'];
+
+        foreach ($jemaatList as $j) {
+            $rayon = $j['rayon'] ?? 'Tidak Ada Rayon';
+            if (!in_array($rayon, $allRayons)) {
+                $allRayons[] = $rayon;
+            }
+
+            $age = null;
+            if (!empty($j['tanggallahir']) && is_string($j['tanggallahir']) && strtotime($j['tanggallahir']) !== false) {
+                $dateOfBirth = Carbon::parse($j['tanggallahir']);
+                if ($dateOfBirth->isValid()) {
+                    $age = $dateOfBirth->age;
+                }
+            }
+
+            // Inisialisasi rayon jika belum ada
+            if (!isset($membersByRayonAndAge[$rayon])) {
+                $membersByRayonAndAge[$rayon] = array_fill_keys($ageRanges, 0);
+            }
+
+            // Tambahkan ke kelompok usia yang sesuai
+            if ($age !== null) {
+                if ($age <= 5) $membersByRayonAndAge[$rayon]['0-5']++;
+                elseif ($age <= 12) $membersByRayonAndAge[$rayon]['6-12']++;
+                elseif ($age <= 17) $membersByRayonAndAge[$rayon]['13-17']++;
+                elseif ($age <= 25) $membersByRayonAndAge[$rayon]['18-25']++;
+                elseif ($age <= 35) $membersByRayonAndAge[$rayon]['26-35']++;
+                elseif ($age <= 45) $membersByRayonAndAge[$rayon]['36-45']++;
+                elseif ($age <= 60) $membersByRayonAndAge[$rayon]['46-60']++;
+                else $membersByRayonAndAge[$rayon]['61+']++;
+            }
+        }
+
+        // Urutkan rayon secara alfabetis untuk konsistensi grafik
+        sort($allRayons);
+
+        // Ambil jumlah keluarga per rayon
+        // Perlu join ke tb_anggota untuk mendapatkan rayon dari anggota yang merupakan bagian dari keluarga
+        $familiesByRayonRaw = $this->keluargaModel
+            ->select('tb_anggota.rayon, COUNT(DISTINCT tb_keluarga.idkeluarga) as total_families')
+            ->join('tb_anggotakeluarga', 'tb_anggotakeluarga.idkeluarga = tb_keluarga.idkeluarga', 'left')
+            ->join('tb_anggota', 'tb_anggota.idanggota = tb_anggotakeluarga.idanggota', 'left')
+            ->where('tb_anggota.rayon IS NOT NULL') // Hanya hitung keluarga yang memiliki anggota dengan rayon
+            ->groupBy('tb_anggota.rayon')
+            ->orderBy('tb_anggota.rayon', 'ASC')
+            ->findAll();
+
+        $familiesByRayon = [];
+        foreach ($familiesByRayonRaw as $f) {
+            $familiesByRayon[$f['rayon']] = (int)$f['total_families'];
+        }
+
+        // Pastikan semua rayon memiliki entri di familiesByRayon, bahkan jika 0 keluarga
+        foreach ($allRayons as $rayonName) {
+            if (!isset($familiesByRayon[$rayonName])) {
+                $familiesByRayon[$rayonName] = 0;
+            }
+        }
+        // Urutkan familiesByRayon berdasarkan urutan allRayons
+        $familiesByRayonSorted = [];
+        foreach ($allRayons as $rayonName) {
+            $familiesByRayonSorted[$rayonName] = $familiesByRayon[$rayonName];
+        }
+        $familiesByRayon = $familiesByRayonSorted;
+
+
+        // --- AKHIR LOGIKA BARU UNTUK DATA GRAFIK ---
+
         $data = [
             'title' => 'List Jemaat',
-            'jemaat' => $this->jemaatModel->getJemaat(),
+            'jemaatList' => $jemaatList,
+            'rayonCounts' => $rayonCounts,
+            'membersByRayonAndAge' => $membersByRayonAndAge, // Data untuk grafik
+            'familiesByRayon' => $familiesByRayon,           // Data untuk grafik
+            'allRayons' => $allRayons,                        // Daftar semua rayon unik
+            'ageRanges' => $ageRanges,                        // Daftar rentang usia
             'loggedInUserName' => $loggedInUserName,
             'loggedInUserRole' => $loggedInUserRole,
         ];
@@ -127,19 +247,6 @@ class Admin extends BaseController
 
     public function tambahJemaat(): string // Halaman Tambah Jemaat
     {
-        $url = "https://wilayah.id/api/regencies/71.json"; // Replace with the correct province code URL
-
-        try {
-            $response = file_get_contents($url);
-            if ($response === FALSE) {
-                throw new Exception("Failed to fetch city data");
-            }
-            $citiesData = json_decode($response, true);
-            $cities = $citiesData['data'] ?? []; // Extract the 'data' array if it exists
-        } catch (Exception $e) {
-            $cities = [];
-        }
-
         $session = session();
         $loggedInUserRole = $session->get('role');
         $loggedInUserName = $session->get('name');
@@ -148,66 +255,65 @@ class Admin extends BaseController
             'title' => 'Tambah Jemaat',
             'validation' => \Config\Services::validation(),
             'errors' => session()->getFlashdata('errors'),
-            'cities' => $cities,
             'loggedInUserName' => $loggedInUserName,
             'loggedInUserRole' => $loggedInUserRole,
         ];
         return view('Admin/jemaat/tambah-jemaat', $data);
     }
 
-    public function editJemaat($id) // Halaman Edit Jemaat
-    {
-        $jemaat = $this->jemaatModel->find($id);
+    // public function editJemaat($id) // Halaman Edit Jemaat
+    // {
+    //     $jemaat = $this->jemaatModel->find($id);
 
-        if (!$jemaat) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
-        }
+    //     if (!$jemaat) {
+    //         throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
+    //     }
 
-        // Decode the API data stored in `api_code` column
-        $apiCodeData = json_decode($jemaat['api_code'], true);
+    //     // Decode the API data stored in `api_code` column
+    //     $apiCodeData = json_decode($jemaat['api_code'], true);
 
-        // Extract codes from the decoded API data
-        $cityCode = $apiCodeData['city'] ?? '';
-        $kecamatanCode = $apiCodeData['kecamatan'] ?? '';
-        $kelurahanCode = $apiCodeData['kelurahan'] ?? '';
-        $lingkungan = $apiCodeData['lingkungan'] ?? ''; // Extract the lingkungan value
+    //     // Extract codes from the decoded API data
+    //     $cityCode = $apiCodeData['city'] ?? '';
+    //     $kecamatanCode = $apiCodeData['kecamatan'] ?? '';
+    //     $kelurahanCode = $apiCodeData['kelurahan'] ?? '';
+    //     $lingkungan = $apiCodeData['lingkungan'] ?? ''; // Extract the lingkungan value
 
-        // Fetch cities data from the API
-        $cities = $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json")['data'] ?? [];
+    //     // Fetch cities data from the API
+    //     $cities = $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json")['data'] ?? [];
 
-        // Ensure `$kecamatanData` and `$kelurahanData` are defined as arrays
-        $kecamatanData = [];
-        $kelurahanData = [];
+    //     // Ensure `$kecamatanData` and `$kelurahanData` are defined as arrays
+    //     $kecamatanData = [];
+    //     $kelurahanData = [];
 
-        if ($cityCode) {
-            $kecamatanData = $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json")['data'] ?? [];
-        }
+    //     if ($cityCode) {
+    //         $kecamatanData = $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json")['data'] ?? [];
+    //     }
 
-        if ($kecamatanCode) {
-            $kelurahanData = $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")['data'] ?? [];
-        }
+    //     if ($kecamatanCode) {
+    //         $kelurahanData = $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")['data'] ?? [];
+    //     }
 
-        $session = session();
-        $loggedInUserRole = $session->get('role');
-        $loggedInUserName = $session->get('name');
+    //     $session = session();
+    //     $loggedInUserRole = $session->get('role');
+    //     $loggedInUserName = $session->get('name');
 
-        $data = [
-            'title' => 'Edit Data Jemaat',
-            'validation' => \Config\Services::validation(),
-            'jemaat' => $jemaat,
-            'cities' => $cities,
-            'kecamatanData' => $kecamatanData,
-            'kelurahanData' => $kelurahanData,
-            'selectedCityCode' => $cityCode,
-            'selectedKecamatanCode' => $kecamatanCode,
-            'selectedKelurahanCode' => $kelurahanCode,
-            'selectedLingkungan' => $lingkungan,
-            'loggedInUserName' => $loggedInUserName,
-            'loggedInUserRole' => $loggedInUserRole,
-        ];
+    //     $data = [
+    //         'title' => 'Edit Data Jemaat',
+    //         'validation' => \Config\Services::validation(),
+    //         'jemaat' => $jemaat,
+    //         'cities' => $cities,
+    //         'kecamatanData' => $kecamatanData,
+    //         'kelurahanData' => $kelurahanData,
+    //         'selectedCityCode' => $cityCode,
+    //         'selectedKecamatanCode' => $kecamatanCode,
+    //         'selectedKelurahanCode' => $kelurahanCode,
+    //         'selectedLingkungan' => $lingkungan,
+    //         'loggedInUserName' => $loggedInUserName,
+    //         'loggedInUserRole' => $loggedInUserRole,
+    //     ];
 
-        return view('Admin/jemaat/edit-jemaat', $data);
-    }
+    //     return view('Admin/jemaat/edit-jemaat', $data);
+    // }
 
     public function saveJemaat() // Save Jemaat
     {
@@ -261,263 +367,263 @@ class Admin extends BaseController
         }
     }
 
-    public function deleteJemaat($id) // Hapus Jemaat
-    {
-        // Get the jemaat data by ID
-        $jemaat = $this->jemaatModel->find($id);
+    // public function deleteJemaat($id) // Hapus Jemaat
+    // {
+    //     // Get the jemaat data by ID
+    //     $jemaat = $this->jemaatModel->find($id);
 
-        if ($jemaat) {
-            // Delete the jemaat record from the database
-            $this->jemaatModel->delete($id);
+    //     if ($jemaat) {
+    //         // Delete the jemaat record from the database
+    //         $this->jemaatModel->delete($id);
 
-            // Set flashdata for success message
-            session()->setFlashdata('pesan', 'Data Jemaat Berhasil Dihapus');
-        } else {
-            // Set flashdata for an error message if the record is not found
-            session()->setFlashdata('error', 'Data Jemaat tidak ditemukan atau sudah dihapus');
-        }
+    //         // Set flashdata for success message
+    //         session()->setFlashdata('pesan', 'Data Jemaat Berhasil Dihapus');
+    //     } else {
+    //         // Set flashdata for an error message if the record is not found
+    //         session()->setFlashdata('error', 'Data Jemaat tidak ditemukan atau sudah dihapus');
+    //     }
 
-        // Redirect back to the list of jemaat
-        return redirect()->to('/Dashboard/listJemaat');
-    }
+    //     // Redirect back to the list of jemaat
+    //     return redirect()->to('/Dashboard/listJemaat');
+    // }
 
-    public function updateJemaat($id) // Edit Jemaat
-    {
-        $action = $this->request->getPost('action'); // Get the action value from the form
+    // public function updateJemaat($id) // Edit Jemaat
+    // {
+    //     $action = $this->request->getPost('action'); // Get the action value from the form
 
-        // Get the existing data by ID
-        $jemaatLama = $this->jemaatModel->find($id);
+    //     // Get the existing data by ID
+    //     $jemaatLama = $this->jemaatModel->find($id);
 
-        if (!$jemaatLama) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
-        }
+    //     if (!$jemaatLama) {
+    //         throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
+    //     }
 
-        // Validate form input
-        if (!$this->validate([
-            'nama' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama harus diisi'
-                ]
-            ],
-            'tgl_lahir' => [
-                'rules' => 'required|valid_date',
-                'errors' => [
-                    'required' => 'Tanggal lahir harus diisi',
-                    'valid_date' => 'Format tanggal lahir tidak valid'
-                ]
-            ],
-            'asal' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Asal harus diisi'
-                ]
-            ],
-            'jns_kelamin' => [
-                'rules' => 'required|in_list[Laki-laki,Perempuan]',
-                'errors' => [
-                    'required' => 'Jenis kelamin harus dipilih',
-                    'in_list' => 'Jenis kelamin tidak valid'
-                ]
-            ],
-            'telp' => [
-                'rules' => 'required|numeric|min_length[10]',
-                'errors' => [
-                    'required' => 'Nomor telepon harus diisi',
-                    'numeric' => 'Nomor telepon harus berupa angka',
-                    'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka'
-                ]
-            ],
-            'city' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kota harus dipilih'
-                ]
-            ],
-            'kecamatan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kecamatan harus dipilih'
-                ]
-            ],
-            'kelurahan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kelurahan harus dipilih'
-                ]
-            ],
-            'lingkungan' => [
-                'rules' => 'required|numeric|min_length[1]',
-                'errors' => [
-                    'required' => 'Lingkungan harus diisi',
-                    'numeric' => 'Lingkungan harus berupa angka',
-                    'min_length' => 'Lingkungan harus valid'
-                ]
-            ]
-        ])) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }
+    //     // Validate form input
+    //     if (!$this->validate([
+    //         'nama' => [
+    //             'rules' => 'required',
+    //             'errors' => [
+    //                 'required' => 'Nama harus diisi'
+    //             ]
+    //         ],
+    //         'tgl_lahir' => [
+    //             'rules' => 'required|valid_date',
+    //             'errors' => [
+    //                 'required' => 'Tanggal lahir harus diisi',
+    //                 'valid_date' => 'Format tanggal lahir tidak valid'
+    //             ]
+    //         ],
+    //         'asal' => [
+    //             'rules' => 'required',
+    //             'errors' => [
+    //                 'required' => 'Asal harus diisi'
+    //             ]
+    //         ],
+    //         'jns_kelamin' => [
+    //             'rules' => 'required|in_list[Laki-laki,Perempuan]',
+    //             'errors' => [
+    //                 'required' => 'Jenis kelamin harus dipilih',
+    //                 'in_list' => 'Jenis kelamin tidak valid'
+    //             ]
+    //         ],
+    //         'telp' => [
+    //             'rules' => 'required|numeric|min_length[10]',
+    //             'errors' => [
+    //                 'required' => 'Nomor telepon harus diisi',
+    //                 'numeric' => 'Nomor telepon harus berupa angka',
+    //                 'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka'
+    //             ]
+    //         ],
+    //         'city' => [
+    //             'rules' => 'required',
+    //             'errors' => [
+    //                 'required' => 'Kota harus dipilih'
+    //             ]
+    //         ],
+    //         'kecamatan' => [
+    //             'rules' => 'required',
+    //             'errors' => [
+    //                 'required' => 'Kecamatan harus dipilih'
+    //             ]
+    //         ],
+    //         'kelurahan' => [
+    //             'rules' => 'required',
+    //             'errors' => [
+    //                 'required' => 'Kelurahan harus dipilih'
+    //             ]
+    //         ],
+    //         'lingkungan' => [
+    //             'rules' => 'required|numeric|min_length[1]',
+    //             'errors' => [
+    //                 'required' => 'Lingkungan harus diisi',
+    //                 'numeric' => 'Lingkungan harus berupa angka',
+    //                 'min_length' => 'Lingkungan harus valid'
+    //             ]
+    //         ]
+    //     ])) {
+    //         return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+    //     }
 
-        // Collect form data
-        $formData = $this->request->getPost([
-            'nama',
-            'tgl_lahir',
-            'asal',
-            'jns_kelamin',
-            'telp',
-            'city',
-            'kecamatan',
-            'kelurahan',
-            'lingkungan',
-            'api_code'
-        ]);
+    //     // Collect form data
+    //     $formData = $this->request->getPost([
+    //         'nama',
+    //         'tgl_lahir',
+    //         'asal',
+    //         'jns_kelamin',
+    //         'telp',
+    //         'city',
+    //         'kecamatan',
+    //         'kelurahan',
+    //         'lingkungan',
+    //         'api_code'
+    //     ]);
 
-        try {
-            // Format the address using the provided method
-            $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
+    //     try {
+    //         // Format the address using the provided method
+    //         $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
 
-            // Prepare the raw data for storage in the `api_code` column
-            $apiCode = json_encode([
-                'city' => $formData['city'],
-                'kecamatan' => $formData['kecamatan'],
-                'kelurahan' => $formData['kelurahan'],
-                'lingkungan' => $formData['lingkungan']
-            ]);
+    //         // Prepare the raw data for storage in the `api_code` column
+    //         $apiCode = json_encode([
+    //             'city' => $formData['city'],
+    //             'kecamatan' => $formData['kecamatan'],
+    //             'kelurahan' => $formData['kelurahan'],
+    //             'lingkungan' => $formData['lingkungan']
+    //         ]);
 
-            // Handle the "save" action
-            if ($action === 'save') {
-                $this->jemaatModel->save([
-                    'id' => $id,
-                    'nama' => $formData['nama'],
-                    'tgl_lahir' => $formData['tgl_lahir'],
-                    'asal' => $formData['asal'],
-                    'jns_kelamin' => $formData['jns_kelamin'],
-                    'telp' => $formData['telp'],
-                    'city' => $formData['city'],
-                    'kecamatan' => $formData['kecamatan'],
-                    'kelurahan' => $formData['kelurahan'],
-                    'lingkungan' => $formData['lingkungan'],
-                    'alamat' => $alamat,
-                    'api_code' => $apiCode
-                ]);
+    //         // Handle the "save" action
+    //         if ($action === 'save') {
+    //             $this->jemaatModel->save([
+    //                 'id' => $id,
+    //                 'nama' => $formData['nama'],
+    //                 'tgl_lahir' => $formData['tgl_lahir'],
+    //                 'asal' => $formData['asal'],
+    //                 'jns_kelamin' => $formData['jns_kelamin'],
+    //                 'telp' => $formData['telp'],
+    //                 'city' => $formData['city'],
+    //                 'kecamatan' => $formData['kecamatan'],
+    //                 'kelurahan' => $formData['kelurahan'],
+    //                 'lingkungan' => $formData['lingkungan'],
+    //                 'alamat' => $alamat,
+    //                 'api_code' => $apiCode
+    //             ]);
 
-                session()->setFlashdata('pesan', 'Data Jemaat Berhasil Diubah');
-                return redirect()->to('/Dashboard/listJemaat');
-            }
-        } catch (Exception $e) {
-            return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
-        }
-    }
+    //             session()->setFlashdata('pesan', 'Data Jemaat Berhasil Diubah');
+    //             return redirect()->to('/Dashboard/listJemaat');
+    //         }
+    //     } catch (Exception $e) {
+    //         return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
+    //     }
+    // }
 
-    public function getCities() // API Kota
-    {
-        $provinceCode = '71'; // Sulawesi Utara province code
-        $url = "https://wilayah.id/api/regencies/{$provinceCode}.json";
+    // public function getCities() // API Kota
+    // {
+    //     $provinceCode = '71'; // Sulawesi Utara province code
+    //     $url = "https://wilayah.id/api/regencies/{$provinceCode}.json";
 
-        try {
-            $response = file_get_contents($url);
-            if ($response === FALSE) {
-                throw new Exception("Failed to fetch data from the API");
-            }
+    //     try {
+    //         $response = file_get_contents($url);
+    //         if ($response === FALSE) {
+    //             throw new Exception("Failed to fetch data from the API");
+    //         }
 
-            // Log response for debugging (optional)
-            log_message('info', 'API response: ' . $response);
+    //         // Log response for debugging (optional)
+    //         log_message('info', 'API response: ' . $response);
 
-            return $this->response->setJSON(json_decode($response, true));
-        } catch (Exception $e) {
-            log_message('error', 'API fetch error: ' . $e->getMessage());
-            return $this->response->setJSON(['error' => $e->getMessage()]);
-        }
-    }
+    //         return $this->response->setJSON(json_decode($response, true));
+    //     } catch (Exception $e) {
+    //         log_message('error', 'API fetch error: ' . $e->getMessage());
+    //         return $this->response->setJSON(['error' => $e->getMessage()]);
+    //     }
+    // }
 
-    public function getKecamatan($regencyCode) // API Kecamata
-    {
-        $url = "https://wilayah.id/api/districts/{$regencyCode}.json";
+    // public function getKecamatan($regencyCode) // API Kecamata
+    // {
+    //     $url = "https://wilayah.id/api/districts/{$regencyCode}.json";
 
-        try {
-            $response = file_get_contents($url);
-            if ($response === FALSE) {
-                throw new Exception("Failed to fetch data from the API");
-            }
+    //     try {
+    //         $response = file_get_contents($url);
+    //         if ($response === FALSE) {
+    //             throw new Exception("Failed to fetch data from the API");
+    //         }
 
-            // Send the response as JSON
-            return $this->response->setJSON(json_decode($response, true));
-        } catch (Exception $e) {
-            // Handle error
-            return $this->response->setJSON(['error' => $e->getMessage()]);
-        }
-    }
+    //         // Send the response as JSON
+    //         return $this->response->setJSON(json_decode($response, true));
+    //     } catch (Exception $e) {
+    //         // Handle error
+    //         return $this->response->setJSON(['error' => $e->getMessage()]);
+    //     }
+    // }
 
-    public function getKelurahan($districtCode) // API Kelurahan
-    {
-        $url = "https://wilayah.id/api/villages/{$districtCode}.json";
+    // public function getKelurahan($districtCode) // API Kelurahan
+    // {
+    //     $url = "https://wilayah.id/api/villages/{$districtCode}.json";
 
-        try {
-            $response = file_get_contents($url);
-            if ($response === FALSE) {
-                throw new Exception("Failed to fetch data from the API");
-            }
+    //     try {
+    //         $response = file_get_contents($url);
+    //         if ($response === FALSE) {
+    //             throw new Exception("Failed to fetch data from the API");
+    //         }
 
-            // Send the response as JSON
-            return $this->response->setJSON(json_decode($response, true));
-        } catch (Exception $e) {
-            // Handle error
-            return $this->response->setJSON(['error' => $e->getMessage()]);
-        }
-    }
+    //         // Send the response as JSON
+    //         return $this->response->setJSON(json_decode($response, true));
+    //     } catch (Exception $e) {
+    //         // Handle error
+    //         return $this->response->setJSON(['error' => $e->getMessage()]);
+    //     }
+    // }
 
-    private function getValidationRules() // Private -> Validation Rules
-    {
-        return [
-            'nama' => ['rules' => 'required', 'errors' => ['required' => 'Nama harus diisi']],
-            'tgl_lahir' => ['rules' => 'required|valid_date', 'errors' => ['required' => 'Tanggal lahir harus diisi', 'valid_date' => 'Format tanggal lahir tidak valid']],
-            'asal' => ['rules' => 'required', 'errors' => ['required' => 'Asal harus diisi']],
-            'jns_kelamin' => ['rules' => 'required|in_list[Laki-laki,Perempuan]', 'errors' => ['required' => 'Jenis kelamin harus dipilih', 'in_list' => 'Jenis kelamin tidak valid']],
-            'telp' => ['rules' => 'required|numeric|min_length[10]', 'errors' => ['required' => 'Nomor telepon harus diisi', 'numeric' => 'Nomor telepon harus berupa angka', 'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka']],
-            'city' => ['rules' => 'required', 'errors' => ['required' => 'Kota harus dipilih']],
-            'kecamatan' => ['rules' => 'required', 'errors' => ['required' => 'Kecamatan harus dipilih']],
-            'kelurahan' => ['rules' => 'required', 'errors' => ['required' => 'Kelurahan harus dipilih']],
-            'lingkungan' => ['rules' => 'required|numeric|min_length[1]', 'errors' => ['required' => 'Lingkungan harus diisi', 'numeric' => 'Lingkungan harus berupa angka', 'min_length' => 'Lingkungan harus valid']]
-        ];
-    }
+    // private function getValidationRules() // Private -> Validation Rules
+    // {
+    //     return [
+    //         'nama' => ['rules' => 'required', 'errors' => ['required' => 'Nama harus diisi']],
+    //         'tgl_lahir' => ['rules' => 'required|valid_date', 'errors' => ['required' => 'Tanggal lahir harus diisi', 'valid_date' => 'Format tanggal lahir tidak valid']],
+    //         'asal' => ['rules' => 'required', 'errors' => ['required' => 'Asal harus diisi']],
+    //         'jns_kelamin' => ['rules' => 'required|in_list[Laki-laki,Perempuan]', 'errors' => ['required' => 'Jenis kelamin harus dipilih', 'in_list' => 'Jenis kelamin tidak valid']],
+    //         'telp' => ['rules' => 'required|numeric|min_length[10]', 'errors' => ['required' => 'Nomor telepon harus diisi', 'numeric' => 'Nomor telepon harus berupa angka', 'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka']],
+    //         'city' => ['rules' => 'required', 'errors' => ['required' => 'Kota harus dipilih']],
+    //         'kecamatan' => ['rules' => 'required', 'errors' => ['required' => 'Kecamatan harus dipilih']],
+    //         'kelurahan' => ['rules' => 'required', 'errors' => ['required' => 'Kelurahan harus dipilih']],
+    //         'lingkungan' => ['rules' => 'required|numeric|min_length[1]', 'errors' => ['required' => 'Lingkungan harus diisi', 'numeric' => 'Lingkungan harus berupa angka', 'min_length' => 'Lingkungan harus valid']]
+    //     ];
+    // }
 
-    private function formatAddress($cityCode, $kecamatanCode, $kelurahanCode, $lingkungan) // Private -> Formatting Alamat
-    {
-        $areaNames = [];
-        $apiData = [
-            'city' => $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json"),
-            'kecamatan' => $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json"),
-            'kelurahan' => $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")
-        ];
+    // private function formatAddress($cityCode, $kecamatanCode, $kelurahanCode, $lingkungan) // Private -> Formatting Alamat
+    // {
+    //     $areaNames = [];
+    //     $apiData = [
+    //         'city' => $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json"),
+    //         'kecamatan' => $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json"),
+    //         'kelurahan' => $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")
+    //     ];
 
-        foreach (['city' => $cityCode, 'kecamatan' => $kecamatanCode, 'kelurahan' => $kelurahanCode] as $key => $code) {
-            $areaNames[] = $this->findAreaName($apiData[$key], $code);
-        }
+    //     foreach (['city' => $cityCode, 'kecamatan' => $kecamatanCode, 'kelurahan' => $kelurahanCode] as $key => $code) {
+    //         $areaNames[] = $this->findAreaName($apiData[$key], $code);
+    //     }
 
-        return implode(', ', $areaNames) . ", Lingkungan {$lingkungan}";
-    }
+    //     return implode(', ', $areaNames) . ", Lingkungan {$lingkungan}";
+    // }
 
-    private function fetchDataFromApi($url) // Private -> Fetching Data Dari APA
-    {
-        $response = file_get_contents($url);
+    // private function fetchDataFromApi($url) // Private -> Fetching Data Dari APA
+    // {
+    //     $response = file_get_contents($url);
 
-        if ($response === FALSE) {
-            throw new \Exception("Failed to fetch data from the API");
-        }
+    //     if ($response === FALSE) {
+    //         throw new \Exception("Failed to fetch data from the API");
+    //     }
 
-        return json_decode($response, true);
-    }
+    //     return json_decode($response, true);
+    // }
 
-    private function findAreaName($data, $code) // Private -> Cari Nama Area Dari Kode Daerah
-    {
-        foreach ($data['data'] as $area) {
-            if ($area['code'] == $code) {
-                return $area['name'];
-            }
-        }
+    // private function findAreaName($data, $code) // Private -> Cari Nama Area Dari Kode Daerah
+    // {
+    //     foreach ($data['data'] as $area) {
+    //         if ($area['code'] == $code) {
+    //             return $area['name'];
+    //         }
+    //     }
 
-        return 'Unknown';
-    }
+    //     return 'Unknown';
+    // }
 
     // ------------------------------------------------------------ JADWAL ----------------------------------------------------------------
 

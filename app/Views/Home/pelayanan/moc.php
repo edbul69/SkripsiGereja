@@ -14,7 +14,7 @@
             <!-- White column (right-box) -->
             <div class="right-box col-12 col-md-8 bg-dark p-1 m-0 h-100 d-flex flex-column justify-content-end align-items-start">
                 <img src="../Public/assets/img/icon/moc-icon-tp.png" alt="" class="ml-5 mb-1">
-                <p class="text-white ml-3">// MOC - GPDI BAHU</p>
+                <p class="text-white ml-3">// MOC - GPdI BAHU</p>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
                 <p>Hai pemuda dan mahasiswa,</p>
 
                 <p>
-                    Hai pemuda dan mahasiswa! Apakah kamu mencari komunitas yang bisa menjadi tempat bertumbuh dalam iman dan persekutuan yang erat? Millennial of Christ (MOC) hadir sebagai wadah bagi generasi muda di GPDI Bahu untuk bersama-sama memperkuat hubungan dengan Tuhan, mempererat persaudaraan, dan menjadi terang bagi dunia. Kami percaya bahwa masa muda adalah waktu yang tepat untuk mengenal Tuhan lebih dalam, menemukan tujuan hidup yang sejati, dan melayani dengan penuh semangat.
+                    Hai pemuda dan mahasiswa! Apakah kamu mencari komunitas yang bisa menjadi tempat bertumbuh dalam iman dan persekutuan yang erat? Millennial of Christ (MOC) hadir sebagai wadah bagi generasi muda di GPdI Bahu untuk bersama-sama memperkuat hubungan dengan Tuhan, mempererat persaudaraan, dan menjadi terang bagi dunia. Kami percaya bahwa masa muda adalah waktu yang tepat untuk mengenal Tuhan lebih dalam, menemukan tujuan hidup yang sejati, dan melayani dengan penuh semangat.
                 </p>
 
                 <p>
@@ -41,7 +41,7 @@
                 <p>
                     Jangan biarkan dirimu merasa sendiri dalam perjalanan iman ini! Mari bergabung dengan Millennial of Christ dan jadilah bagian dari generasi yang berani bersinar bagi Kristus. Kita dipanggil untuk menjadi garam dan terang, membawa dampak positif bagi gereja, masyarakat, dan dunia. Saatnya kita melangkah dalam iman, melayani dengan sukacita, dan bersama-sama membangun generasi yang berakar kuat dalam Kristus.
                 </p>
-                
+
                 <p>
                     Kami menantikan kehadiranmu! Jangan ragu untuk datang ke setiap kegiatan kami, berkenalan dengan teman-teman baru, dan rasakan sendiri sukacita dalam komunitas ini. Bersama Kristus, kita lebih kuat, lebih berani, dan lebih berdampak!
                 </p>
@@ -55,7 +55,7 @@
                 <!-- Text Section -->
                 <div class="text-section mb-4">
                     <p>
-                        Millennial of Christ adalah komunitas pemuda dan mahasiswa di GPDI Bahu yang hadir sebagai wadah untuk bertumbuh dalam iman, mempererat persaudaraan, dan menjadi terang bagi dunia. Sebagai ketua, saya percaya bahwa generasi muda memiliki peran besar dalam gereja dan masyarakat. Oleh karena itu, melalui berbagai kegiatan seperti ibadah pemuda, pelayanan sosial, dan diskusi rohani, kami ingin membangun komunitas yang saling menguatkan dan menginspirasi untuk hidup dalam kebenaran firman Tuhan.
+                        Millennial of Christ adalah komunitas pemuda dan mahasiswa di GPdI Bahu yang hadir sebagai wadah untuk bertumbuh dalam iman, mempererat persaudaraan, dan menjadi terang bagi dunia. Sebagai ketua, saya percaya bahwa generasi muda memiliki peran besar dalam gereja dan masyarakat. Oleh karena itu, melalui berbagai kegiatan seperti ibadah pemuda, pelayanan sosial, dan diskusi rohani, kami ingin membangun komunitas yang saling menguatkan dan menginspirasi untuk hidup dalam kebenaran firman Tuhan.
 
                     </p>
                     <p>
@@ -80,13 +80,13 @@
         <!-- Carousel Inner (Slides) -->
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="3000">
-                <img src="../Public/assets/img/header/header-bg1.jpg" class="d-block w-100" alt="Slide 1">
+                <img src="../Public/assets/img/header/header-bg1.webp" class="d-block w-100" alt="Slide 1">
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../Public/assets/img/header/header-bg2.jpg" class="d-block w-100" alt="Slide 2">
+                <img src="../Public/assets/img/header/header-bg2.webp" class="d-block w-100" alt="Slide 2">
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="../Public/assets/img/header/header-bg3.jpg" class="d-block w-100" alt="Slide 3">
+                <img src="../Public/assets/img/header/header-bg3.webp" class="d-block w-100" alt="Slide 3">
             </div>
         </div>
     </div>
@@ -223,7 +223,7 @@
                 <p class="lead mt-3 mb-5">Kami mengundang kamu untuk bergabung dalam acara
                     <strong>MOC Celebration</strong> setiap hari Rabu, setiap minggu. Ini adalah kesempatan yang luar biasa untuk kita semua bersatu dan merayakan bersama!
                 </p>
-                <p class="h5 mb-4">Tempat acara: <span class="text-warning">GPDI Bahu, Manado</span></p>
+                <p class="h5 mb-4">Tempat acara: <span class="text-warning">GPdI Bahu, Manado</span></p>
                 <a href="#footer" class="btn btn-warning btn-lg px-4 py-2 mt-3">Cek Lokasi</a>
             </div>
         </div>

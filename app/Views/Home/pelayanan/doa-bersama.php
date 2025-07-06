@@ -29,7 +29,7 @@
             Berdoa membawa kita lebih dekat kepada Tuhan dan memperkuat iman kita. Melalui doa, kita membuka hati dan pikiran kita kepada-Nya, mencari petunjuk, dan mempercayai rencana-Nya.
         </p>
         <p class="fs-5">
-            Doa bersama di GPDI Bahu adalah kesempatan untuk memperkuat iman sebagai komunitas yang bersatu dalam Tuhan.
+            Doa bersama di GPdI Bahu adalah kesempatan untuk memperkuat iman sebagai komunitas yang bersatu dalam Tuhan.
         </p>
     </div>
 </section>
@@ -45,7 +45,7 @@
                 <div class="p-4">
                     <h2 class="fw-bold mb-3">SETIAP HARI KAMIS</h2>
                     <p class="fs-4">7.00 MALAM</p>
-                    <p class="fs-5">Bergabunglah dalam Doa Bersama di GPDI Bahu untuk memperkuat iman dan pengharapan kita bersama.</p>
+                    <p class="fs-5">Bergabunglah dalam Doa Bersama di GPdI Bahu untuk memperkuat iman dan pengharapan kita bersama.</p>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
     <div class="container hidden">
         <h2 class="fw-bold">Mari Bersama Berdoa</h2>
         <p class="fs-5 mt-3">
-            Jadikan doa sebagai bagian penting dalam hidup Anda. Setiap Kamis pukul 7.00 malam, bergabunglah bersama kami di GPDI Bahu untuk mencari kekuatan, penghiburan, dan harapan baru dalam doa.
+            Jadikan doa sebagai bagian penting dalam hidup Anda. Setiap Kamis pukul 7.00 malam, bergabunglah bersama kami di GPdI Bahu untuk mencari kekuatan, penghiburan, dan harapan baru dalam doa.
         </p>
     </div>
 </section>

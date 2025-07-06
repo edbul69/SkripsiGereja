@@ -14,14 +14,14 @@
     <div class="container location-section">
         <div class="text-center">
             <h3 class="section-subheading text-uppercase">SELAMAT DATANG DI</h3>
-            <h2 class="section-heading text-uppercase outline-text">GPDI BAHU</h2>
+            <h2 class="section-heading outline-text">GPdI BAHU</h2>
         </div>
         <div class="row align-items-center hidden">
             <div class="col-md-6 image-content">
-                <img src="../Public/assets/img/main-banner.jpg" alt="Group of people" clas>
+                <img src="../Public/assets/img/main-banner.webp" alt="Group of people" clas>
             </div>
             <div class="col-md-6 text-content">
-                <h1>KELUARGA<br><span>BESAR</span><br>GPDI</h1>
+                <h1>KELUARGA<br><span>BESAR</span><br>GPdI</h1>
             </div>
         </div>
         <div class="row text-container hidden justify-content-center">
@@ -34,7 +34,7 @@
                 <div class="animated-text" id="text-5">DOA BERSAMA.</div>
                 <div class="animated-text" id="text-6">IBADAH RAYON.</div>
                 <div class="animated-text" id="text-7">MOC.</div>
-                <div class="animated-text" id="text-8">ABA.</div>
+                <div class="animated-text" id="text-8">TOG.</div>
                 <div class="animated-text" id="text-9">SEKOLAH MINGGU.</div>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <!-- First Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Baptisan">
-                    <img src="../Public/assets/img/pelayanan/baptisan-air.jpg" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/baptisan-air.webp" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Baptisan Air</div>
                 </a>
@@ -55,7 +55,7 @@
             <!-- Second Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Penyerahan">
-                    <img src="../Public/assets/img/pelayanan/penyerahan-anak.jpg" class="img-fluid h-100" alt="I'm New">
+                    <img src="../Public/assets/img/pelayanan/penyerahan-anak.webp" class="img-fluid h-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Penyerahan Anak</div>
                 </a>
@@ -63,7 +63,7 @@
             <!-- Third Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Perjamuan">
-                    <img src="../Public/assets/img/pelayanan/perjamuan-kudus.jpg" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/perjamuan-kudus.webp" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Perjamuan Kudus</div>
                 </a>
@@ -71,7 +71,7 @@
             <!-- Fourth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Sunday">
-                    <img src="../Public/assets/img/pelayanan/sunday-service.jpg" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/sunday-service.webp" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sunday Service</div>
                 </a>
@@ -79,7 +79,7 @@
             <!-- Fifth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Doa">
-                    <img src="../Public/assets/img/pelayanan/doa-bersama.png" class="img-fluid h-100" alt="I'm New">
+                    <img src="../Public/assets/img/pelayanan/doa-bersama.webp" class="img-fluid h-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Doa Bersama</div>
                 </a>
@@ -87,7 +87,7 @@
             <!-- Sixth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Ibadah">
-                    <img src="../Public/assets/img/pelayanan/ibadah-rayon.JPG" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/ibadah-rayon.webp" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Ibadah Rayon</div>
                 </a>
@@ -95,23 +95,23 @@
             <!-- Seventh Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/MOC">
-                    <img src="../Public/assets/img/pelayanan/moc.JPG" class="img-fluid h-100" alt="Before You Arrive">
+                    <img src="../Public/assets/img/pelayanan/moc.webp" class="img-fluid h-100" alt="Before You Arrive">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">MOC</div>
                 </a>
             </div>
             <!-- Eight Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
-                <a href="/ABA">
-                    <img src="../Public/assets/img/pelayanan/aba.jpg" class="img-fluid h-100" alt="I'm New">
+                <a href="/TOG">
+                    <img src="../Public/assets/img/pelayanan/aba.webp" class="img-fluid h-100" alt="I'm New">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
-                    <div class="overlay-text">ABA</div>
+                    <div class="overlay-text">TOG</div>
                 </a>
             </div>
             <!-- Ninth Image Column -->
             <div class="col-lg-4 col-sm-6 p-0 position-relative">
                 <a href="/Sekolah">
-                    <img src="../Public/assets/img/pelayanan/sekolah-minggu.jpg" class="img-fluid h-100" alt="Alpha">
+                    <img src="../Public/assets/img/pelayanan/sekolah-minggu.webp" class="img-fluid h-100" alt="Alpha">
                     <div class="white-overlay"></div> <!-- White transparent overlay -->
                     <div class="overlay-text">Sekolah Minggu</div>
                 </a>
@@ -151,7 +151,7 @@
 <section class="schead" id="schedule">
     <div class="container hidden">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Kalender Kegiatan GPDI Bahu</h2>
+            <h2 class="section-heading">KALENDER KEGIATAN GPdI BAHU</h2>
         </div>
         <div id='calendar'></div>
     </div>
@@ -160,7 +160,7 @@
 <section class="page-section bg-black" id="media">
     <div class="container hidden">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase mb-5 mt-0">Media GPDI BAHU</h2>
+            <h2 class="section-heading mb-5 mt-0">MEDIA GPdI BAHU</h2>
         </div>
         <div class="swiper mySwiper pt-0">
             <div class="swiper-wrapper">
@@ -171,38 +171,10 @@
                         </div>
                         <div class="iframe-and-text">
                             <iframe id="youtube-video" width="100%" height="315" src="<?= esc($embedCode) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            <p class="iframe-caption">Ibadah Raya GPDI Bahu Setiap Hari Minggu Pada Pukul 8 Pagi dan 6 Malam</p>
+                            <p class="iframe-caption">Ibadah Raya GPdI Bahu Setiap Hari Minggu Pada Pukul 8 Pagi dan 6 Malam</p>
                         </div>
                         <div class="rotated-text-right">
                             <span>Live Ibadah</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="content-wrapper">
-                        <div class="rotated-text-left">
-                            <span>Peresmian Gedung Baru</span>
-                        </div>
-                        <div class="iframe-and-text">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5lZderOtZmI?si=p5EKr_snl6dgINRT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <p class="iframe-caption">Gedung baru GPDI Bahu yang telah mengalami renovasi akhirnya telah selesai dibangun dan di adakannya ibadah peresmian serta pentahbisan yang dihadiri langsung oleh walikota Manado dan ketua majelis daerah GPDI Sulawesi Utara</p>
-                        </div>
-                        <div class="rotated-text-right">
-                            <span>Peresmian Gedung Baru</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="content-wrapper">
-                        <div class="rotated-text-left">
-                            <span>Ibadah Rayon Gabungan</span>
-                        </div>
-                        <div class="iframe-and-text">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ByJCiCspAHY?si=Wd1qjJeROqK84QGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            <p class="iframe-caption">Ibadah Rayon gabungan yang menjadi salah satu perayaan ibadah GPDI Bahu pada tanggal 3 Juni tahun 2020</p>
-                        </div>
-                        <div class="rotated-text-right">
-                            <span>Ibadah Rayon Gabungan</span>
                         </div>
                     </div>
                 </div>

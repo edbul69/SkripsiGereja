@@ -29,7 +29,7 @@
             Sekolah Minggu adalah tempat di mana anak-anak dapat belajar Firman Tuhan melalui cerita Alkitab, nyanyian, dan permainan. Di sini, anak-anak dapat menemukan cara baru untuk mengenal Tuhan dengan lebih dekat.
         </p>
         <p class="chalk-text mt-4">
-            Kami mengajak semua anak untuk bergabung setiap Minggu di GPDI Bahu, pukul 10:00 AM. Ini adalah tempat yang penuh sukacita dan kegembiraan di mana mereka dapat bertumbuh dalam iman.
+            Kami mengajak semua anak untuk bergabung setiap Minggu di GPdI Bahu, pukul 10:00 AM. Ini adalah tempat yang penuh sukacita dan kegembiraan di mana mereka dapat bertumbuh dalam iman.
         </p>
     </div>
 </section>
@@ -45,7 +45,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/Public/assets/img/pelayanan/sekolah-minggu.jpg" class="d-block w-100" alt="Sekolah Minggu Activity 1">
+                    <img src="/Public/assets/img/pelayanan/sekolah-minggu.webp" class="d-block w-100" alt="Sekolah Minggu Activity 1">
                 </div>
                 <div class="carousel-item">
                     <img src="/Public/assets/img/pelayanan/penyerahan/img-1.png" class="d-block w-100" alt="Sekolah Minggu Activity 2">
@@ -106,10 +106,10 @@
         <h2 class="chalk-text">Kapan dan Dimana?</h2>
         <div class="divider-bar" style="background-color: #ff6f61;"></div>
         <p class="chalk-text mt-4">
-            Sekolah Minggu diadakan setiap hari Minggu pada pukul 10:00 AM di GPDI Bahu, Manado. Kami menyambut semua anak untuk bergabung dan merasakan sukacita dalam belajar Firman Tuhan bersama teman-teman sebaya.
+            Sekolah Minggu diadakan setiap hari Minggu pada pukul 10:00 AM di GPdI Bahu, Manado. Kami menyambut semua anak untuk bergabung dan merasakan sukacita dalam belajar Firman Tuhan bersama teman-teman sebaya.
         </p>
         <p class="chalk-text mt-4 mb-5">
-            Lokasi: <strong>GPDI Bahu, Jalan Bahu, Manado</strong>
+            Lokasi: <strong>GPdI Bahu, Jalan Bahu, Manado</strong>
         </p>
         <a href="#footer" class="btn-sekolah btn-sekolah-location mt-4">Lihat Lokasi</a>
     </div>

@@ -54,50 +54,14 @@
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
-                    <div class="row no-gutters align-items-center">
+                    <div class="row no-gutters align-items-center pl-2 pr-2">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Total Jemaat</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($totalJemaat); ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalJemaat; ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pria Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Pria</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($totalPria); ?></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-male fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wanita Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Wanita</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($totalWanita); ?></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-female fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -108,14 +72,50 @@
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
-                    <div class="row no-gutters align-items-center">
+                    <div class="row no-gutters align-items-center pl-2 pr-2">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Remaja & Anak-Anak</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($totalRemajaAnak); ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalRemajaAnak; ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-child fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keluarga Card -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center pl-2 pr-2">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Total Keluarga</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalKeluarga; ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-child fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mean Anggota Keluarga Card -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center pl-2 pr-2">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Rata-rata Anggota Keluarga</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($averageFamilySize, 0); ?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -136,6 +136,7 @@
         </div>
     </div>
 
+    <!-- Content News -->
     <div class="row" id="news">
         <!-- Display the 6 newest news items -->
         <div class="col-xl-12">

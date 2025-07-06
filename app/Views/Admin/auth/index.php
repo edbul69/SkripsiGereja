@@ -94,7 +94,7 @@
         <div class="main-content">
             <div class="company__info">
                 <div class="company__logo">
-                    <img src="<?= base_url('Admin/img/icon/icon.png'); ?>" alt="GPDI BAHU Logo" style="">
+                    <img src="<?= base_url('Admin/img/icon/icon.png'); ?>" alt="GPdI BAHU Logo" style="">
                 </div>
             </div>
             <div class="login_form">

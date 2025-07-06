@@ -14,37 +14,9 @@
         </div>
     <?php endif; ?>
 
-    <!-- Gender Summary -->
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        Jumlah Laki-laki
-                    </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?= count(array_filter($jemaat, fn($j) => $j['jns_kelamin'] === 'laki-laki')); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="card border-left-pink shadow h-100 py-2" style="border-left: 0.25rem solid #e83e8c !important;">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                    <div class="text-xs font-weight-bold text-pink text-uppercase mb-1">
-                        Jumlah Perempuan
-                    </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?= count(array_filter($jemaat, fn($j) => $j['jns_kelamin'] === 'perempuan')); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <?php
 
-    use Carbon\Carbon; // Make sure Carbon is installed via Composer
+    use Carbon\Carbon; // Pastikan Carbon terinstal via Composer
 
     $ageGroups = [
         '0-5' => 0,
@@ -57,31 +29,39 @@
         '61+' => 0,
     ];
 
-    foreach ($jemaat as $j) {
-        $age = Carbon::parse($j['tgl_lahir'])->age;
+    foreach ($jemaatList as $j) {
+        // Periksa apakah tanggallahir tidak kosong, berupa string, dan bisa diurai oleh strtotime
+        if (!empty($j['tanggallahir']) && is_string($j['tanggallahir']) && strtotime($j['tanggallahir']) !== false) {
+            $dateOfBirth = Carbon::parse($j['tanggallahir']);
 
-        if ($age <= 5) {
-            $ageGroups['0-5']++;
-        } elseif ($age <= 12) {
-            $ageGroups['6-12']++;
-        } elseif ($age <= 17) {
-            $ageGroups['13-17']++;
-        } elseif ($age <= 25) {
-            $ageGroups['18-25']++;
-        } elseif ($age <= 35) {
-            $ageGroups['26-35']++;
-        } elseif ($age <= 45) {
-            $ageGroups['36-45']++;
-        } elseif ($age <= 60) {
-            $ageGroups['46-60']++;
-        } else {
-            $ageGroups['61+']++;
+            // Pastikan tanggal yang diurai valid sebelum menghitung usia
+            if ($dateOfBirth->isValid()) {
+                $age = $dateOfBirth->age;
+
+                if ($age <= 5) {
+                    $ageGroups['0-5']++;
+                } elseif ($age <= 12) {
+                    $ageGroups['6-12']++;
+                } elseif ($age <= 17) {
+                    $ageGroups['13-17']++;
+                } elseif ($age <= 25) {
+                    $ageGroups['18-25']++;
+                } elseif ($age <= 35) {
+                    $ageGroups['26-35']++;
+                } elseif ($age <= 45) {
+                    $ageGroups['36-45']++;
+                } elseif ($age <= 60) {
+                    $ageGroups['46-60']++;
+                } else {
+                    $ageGroups['61+']++;
+                }
+            }
         }
     }
     ?>
 
-    <!-- Age Group Summary -->
-    <div class="row">
+    <!-- Ringkasan Kelompok Usia -->
+    <div class="row mb-4">
         <?php foreach ($ageGroups as $range => $count) : ?>
             <div class="col-md-3 mb-3">
                 <div class="card border-left-info shadow h-100 py-2">
@@ -98,141 +78,63 @@
         <?php endforeach; ?>
     </div>
 
-    <?php
-    $cityCounts = [];
-
-    foreach ($jemaat as $j) {
-        $alamat = $j['alamat'];
-        $parts = explode(',', $alamat);
-        $city = trim($parts[0]); // Get the first segment and trim spaces
-
-        if ($city) {
-            if (!isset($cityCounts[$city])) {
-                $cityCounts[$city] = 0;
-            }
-            $cityCounts[$city]++;
-        }
-    }
-    ksort($cityCounts); // Sort cities alphabetically
-    ?>
-
-    <div class="row g-2 mb-3">
-        <div class="col-md-4">
-            <button class="btn btn-outline-primary w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#citySummary" aria-expanded="false" aria-controls="citySummary">
-                <i class="bi bi-geo-alt-fill"></i> Jemaat Berdasarkan Kota
-            </button>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-outline-success w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#kecamatanSummary" aria-expanded="false" aria-controls="kecamatanSummary">
-                <i class="bi bi-map-fill"></i> Jemaat Berdasarkan Kecamatan
-            </button>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-outline-info w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#kelurahanSummary" aria-expanded="false" aria-controls="kelurahanSummary">
-                <i class="bi bi-map-fill"></i> Jemaat Berdasarkan Kelurahan
-            </button>
-        </div>
-    </div>
-
-    <!-- Collapsible City Summary -->
-    <div class="collapse" id="citySummary">
-        <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kota</h5>
-        <div class="row">
-            <?php foreach ($cityCounts as $city => $count) : ?>
-                <div class="col-md-3 mb-3">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <?= esc($city) ?>
-                            </div>
-                            <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                <?= $count ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-
-
-    <?php
-    $kecamatanCounts = [];
-
-    foreach ($jemaat as $j) {
-        $alamat = $j['alamat'];
-        $parts = explode(',', $alamat);
-        $kecamatan = isset($parts[1]) ? trim($parts[1]) : 'Tidak Diketahui'; // 2nd part of the address
-
-        if (!isset($kecamatanCounts[$kecamatan])) {
-            $kecamatanCounts[$kecamatan] = 0;
-        }
-        $kecamatanCounts[$kecamatan]++;
-    }
-
-    ksort($kecamatanCounts); // Optional: sort alphabetically
-    ?>
-
-    <!-- Collapsible Kecamatan Summary -->
-    <div class="collapse" id="kecamatanSummary">
-        <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kecamatan</h5>
-        <div class="row">
-            <?php foreach ($kecamatanCounts as $kecamatan => $count) : ?>
-                <div class="col-md-3 mb-3">
+    <!-- Ringkasan Rayon -->
+    <div class="row mb-4">
+        <?php if (!empty($rayonCounts)) : ?>
+            <?php foreach ($rayonCounts as $rayon) : ?>
+                <div class="col mb-3"> <!-- Menggunakan 'col' agar lebar kolom disesuaikan secara otomatis -->
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                <?= esc($kecamatan) ?>
+                                Rayon <?= esc($rayon['rayon'] ?? 'Tidak Ada Rayon'); ?>
                             </div>
                             <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                <?= $count ?>
+                                <?= esc($rayon['total_members']); ?>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
-        </div>
+        <?php else : ?>
+            <div class="col-12">
+                <p class="text-center text-muted">Tidak ada data rayon yang tersedia atau semua anggota tidak memiliki rayon.</p>
+            </div>
+        <?php endif; ?>
     </div>
 
-    <?php
-    $kelurahanCounts = [];
+    <!-- Tombol Toggle Grafik -->
+    <div class="d-flex justify-content-end mb-3">
+        <button id="toggleChartsBtn" class="btn btn-primary btn-sm">
+            Tampilkan Grafik
+        </button>
+    </div>
 
-    foreach ($jemaat as $j) {
-        $alamat = $j['alamat'];
-        $parts = explode(',', $alamat);
-        $kelurahan = isset($parts[2]) ? trim($parts[2]) : 'Tidak Diketahui'; // 3rd part of the address
-
-        if (!isset($kelurahanCounts[$kelurahan])) {
-            $kelurahanCounts[$kelurahan] = 0;
-        }
-        $kelurahanCounts[$kelurahan]++;
-    }
-
-    ksort($kelurahanCounts); // Sort alphabetically if desired
-    ?>
-
-    <!-- Collapsible Kelurahan Summary -->
-    <div class="collapse" id="kelurahanSummary">
-        <h5 class="mb-3 mt-4">Jumlah Jemaat Berdasarkan Kelurahan</h5>
-        <div class="row">
-            <?php foreach ($kelurahanCounts as $kelurahan => $count) : ?>
-                <div class="col-md-3 mb-3">
-                    <div class="card border-left-info shadow h-100 py-2">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                <?= esc($kelurahan) ?>
-                            </div>
-                            <div class="h6 mb-0 font-weight-bold text-gray-800">
-                                <?= $count ?>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Bagian Grafik -->
+    <div id="chartsSection" class="row mb-4 d-none"> <!-- Awalnya tersembunyi -->
+        <div class="col-lg-12 mb-4"> <!-- Menggunakan col-lg-12 untuk lebar penuh -->
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Jumlah Anggota per Rayon (Berdasarkan Usia)</h6>
                 </div>
-            <?php endforeach; ?>
+                <div class="card-body">
+                    <canvas id="membersByRayonAndAgeChart" style="height: 400px;"></canvas> <!-- Tambahkan tinggi minimal -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 mb-4"> <!-- Menggunakan col-lg-12 untuk lebar penuh -->
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Jumlah Keluarga per Rayon</h6>
+                </div>
+                <div class="card-body">
+                    <canvas id="familiesByRayonChart" style="height: 400px;"></canvas> <!-- Tambahkan tinggi minimal -->
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- DataTales Example -->
+
+    <!-- Contoh DataTales -->
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow mb-4">
@@ -244,33 +146,31 @@
                         <table class="table table-bordered table-hover table-sm" id="dataTable" width="100%" cellspacing="0">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Nama</th>
                                     <th>Tanggal Lahir</th>
-                                    <th>Asal</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Nomor Telp</th>
-                                    <th style="min-width: 200px;">Alamat</th> <!-- Ensure space for full address -->
-                                    <th class="text-center">Actions</th> <!-- New column for buttons -->
+                                    <th>Keluarga</th>
+                                    <th>Peran di Keluarga</th>
+                                    <th>Rayon</th>
+                                    <th class="text-center">Actions</th> <!-- Kolom untuk tombol aksi -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($jemaat as $j) : ?>
+                                <?php foreach ($jemaatList as $jemaat) : ?>
                                     <tr>
-                                        <td><?= $j['nama']; ?></td>
-                                        <td><?= $j['tgl_lahir']; ?></td>
-                                        <td><?= $j['asal']; ?></td>
-                                        <td><?= $j['jns_kelamin']; ?></td>
-                                        <td><?= $j['telp']; ?></td>
-                                        <td style="white-space: normal; word-break: break-word;"><?= $j['alamat']; ?></td> <!-- Ensure full address is shown -->
-                                        <!-- Action buttons for Edit and Delete -->
+                                        <td><?= esc($jemaat['namalengkap']); ?></td>
+                                        <td><?= esc($jemaat['tanggallahir']); ?></td>
+                                        <td><?= esc($jemaat['namakeluarga'] ?? 'N/A'); ?></td> <!-- Tampilkan 'N/A' jika tidak ada keluarga -->
+                                        <td><?= esc($jemaat['peran'] ?? 'Perseorangan'); ?></td> <!-- Tampilkan 'Perseorangan' jika tidak ada peran -->
+                                        <td><?= esc($jemaat['rayon'] ?? 'N/A'); ?></td>
+                                        <!-- Tombol aksi untuk Edit dan Hapus -->
                                         <td class="text-center">
-                                            <a href="/Dashboard/jemaat/edit/<?= $j['id']; ?>" class="btn btn-warning btn-sm" title="Edit">
+                                            <a href="/Dashboard/jemaat/edit/<?= esc($jemaat['idanggota']); ?>" class="btn btn-warning btn-sm" title="Edit">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-                                            <form action="/Dashboard/jemaat/delete/<?= $j['id']; ?>" method="post" class="d-inline">
+                                            <form action="/Dashboard/jemaat/delete/<?= esc($jemaat['idanggota']); ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" title="Delete">
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?');" title="Hapus">
                                                     <i class="fas fa-trash-alt"></i> Hapus
                                                 </button>
                                             </form>
@@ -292,27 +192,196 @@
 
 
 <?= $this->section('scripts'); ?>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+<!-- DataTables JS -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTables on the #dataTable element
+        // Inisialisasi DataTables pada elemen #dataTable
         var table = $('#dataTable').DataTable({
-            "pageLength": 50, // Number of rows per page
-            "lengthMenu": [10, 20, 50, 100], // Options for number of rows to show per page
-            "paging": true, // Enable pagination
-            "searching": true, // Enable search bar
-            "ordering": true, // Enable column sorting
-            "info": true, // Show table information (e.g., "Showing 1 to 10 of 57 entries")
-            "responsive": true, // Ensure table adapts to different screen sizes
+            "pageLength": 50, // Jumlah baris per halaman
+            "lengthMenu": [10, 20, 50, 100], // Opsi untuk jumlah baris yang ditampilkan per halaman
+            "paging": true, // Aktifkan paginasi
+            "searching": true, // Aktifkan bilah pencarian
+            "ordering": true, // Aktifkan pengurutan kolom
+            "info": true, // Tampilkan informasi tabel (misalnya, "Menampilkan 1 hingga 10 dari 57 entri")
+            "responsive": true, // Pastikan tabel beradaptasi dengan berbagai ukuran layar
             "order": [
                 [0, "asc"]
-            ] // Sort by the first column (index 0) in ascending order
+            ] // Urutkan berdasarkan kolom pertama (indeks 0) dalam urutan menaik
         });
 
-        // Custom button to set the page length dynamically
+        // Tombol kustom untuk mengatur panjang halaman secara dinamis
         window.setPageLength = function(value) {
-            table.page.len(value).draw(); // Change the number of rows displayed and redraw
+            table.page.len(value).draw(); // Ubah jumlah baris yang ditampilkan dan gambar ulang
         };
+
+        // --- LOGIKA TOGGLE GRAFIK ---
+        const toggleChartsBtn = document.getElementById('toggleChartsBtn');
+        const chartsSection = document.getElementById('chartsSection');
+        let chartsInitialized = false; // Flag untuk memastikan grafik hanya diinisialisasi sekali
+
+        toggleChartsBtn.addEventListener('click', function() {
+            chartsSection.classList.toggle('d-none'); // Toggle class d-none untuk menyembunyikan/menampilkan
+
+            if (!chartsSection.classList.contains('d-none')) {
+                // Jika grafik ditampilkan
+                toggleChartsBtn.textContent = 'Sembunyikan Grafik';
+                if (!chartsInitialized) {
+                    initializeCharts(); // Inisialisasi grafik hanya jika belum diinisialisasi
+                    chartsInitialized = true;
+                }
+                // Jika grafik sudah diinisialisasi, pastikan mereka di-resize jika perlu
+                if (typeof membersByRayonAndAgeChart !== 'undefined') membersByRayonAndAgeChart.resize();
+                if (typeof familiesByRayonChart !== 'undefined') familiesByRayonChart.resize();
+
+            } else {
+                // Jika grafik disembunyikan
+                toggleChartsBtn.textContent = 'Tampilkan Grafik';
+            }
+        });
+
+        // --- LOGIKA GRAFIK CHART.JS (dipindahkan ke fungsi agar bisa dipanggil saat ditampilkan) ---
+        let membersByRayonAndAgeChart; // Deklarasikan di luar scope agar bisa diakses global
+        let familiesByRayonChart; // Deklarasikan di luar scope agar bisa diakses global
+
+        function initializeCharts() {
+            const allRayons = <?= json_encode($allRayons); ?>;
+            const ageRanges = <?= json_encode($ageRanges); ?>;
+            const membersByRayonAndAgeData = <?= json_encode($membersByRayonAndAge); ?>;
+            const familiesByRayonData = <?= json_encode($familiesByRayon); ?>;
+
+            // Fungsi untuk menghasilkan warna acak yang konsisten
+            function generateColors(numColors) {
+                const colors = [];
+                const baseHue = Math.floor(Math.random() * 360); // Start with a random hue
+                for (let i = 0; i < numColors; i++) {
+                    const hue = (baseHue + (i * 60)) % 360; // Spread hues
+                    colors.push(`hsl(${hue}, 70%, 60%)`);
+                }
+                return colors;
+            }
+
+            // Warna untuk rentang usia
+            const ageRangeColors = {
+                '0-5': '#FF6384', // Merah muda
+                '6-12': '#36A2EB', // Biru
+                '13-17': '#FFCE56', // Kuning
+                '18-25': '#4BC0C0', // Teal
+                '26-35': '#9966FF', // Ungu
+                '36-45': '#FF9F40', // Oranye
+                '46-60': '#8A2BE2', // Biru Violet
+                '61+': '#2ECC71' // Hijau zamrud
+            };
+
+
+            // --- Grafik Jumlah Anggota per Rayon (Berdasarkan Usia) ---
+            const membersByRayonAndAgeCtx = document.getElementById('membersByRayonAndAgeChart').getContext('2d');
+            membersByRayonAndAgeChart = new Chart(membersByRayonAndAgeCtx, {
+                type: 'bar',
+                data: {
+                    labels: allRayons,
+                    datasets: ageRanges.map(range => {
+                        return {
+                            label: `Usia ${range}`,
+                            data: allRayons.map(rayon => membersByRayonAndAgeData[rayon][range]),
+                            backgroundColor: ageRangeColors[range] || '#CCCCCC', // Gunakan warna yang ditentukan atau abu-abu
+                            borderColor: ageRangeColors[range] || '#CCCCCC',
+                            borderWidth: 1
+                        };
+                    })
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true, // Membuat bar menjadi tumpuk
+                            title: {
+                                display: true,
+                                text: 'Rayon'
+                            }
+                        },
+                        y: {
+                            stacked: true, // Membuat bar menjadi tumpuk
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Jumlah Anggota'
+                            },
+                            ticks: {
+                                precision: 0 // Pastikan sumbu Y menampilkan bilangan bulat
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Distribusi Anggota per Rayon Berdasarkan Kelompok Usia'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    }
+                }
+            });
+
+            // --- Grafik Jumlah Keluarga per Rayon ---
+            const familiesByRayonCtx = document.getElementById('familiesByRayonChart').getContext('2d');
+            familiesByRayonChart = new Chart(familiesByRayonCtx, {
+                type: 'bar', // Atau 'pie', 'doughnut' jika lebih suka
+                data: {
+                    labels: Object.keys(familiesByRayonData),
+                    datasets: [{
+                        label: 'Jumlah Keluarga',
+                        data: Object.values(familiesByRayonData),
+                        backgroundColor: generateColors(Object.keys(familiesByRayonData).length), // Warna dinamis
+                        borderColor: generateColors(Object.keys(familiesByRayonData).length),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Rayon'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Jumlah Keluarga'
+                            },
+                            ticks: {
+                                precision: 0 // Pastikan sumbu Y menampilkan bilangan bulat
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Jumlah Keluarga per Rayon'
+                        },
+                        legend: {
+                            display: false // Sembunyikan legenda jika hanya satu dataset
+                        }
+                    }
+                }
+            });
+        }
+        // --- AKHIR LOGIKA GRAFIK CHART.JS ---
     });
 </script>
 

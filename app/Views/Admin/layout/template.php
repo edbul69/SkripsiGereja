@@ -52,9 +52,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon">
-                    <img src="<?= base_url('Admin/img/icon/icon.png'); ?>" alt="GPDI BAHU Logo" style="width: 40px; height: 40px;">
+                    <img src="<?= base_url('Admin/img/icon/icon.png'); ?>" alt="GPdI BAHU Logo" style="width: 40px; height: 40px;">
                 </div>
-                <div class="sidebar-brand-text mx-3">GPDI BAHU</div>
+                <div class="sidebar-brand-text mx-3">GPdI BAHU</div>
             </a>
 
             <!-- Divider -->

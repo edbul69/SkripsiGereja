@@ -11000,19 +11000,16 @@ header.masthead .masthead-heading {
 /* Keyframes for background image transition */
 @keyframes slideBackground {
   0% {
-    background-image: url('../assets/img/header/header-bg1.jpg');
+    background-image: url('../assets/img/header/header-bg1.webp');
   }
-  25% {
-    background-image: url('../assets/img/header/header-bg2.jpg');
+  34% {
+    background-image: url('../assets/img/header/header-bg2.webp');
   }
-  50% {
-    background-image: url('../assets/img/header/header-bg3.jpg');
-  }
-  75% {
-    background-image: url('../assets/img/header/header-bg4.jpg');
+  67% {
+    background-image: url('../assets/img/header/header-bg3.webp');
   }
   100% {
-    background-image: url('../assets/img/header/header-bg1.jpg'); /* Loops back to the first image */
+    background-image: url('../assets/img/header/header-bg1.webp'); /* Loops back to the first image */
   }
 }
 
@@ -11217,7 +11214,7 @@ header.masthead .masthead-heading {
   }
   #about .image-content img {
     margin-left: 0;
-    width: 150%%;
+    width: 150%;
     line-height: 1;
   }
   #about .text-content {
@@ -11606,7 +11603,7 @@ section.schead {
   padding-bottom: 3rem; /* Reduced padding for a smaller size */
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/calendar-bg.jpg");
+  background-image: url("../assets/img/calendar-bg.webp");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11635,7 +11632,7 @@ section.schead .section-heading {
 /* CONTACT */
 #contact {
   background-color: #212529;
-  background-image: url("../assets/img/footer-bg.png");
+  background-image: url("../assets/img/footer-bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
@@ -11692,6 +11689,9 @@ section.schead .section-heading {
 #contact .card2 {
   background-color: #FFF;
 }
+#contact .card3 {
+  background-color: #FFF;
+}
 #contact .card-content {
   display: flex;
   justify-content: center;
@@ -11730,13 +11730,17 @@ section.schead .section-heading {
 #contact .card2:hover .card-content {
   justify-content: space-between; /* Space out image and text */
 }
+#contact .card3:hover .card-content {
+  justify-content: space-between; /* Space out image and text */
+}
 #contact .card1:hover .hover-text {
   display: block; /* Show the link on hover */
-  left: 15px; /* Position text on the left */
 }
 #contact .card2:hover .hover-text {
   display: block; /* Show the link on hover */
-  right: 15px; /* Position text on the right */
+}
+#contact .card3:hover .hover-text {
+  display: block; /* Show the link on hover */
 }
 #contact .card1:hover .card-content img {
   margin-left: auto; /* Push the image to the far right */
@@ -12047,7 +12051,7 @@ section.schead .section-heading {
 
 /* Masthead Section */
 #baptisan {
-  background-image: url('../assets/img/pelayanan/baptisan-air.jpg');
+  background-image: url('../assets/img/pelayanan/baptisan-air.webp');
   animation: none !important;
   background-position: 50% 20%;
 }
@@ -12169,7 +12173,7 @@ section.schead .section-heading {
 
 /* PENYERAHAN ANAK */
 #penyerahan {
-  background-image: url('../assets/img/pelayanan/penyerahan-anak.jpg');
+  background-image: url('../assets/img/pelayanan/penyerahan-anak.webp');
   animation: none !important;
   background-position: 50% 50%;
 }
@@ -12307,7 +12311,7 @@ section.schead .section-heading {
 
 /* PERJAMUAN KUDUS */
 #perjamuan {
-  background-image: url('../assets/img/pelayanan/perjamuan-kudus.JPG');
+  background-image: url('../assets/img/pelayanan/perjamuan-kudus.webp');
   animation: none !important;
   background-position: 50% 50%;
 }
@@ -12524,7 +12528,7 @@ section.schead .section-heading {
 /* SUNDAY SERVICE */
 #sunday {
   animation: none !important;
-  background: url('../assets/img/pelayanan/sunday-service.JPG') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/sunday-service.webp') center/cover no-repeat;
   box-shadow: inset 0 100px 100px rgba(0, 0, 0, 0.7);
   background-position: 50% 55%;
 }
@@ -12654,7 +12658,7 @@ section.schead .section-heading {
 /* DOA */
 #doa {
   animation: none !important;
-  background: url('../assets/img/pelayanan/doa-bersama.png') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/doa-bersama.webp') center/cover no-repeat;
   background-position: 50% 45%;
 }
 
@@ -12703,7 +12707,7 @@ section.schead .section-heading {
 /* IBADAH RAYON */
 #ibadah {
   animation: none !important;
-  background: url('../assets/img/pelayanan/ibadah-rayon.JPG') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/ibadah-rayon.webp') center/cover no-repeat;
   background-position: 50% 35%;
 }
 
@@ -12781,7 +12785,7 @@ section.schead .section-heading {
 }
 
 #moc .right-box {
-  background-image: url(../assets/img/pelayanan/moc.JPG);
+  background-image: url(../assets/img/pelayanan/moc.webp);
   background-size: cover;
   background-position: 100% 50%;  
 }
@@ -13094,7 +13098,7 @@ section.schead .section-heading {
 /* ABA */
 #aba {
   animation: none !important;
-  background: url('../assets/img/pelayanan/aba.jpg') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/aba.webp') center/cover no-repeat;
   background-position: 50% 70%;
 }
 
@@ -13196,7 +13200,7 @@ section.schead .section-heading {
 
 /* Blackboard Textured Background */
 .blackboard-bg {
-  background: url('../assets/img/blackboard-texture.jpg') center/cover no-repeat;
+  background: url('../assets/img/blackboard-texture.webp') center/cover no-repeat;
   background-attachment: fixed; /* Fixed background when scrolling */
   position: relative;
   padding: 4rem 0;
@@ -13223,7 +13227,7 @@ section.schead .section-heading {
 
 /* Masthead (Sekolah Minggu Header) */
 #sekolah {
-  background: url('../assets/img/pelayanan/sekolah-minggu.jpg') center/cover no-repeat;
+  background: url('../assets/img/pelayanan/sekolah-minggu.webp') center/cover no-repeat;
   background-position: 50% 60%;
   min-height: 60vh;
   display: flex;

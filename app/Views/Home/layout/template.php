@@ -4,42 +4,42 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="GPDI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPDI Indonesia" />
-    <meta name="keywords" content="GPDI Bahu, Gereja, Sulawesi Utara, GPDI, Pantekosta, Bahu, Manado">
+    <meta name="description" content="GPdI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPdI Indonesia" />
+    <meta name="keywords" content="GPdI Bahu, Gereja, Sulawesi Utara, GPdI, Pantekosta, Bahu, Manado">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="GPDI Bahu Team" />
-    <meta name="publisher" content="GPDI Bahu">
-    <link rel="canonical" href="https://gpdi-bahu.com/">
+    <meta name="author" content="GPdI Bahu Team" />
+    <meta name="publisher" content="GPdI Bahu">
+    <link rel="canonical" href="https://GPdI-bahu.com/">
     <link rel="icon" type="image/x-icon" href="<?= base_url('Public/assets/icon.png'); ?>">
     <link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>">
     <title><?= $title; ?></title>
 
     <!-- Open Graph -->
     <meta property="og:title" content="<?= $title; ?>">
-    <meta property="og:description" content="GPDI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPDI Indonesia">
+    <meta property="og:description" content="GPdI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPdI Indonesia">
     <meta property="og:image" content="<?= base_url('Public/assets/icon.png'); ?>">
     <meta property="og:url" content="<?= current_url(); ?>">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="GPDI Bahu">
+    <meta property="og:site_name" content="GPdI Bahu">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $title; ?>">
-    <meta name="twitter:description" content="GPDI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPDI Indonesia">
+    <meta name="twitter:description" content="GPdI Bahu, gereja Pantekosta di Sulawesi Utara yang bertempat di kelurahan Bahu Lingkungan 2 Kota Manado, keluarga besar GPdI Indonesia">
     <meta name="twitter:image" content="<?= base_url('Public/assets/icon.png'); ?>">
-    <meta name="twitter:site" content="@gpdi.bahu">
+    <meta name="twitter:site" content="@GPdI.bahu">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "GPDI Bahu",
-            "url": "https://gpdi-bahu.com",
+            "name": "GPdI Bahu",
+            "url": "https://GPdI-bahu.com",
             "logo": "<?= base_url('Public/assets/icon.png'); ?>",
             "sameAs": [
-                "https://www.facebook.com/gpdibahu",
-                "https://www.instagram.com/gpdibahu"
+                "https://www.facebook.com/GPdIbahu",
+                "https://www.instagram.com/GPdIbahu"
             ],
             "address": {
                 "@type": "PostalAddress",
@@ -78,7 +78,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="<?= base_url('/Home'); ?>"><img src="<?= base_url('Public/assets/img/navbar-logo.png'); ?>" alt="..." /></a>
+            <a class="navbar-brand" href="<?= base_url('/Home'); ?>"><img src="<?= base_url('Public/assets/img/navbar-logo.webp'); ?>" alt="..." /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -104,14 +104,14 @@
                 <!-- Content Section (Right) -->
                 <div class="col-md-4 content my-3">
                     <div>
-                        <h2>GPDI<br>BAHU</h2>
+                        <h2>GPdI<br>BAHU</h2>
                     </div>
                     <div>
                         <h3>MANADO, SULAWESI UTARA</h3>
                         <p>Kec. Malalayang</p>
                         <p>Kel. Bahu II</p>
                         <p>Jl. P.Bunaken, 95115</p>
-                        <a href="tel:+6200000000000">Telp. +62 000-0000-0000</a>
+                        <!-- <a href="tel:+6200000000000">Telp. +62 000-0000-0000</a> -->
                         <br><br>
                         <!-- Button for getting directions -->
                         <a href="https://www.google.com/maps/dir/?api=1&destination=Jl.+P.Bunaken,+95115,+Manado,+Sulawesi+Utara,+Indonesia" target="_blank" class="map-button">
@@ -131,20 +131,28 @@
                     <!-- Cards Section -->
                     <div class="wrapper mb-3">
                         <div class="wrapper mb-3">
-                            <div class="card card1 ms-5">
+                            <div class="card card1">
                                 <!-- Card 1 content -->
                                 <div class="card-content">
                                     <img src="<?= base_url('Public/assets/img/icon/bahu-icon-tp.png'); ?>" alt="">
                                     <!-- The link is only visible and clickable on hover -->
-                                    <a href="https://www.instagram.com/gpdibahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@gpdi.bahu</a>
+                                    <a href="https://www.instagram.com/GPdIbahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@gpdi.bahu</a>
                                 </div>
                             </div>
-                            <div class="card card2 me-5">
+                            <div class="card card2">
                                 <!-- Card 2 content -->
                                 <div class="card-content">
                                     <img src="<?= base_url('Public/assets/img/icon/moc-icon-tp.png'); ?>" alt="">
                                     <!-- The link is only visible and clickable on hover -->
-                                    <a href="https://www.instagram.com/moc.gpdibahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@moc.gpdibahu</a>
+                                    <a href="https://www.instagram.com/moc.GPdIbahu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover-text" target="_blank">@moc.gpdibahu</a>
+                                </div>
+                            </div>
+                            <div class="card card3">
+                                <!-- Card 3 content -->
+                                <div class="card-content">
+                                    <img src="<?= base_url('Public/assets/img/icon/tog-icon-tp.png'); ?>" alt="">
+                                    <!-- The link is only visible and clickable on hover -->
+                                    <a href="https://www.instagram.com/teensgpdibahu?utm_source=ig_web_button_share_sheet&igsh=bDByYzJkcnVxd2Vo" class="hover-text" target="_blank">@teensgpdibahu</a>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +167,7 @@
             <div class="row align-items-center text-white">
                 <div class="col-lg-4 text-lg-start"></div>
                 <div class="col-lg-4 my-3 my-lg-0">
-                    Copyright &copy; GPDI Bahu 2025
+                    Copyright &copy; GPdI Bahu 2025
                 </div>
                 <div class="col-lg-4 text-lg-end">
                 </div>

@@ -30,12 +30,12 @@
                 <div class="d-flex justify-content-around align-items-center mt-4">
                     <div>
                         <p>PAGI</p>
-                        <p>7.00 - 9.00</p>
+                        <p>08.00 AM</p>
                     </div>
                     <div class="divider-vertical"></div>
                     <div>
                         <p>SORE</p>
-                        <p>7.00 - 9.00</p>
+                        <p>06.00 PM</p>
                     </div>
                 </div>
             </div>
@@ -82,8 +82,8 @@
                 <iframe id="youtube-video" width="100%" height="315" src="<?= esc($embedCode) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="col-md-5 text-center">
-                <p class="text-white">Temukan kami di YouTube untuk live ibadah GPDI Bahu</p>
-                <a href="https://www.youtube.com/@gpdibahuofficial3099" class="btn btn-outline-light btn-lg px-5 py-2 rounded-pill">Go to YouTube</a>
+                <p class="text-white">Temukan kami di YouTube untuk live ibadah GPdI Bahu</p>
+                <a href="https://www.youtube.com/@GPdIbahuofficial3099" class="btn btn-outline-light btn-lg px-5 py-2 rounded-pill">Go to YouTube</a>
             </div>
         </div>
     </div>

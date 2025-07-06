@@ -23,13 +23,13 @@
 
 <section class="page-section bg-black text-center my-0" id="rayon">
     <h2 class="fs-1 fw-bold text-white mb-0">5 RAYON</h2>
-    <p class="fs-5 text-white">GPDI BAHU</p>
+    <p class="fs-5 text-white">GPdI BAHU</p>
     <div class="container d-flex flex-column">
         <!-- Rayon 1 -->
         <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon1">
             <!-- Image/Placeholder -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
-                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
+                <img src="../Public/assets/img/pelayanan/rayon/hermon.jpg" alt="Image Placeholder" class="img-fluid">
             </div>
             <!-- Text -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center text-container">
@@ -45,7 +45,7 @@
             </div>
             <!-- Image/Placeholder - Order 1 on larger screens, Order 2 on small -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder order-md-2 order-1 p-0">
-                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
+                <img src="../Public/assets/img/pelayanan/rayon/horeb.jpg" alt="Image Placeholder" class="img-fluid">
             </div>
         </div>
 
@@ -53,7 +53,7 @@
         <div class="col-12 d-flex flex-wrap mb-3 p-3 rayon-item hidden" id="rayon3">
             <!-- Image/Placeholder -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
-                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
+                <img src="../Public/assets/img/pelayanan/rayon/karmel.jpg" alt="Image Placeholder" class="img-fluid">
             </div>
             <!-- Text -->
             <div class="col-md-4 col-12 d-flex align-items-center justify-content-center text-container">
@@ -69,7 +69,7 @@
             </div>
             <!-- Image/Placeholder - Order 1 on larger screens, Order 2 on small -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder order-md-2 order-1 p-0">
-                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
+                <img src="../Public/assets/img/pelayanan/rayon/sion.jpg" alt="Image Placeholder" class="img-fluid">
             </div>
         </div>
 
@@ -81,7 +81,7 @@
             </div>
             <!-- Image/Placeholder in the Center -->
             <div class="col-md-8 col-12 d-flex align-items-center justify-content-center bg-secondary rounded-5 rayon-placeholder p-0">
-                <img src="https://placehold.co/600x300" alt="Image Placeholder" class="img-fluid">
+                <img src="../Public/assets/img/pelayanan/rayon/moria.jpg" alt="Image Placeholder" class="img-fluid">
             </div>
             <!-- Right Text (Rotated for larger screens, normal for smaller screens) -->
             <div class="col-md-2 col-12 d-flex align-items-center justify-content-center text-container">
@@ -106,7 +106,7 @@
                 TENTU SAJA!
             </p>
             <p class="fs-4 text-center">
-                Siapa Pun Bisa Bergabung Ke Dalam Keluarga GPDI Bahu Dan Menjadi Bagian Dalam Salah Satu Rayon.
+                Siapa Pun Bisa Bergabung Ke Dalam Keluarga GPdI Bahu Dan Menjadi Bagian Dalam Salah Satu Rayon.
             </p>
         </div>
     </div>
