@@ -37,9 +37,6 @@ $routes->group('Dashboard', ['filter' => 'adminfilter'], function ($routes) {
     $routes->post('akses/update/(:segment)', 'Admin::updateAkses/$1');
 });
 
-$routes->get('admin/get-cities', 'Admin::getCities'); // API Kota
-$routes->get('admin/get-kecamatan/(:segment)', 'Admin::getKecamatan/$1'); // API Kecamatan
-$routes->get('admin/get-kelurahan/(:segment)', 'Admin::getKelurahan/$1'); // API Kelurahan
 $routes->get('/events', 'Home::getEvents');
 
 $routes->get('/sitemap.xml', 'Sitemap::index');

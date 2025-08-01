@@ -13,6 +13,7 @@ use Carbon\Carbon; // Pastikan Carbon terinstal dan di-import di sini (controlle
 
 class Admin extends BaseController
 {
+    protected $db;
     protected $liveModel;
     protected $jadwalModel;
     protected $beritaModel;
@@ -23,7 +24,7 @@ class Admin extends BaseController
 
     public function __construct()
     {
-        // $this->jemaatModel = new JemaatModel();
+        $this->db = \Config\Database::connect();
         $this->liveModel = new LiveModel();
         $this->jadwalModel = new JadwalModel();
         $this->beritaModel = new BeritaModel();
@@ -31,7 +32,7 @@ class Admin extends BaseController
         $this->anggotaModel = new AnggotaModel();
         $this->keluargaModel = new KeluargaModel();
         $this->anggotakeluargaModel = new AnggotaKeluargaModel();
-        helper('form'); // Load form helper if needed
+        helper('form');
     }
 
 
@@ -245,385 +246,285 @@ class Admin extends BaseController
         return view('Admin/jemaat/list-jemaat', $data);
     }
 
+    public function editJemaat($idAnggota = null)
+    {
+        // Pastikan ID valid
+        if ($idAnggota === null) {
+            return redirect()->to('/Dashboard/listJemaat')->with('error', 'ID Anggota tidak valid.');
+        }
+
+        // Ambil data anggota yang akan diedit, termasuk informasi keluarga
+        $memberData = $this->anggotaModel
+            ->select('tb_anggota.*, tb_keluarga.namakeluarga, tb_keluarga.idkeluarga, tb_anggotakeluarga.peran')
+            ->join('tb_anggotakeluarga', 'tb_anggotakeluarga.idanggota = tb_anggota.idanggota', 'left')
+            ->join('tb_keluarga', 'tb_keluarga.idkeluarga = tb_anggotakeluarga.idkeluarga', 'left')
+            ->where('tb_anggota.idanggota', $idAnggota)
+            ->first();
+
+        if (!$memberData) {
+            return redirect()->to('/Dashboard/listJemaat')->with('error', 'Data anggota tidak ditemukan.');
+        }
+
+        // Ambil daftar semua keluarga untuk dropdown
+        $keluargaList = $this->keluargaModel->select('idkeluarga, namakeluarga')->findAll();
+
+        $data = [
+            'title' => 'Edit Jemaat',
+            'validation' => \Config\Services::validation(),
+            'errors' => session()->getFlashdata('errors'),
+            'anggota' => $memberData, // Data anggota yang akan diedit
+            'keluargaList' => $keluargaList, // Daftar keluarga untuk dropdown
+            'loggedInUserName' => session()->get('name'),
+            'loggedInUserRole' => session()->get('role'),
+        ];
+        return view('Admin/jemaat/edit-jemaat', $data);
+    }
+
+    public function updateJemaat($idAnggota)
+    {
+        // 1. Definisikan aturan validasi dinamis
+        $rules = [
+            'namaLengkap' => 'required',
+            'tanggalLahir' => 'permit_empty|valid_date',
+            'rayon' => 'permit_empty',
+            'memberRole' => 'required|in_list[Perseorangan,Suami,Istri,Anak]',
+        ];
+
+        $memberRole = $this->request->getPost('memberRole');
+        $familyChoice = $this->request->getPost('familyChoice');
+
+        if ($memberRole !== 'Perseorangan') {
+            $rules['familyChoice'] = 'required|in_list[new,existing]';
+
+            if ($familyChoice === 'new') {
+                $rules['namaKeluargaBaru'] = 'required';
+                $rules['tanggalPernikahanBaru'] = 'permit_empty|valid_date';
+            } elseif ($familyChoice === 'existing') {
+                $rules['idKeluarga'] = 'required|is_natural_no_zero';
+            }
+        }
+
+        // 2. Jalankan validasi
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // 3. Mulai transaksi database
+        $this->db->transBegin();
+
+        try {
+            // Ambil data anggota dan hubungannya yang sudah ada
+            $oldMemberData = $this->anggotaModel
+                ->join('tb_anggotakeluarga', 'tb_anggotakeluarga.idanggota = tb_anggota.idanggota', 'left')
+                ->where('tb_anggota.idanggota', $idAnggota)
+                ->first();
+
+            // 4. Perbarui data di tb_anggota
+            $anggotaData = [
+                'namalengkap' => $this->request->getPost('namaLengkap'),
+                'tanggallahir' => $this->request->getPost('tanggalLahir') ?: NULL,
+                'rayon' => $this->request->getPost('rayon') ?: NULL,
+            ];
+            $this->anggotaModel->update($idAnggota, $anggotaData);
+
+            // 5. Kelola hubungan keluarga
+            $oldIdKeluarga = $oldMemberData['idkeluarga'] ?? null;
+            $newIdKeluarga = null;
+
+            // Hapus entri lama di tb_anggotakeluarga
+            if ($oldIdKeluarga) {
+                $this->anggotakeluargaModel->where('idanggota', $idAnggota)->delete();
+            }
+
+            // Tambahkan entri baru jika bukan perseorangan
+            if ($memberRole !== 'Perseorangan') {
+                if ($familyChoice === 'new') {
+                    // Buat keluarga baru
+                    $keluargaData = [
+                        'namakeluarga' => $this->request->getPost('namaKeluargaBaru'),
+                        'tanggalpernikahan' => $this->request->getPost('tanggalPernikahanBaru') ?: NULL,
+                        'namaayahsuami' => $this->request->getPost('namaAyahSuamiBaru') ?: NULL,
+                        'namaibusuami' => $this->request->getPost('namaIbuSuamiBaru') ?: NULL,
+                        'namaayahistri' => $this->request->getPost('namaAyahIstriBaru') ?: NULL,
+                        'namaibuistri' => $this->request->getPost('namaIbuIstriBaru') ?: NULL,
+                    ];
+                    $this->keluargaModel->insert($keluargaData);
+                    $newIdKeluarga = $this->keluargaModel->getInsertID();
+                } elseif ($familyChoice === 'existing') {
+                    $newIdKeluarga = $this->request->getPost('idKeluarga');
+                }
+
+                if ($newIdKeluarga) {
+                    $anggotaKeluargaData = [
+                        'idkeluarga' => $newIdKeluarga,
+                        'idanggota' => $idAnggota,
+                        'peran' => $memberRole,
+                    ];
+                    $this->anggotakeluargaModel->insert($anggotaKeluargaData);
+                }
+            }
+
+            // 6. Periksa jika keluarga lama menjadi kosong
+            if ($oldIdKeluarga && $oldIdKeluarga !== $newIdKeluarga) {
+                $membersInOldFamily = $this->anggotakeluargaModel->where('idkeluarga', $oldIdKeluarga)->countAllResults();
+                if ($membersInOldFamily == 0) {
+                    $this->keluargaModel->delete($oldIdKeluarga);
+                }
+            }
+
+            // 7. Commit transaksi jika semua berhasil
+            $this->db->transCommit();
+            session()->setFlashdata('pesan', 'Data Jemaat Berhasil Diperbarui');
+            return redirect()->to('/Dashboard/listJemaat');
+        } catch (\Exception $e) {
+            // 8. Rollback transaksi jika terjadi error
+            $this->db->transRollback();
+            log_message('error', 'Error updating jemaat data: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('errors', ['database' => 'Gagal memperbarui data ke database: ' . $e->getMessage()]);
+        }
+    }
+
+    public function deleteJemaat($idAnggota)
+    {
+        // Pastikan ID valid
+        if ($idAnggota === null) {
+            return redirect()->to('/Dashboard/jemaat/list')->with('error', 'ID Anggota tidak valid.');
+        }
+
+        $this->db->transBegin();
+
+        try {
+            // Dapatkan ID keluarga lama sebelum menghapus anggota
+            $oldMemberData = $this->anggotakeluargaModel->where('idanggota', $idAnggota)->first();
+            $oldIdKeluarga = $oldMemberData['idkeluarga'] ?? null;
+
+            // Hapus anggota dari tabel tb_anggota
+            $this->anggotaModel->delete($idAnggota);
+
+            // Periksa jika keluarga lama menjadi kosong setelah penghapusan
+            if ($oldIdKeluarga) {
+                $membersInOldFamily = $this->anggotakeluargaModel->where('idkeluarga', $oldIdKeluarga)->countAllResults();
+                if ($membersInOldFamily == 0) {
+                    // Jika keluarga lama tidak punya anggota, hapus juga dari tb_keluarga
+                    $this->keluargaModel->delete($oldIdKeluarga);
+                }
+            }
+
+            $this->db->transCommit();
+            session()->setFlashdata('pesan', 'Data Jemaat Berhasil Dihapus');
+            return redirect()->to('/Dashboard/listJemaat');
+        } catch (\Exception $e) {
+            $this->db->transRollback();
+            log_message('error', 'Error deleting jemaat data: ' . $e->getMessage());
+            return redirect()->back()->with('errors', ['database' => 'Gagal menghapus data: ' . $e->getMessage()]);
+        }
+    }
+
     public function tambahJemaat(): string // Halaman Tambah Jemaat
     {
         $session = session();
         $loggedInUserRole = $session->get('role');
         $loggedInUserName = $session->get('name');
 
+        // Ambil daftar keluarga yang ada untuk dropdown
+        $keluargaList = $this->keluargaModel->select('idkeluarga, namakeluarga')->findAll();
+
         $data = [
             'title' => 'Tambah Jemaat',
             'validation' => \Config\Services::validation(),
-            'errors' => session()->getFlashdata('errors'),
+            'errors' => session()->getFlashdata('errors') ?? [],
+            'keluargaList' => $keluargaList, // Teruskan daftar keluarga ke view
             'loggedInUserName' => $loggedInUserName,
             'loggedInUserRole' => $loggedInUserRole,
         ];
         return view('Admin/jemaat/tambah-jemaat', $data);
     }
 
-    // public function editJemaat($id) // Halaman Edit Jemaat
-    // {
-    //     $jemaat = $this->jemaatModel->find($id);
-
-    //     if (!$jemaat) {
-    //         throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
-    //     }
-
-    //     // Decode the API data stored in `api_code` column
-    //     $apiCodeData = json_decode($jemaat['api_code'], true);
-
-    //     // Extract codes from the decoded API data
-    //     $cityCode = $apiCodeData['city'] ?? '';
-    //     $kecamatanCode = $apiCodeData['kecamatan'] ?? '';
-    //     $kelurahanCode = $apiCodeData['kelurahan'] ?? '';
-    //     $lingkungan = $apiCodeData['lingkungan'] ?? ''; // Extract the lingkungan value
-
-    //     // Fetch cities data from the API
-    //     $cities = $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json")['data'] ?? [];
-
-    //     // Ensure `$kecamatanData` and `$kelurahanData` are defined as arrays
-    //     $kecamatanData = [];
-    //     $kelurahanData = [];
-
-    //     if ($cityCode) {
-    //         $kecamatanData = $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json")['data'] ?? [];
-    //     }
-
-    //     if ($kecamatanCode) {
-    //         $kelurahanData = $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")['data'] ?? [];
-    //     }
-
-    //     $session = session();
-    //     $loggedInUserRole = $session->get('role');
-    //     $loggedInUserName = $session->get('name');
-
-    //     $data = [
-    //         'title' => 'Edit Data Jemaat',
-    //         'validation' => \Config\Services::validation(),
-    //         'jemaat' => $jemaat,
-    //         'cities' => $cities,
-    //         'kecamatanData' => $kecamatanData,
-    //         'kelurahanData' => $kelurahanData,
-    //         'selectedCityCode' => $cityCode,
-    //         'selectedKecamatanCode' => $kecamatanCode,
-    //         'selectedKelurahanCode' => $kelurahanCode,
-    //         'selectedLingkungan' => $lingkungan,
-    //         'loggedInUserName' => $loggedInUserName,
-    //         'loggedInUserRole' => $loggedInUserRole,
-    //     ];
-
-    //     return view('Admin/jemaat/edit-jemaat', $data);
-    // }
-
-    public function saveJemaat() // Save Jemaat
+    public function saveJemaat()
     {
-        $action = $this->request->getPost('action');
+        // 1. Definisikan aturan validasi dinamis
+        $rules = [
+            'namaLengkap' => 'required',
+            'tanggalLahir' => 'permit_empty|valid_date',
+            'rayon' => 'permit_empty',
+            'memberRole' => 'required|in_list[Perseorangan,Suami,Istri,Anak]',
+        ];
 
-        // Validate input
-        if (!$this->validate($this->getValidationRules())) {
+        $memberRole = $this->request->getPost('memberRole');
+        $familyChoice = $this->request->getPost('familyChoice');
+
+        if ($memberRole !== 'Perseorangan') {
+            $rules['familyChoice'] = 'required|in_list[new,existing]';
+
+            if ($familyChoice === 'new') {
+                $rules['namaKeluargaBaru'] = 'required';
+                $rules['tanggalPernikahanBaru'] = 'permit_empty|valid_date';
+                // Nama orang tua adalah opsional, tidak perlu aturan validasi khusus kecuali diinginkan
+            } elseif ($familyChoice === 'existing') {
+                $rules['idKeluarga'] = 'required|is_natural_no_zero';
+            }
+        }
+
+        // 2. Jalankan validasi
+        if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Collect form data
-        $formData = $this->request->getPost([
-            'nama',
-            'tgl_lahir',
-            'asal',
-            'jns_kelamin',
-            'telp',
-            'city',
-            'kecamatan',
-            'kelurahan',
-            'lingkungan',
-        ]);
-
-        $session = session();
-        $loggedInUserName = $session->get('name');
-        $formData['by'] = $loggedInUserName;
+        // 3. Mulai transaksi database
+        $this->db->transBegin();
 
         try {
-            // Prepare only the raw data for the address to be stored in the api_code column
-            $rawAddressData = json_encode([
-                'city' => $formData['city'],
-                'kecamatan' => $formData['kecamatan'],
-                'kelurahan' => $formData['kelurahan'],
-                'lingkungan' => $formData['lingkungan']
-            ]);
+            // 4. Insert data ke tb_anggota
+            $anggotaData = [
+                'namalengkap' => $this->request->getPost('namaLengkap'),
+                'tanggallahir' => $this->request->getPost('tanggalLahir') ?: NULL, // Simpan sebagai NULL jika kosong
+                'rayon' => $this->request->getPost('rayon') ?: NULL, // Simpan sebagai NULL jika kosong
+            ];
+            $this->anggotaModel->insert($anggotaData);
+            $idAnggotaBaru = $this->anggotaModel->getInsertID();
 
-            // Format the address using the provided method
-            $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
+            // 5. Tangani logika spesifik keluarga/peran
+            if ($memberRole !== 'Perseorangan') {
+                $idKeluargaToLink = NULL;
 
-            if ($action === 'save') {
-                $this->jemaatModel->save(array_merge($formData, [
-                    'alamat' => $alamat,
-                    'api_code' => $rawAddressData // Store only the raw address data in the api_code column
-                ]));
+                if ($familyChoice === 'new') {
+                    // Buat keluarga baru
+                    $keluargaData = [
+                        'namakeluarga' => $this->request->getPost('namaKeluargaBaru'),
+                        'tanggalpernikahan' => $this->request->getPost('tanggalPernikahanBaru') ?: NULL,
+                        'namaayahsuami' => $this->request->getPost('namaAyahSuamiBaru') ?: NULL,
+                        'namaibusuami' => $this->request->getPost('namaIbuSuamiBaru') ?: NULL,
+                        'namaayahistri' => $this->request->getPost('namaAyahIstriBaru') ?: NULL,
+                        'namaibuistri' => $this->request->getPost('namaIbuIstriBaru') ?: NULL,
+                    ];
+                    $this->keluargaModel->insert($keluargaData);
+                    $idKeluargaToLink = $this->keluargaModel->getInsertID();
+                } elseif ($familyChoice === 'existing') {
+                    // Gunakan ID keluarga yang sudah ada
+                    $idKeluargaToLink = $this->request->getPost('idKeluarga');
+                }
 
-                session()->setFlashdata('pesan', 'Data Jemaat Berhasil Ditambahkan');
-                return redirect()->to('/Dashboard/tambahJemaat');
+                if ($idKeluargaToLink) {
+                    $anggotaKeluargaData = [
+                        'idkeluarga' => $idKeluargaToLink,
+                        'idanggota' => $idAnggotaBaru,
+                        'peran' => $memberRole,
+                    ];
+                    $this->anggotakeluargaModel->insert($anggotaKeluargaData);
+                }
             }
-        } catch (Exception $e) {
-            return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
+
+            // 6. Commit transaksi jika semua berhasil
+            $this->db->transCommit();
+            session()->setFlashdata('pesan', 'Data Jemaat Berhasil Ditambahkan');
+            return redirect()->to('/Dashboard/listJemaat');
+        } catch (\Exception $e) {
+            // 7. Rollback transaksi jika terjadi error
+            $this->db->transRollback();
+            log_message('error', 'Error saving jemaat data: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('errors', ['database' => 'Gagal menyimpan data ke database: ' . $e->getMessage()]);
         }
     }
-
-    // public function deleteJemaat($id) // Hapus Jemaat
-    // {
-    //     // Get the jemaat data by ID
-    //     $jemaat = $this->jemaatModel->find($id);
-
-    //     if ($jemaat) {
-    //         // Delete the jemaat record from the database
-    //         $this->jemaatModel->delete($id);
-
-    //         // Set flashdata for success message
-    //         session()->setFlashdata('pesan', 'Data Jemaat Berhasil Dihapus');
-    //     } else {
-    //         // Set flashdata for an error message if the record is not found
-    //         session()->setFlashdata('error', 'Data Jemaat tidak ditemukan atau sudah dihapus');
-    //     }
-
-    //     // Redirect back to the list of jemaat
-    //     return redirect()->to('/Dashboard/listJemaat');
-    // }
-
-    // public function updateJemaat($id) // Edit Jemaat
-    // {
-    //     $action = $this->request->getPost('action'); // Get the action value from the form
-
-    //     // Get the existing data by ID
-    //     $jemaatLama = $this->jemaatModel->find($id);
-
-    //     if (!$jemaatLama) {
-    //         throw new \CodeIgniter\Exceptions\PageNotFoundException("Data Jemaat dengan ID $id tidak ditemukan");
-    //     }
-
-    //     // Validate form input
-    //     if (!$this->validate([
-    //         'nama' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Nama harus diisi'
-    //             ]
-    //         ],
-    //         'tgl_lahir' => [
-    //             'rules' => 'required|valid_date',
-    //             'errors' => [
-    //                 'required' => 'Tanggal lahir harus diisi',
-    //                 'valid_date' => 'Format tanggal lahir tidak valid'
-    //             ]
-    //         ],
-    //         'asal' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Asal harus diisi'
-    //             ]
-    //         ],
-    //         'jns_kelamin' => [
-    //             'rules' => 'required|in_list[Laki-laki,Perempuan]',
-    //             'errors' => [
-    //                 'required' => 'Jenis kelamin harus dipilih',
-    //                 'in_list' => 'Jenis kelamin tidak valid'
-    //             ]
-    //         ],
-    //         'telp' => [
-    //             'rules' => 'required|numeric|min_length[10]',
-    //             'errors' => [
-    //                 'required' => 'Nomor telepon harus diisi',
-    //                 'numeric' => 'Nomor telepon harus berupa angka',
-    //                 'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka'
-    //             ]
-    //         ],
-    //         'city' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Kota harus dipilih'
-    //             ]
-    //         ],
-    //         'kecamatan' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Kecamatan harus dipilih'
-    //             ]
-    //         ],
-    //         'kelurahan' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Kelurahan harus dipilih'
-    //             ]
-    //         ],
-    //         'lingkungan' => [
-    //             'rules' => 'required|numeric|min_length[1]',
-    //             'errors' => [
-    //                 'required' => 'Lingkungan harus diisi',
-    //                 'numeric' => 'Lingkungan harus berupa angka',
-    //                 'min_length' => 'Lingkungan harus valid'
-    //             ]
-    //         ]
-    //     ])) {
-    //         return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-    //     }
-
-    //     // Collect form data
-    //     $formData = $this->request->getPost([
-    //         'nama',
-    //         'tgl_lahir',
-    //         'asal',
-    //         'jns_kelamin',
-    //         'telp',
-    //         'city',
-    //         'kecamatan',
-    //         'kelurahan',
-    //         'lingkungan',
-    //         'api_code'
-    //     ]);
-
-    //     try {
-    //         // Format the address using the provided method
-    //         $alamat = $this->formatAddress($formData['city'], $formData['kecamatan'], $formData['kelurahan'], $formData['lingkungan']);
-
-    //         // Prepare the raw data for storage in the `api_code` column
-    //         $apiCode = json_encode([
-    //             'city' => $formData['city'],
-    //             'kecamatan' => $formData['kecamatan'],
-    //             'kelurahan' => $formData['kelurahan'],
-    //             'lingkungan' => $formData['lingkungan']
-    //         ]);
-
-    //         // Handle the "save" action
-    //         if ($action === 'save') {
-    //             $this->jemaatModel->save([
-    //                 'id' => $id,
-    //                 'nama' => $formData['nama'],
-    //                 'tgl_lahir' => $formData['tgl_lahir'],
-    //                 'asal' => $formData['asal'],
-    //                 'jns_kelamin' => $formData['jns_kelamin'],
-    //                 'telp' => $formData['telp'],
-    //                 'city' => $formData['city'],
-    //                 'kecamatan' => $formData['kecamatan'],
-    //                 'kelurahan' => $formData['kelurahan'],
-    //                 'lingkungan' => $formData['lingkungan'],
-    //                 'alamat' => $alamat,
-    //                 'api_code' => $apiCode
-    //             ]);
-
-    //             session()->setFlashdata('pesan', 'Data Jemaat Berhasil Diubah');
-    //             return redirect()->to('/Dashboard/listJemaat');
-    //         }
-    //     } catch (Exception $e) {
-    //         return redirect()->back()->withInput()->with('errors', ['api' => 'Gagal menyimpan data ke database.']);
-    //     }
-    // }
-
-    // public function getCities() // API Kota
-    // {
-    //     $provinceCode = '71'; // Sulawesi Utara province code
-    //     $url = "https://wilayah.id/api/regencies/{$provinceCode}.json";
-
-    //     try {
-    //         $response = file_get_contents($url);
-    //         if ($response === FALSE) {
-    //             throw new Exception("Failed to fetch data from the API");
-    //         }
-
-    //         // Log response for debugging (optional)
-    //         log_message('info', 'API response: ' . $response);
-
-    //         return $this->response->setJSON(json_decode($response, true));
-    //     } catch (Exception $e) {
-    //         log_message('error', 'API fetch error: ' . $e->getMessage());
-    //         return $this->response->setJSON(['error' => $e->getMessage()]);
-    //     }
-    // }
-
-    // public function getKecamatan($regencyCode) // API Kecamata
-    // {
-    //     $url = "https://wilayah.id/api/districts/{$regencyCode}.json";
-
-    //     try {
-    //         $response = file_get_contents($url);
-    //         if ($response === FALSE) {
-    //             throw new Exception("Failed to fetch data from the API");
-    //         }
-
-    //         // Send the response as JSON
-    //         return $this->response->setJSON(json_decode($response, true));
-    //     } catch (Exception $e) {
-    //         // Handle error
-    //         return $this->response->setJSON(['error' => $e->getMessage()]);
-    //     }
-    // }
-
-    // public function getKelurahan($districtCode) // API Kelurahan
-    // {
-    //     $url = "https://wilayah.id/api/villages/{$districtCode}.json";
-
-    //     try {
-    //         $response = file_get_contents($url);
-    //         if ($response === FALSE) {
-    //             throw new Exception("Failed to fetch data from the API");
-    //         }
-
-    //         // Send the response as JSON
-    //         return $this->response->setJSON(json_decode($response, true));
-    //     } catch (Exception $e) {
-    //         // Handle error
-    //         return $this->response->setJSON(['error' => $e->getMessage()]);
-    //     }
-    // }
-
-    // private function getValidationRules() // Private -> Validation Rules
-    // {
-    //     return [
-    //         'nama' => ['rules' => 'required', 'errors' => ['required' => 'Nama harus diisi']],
-    //         'tgl_lahir' => ['rules' => 'required|valid_date', 'errors' => ['required' => 'Tanggal lahir harus diisi', 'valid_date' => 'Format tanggal lahir tidak valid']],
-    //         'asal' => ['rules' => 'required', 'errors' => ['required' => 'Asal harus diisi']],
-    //         'jns_kelamin' => ['rules' => 'required|in_list[Laki-laki,Perempuan]', 'errors' => ['required' => 'Jenis kelamin harus dipilih', 'in_list' => 'Jenis kelamin tidak valid']],
-    //         'telp' => ['rules' => 'required|numeric|min_length[10]', 'errors' => ['required' => 'Nomor telepon harus diisi', 'numeric' => 'Nomor telepon harus berupa angka', 'min_length' => 'Nomor telepon harus terdiri dari minimal 10 angka']],
-    //         'city' => ['rules' => 'required', 'errors' => ['required' => 'Kota harus dipilih']],
-    //         'kecamatan' => ['rules' => 'required', 'errors' => ['required' => 'Kecamatan harus dipilih']],
-    //         'kelurahan' => ['rules' => 'required', 'errors' => ['required' => 'Kelurahan harus dipilih']],
-    //         'lingkungan' => ['rules' => 'required|numeric|min_length[1]', 'errors' => ['required' => 'Lingkungan harus diisi', 'numeric' => 'Lingkungan harus berupa angka', 'min_length' => 'Lingkungan harus valid']]
-    //     ];
-    // }
-
-    // private function formatAddress($cityCode, $kecamatanCode, $kelurahanCode, $lingkungan) // Private -> Formatting Alamat
-    // {
-    //     $areaNames = [];
-    //     $apiData = [
-    //         'city' => $this->fetchDataFromApi("https://wilayah.id/api/regencies/71.json"),
-    //         'kecamatan' => $this->fetchDataFromApi("https://wilayah.id/api/districts/{$cityCode}.json"),
-    //         'kelurahan' => $this->fetchDataFromApi("https://wilayah.id/api/villages/{$kecamatanCode}.json")
-    //     ];
-
-    //     foreach (['city' => $cityCode, 'kecamatan' => $kecamatanCode, 'kelurahan' => $kelurahanCode] as $key => $code) {
-    //         $areaNames[] = $this->findAreaName($apiData[$key], $code);
-    //     }
-
-    //     return implode(', ', $areaNames) . ", Lingkungan {$lingkungan}";
-    // }
-
-    // private function fetchDataFromApi($url) // Private -> Fetching Data Dari APA
-    // {
-    //     $response = file_get_contents($url);
-
-    //     if ($response === FALSE) {
-    //         throw new \Exception("Failed to fetch data from the API");
-    //     }
-
-    //     return json_decode($response, true);
-    // }
-
-    // private function findAreaName($data, $code) // Private -> Cari Nama Area Dari Kode Daerah
-    // {
-    //     foreach ($data['data'] as $area) {
-    //         if ($area['code'] == $code) {
-    //             return $area['name'];
-    //         }
-    //     }
-
-    //     return 'Unknown';
-    // }
 
     // ------------------------------------------------------------ JADWAL ----------------------------------------------------------------
 

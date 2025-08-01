@@ -6,14 +6,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Edit Data Jemaat</h1>
-
-    <!-- Display success or error messages -->
-    <?php if (session()->getFlashdata('pesan')) : ?>
-        <div class="alert alert-success mt-3" role="alert">
-            <?= session()->getFlashdata('pesan'); ?>
-        </div>
-    <?php endif; ?>
+    <h1 class="h3 mb-4 text-gray-800">Edit Jemaat</h1>
 
     <!-- Form Container -->
     <div class="row justify-content-center">
@@ -23,120 +16,131 @@
                     <h6 class="m-0 font-weight-bold text-primary">Form Edit Data Jemaat</h6>
                 </div>
                 <div class="card-body">
-                    <?php $errors = session()->getFlashdata('errors') ?? []; ?>
+                    <?php $errors = session()->getFlashdata('errors') ?? \Config\Services::validation()->getErrors(); ?>
 
-                    <form id="jemaatForm" method="post" enctype="multipart/form-data" action="/Dashboard/jemaat/update/<?= $jemaat['id']; ?>">
+                    <form id="jemaatForm" action="/Dashboard/jemaat/update/<?= esc($anggota['idanggota']); ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
-                        <input type="hidden" name="api_code" value="<?= $jemaat['api_code']; ?>">
 
-                        <!-- Nama -->
+                        <!-- Informasi Anggota Utama -->
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control <?= isset($errors['nama']) ? 'is-invalid' : ''; ?>" id="nama" name="nama" placeholder="Masukkan nama lengkap" value="<?= old('nama') ?: $jemaat['nama']; ?>">
+                            <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control <?= isset($errors['namaLengkap']) ? 'is-invalid' : ''; ?>" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" value="<?= old('namaLengkap') ?? esc($anggota['namalengkap']); ?>" required>
                             <div class="invalid-feedback">
-                                <?= isset($errors['nama']) ? $errors['nama'] : ''; ?>
+                                <?= isset($errors['namaLengkap']) ? $errors['namaLengkap'] : ''; ?>
                             </div>
                         </div>
 
-                        <!-- Tanggal Lahir -->
                         <div class="mb-3">
-                            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control <?= isset($errors['tgl_lahir']) ? 'is-invalid' : ''; ?>" id="tgl_lahir" name="tgl_lahir" value="<?= old('tgl_lahir') ?: $jemaat['tgl_lahir']; ?>" onclick="this.showPicker();">
+                            <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
+                            <input type="date" class="form-control <?= isset($errors['tanggalLahir']) ? 'is-invalid' : ''; ?>" id="tanggalLahir" name="tanggalLahir" value="<?= old('tanggalLahir') ?? esc($anggota['tanggallahir']); ?>" onclick="this.showPicker();">
                             <div class="invalid-feedback">
-                                <?= isset($errors['tgl_lahir']) ? $errors['tgl_lahir'] : ''; ?>
+                                <?= isset($errors['tanggalLahir']) ? $errors['tanggalLahir'] : ''; ?>
                             </div>
                         </div>
 
-                        <!-- Asal -->
                         <div class="mb-3">
-                            <label for="asal" class="form-label">Asal</label>
-                            <input type="text" class="form-control <?= isset($errors['asal']) ? 'is-invalid' : ''; ?>" id="asal" name="asal" placeholder="Masukkan asal" value="<?= old('asal') ?: $jemaat['asal']; ?>">
-                            <div class="invalid-feedback">
-                                <?= isset($errors['asal']) ? $errors['asal'] : ''; ?>
-                            </div>
-                        </div>
-
-                        <!-- Jenis Kelamin -->
-                        <div class="mb-3">
-                            <label for="jns_kelamin" class="form-label">Jenis Kelamin</label>
-                            <select class="form-control <?= isset($errors['jns_kelamin']) ? 'is-invalid' : ''; ?>" id="jns_kelamin" name="jns_kelamin">
-                                <option value="" disabled <?= (old('jns_kelamin') === '' && empty($jemaat['jns_kelamin'])) ? 'selected' : ''; ?>>Pilih Jenis Kelamin</option>
-                                <option value="Laki-laki" <?= (old('jns_kelamin') === 'Laki-laki' || (!old('jns_kelamin') && isset($jemaat['jns_kelamin']) && $jemaat['jns_kelamin'] === 'Laki-laki')) ? 'selected' : ''; ?>>Laki-laki</option>
-                                <option value="Perempuan" <?= (old('jns_kelamin') === 'Perempuan' || (!old('jns_kelamin') && isset($jemaat['jns_kelamin']) && $jemaat['jns_kelamin'] === 'Perempuan')) ? 'selected' : ''; ?>>Perempuan</option>
+                            <label for="rayon" class="form-label">Rayon</label>
+                            <select class="form-control <?= isset($errors['rayon']) ? 'is-invalid' : ''; ?>" id="rayon" name="rayon">
+                                <option value="" disabled>Pilih Rayon</option>
+                                <?php $selectedRayon = old('rayon') ?? esc($anggota['rayon']); ?>
+                                <option value="1 SION" <?= ($selectedRayon == '1 SION') ? 'selected' : ''; ?>>1 SION</option>
+                                <option value="2 HERMON" <?= ($selectedRayon == '2 HERMON') ? 'selected' : ''; ?>>2 HERMON</option>
+                                <option value="3 MORIA" <?= ($selectedRayon == '3 MORIA') ? 'selected' : ''; ?>>3 MORIA</option>
+                                <option value="4 HOREB" <?= ($selectedRayon == '4 HOREB') ? 'selected' : ''; ?>>4 HOREB</option>
+                                <option value="5 KARMEL" <?= ($selectedRayon == '5 KARMEL') ? 'selected' : ''; ?>>5 KARMEL</option>
+                                <!-- Tambahkan opsi rayon lainnya di sini jika diperlukan -->
                             </select>
                             <div class="invalid-feedback">
-                                <?= isset($errors['jns_kelamin']) ? $errors['jns_kelamin'] : ''; ?>
+                                <?= isset($errors['rayon']) ? $errors['rayon'] : ''; ?>
                             </div>
                         </div>
 
-                        <!-- Nomor Telepon -->
+                        <!-- Pilihan Peran Anggota -->
                         <div class="mb-3">
-                            <label for="telp" class="form-label">Nomor Telepon</label>
-                            <input type="tel" class="form-control <?= isset($errors['telp']) ? 'is-invalid' : ''; ?>" id="telp" name="telp" placeholder="Masukkan nomor telepon" value="<?= old('telp') ?: $jemaat['telp']; ?>">
+                            <label for="memberRole" class="form-label">Peran dalam Keluarga</label>
+                            <select class="form-control <?= isset($errors['memberRole']) ? 'is-invalid' : ''; ?>" id="memberRole" name="memberRole" required>
+                                <?php $selectedRole = old('memberRole') ?? esc($anggota['peran']); ?>
+                                <option value="" disabled>Pilih Peran</option>
+                                <option value="Perseorangan" <?= ($selectedRole == 'Perseorangan') ? 'selected' : ''; ?>>Perseorangan</option>
+                                <option value="Suami" <?= ($selectedRole == 'Suami') ? 'selected' : ''; ?>>Suami</option>
+                                <option value="Istri" <?= ($selectedRole == 'Istri') ? 'selected' : ''; ?>>Istri</option>
+                                <option value="Anak" <?= ($selectedRole == 'Anak') ? 'selected' : ''; ?>>Anak</option>
+                            </select>
                             <div class="invalid-feedback">
-                                <?= isset($errors['telp']) ? $errors['telp'] : ''; ?>
+                                <?= isset($errors['memberRole']) ? $errors['memberRole'] : ''; ?>
                             </div>
                         </div>
 
-                        <!-- Alamat -->
-                        <div class="mb-3">
-                            <label class="form-label">Alamat</label>
-                            <div class="card p-3">
-                                <!-- Kota -->
-                                <div class="mb-3">
-                                    <label for="city" class="form-label">Kota</label>
-                                    <select class="form-control <?= isset($errors['city']) ? 'is-invalid' : ''; ?>" id="city" name="city">
-                                        <option value="" disabled>Pilih Kota</option>
-                                        <?php foreach ($cities as $city) : ?>
-                                            <option value="<?= $city['code']; ?>" <?= ($selectedCityCode == $city['code']) ? 'selected' : ''; ?>>
-                                                <?= $city['name']; ?>
+                        <!-- Bagian Opsi Keluarga (Buat Baru / Pilih Ada) -->
+                        <div id="familyOptionsSection" class="card p-3 mb-3 border-left-secondary shadow-sm d-none">
+                            <h5 class="mb-3 text-secondary">Opsi Keluarga</h5>
+                            <div class="mb-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="familyChoice" id="createNewFamily" value="new" <?= (old('familyChoice') == 'new') ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="createNewFamily">Buat Keluarga Baru</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="familyChoice" id="selectExistingFamily" value="existing" <?= (old('familyChoice') == 'existing' || (empty(old('familyChoice')) && !empty($anggota['idkeluarga']))) ? 'checked' : ''; ?>>
+                                    <label class="form-check-label" for="selectExistingFamily">Pilih Keluarga yang Ada</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Informasi Keluarga Baru (Hanya jika "Buat Keluarga Baru" dipilih) -->
+                        <div id="newFamilyDetailsSection" class="card p-3 mb-3 border-left-primary shadow-sm d-none">
+                            <h5 class="mb-3 text-primary">Detail Keluarga Baru</h5>
+                            <div class="mb-3">
+                                <label for="namaKeluargaBaru" class="form-label">Nama Keluarga</label>
+                                <input type="text" class="form-control <?= isset($errors['namaKeluargaBaru']) ? 'is-invalid' : ''; ?>" id="namaKeluargaBaru" name="namaKeluargaBaru" placeholder="Masukkan nama keluarga baru" value="<?= old('namaKeluargaBaru'); ?>">
+                                <div class="invalid-feedback">
+                                    <?= isset($errors['namaKeluargaBaru']) ? $errors['namaKeluargaBaru'] : ''; ?>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tanggalPernikahanBaru" class="form-label">Tanggal Pernikahan</label>
+                                <input type="date" class="form-control <?= isset($errors['tanggalPernikahanBaru']) ? 'is-invalid' : ''; ?>" id="tanggalPernikahanBaru" name="tanggalPernikahanBaru" value="<?= old('tanggalPernikahanBaru'); ?>" onclick="this.showPicker();">
+                                <div class="invalid-feedback">
+                                    <?= isset($errors['tanggalPernikahanBaru']) ? $errors['tanggalPernikahanBaru'] : ''; ?>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="namaAyahSuamiBaru" class="form-label">Nama Ayah Suami</label>
+                                <input type="text" class="form-control" id="namaAyahSuamiBaru" name="namaAyahSuamiBaru" placeholder="Nama ayah dari suami">
+                            </div>
+                            <div class="mb-3">
+                                <label for="namaIbuSuamiBaru" class="form-label">Nama Ibu Suami</label>
+                                <input type="text" class="form-control" id="namaIbuSuamiBaru" name="namaIbuSuamiBaru" placeholder="Nama ibu dari suami">
+                            </div>
+                            <div class="mb-3">
+                                <label for="namaAyahIstriBaru" class="form-label">Nama Ayah Istri</label>
+                                <input type="text" class="form-control" id="namaAyahIstriBaru" name="namaAyahIstriBaru" placeholder="Nama ayah dari istri">
+                            </div>
+                            <div class="mb-3">
+                                <label for="namaIbuIstriBaru" class="form-label">Nama Ibu Istri</label>
+                                <input type="text" class="form-control" id="namaIbuIstriBaru" name="namaIbuIstriBaru" placeholder="Nama ibu dari istri">
+                            </div>
+                        </div>
+
+                        <!-- Informasi Keluarga yang Ada (Hanya jika "Pilih Keluarga yang Ada" dipilih) -->
+                        <div id="existingFamilySection" class="card p-3 mb-3 border-left-info shadow-sm d-none">
+                            <h5 class="mb-3 text-info">Pilih Keluarga yang Ada</h5>
+                            <div class="mb-3">
+                                <label for="idKeluarga" class="form-label">Nama Keluarga</label>
+                                <select class="form-control <?= isset($errors['idKeluarga']) ? 'is-invalid' : ''; ?>" id="idKeluarga" name="idKeluarga">
+                                    <option value="" disabled>Pilih Keluarga</option>
+                                    <?php if (isset($keluargaList) && is_array($keluargaList)) : ?>
+                                        <?php $selectedFamily = old('idKeluarga') ?? esc($anggota['idkeluarga']); ?>
+                                        <?php foreach ($keluargaList as $keluarga) : ?>
+                                            <option value="<?= esc($keluarga['idkeluarga']); ?>" <?= ($selectedFamily == $keluarga['idkeluarga']) ? 'selected' : ''; ?>>
+                                                <?= esc($keluarga['namakeluarga']); ?>
                                             </option>
                                         <?php endforeach; ?>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        <?= isset($errors['city']) ? $errors['city'] : ''; ?>
-                                    </div>
-                                </div>
-
-                                <!-- Kecamatan -->
-                                <div class="mb-3">
-                                    <label for="kecamatan" class="form-label">Kecamatan</label>
-                                    <select class="form-control <?= isset($errors['kecamatan']) ? 'is-invalid' : ''; ?>" id="kecamatan" name="kecamatan">
-                                        <option value="" disabled>Pilih Kecamatan</option>
-                                        <?php foreach ($kecamatanData as $kec) : ?>
-                                            <option value="<?= $kec['code']; ?>" <?= ($selectedKecamatanCode == $kec['code']) ? 'selected' : ''; ?>>
-                                                <?= $kec['name']; ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        <?= isset($errors['kecamatan']) ? $errors['kecamatan'] : ''; ?>
-                                    </div>
-                                </div>
-
-                                <!-- Kelurahan -->
-                                <div class="mb-3">
-                                    <label for="kelurahan" class="form-label">Kelurahan</label>
-                                    <select class="form-control <?= isset($errors['kelurahan']) ? 'is-invalid' : ''; ?>" id="kelurahan" name="kelurahan">
-                                        <option value="" disabled>Pilih Kelurahan</option>
-                                        <?php foreach ($kelurahanData as $kel) : ?>
-                                            <option value="<?= $kel['code']; ?>" <?= ($selectedKelurahanCode == $kel['code']) ? 'selected' : ''; ?>>
-                                                <?= $kel['name']; ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        <?= isset($errors['kelurahan']) ? $errors['kelurahan'] : ''; ?>
-                                    </div>
-                                </div>
-
-                                <!-- Lingkungan -->
-                                <div class="mb-3">
-                                    <label for="lingkungan" class="form-label">Lingkungan</label>
-                                    <input type="number" class="form-control <?= isset($errors['lingkungan']) ? 'is-invalid' : ''; ?>" id="lingkungan" name="lingkungan" placeholder="Masukkan lingkungan" value="<?= old('lingkungan') ?: $selectedLingkungan; ?>" min="1">
-                                    <div class="invalid-feedback">
-                                        <?= isset($errors['lingkungan']) ? $errors['lingkungan'] : ''; ?>
-                                    </div>
+                                    <?php endif; ?>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <?= isset($errors['idKeluarga']) ? $errors['idKeluarga'] : ''; ?>
                                 </div>
                             </div>
                         </div>
@@ -154,20 +158,95 @@
 
 <?= $this->endSection(); ?>
 
-
 <?= $this->section('scripts'); ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const citySelect = document.getElementById('city');
-        const kecamatanSelect = document.getElementById('kecamatan');
-        const kelurahanSelect = document.getElementById('kelurahan');
+        const memberRoleSelect = document.getElementById('memberRole');
+        const familyOptionsSection = document.getElementById('familyOptionsSection');
+        const createNewFamilyRadio = document.getElementById('createNewFamily');
+        const selectExistingFamilyRadio = document.getElementById('selectExistingFamily');
+        const newFamilyDetailsSection = document.getElementById('newFamilyDetailsSection');
+        const existingFamilySection = document.getElementById('existingFamilySection');
+        const idKeluargaSelect = document.getElementById('idKeluarga');
 
-        const oldCity = "<?= old('city') ?: $selectedCityCode; ?>";
-        const oldKecamatan = "<?= old('kecamatan') ?: $selectedKecamatanCode; ?>";
-        const oldKelurahan = "<?= old('kelurahan') ?: $selectedKelurahanCode; ?>";
+        const namaKeluargaBaruInput = document.getElementById('namaKeluargaBaru');
+        const tanggalPernikahanBaruInput = document.getElementById('tanggalPernikahanBaru');
+        const namaAyahSuamiBaruInput = document.getElementById('namaAyahSuamiBaru');
+        const namaIbuSuamiBaruInput = document.getElementById('namaIbuSuamiBaru');
+        const namaAyahIstriBaruInput = document.getElementById('namaAyahIstriBaru');
+        const namaIbuIstriBaruInput = document.getElementById('namaIbuIstriBaru');
 
-        // Existing script logic for fetching and populating dropdowns...
+        // Function to toggle form sections based on member role
+        function toggleFormSections() {
+            const selectedRole = memberRoleSelect.value;
+            const isFamilyRole = ['Suami', 'Istri', 'Anak'].includes(selectedRole);
+
+            // Reset family options and sections
+            familyOptionsSection.classList.add('d-none');
+            newFamilyDetailsSection.classList.add('d-none');
+            existingFamilySection.classList.add('d-none');
+            createNewFamilyRadio.disabled = false;
+
+            // Remove required attributes from all family-related fields
+            namaKeluargaBaruInput.removeAttribute('required');
+            idKeluargaSelect.removeAttribute('required');
+
+            if (isFamilyRole) {
+                familyOptionsSection.classList.remove('d-none');
+
+                if (selectedRole === 'Anak') {
+                    selectExistingFamilyRadio.checked = true;
+                    createNewFamilyRadio.disabled = true;
+                }
+
+                // Trigger toggle for family choice
+                toggleFamilyChoiceSections();
+            }
+        }
+
+        // Function to toggle new/existing family sections based on radio choice
+        function toggleFamilyChoiceSections() {
+            const selectedFamilyChoice = document.querySelector('input[name="familyChoice"]:checked')?.value;
+
+            newFamilyDetailsSection.classList.add('d-none');
+            existingFamilySection.classList.add('d-none');
+
+            // Remove required attributes from family-related fields
+            namaKeluargaBaruInput.removeAttribute('required');
+            idKeluargaSelect.removeAttribute('required');
+
+            if (selectedFamilyChoice === 'new') {
+                newFamilyDetailsSection.classList.remove('d-none');
+                namaKeluargaBaruInput.setAttribute('required', 'required');
+            } else if (selectedFamilyChoice === 'existing') {
+                existingFamilySection.classList.remove('d-none');
+                idKeluargaSelect.setAttribute('required', 'required');
+            }
+        }
+
+        // Add event listeners
+        memberRoleSelect.addEventListener('change', toggleFormSections);
+        createNewFamilyRadio.addEventListener('change', toggleFamilyChoiceSections);
+        selectExistingFamilyRadio.addEventListener('change', toggleFamilyChoiceSections);
+
+        // Initial call to set correct section visibility on page load, based on existing data
+        const initialMemberRole = memberRoleSelect.value;
+        const initialIdKeluarga = "<?= esc($anggota['idkeluarga']); ?>";
+
+        if (initialMemberRole === 'Suami' || initialMemberRole === 'Istri' || initialMemberRole === 'Anak') {
+            familyOptionsSection.classList.remove('d-none');
+
+            if (initialMemberRole === 'Anak') {
+                selectExistingFamilyRadio.checked = true;
+                createNewFamilyRadio.disabled = true;
+            } else if (initialIdKeluarga) {
+                selectExistingFamilyRadio.checked = true;
+            } else {
+                createNewFamilyRadio.checked = true;
+            }
+
+            toggleFamilyChoiceSections();
+        }
     });
 </script>
-
 <?= $this->endSection(); ?>
